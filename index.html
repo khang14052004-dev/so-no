@@ -326,6 +326,35 @@ button.row:active{background:var(--fill-2)}
 .hero-top{display:flex;align-items:center;justify-content:space-between;gap:12px;position:relative}
 .qr-open{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 14px 0 11px;border:0;border-radius:18px;background:var(--surface);box-shadow:var(--shadow-xs);color:var(--label);font-size:14px;font-weight:600;cursor:pointer;margin-block:-6px}
 .qr-open svg{width:18px;height:18px}
+/* nhập từ ảnh */
+.sec-link{min-height:auto;padding:0;display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:500}
+.sec-link svg{width:18px;height:18px;flex:none}
+.sec-links{display:flex;align-items:center;gap:18px}
+.imp{position:fixed;inset:0;z-index:32;display:grid;place-items:center;padding:16px;background:rgba(245,245,247,.6);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.imp-card{position:relative;width:min(480px,100%);max-height:calc(100dvh - 32px);overflow:auto;overscroll-behavior:contain;padding:18px 18px 20px;display:grid;gap:14px;align-content:start}
+.imp-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.imp-head h2{margin:0;font-family:var(--f-serif);font-weight:500;font-size:26px;line-height:32px;letter-spacing:-.02em}
+.imp-prog{display:grid;gap:10px;padding:8px 0}
+.imp-msg{margin:0;font-size:15px;line-height:20px;color:var(--label-2)}
+.imp-bar{height:6px;border-radius:3px;background:var(--fill);overflow:hidden}
+.imp-bar i{display:block;height:100%;width:0;border-radius:3px;background:var(--ink);transition:width .25s ease}
+.imp-sec{display:grid;gap:10px;min-width:0}
+.imp-sec h3{margin:0;font-size:17px;line-height:22px;font-weight:600}
+.imp-sub{margin:0;font-size:14px;line-height:19px;color:var(--label-2);overflow-wrap:anywhere}
+.imp-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,44%);gap:10px;align-items:center;padding-top:10px;border-top:1px solid var(--sep)}
+.imp-n{display:grid;gap:2px;min-width:0}
+.imp-n b{font-weight:600;font-size:16px;line-height:21px}
+.imp-n small{font-size:13px;line-height:17px;color:var(--label-2);overflow-wrap:anywhere}
+.imp select,.imp input{width:100%;min-width:0;min-height:40px;border:0;border-radius:12px;background:var(--fill);padding:0 12px;font-size:15px;color:var(--label);outline:none}
+.imp select:focus,.imp input:focus{box-shadow:inset 0 0 0 2px var(--tint)}
+.imp-f{display:grid;grid-template-columns:72px minmax(0,1fr);align-items:center;gap:10px;font-size:15px;color:var(--label-2)}
+.imp-tx{padding:14px;border-radius:18px;background:var(--fill-2)}
+.imp-amt{font-family:var(--f-serif);font-size:32px;line-height:38px;font-weight:500;letter-spacing:-.02em;font-variant-numeric:lining-nums tabular-nums}
+.imp-check{margin:0;font-size:14px;line-height:19px;font-weight:600}
+.imp-check.ok{color:var(--paid)} .imp-check.bad{color:var(--warn)}
+.imp-raw summary{cursor:pointer;font-size:13px;color:var(--label-2)}
+.imp-raw pre{margin:8px 0 0;max-height:220px;overflow:auto;padding:10px;border-radius:12px;background:var(--fill-2);font-size:12px;line-height:16px;white-space:pre-wrap;overflow-wrap:anywhere}
+@media (prefers-reduced-motion:reduce){.imp-bar i{transition:none}}
 .x-btn{flex:none;width:36px;height:36px;border-radius:50%;border:0;background:var(--fill);font-size:22px;line-height:1;color:var(--label-2);cursor:pointer}
 .chip .cv{opacity:.6;font-variant-numeric:tabular-nums}
 /* trang mã QR nhận tiền */
@@ -473,7 +502,7 @@ button.row:active{background:var(--fill-2)}
     </div>
 
     <div class="sec">
-      <div class="sec-h"><h2>Ghi nhanh</h2></div>
+      <div class="sec-h"><h2>Ghi nhanh</h2><button type="button" class="link sec-link" data-imp="1" title="Ảnh chuyển khoản, đơn nhóm Grab…"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="4" width="17" height="16" rx="3.5"/><circle cx="9" cy="9.5" r="1.6"/><path d="m4 17 4.6-4.4a1.5 1.5 0 0 1 2.1 0L15 17m-1.6-1.6 1.5-1.4a1.5 1.5 0 0 1 2.1 0L20 17"/></svg>Nhập từ ảnh</button></div>
       <form id="qa" class="glass qa" autocomplete="off">
         <div class="qa-top">
           <div class="seg" role="group" aria-label="Loại">
@@ -545,7 +574,7 @@ button.row:active{background:var(--fill-2)}
 
   <section class="tab" id="tab-bill" role="tabpanel" aria-labelledby="t-bill" hidden>
     <div class="sec">
-      <div class="sec-h"><h2>Đơn hàng</h2><button type="button" class="link" id="billReset" style="min-height:auto;padding:0">Đơn mới</button></div>
+      <div class="sec-h"><h2>Đơn hàng</h2><div class="sec-links"><button type="button" class="link sec-link" data-imp="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="4" width="17" height="16" rx="3.5"/><circle cx="9" cy="9.5" r="1.6"/><path d="m4 17 4.6-4.4a1.5 1.5 0 0 1 2.1 0L15 17m-1.6-1.6 1.5-1.4a1.5 1.5 0 0 1 2.1 0L20 17"/></svg>Nhập từ ảnh</button><button type="button" class="link" id="billReset" style="min-height:auto;padding:0">Đơn mới</button></div></div>
       <div class="glass list">
         <label class="item f-row"><span>Tên đơn</span><input id="billTitle" placeholder="VD: Trà sữa Grab" autocomplete="off"></label>
       </div>
@@ -614,6 +643,9 @@ button.row:active{background:var(--fill-2)}
   <div class="qrp-dim" id="qrDim" hidden></div>
   <div class="qrp-amt" id="qrAmt" role="dialog" aria-label="Số tiền trên mã QR" hidden></div>
 </div>
+
+<input type="file" id="impFile" accept="image/*" multiple hidden>
+<div class="imp" id="imp" hidden><div class="glass imp-card" id="impBody" role="dialog" aria-modal="true" aria-label="Nhập từ ảnh"></div></div>
 
 <div class="setup" id="setup" hidden>
   <div class="glass setup-card">
@@ -744,10 +776,10 @@ function apiWrite(body){
 function apply(d){
   S.people = d.people || []; S.entries = d.entries || []; S.spending = d.spending || [];
   var cfg = {}; (d.config || []).forEach(function(r){ cfg[r.id] = r.json || {}; });
-  S.settings = cfg.settings || {}; S.sync = cfg.sync || {};
+  S.settings = cfg.settings || {}; S.sync = cfg.sync || {}; S.alias = cfg.alias || {};
   S.loaded = true; settingsFilled = false;
 }
-function snapshot(){ return { people:S.people, entries:S.entries, spending:S.spending, config:[{ id:"settings", json:S.settings }, { id:"sync", json:S.sync }] }; }
+function snapshot(){ return { people:S.people, entries:S.entries, spending:S.spending, config:[{ id:"settings", json:S.settings }, { id:"sync", json:S.sync }, { id:"alias", json:S.alias || {} }] }; }
 var pending = 0, refreshing = false, lastSync = null;
 function setSync(state){
   var el = $("#syncPill"), t = el.querySelector("span");
@@ -1277,6 +1309,7 @@ function closeQr(){ if (history.state && history.state.qr) history.back(); else 
 window.addEventListener("popstate", function(){ if (QR.open) hideQr(); });
 $("#qrDim").addEventListener("click", function(){ QR.panel = false; renderQrPanel(); });
 document.addEventListener("keydown", function(ev){
+  if (ev.key === "Escape" && IMP.open && !IMP.busy) { closeImp(); return; }
   if (!QR.open) return;
   if ((ev.key === "ArrowLeft" || ev.key === "ArrowRight") && !QR.panel && !/^(INPUT|SELECT|TEXTAREA)$/.test((ev.target && ev.target.tagName) || "")) { qrGo(QR.idx + (ev.key === "ArrowRight" ? 1 : -1)); return; }
   if (ev.key !== "Escape") return;
@@ -1598,6 +1631,10 @@ document.addEventListener("click", function(ev){
   if (b.dataset.qr) { var qrRow = owingRows().find(function(r){ return r.p.id === b.dataset.qr; }); if (qrRow) shareQr([qrRow]); return; }
   if (b.dataset.qrall) { shareQr(owingRows().filter(function(r){ return !S.excl[r.p.id]; })); return; }
   if (b.dataset.gold) { S.excl = {}; owingRows().forEach(function(r){ if (daysSince(r.L.from) < OVERDUE) S.excl[r.p.id] = true; }); lsSet("soNo.excl", S.excl); renderBao(); return; }
+  if (b.dataset.imp) { pickImages(); return; }
+  if (b.dataset.impclose) { closeImp(); return; }
+  if (b.dataset.impfill) { impFill(); return; }
+  if (b.dataset.txrec) { impRecordTx(Number(b.dataset.txrec)); return; }
   if (b.dataset.bsplit) { BILL.split = b.dataset.bsplit; lsSet("soNo.billSplit", BILL.split); BILL.recorded = null; saveBill(); renderBillSplit(); renderBillRes(); return; }
   if (b.dataset.bdel) { billDel(b.dataset.bdel); return; }
   if (b.dataset.brec) { billRecord(); return; }
@@ -1720,6 +1757,324 @@ $("#setForm").addEventListener("submit", function(ev){
 document.addEventListener("focusout", function(){ setTimeout(function(){ if (S.pendingRender && !S.editing) renderPeople(); }, 0); });
 document.addEventListener("visibilitychange", function(){ if (document.visibilityState === "visible") refresh(); });
 setInterval(function(){ if (document.visibilityState === "visible" && !pending) refresh(); }, 60000);
+
+/* ---------- đọc ảnh: tách đơn nhóm và chuyển khoản từ chữ OCR ---------- */
+var HONOR = /^(a|anh|c|chi|e|em|co|chu|bac|ong|ba|cu|thay|be)\s+/;
+function nrm(s){ return strip(String(s || "")).toLowerCase().replace(/[^a-z0-9 ]+/g, " ").replace(/([a-z])\1{2,}/g, "$1").replace(/\s+/g, " ").trim(); }
+function coreName(s){ return nrm(s).replace(HONOR, ""); }
+function moneyOf(s){ var d = String(s || "").replace(/[^\d]/g, ""); return d ? Number(d) : 0; }
+var MONEY = "(\\d{1,3}(?:[.,]\\d{3})+)";
+function ocrLines(t){ return String(t || "").split(/\n/).map(function(l){ return l.replace(/\s+/g, " ").trim(); }).filter(Boolean); }
+function junkRatio(s){ var ok = (s.match(/[A-Za-zÀ-ỹ0-9 ]/g) || []).length; return s.length ? 1 - ok / s.length : 1; }
+function cleanItem(name){
+  var parts = name.split(/\s+[-–]\s+/);
+  while (parts.length > 1 && !/^[A-Za-zÀ-ỹ0-9 %().,+&'\/]+$/.test(parts[parts.length - 1]) || parts.length > 1 && !/[a-zà-ỹ]{2,}/.test(parts[parts.length - 1])) parts.pop();
+  return parts.join(" - ").replace(/\s+[^\sA-Za-zÀ-ỹ0-9]{1,3}$/, "").trim();
+}
+function ocrDate(t){
+  var m = t.match(/(\d{1,2})\s*Th[aá]?n?g?\s*(\d{1,2})\s*(20\d{2})/i) || t.match(/(\d{1,2})[-\/.](\d{1,2})[-\/.](20\d{2})/);
+  if (!m) return null;
+  var d = Number(m[1]), mo = Number(m[2]);
+  if (d < 1 || d > 31 || mo < 1 || mo > 12) return null;
+  return m[3] + "-" + String(mo).padStart(2, "0") + "-" + String(d).padStart(2, "0");
+}
+function ocrKind(t){
+  var L = ocrLines(t);
+  var bill = L.some(function(l){ return /:\s*\d+\s*m\S?n\b/i.test(l) || /^\d+\s*[xX×]\s+\S/.test(l) || /t[ổo]ng t[ạa]m t[íi]nh/i.test(l); });
+  if (bill) return "bill";
+  if (/\+\s?\d{1,3}(?:[.,]\d{3})+\s*VND|giao d[iị]ch th[aà]nh c[oô]ng|s[ốo] d[ưu] TK|chuy[eể]n (kho[aả]n|ti[eề]n)|n[ộo]i dung/i.test(t)) return "transfer";
+  return "";
+}
+
+/* Đơn nhóm (Grab, ShopeeFood…): "Tên: 1 món", "1x Món 33.000", phí, giảm, tổng cộng */
+function parseBillText(t, carry){
+  var r = { heads:[], items:[], ship:0, fee:0, disc:0, discLines:[], feeLines:[], total:0, subtotal:0, date:ocrDate(t), app:/grab/i.test(t) ? "Grab" : /shopee/i.test(t) ? "ShopeeFood" : /\bbe\b/.test(t) && /bemin|befood/i.test(t) ? "beFood" : "", last:carry || null };
+  ocrLines(t).forEach(function(l){
+    var m;
+    if ((m = l.match(/^(.+?)\s*:\s*(\d+)\s*m\S?n\b/i))) {
+      var raw = m[1].replace(/^[^A-Za-zÀ-ỹ]+/, "").trim(), lead = /tr[ưu][ởo]ng nh[óo]m/i.test(raw);
+      raw = raw.replace(/\s*\(.*?\)\s*/g, " ").trim();
+      if (!raw) return;
+      r.last = { name:raw, me:/^b[ạa]n$/i.test(raw), lead:lead, count:Number(m[2]) };
+      r.heads.push(r.last); return;
+    }
+    if ((m = l.match(new RegExp("^(\\d+)\\s*[xX×]\\s+(.+?)\\s+" + MONEY + "\\s*đ?$"))) || (m = l.match(new RegExp("^()(.+?)\\s+[xX×]\\s?(\\d+)\\s+" + MONEY + "\\s*đ?$")))) {
+      var qty = Number(m[1] || m[3]) || 1, price = moneyOf(m[m.length - 1]), nm = cleanItem(m[2]);
+      if (price && r.last) r.items.push({ who:r.last.name, me:r.last.me, qty:qty, name:(qty > 1 ? qty + "x " : "") + nm, price:price });
+      return;
+    }
+    if ((m = l.match(new RegExp("t[ổo]ng t[ạa]m t[íi]nh\\s*:?\\s*" + MONEY, "i")))) { r.subtotal = moneyOf(m[1]); return; }
+    if ((m = l.match(new RegExp("t[ổo]ng (c[ộo]ng|thanh to[áa]n)\\s*:?\\s*" + MONEY, "i")))) { r.total = moneyOf(m[2]); return; }
+    var neg = l.match(new RegExp("[-−–]\\s?" + MONEY + "\\s*đ?$"));
+    if (neg && (/gi[ảa]m|khuy[ếe]n m[ãa]i|[ưu]u [đd][ãa]i|voucher|discount/i.test(l) || !/ph[íi]/i.test(l))) { var dv = moneyOf(neg[1]); r.disc += dv; r.discLines.push(dv); return; }
+    if ((m = l.match(new RegExp("(?:^|\\s)ph[íi]\\s*(.*?)\\s+" + MONEY + "\\s*đ?$", "i"))) && !/chuy[ểe]n ti[ềe]n/i.test(l)) {
+      var fv = moneyOf(m[2]);
+      if (/giao|ship|v[ậa]n chuy[ểe]n|[áa]p d[ụu]ng/i.test(m[1])) r.ship += fv; else r.fee += fv;
+      r.feeLines.push(fv);
+    }
+  });
+  return r;
+}
+function mergeBills(list){
+  var out = { heads:[], items:[], ship:0, fee:0, disc:0, total:0, subtotal:0, date:null, app:"" }, seen = {}, hs = {};
+  list.forEach(function(r){
+    r.heads.forEach(function(h){ if (!hs[h.name]) { hs[h.name] = h; out.heads.push(h); } });
+    r.items.forEach(function(i){
+      var k = i.who + "|" + nrm(i.name) + "|" + i.price;
+      if (seen[k]) return; seen[k] = 1; out.items.push(i);
+      if (!hs[i.who]) { hs[i.who] = { name:i.who, me:i.me, count:0 }; out.heads.push(hs[i.who]); }
+    });
+    out.ship = Math.max(out.ship, r.ship); out.fee = Math.max(out.fee, r.fee); out.disc = Math.max(out.disc, r.disc);
+    out.total = out.total || r.total; out.subtotal = out.subtotal || r.subtotal; out.date = out.date || r.date; out.app = out.app || r.app;
+  });
+  out.itemSum = out.items.reduce(function(t, i){ return t + i.price; }, 0);
+  return out;
+}
+
+/* Chuyển khoản: biên lai VCB Digibank, thông báo biến động số dư, mẫu chung */
+function parseTransferText(t){
+  var flat = String(t || "").replace(/\s+/g, " "), r = { amount:0, date:ocrDate(t), sender:"", content:"", ref:"", receiver:"", src:"" }, m;
+  if ((m = flat.match(new RegExp("\\+\\s?" + MONEY + "\\s*VND", "i")))) {
+    r.amount = moneyOf(m[1]); r.src = "notif";
+    if ((m = flat.match(/Ref\s+([A-Z]{2,}\.?\d{6,})\.?\s*(.*?)\.?\s*CT\s+t[uừ]\s+\d+\s+(.+?)\s+t[oớ]i\s+\d+\s*([A-Z ]*)/i))) {
+      r.ref = m[1].replace(/\D/g, ""); r.sender2 = m[3].trim(); r.receiver = (m[4] || "").trim();
+      var mid = m[2].trim(), up = mid.match(/^((?:[A-Z]+\s+){1,5}[A-Z]+)(?=\s+[a-z0-9])/);
+      r.sender = up ? up[1] : r.sender2;
+      r.content = up ? mid.slice(up[1].length).trim() : mid;
+    } else if ((m = flat.match(/Ref\s+([A-Z]*\.?\d{6,})/i))) r.ref = m[1].replace(/\D/g, "");
+  } else if ((m = flat.match(new RegExp("th[aà]nh c[oô]ng!?\\s*" + MONEY, "i"))) || (m = flat.match(new RegExp("s[ốo] ti[ềe]n\\s*:?\\s*" + MONEY, "i")))) {
+    r.amount = moneyOf(m[1]); r.src = "receipt";
+    if ((m = flat.match(/n[ộo]i dung\s*:?\s*(.+?)\s+(ph[íi] chuy[ểe]n|h[ìi]nh th[ứu]c|m[ãa] giao d[ịi]ch|ng[âa]n h[àa]ng nh[ậa]n|$)/i))) r.content = m[1].trim();
+    if ((m = flat.match(/m[ãa] giao d[ịi]ch\s*:?\s*([A-Z0-9.]{6,})/i))) r.ref = m[1].replace(/\D/g, "");
+    if ((m = flat.match(/t[êe]n ng[ưu][ờo]i nh[ậa]n\s*:?\s*(.+?)\s+(ng[âa]n h[àa]ng|n[ộo]i dung|t[àa]i kho[ảa]n)/i))) r.receiver = m[1].trim();
+    if ((m = flat.match(/t[êe]n ng[ưu][ờo]i (chuy[ểe]n|g[ửu]i)\s*:?\s*(.+?)\s+(ng[âa]n h[àa]ng|n[ộo]i dung|t[àa]i kho[ảa]n|s[ốo] ti[ềe]n)/i))) r.sender = m[2].trim();
+    if (!r.sender && (m = r.content.match(/^(.+?)\s+(chuyen|ck|gui|tra)\b/i))) r.sender = m[1].trim();
+  }
+  return r;
+}
+
+/* Đoán người trong sổ từ tên trên app / tên người chuyển */
+function guessPerson(raw, people, alias){
+  var key = nrm(raw); if (!key) return { id:"", sure:false };
+  if (alias && alias[key] && people.some(function(p){ return p.id === alias[key]; })) return { id:alias[key], sure:true };
+  var toks = key.split(" "), best = [], top = 0;
+  people.forEach(function(p){
+    var c = coreName(p.name); if (!c) return;
+    var ct = c.split(" "), s = 0;
+    if (c === key || c === key.replace(HONOR, "")) s = 3;
+    else if (toks.slice(-ct.length).join(" ") === c) s = 2;
+    else if (ct.every(function(x){ return toks.indexOf(x) >= 0; })) s = 1;
+    if (!s) return;
+    if (s > top) { top = s; best = [p.id]; } else if (s === top) best.push(p.id);
+  });
+  return best.length === 1 ? { id:best[0], sure:top >= 2 } : { id:"", sure:false };
+}
+
+/* ---------- nhập từ ảnh: đọc chữ ngay trên máy (tesseract.js), không gửi ảnh đi đâu ---------- */
+var TESS = {
+  js:"https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js",
+  worker:"https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/worker.min.js",
+  core:"https://cdn.jsdelivr.net/npm/tesseract.js-core@5.1.1",
+  lang:"https://cdn.jsdelivr.net/npm/@tesseract.js-data/vie@1.0.0/4.0.0_best_int"
+};
+var OCR = { w:null, p:null, log:null };
+var IMP = { open:false };
+function loadJS(src){ return new Promise(function(res, rej){ var s = document.createElement("script"); s.src = src; s.onload = res; s.onerror = function(){ rej(new Error("load")); }; document.head.appendChild(s); }); }
+function ocrWorker(){
+  if (OCR.w) return Promise.resolve(OCR.w);
+  if (!OCR.p) OCR.p = (window.Tesseract ? Promise.resolve() : loadJS(TESS.js)).then(function(){
+    return Tesseract.createWorker("vie", 1, { workerPath:TESS.worker, corePath:TESS.core, langPath:TESS.lang, logger:function(m){ if (OCR.log) OCR.log(m); } });
+  }).then(function(w){
+    return w.setParameters({ tessedit_pageseg_mode:"4" }).then(function(){ OCR.w = w; return w; });
+  }).catch(function(e){ OCR.p = null; throw e; });
+  return OCR.p;
+}
+function prepImage(file){
+  return createImageBitmap(file).then(function(bm){
+    var sc = Math.min(2.5, Math.max(1, 1400 / bm.width)), c = document.createElement("canvas");
+    c.width = Math.round(bm.width * sc); c.height = Math.round(bm.height * sc);
+    var x = c.getContext("2d"); x.fillStyle = "#fff"; x.fillRect(0, 0, c.width, c.height);
+    x.filter = "grayscale(1)"; x.imageSmoothingQuality = "high"; x.drawImage(bm, 0, 0, c.width, c.height);
+    return c;
+  });
+}
+function amtStr(n){ return n % 1000 === 0 ? n / 1000 + "k" : String(n); }
+function aliasOf(raw){ var k = nrm(raw); return k && S.alias ? S.alias[k] : ""; }
+function guessWho(raw, allowMe){
+  var a = aliasOf(raw);
+  if (a === "__me" && allowMe) return { id:"__me", sure:true };
+  return guessPerson(raw, S.people, S.alias);
+}
+function saveAliases(pairs){
+  var ch = false; S.alias = S.alias || {};
+  pairs.forEach(function(p){ var k = nrm(p[0]); if (k && p[1] && p[1] !== "__new" && S.alias[k] !== p[1]) { S.alias[k] = p[1]; ch = true; } });
+  if (ch && CFG) quiet(write({ action:"upsert", table:"config", row:{ id:"alias", json:S.alias } }));
+}
+function pickImages(){ var f = $("#impFile"); f.value = ""; f.click(); }
+function runImport(files){
+  files = [].slice.call(files || []).filter(function(f){ return /^image\//.test(f.type); }).slice(0, 8);
+  if (!files.length) return;
+  if (!S.loaded) { toast("Đợi sổ tải xong rồi nhập ảnh nhé."); return; }
+  IMP = { open:true, busy:true, n:files.length, i:0, pct:0, msg:"Đang chuẩn bị…", err:"" };
+  renderImp();
+  var texts = [];
+  OCR.log = function(m){
+    if (m.status === "recognizing text") { IMP.pct = Math.round((m.progress || 0) * 100); IMP.msg = "Đang đọc ảnh" + (IMP.n > 1 ? " " + (IMP.i + 1) + "/" + IMP.n : ""); }
+    else IMP.msg = "Đang tải bộ đọc chữ (chỉ lần đầu, khoảng 5MB)…";
+    renderImpProgress();
+  };
+  ocrWorker().then(function(w){
+    var chain = Promise.resolve();
+    files.forEach(function(f, i){
+      chain = chain.then(function(){ IMP.i = i; IMP.pct = 0; renderImpProgress(); return prepImage(f); })
+        .then(function(c){ return w.recognize(c); })
+        .then(function(r){ texts.push(r.data.text || ""); });
+    });
+    return chain;
+  }).then(function(){ IMP.busy = false; buildImp(texts); renderImp(); }, function(){
+    IMP.busy = false; IMP.err = "Không tải được bộ đọc chữ hoặc không mở được ảnh. Kiểm tra mạng rồi thử lại."; renderImp();
+  });
+}
+function buildImp(texts){
+  var bills = [], carry = null;
+  IMP.texts = texts; IMP.txs = []; IMP.unk = 0; IMP.bill = null; IMP.map = {};
+  texts.forEach(function(t){
+    var k = ocrKind(t);
+    if (k === "bill") { var b = parseBillText(t, carry); carry = b.last; bills.push(b); }
+    else if (k === "transfer") {
+      var x = parseTransferText(t);
+      if (!x.amount) { IMP.unk++; return; }
+      var g = { id:"" };
+      [x.sender, x.sender2, x.content].some(function(n){ if (!n) return false; var r = guessWho(n, false); if (r.id) g = r; return !!r.id; });
+      x.who = g.id; x.sure = !!g.sure; x.amt = amtStr(x.amount); x.done = false;
+      x.dup = !!(x.ref && S.entries.some(function(e){ return e.kind === "payment" && String(e.note || "").indexOf(x.ref) >= 0; }));
+      var names = [S.settings.accountName].concat((S.settings.more || []).map(function(a){ return a.accountName; })).filter(Boolean).map(nrm);
+      x.notMe = !!(x.receiver && names.length && !names.some(function(n){ return nrm(x.receiver).indexOf(n) === 0; }));
+      IMP.txs.push(x);
+    } else IMP.unk++;
+  });
+  if (bills.length) {
+    IMP.bill = mergeBills(bills);
+    IMP.bill.heads.forEach(function(h){ IMP.map[h.name] = h.me ? "__me" : guessWho(h.name, true).id; });
+  }
+}
+function whoOptions(sel, withMe){
+  return '<option value="">Chọn người…</option>' + (withMe ? '<option value="__me"' + (sel === "__me" ? " selected" : "") + ">Tôi</option>" : "") +
+    sortedPeople().map(function(p){ return '<option value="' + esc(p.id) + '"' + (sel === p.id ? " selected" : "") + ">" + esc(p.name) + "</option>"; }).join("") +
+    '<option value="__new">+ Người mới…</option>';
+}
+function renderImpProgress(){
+  var el = $("#impProg"); if (!el) return;
+  el.querySelector(".imp-msg").textContent = IMP.msg + (IMP.pct ? " · " + IMP.pct + "%" : "");
+  el.querySelector(".imp-bar i").style.width = Math.round(((IMP.i + IMP.pct / 100) / IMP.n) * 100) + "%";
+}
+function renderImp(){
+  var box = $("#imp"); box.hidden = !IMP.open; if (!IMP.open) return;
+  var h = '<div class="imp-head"><h2>Nhập từ ảnh</h2><button type="button" class="x-btn" data-impclose="1" aria-label="Đóng">×</button></div>';
+  if (IMP.busy) {
+    h += '<div class="imp-prog" id="impProg" role="status"><p class="imp-msg"></p><div class="imp-bar"><i></i></div><p class="foot" style="padding:0">Ảnh được đọc ngay trên máy này, không gửi đi đâu.</p></div>';
+    $("#impBody").innerHTML = h; renderImpProgress(); return;
+  }
+  if (IMP.err) h += '<p class="notice">' + esc(IMP.err) + "</p>";
+  var b = IMP.bill;
+  if (b) {
+    var who = b.heads.filter(function(x){ return x.count || b.items.some(function(i){ return i.who === x.name; }); });
+    h += '<section class="imp-sec"><h3>' + esc((b.app || "Đơn nhóm") + (b.date ? " · " + dm(b.date) : "")) + '</h3><p class="imp-sub">' + who.length + " người · " + b.items.length + " món" + (b.itemSum ? " · " + fmt(b.itemSum) : "") + "</p>";
+    h += who.map(function(x){
+      var its = b.items.filter(function(i){ return i.who === x.name; }), sum = its.reduce(function(t, i){ return t + i.price; }, 0);
+      var meta = its.length ? its.map(function(i){ return i.name + " " + fmt(i.price); }).join(" + ") : "chưa thấy giá món";
+      return '<div class="imp-row"><div class="imp-n"><b>' + esc(x.name) + (x.lead ? ' <span class="tag">trưởng nhóm</span>' : "") + "</b><small>" + esc(meta) + "</small></div>" +
+        '<select data-imap="' + esc(x.name) + '" aria-label="' + esc(x.name) + ' là ai">' + whoOptions(IMP.map[x.name] || "", true) + "</select></div>";
+    }).join("");
+    var fees = []; if (b.ship) fees.push("Phí giao " + fmt(b.ship)); if (b.fee) fees.push("Phí khác " + fmt(b.fee)); if (b.disc) fees.push("Giảm " + fmt(b.disc));
+    if (fees.length) h += '<p class="imp-sub">' + fees.join(" · ") + "</p>";
+    var missing = who.filter(function(x){ return x.count && !b.items.some(function(i){ return i.who === x.name; }); });
+    if (missing.length) h += '<p class="notice">Chưa thấy giá món của ' + esc(missing.map(function(x){ return x.name; }).join(", ")) + '. Mở "Xem chi tiết" trên app, chụp thêm rồi nhập tất cả ảnh cùng lúc.</p>';
+    if (b.total && b.itemSum && !missing.length) {
+      var calc = b.itemSum + b.ship + b.fee - b.disc, off = Math.round(calc - b.total);
+      h += off ? '<p class="imp-check bad">Lệch ' + fmt(Math.abs(off)) + " so với tổng cộng " + vnd(b.total) + " trên ảnh, kiểm tra lại giá sau khi điền.</p>"
+               : '<p class="imp-check ok">✓ Khớp tổng cộng ' + vnd(b.total) + " trên ảnh</p>";
+    } else if (!b.ship && !b.disc && b.items.length) h += '<p class="imp-sub">Chưa thấy phí và khuyến mãi. Mở mục "Thu lại" trên app và chụp thêm nếu có.</p>';
+    h += '<button type="button" class="btn-primary" data-impfill="1"' + (b.items.length || b.ship || b.disc ? "" : " disabled") + ">Điền vào Chia bill</button></section>";
+  }
+  IMP.txs.forEach(function(x, i){
+    var p = x.who ? personById(x.who) : null, bal = p ? ledgerOf(p.id).bal : 0, amt = parseAmount(x.amt);
+    h += '<section class="imp-sec imp-tx"><div class="imp-amt">' + vnd(x.amount) + "</div>" +
+      '<p class="imp-sub">' + esc([x.date ? dm(x.date) : "", x.sender ? "từ " + x.sender : ""].filter(Boolean).join(" · ") || "Chuyển khoản") + "</p>" +
+      (x.content ? '<p class="imp-sub">Nội dung: ' + esc(x.content) + "</p>" : "") +
+      '<label class="imp-f"><span>Ai trả</span><select data-txwho="' + i + '">' + whoOptions(x.who, false) + "</select></label>" +
+      (p ? '<p class="imp-sub">' + esc(p.name) + (bal > 0 ? " đang nợ " + fmt(bal) + (amt && amt.total >= bal ? ", trả lần này là hết nợ" : "") : " hiện không nợ") + "</p>" : "") +
+      '<label class="imp-f"><span>Số tiền</span><input data-txamt="' + i + '" value="' + esc(x.amt) + '" inputmode="decimal" autocomplete="off"></label>' +
+      (x.dup ? '<p class="notice">Giao dịch mã ' + esc(x.ref) + " đã có trong sổ rồi.</p>" : "") +
+      (x.notMe ? '<p class="notice">Người nhận trên ảnh là ' + esc(x.receiver) + ", có thể đây là tiền anh chuyển đi.</p>" : "") +
+      (x.done ? '<button type="button" class="btn-primary" disabled>Đã ghi vào sổ</button>'
+              : '<button type="button" class="btn-primary" data-txrec="' + i + '"' + (p && amt && !x.dup ? "" : " disabled") + ">" + (p && amt ? "Ghi " + esc(p.name) + " trả " + fmt(amt.total) : "Chọn người và số tiền") + "</button>") +
+      "</section>";
+  });
+  if (!b && !IMP.txs.length && !IMP.err) h += '<p class="notice">Chưa nhận ra ảnh này. App đọc được ảnh đơn nhóm (Grab, ShopeeFood…) và ảnh chuyển khoản hoặc thông báo biến động số dư.</p>';
+  else if (IMP.unk) h += '<p class="imp-sub">' + IMP.unk + " ảnh không nhận ra nên bỏ qua.</p>";
+  if (IMP.texts && IMP.texts.length) h += '<details class="imp-raw"><summary>Chữ đọc được từ ảnh</summary><pre>' + esc(IMP.texts.join("\n— — —\n")) + "</pre></details>";
+  $("#impBody").innerHTML = h;
+}
+function closeImp(){ IMP = { open:false }; OCR.log = null; renderImp(); }
+function impFill(){
+  var b = IMP.bill; if (!b) return;
+  var prev = JSON.parse(JSON.stringify(BILL));
+  var items = b.items.map(function(i){ var w = IMP.map[i.who] || ""; return { id:newId("i"), who:w === "__new" ? "" : w, name:i.name, price:amtStr(i.price) }; });
+  if (!items.length) items = [{ id:newId("i"), who:"", name:"", price:"" }];
+  BILL = { title:(b.app || "Đơn nhóm") + (b.date ? " " + dm(b.date) : ""), items:items, ship:b.ship ? amtStr(b.ship) : "", fee:b.fee ? amtStr(b.fee) : "", disc:b.disc ? amtStr(b.disc) : "",
+    shipEqual:prev.shipEqual !== false, round:prev.round !== false, split:prev.split || lsGet("soNo.billSplit", "ratio"), recorded:null };
+  saveAliases(b.heads.filter(function(x){ return !x.me && b.items.some(function(i){ return i.who === x.name; }); }).map(function(x){ return [x.name, IMP.map[x.name]]; }));
+  saveBill(); closeImp(); setTab("bill"); renderBill();
+  toast("Đã điền đơn từ ảnh", function(){ BILL = prev; saveBill(); renderBill(); });
+}
+function impRecordTx(i){
+  var x = IMP.txs[i], p = x && personById(x.who), amt = x && parseAmount(x.amt);
+  if (!p || !amt || x.dup || x.done) return;
+  var row = { id:newId("e"), person:p.id, date:x.date || todayISO(), amount:amt.total, parts:[], kind:"payment",
+    note:"Chuyển khoản" + (x.content ? ": " + x.content : "") + (x.ref ? " · mã " + x.ref : ""), seq:Date.now(), src:"img", createdAt:new Date().toISOString() };
+  S.entries.push(row); x.done = true;
+  saveAliases([[x.sender, p.id], [x.sender2, p.id]]);
+  render(); renderImp();
+  quiet(write({ action:"upsert", table:"entries", row:row }));
+  toast("Đã ghi " + p.name + " trả " + fmt(row.amount), function(){
+    S.entries = S.entries.filter(function(e){ return e.id !== row.id; }); x.done = false; render(); if (IMP.open) renderImp();
+    quiet(write({ action:"delete", table:"entries", id:row.id }));
+  });
+}
+$("#impFile").addEventListener("change", function(){ runImport(this.files); });
+$("#imp").addEventListener("change", function(ev){
+  var t = ev.target;
+  if (t.dataset.imap !== undefined || t.dataset.txwho !== undefined) {
+    var v = t.value;
+    if (v === "__new") {
+      var raw = t.dataset.imap !== undefined ? t.dataset.imap : (IMP.txs[t.dataset.txwho].sender || "");
+      var name = (window.prompt("Tên người mới trong sổ (VD: a Tuấn)", raw.replace(/\.+$/, "")) || "").trim();
+      var np = name ? createPerson(name) : null;
+      v = np ? np.id : "";
+      if (np) render();
+    }
+    if (t.dataset.imap !== undefined) IMP.map[t.dataset.imap] = v; else { IMP.txs[t.dataset.txwho].who = v; }
+    renderImp();
+  }
+});
+$("#imp").addEventListener("input", function(ev){
+  var t = ev.target; if (t.dataset.txamt === undefined) return;
+  var x = IMP.txs[t.dataset.txamt]; x.amt = t.value;
+  var btn = $("#imp").querySelector('[data-txrec="' + t.dataset.txamt + '"]'), p = personById(x.who), a = parseAmount(x.amt);
+  if (btn) { btn.disabled = !(p && a && !x.dup); btn.textContent = p && a ? "Ghi " + p.name + " trả " + fmt(a.total) : "Chọn người và số tiền"; }
+});
+document.addEventListener("paste", function(ev){
+  var fs = ev.clipboardData ? [].slice.call(ev.clipboardData.files || []).filter(function(f){ return /^image\//.test(f.type); }) : [];
+  if (!fs.length || IMP.busy) return;
+  ev.preventDefault(); runImport(fs);
+});
+document.addEventListener("dragover", function(ev){ if (ev.dataTransfer && [].slice.call(ev.dataTransfer.types || []).indexOf("Files") >= 0) ev.preventDefault(); });
+document.addEventListener("drop", function(ev){
+  if (!ev.dataTransfer || !ev.dataTransfer.files.length) return;
+  ev.preventDefault(); if (!IMP.busy) runImport(ev.dataTransfer.files);
+});
+$("#imp").addEventListener("click", function(ev){ if (ev.target === this && !IMP.busy) closeImp(); });
 
 /* ---------- khởi động ---------- */
 (function(){
