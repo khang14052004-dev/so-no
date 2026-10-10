@@ -42,6 +42,17 @@
       ]
     },
     {
+      "name": "Mã QR nhận tiền",
+      "short_name": "Mã QR",
+      "url": "./#qr",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
       "name": "Chia bill",
       "short_name": "Chia bill",
       "url": "./#bill",
