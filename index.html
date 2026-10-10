@@ -554,14 +554,18 @@ button.row:active{background:var(--fill-2)}
     </div>
     <div class="sec">
       <div class="sec-h"><h2>Phí và khuyến mãi</h2></div>
+      <div class="seg full" role="group" aria-label="Cách chia phí và khuyến mãi">
+        <button type="button" data-bsplit="ratio" aria-pressed="true">Theo tỷ lệ món</button>
+        <button type="button" data-bsplit="equal" aria-pressed="false">Chia đều cho mọi người</button>
+      </div>
       <div class="glass list">
         <label class="item f-row"><span>Phí giao hàng</span><input id="billShip" class="num" placeholder="0" autocomplete="off"></label>
         <label class="item f-row"><span>Phí dịch vụ, khác</span><input id="billFee" class="num" placeholder="0" autocomplete="off"></label>
         <label class="item f-row"><span>Khuyến mãi (giảm)</span><input id="billDisc" class="num" placeholder="0" autocomplete="off"></label>
-        <label class="item row sw-row" for="billShipEq"><span>Chia đều phí giao hàng</span><input type="checkbox" class="switch" id="billShipEq" checked></label>
+        <label class="item row sw-row" for="billShipEq" id="billShipEqRow"><span>Chia đều phí giao hàng</span><input type="checkbox" class="switch" id="billShipEq" checked></label>
         <label class="item row sw-row" for="billRound"><span>Làm tròn tới 1.000đ</span><input type="checkbox" class="switch" id="billRound" checked></label>
       </div>
-      <p class="foot">Khuyến mãi và phí dịch vụ chia theo tỷ lệ tiền món của từng người. Phí giao hàng chia đều, hoặc theo tỷ lệ nếu tắt công tắc.</p>
+      <p class="foot" id="billSplitNote"></p>
     </div>
     <div class="stack" id="billRes"></div>
   </section>
@@ -651,6 +655,7 @@ function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(
 function todayISO(){ var d = new Date(); return new Date(d.getTime() - d.getTimezoneOffset()*60000).toISOString().slice(0,10); }
 function dm(iso){ var p = String(iso).split("-"); return Number(p[2]) + "/" + Number(p[1]); }
 function fmt(n){ var neg = n < 0; n = Math.abs(Math.round(n)); var s = (n % 1000 === 0) ? (n/1000).toLocaleString("vi-VN") + "k" : n.toLocaleString("vi-VN") + "đ"; return (neg ? "-" : "") + s; }
+function signed(n){ n = Math.round(n); return (n > 0 ? "+" : n < 0 ? "−" : "") + fmt(Math.abs(n)); }
 function vnd(n){ return Math.round(n).toLocaleString("vi-VN") + "đ"; }
 function usd(cents){ return "$" + (cents/100).toLocaleString("en-US",{minimumFractionDigits:2, maximumFractionDigits:2}); }
 function strip(s){ return String(s).normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/đ/g,"d").replace(/Đ/g,"D"); }
@@ -1374,7 +1379,18 @@ function renderStat(){
 
 /* ---------- chia bill ---------- */
 var billMsg = "";
-function newBill(){ return { title:"", items:[{ id:newId("i"), who:"", name:"", price:"" }], ship:"", fee:"", disc:"", shipEqual:true, round:true, recorded:null }; }
+function newBill(){ return { title:"", items:[{ id:newId("i"), who:"", name:"", price:"" }], ship:"", fee:"", disc:"", shipEqual:true, round:true, split:lsGet("soNo.billSplit", "ratio"), recorded:null }; }
+var SPLIT_NOTE = {
+  ratio: "Khuyến mãi và phí dịch vụ chia theo tỷ lệ tiền món của từng người. Phí giao hàng chia đều, hoặc theo tỷ lệ nếu tắt công tắc.",
+  equal: "Tiền món ai nấy trả. Phí giao hàng, phí khác và khuyến mãi gộp lại rồi chia đều: mỗi người trả tiền món + (phí − giảm) ÷ số người."
+};
+function billSplit(){ return BILL.split === "equal" ? "equal" : "ratio"; }
+function renderBillSplit(){
+  var m = billSplit();
+  document.querySelectorAll("[data-bsplit]").forEach(function(b){ b.setAttribute("aria-pressed", String(b.dataset.bsplit === m)); });
+  $("#billShipEqRow").hidden = m === "equal";
+  $("#billSplitNote").textContent = SPLIT_NOTE[m];
+}
 var BILL = lsGet("soNo.bill", null) || newBill();
 function saveBill(){ lsSet("soNo.bill", BILL); }
 function amtOf(v){ var p = parseAmount(v); return p && !p.neg ? p.total : 0; }
@@ -1388,6 +1404,7 @@ function renderBill(){
   $("#billTitle").value = BILL.title || "";
   $("#billShip").value = BILL.ship || ""; $("#billFee").value = BILL.fee || ""; $("#billDisc").value = BILL.disc || "";
   $("#billShipEq").checked = BILL.shipEqual !== false; $("#billRound").checked = BILL.round !== false;
+  renderBillSplit();
   $("#billItems").innerHTML = BILL.items.map(function(i){
     return '<div class="item bill-item" data-iid="' + esc(i.id) + '"><select class="who" aria-label="Người">' + billOptions(i.who) + "</select>" +
       '<input class="pr" data-f="price" value="' + esc(i.price) + '" placeholder="Giá" aria-label="Giá" autocomplete="off">' +
@@ -1405,22 +1422,26 @@ function billCalc(){
   });
   var subtotal = order.reduce(function(t, w){ return t + by[w].sub; }, 0);
   var ship = amtOf(BILL.ship), fee = amtOf(BILL.fee), disc = amtOf(BILL.disc), n = order.length;
+  var equal = billSplit() === "equal", share = n ? (ship + fee - disc) / n : 0;
   var rows = order.map(function(w){
-    var x = by[w], ratio = subtotal ? x.sub / subtotal : 0;
-    var sh = BILL.shipEqual !== false ? (n ? ship / n : 0) : ship * ratio;
-    var raw = x.sub + sh + fee * ratio - disc * ratio;
-    return { who:w, name:whoName(w), sub:x.sub, ship:sh, fee:fee * ratio, disc:disc * ratio, pay: BILL.round !== false ? Math.round(raw / 1000) * 1000 : Math.round(raw), items:x.items };
+    var x = by[w], ratio = subtotal ? x.sub / subtotal : 0, sh, fe, di;
+    if (equal) { sh = n ? ship / n : 0; fe = n ? fee / n : 0; di = n ? disc / n : 0; }
+    else { sh = BILL.shipEqual !== false ? (n ? ship / n : 0) : ship * ratio; fe = fee * ratio; di = disc * ratio; }
+    var raw = x.sub + sh + fe - di;
+    return { who:w, name:whoName(w), sub:x.sub, ship:sh, fee:fe, disc:di, share:sh + fe - di, pay: BILL.round !== false ? Math.round(raw / 1000) * 1000 : Math.round(raw), items:x.items };
   });
   var total = subtotal + ship + fee - disc;
   var paySum = rows.reduce(function(t, r){ return t + r.pay; }, 0);
-  return { rows:rows, subtotal:subtotal, ship:ship, fee:fee, disc:disc, total:total, n:n, diff: paySum - Math.round(total) };
+  return { rows:rows, subtotal:subtotal, ship:ship, fee:fee, disc:disc, total:total, n:n, equal:equal, share:share, diff: paySum - Math.round(total) };
 }
 function billMessage(c){
   var lines = [(BILL.title ? "Chia bill " + BILL.title : "Chia bill") + " (" + dm(todayISO()) + ")"];
   var meta = ["tổng " + fmt(Math.round(c.total))];
   if (c.disc) meta.push("đã giảm " + fmt(c.disc));
   if (c.ship) meta.push("ship " + fmt(c.ship));
-  lines.push(meta.join(", "), "");
+  lines.push(meta.join(", "));
+  if (c.equal && (c.ship || c.fee || c.disc)) lines.push("Tiền món ai nấy trả, phí và giảm chia đều: " + signed(c.share) + "/người");
+  lines.push("");
   c.rows.forEach(function(r){
     var its = r.items.map(function(i){ return (i.name ? i.name + " " : "") + fmt(amtOf(i.price)); }).join(" + ");
     lines.push(r.name + ": " + fmt(r.pay) + (its ? " (" + its + ")" : ""));
@@ -1437,11 +1458,14 @@ function renderBillRes(){
     (c.ship ? '<div class="item sum-row"><span>Phí giao hàng</span><b>' + fmt(c.ship) + "</b></div>" : "") +
     (c.fee ? '<div class="item sum-row"><span>Phí dịch vụ, khác</span><b>' + fmt(c.fee) + "</b></div>" : "") +
     (c.disc ? '<div class="item sum-row"><span>Khuyến mãi</span><b>−' + fmt(c.disc) + "</b></div>" : "") +
-    '<div class="item sum-row total"><span>Tổng đơn</span><b>' + fmt(Math.round(c.total)) + "</b></div></div>" +
+    '<div class="item sum-row total"><span>Tổng đơn</span><b>' + fmt(Math.round(c.total)) + "</b></div>" +
+    (c.equal && (c.ship || c.fee || c.disc) ? '<div class="item sum-row"><span>Phí − giảm, chia ' + c.n + ' người</span><b>' + signed(c.share) + "/người</b></div>" : "") + "</div>" +
     '<p class="foot">Đối chiếu với tổng thanh toán trên app Grab, khớp là đúng.</p></div>';
   h += '<div class="glass list people">' + c.rows.map(function(r){
     var its = r.items.map(function(i){ return (i.name ? i.name + " " : "") + fmt(amtOf(i.price)); }).join(" + ");
-    var det = []; if (r.ship + r.fee) det.push("phí " + fmt(Math.round(r.ship + r.fee))); if (r.disc) det.push("giảm " + fmt(Math.round(r.disc)));
+    var det = [];
+    if (c.equal) { if (Math.round(r.share)) det.push("chia đều " + signed(r.share)); }
+    else { if (r.ship + r.fee) det.push("phí " + fmt(Math.round(r.ship + r.fee))); if (r.disc) det.push("giảm " + fmt(Math.round(r.disc))); }
     var person = r.who === "__me" ? { id:"__me", name:"Tôi" } : (personById(r.who) || { id:r.who, name:r.name });
     return '<div class="item row share-row">' + avatar(person) + '<span class="p-txt"><span class="p-name">' + esc(r.name) + '</span><span class="p-meta">' + esc(its + (det.length ? " · " + det.join(", ") : "")) + '</span></span><span class="p-bal">' + fmt(r.pay) + "</span></div>";
   }).join("") + "</div>";
@@ -1574,6 +1598,7 @@ document.addEventListener("click", function(ev){
   if (b.dataset.qr) { var qrRow = owingRows().find(function(r){ return r.p.id === b.dataset.qr; }); if (qrRow) shareQr([qrRow]); return; }
   if (b.dataset.qrall) { shareQr(owingRows().filter(function(r){ return !S.excl[r.p.id]; })); return; }
   if (b.dataset.gold) { S.excl = {}; owingRows().forEach(function(r){ if (daysSince(r.L.from) < OVERDUE) S.excl[r.p.id] = true; }); lsSet("soNo.excl", S.excl); renderBao(); return; }
+  if (b.dataset.bsplit) { BILL.split = b.dataset.bsplit; lsSet("soNo.billSplit", BILL.split); BILL.recorded = null; saveBill(); renderBillSplit(); renderBillRes(); return; }
   if (b.dataset.bdel) { billDel(b.dataset.bdel); return; }
   if (b.dataset.brec) { billRecord(); return; }
   if (b.dataset.bcopy) { copyText(billMsg, b); return; }
