@@ -224,39 +224,85 @@ button.row:active{background:var(--fill-2)}
   .qrp-nav.prev{left:max(12px,calc(50% - 250px))}
   .qrp-nav.next{right:max(12px,calc(50% - 250px))}
 }
-/* ---------- giao diện máy tính ---------- */
+.stat-col{display:contents}
+.side-foot{display:none}
+/* ---------- giao diện máy tính: thanh bên + khung nội dung ---------- */
 @media (min-width:1000px){
-  .app{max-width:1240px;padding:28px 40px 56px 312px}
-  .large-title{font-size:40px;line-height:46px}
-  .tab{margin-top:24px;gap:28px 32px;align-items:start}
-  #tab-so{grid-template-columns:minmax(340px,400px) minmax(0,1fr);grid-template-rows:auto auto 1fr}
-  #tab-so>:nth-child(1),#tab-bao>:nth-child(1){grid-column:1;grid-row:1}
-  #tab-so>:nth-child(2),#tab-bao>:nth-child(2){grid-column:1;grid-row:2}
-  #tab-so>:nth-child(3),#tab-bao>:nth-child(3){grid-column:2;grid-row:1 / span 3}
-  #tab-so>:nth-child(4),#tab-bao>:nth-child(4){grid-column:1;grid-row:3}
-  #tab-bao{grid-template-columns:minmax(320px,380px) minmax(0,1fr);grid-template-rows:auto auto 1fr}
-  #tab-bill{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto 1fr}
+  :root{--side:236px}
+  html,body{height:100%;overflow:hidden}
+  .app{position:fixed;z-index:1;top:12px;right:12px;bottom:12px;left:var(--side);max-width:none;margin:0;overflow-y:auto;overscroll-behavior:contain;padding:18px clamp(22px,2.4vw,40px) 28px;border-radius:24px;background:rgba(247,247,250,.8);-webkit-backdrop-filter:blur(30px) saturate(160%);backdrop-filter:blur(30px) saturate(160%);box-shadow:0 1px 2px rgba(17,17,34,.06),0 30px 70px -30px rgba(17,17,34,.28),inset 0 0 0 1px rgba(255,255,255,.75)}
+  .hdr{padding-top:0}
+  .large-title{font-size:32px;line-height:38px}
+  .tab{margin-top:14px;gap:24px clamp(20px,2vw,32px);align-items:start}
+  .toast{left:calc(var(--side) + (100vw - var(--side)) / 2);bottom:32px}
+  /* thanh bên */
+  .tabbar{left:0;top:0;bottom:0;transform:none;width:var(--side);max-width:none;flex-direction:column;align-items:stretch;gap:2px;padding:18px 12px 16px 14px;border-radius:0;background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none}
+  .tabbar .brand{display:flex;align-items:center;gap:10px;padding:4px 10px 20px}
+  .tabbar .brand img{width:34px;height:34px;border-radius:10px;box-shadow:0 2px 6px rgba(17,17,34,.14)}
+  .tabbar .brand span{font-family:var(--f-serif);font-size:24px;line-height:28px;font-weight:500;letter-spacing:-.02em;color:var(--label)}
+  .tabbar button,.tabbar button[aria-selected="true"]{flex:none;justify-content:flex-start;gap:10px;height:40px;min-width:0;padding:0 10px;border-radius:12px}
+  .tabbar svg{width:22px;height:22px}
+  .tabbar .tl{display:block;font-size:15px;line-height:20px;font-weight:500;letter-spacing:0}
+  .tabbar button[aria-selected="true"]{background:rgba(255,255,255,.66);color:var(--label);box-shadow:0 1px 2px rgba(17,17,34,.07),inset 0 0 0 1px rgba(255,255,255,.8)}
+  .tabbar button[aria-selected="true"] .tl{font-weight:600}
+  .tabbar button:not([aria-selected="true"]){color:rgba(40,40,52,.72)}
+  .tabbar button:not([aria-selected="true"]):hover{background:rgba(255,255,255,.38);color:var(--label)}
+  .side-foot{display:grid;gap:10px;position:fixed;z-index:10;left:14px;bottom:16px;width:calc(var(--side) - 28px)}
+  .side-sum{display:grid;gap:2px;padding:14px 14px 12px;border-radius:16px;background:rgba(255,255,255,.5);box-shadow:inset 0 0 0 1px rgba(255,255,255,.7)}
+  .side-sum span{font-size:12px;line-height:16px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--label-2)}
+  .side-sum b{font-family:var(--f-serif);font-size:30px;line-height:36px;font-weight:500;letter-spacing:-.02em;font-variant-numeric:lining-nums tabular-nums}
+  .side-sum small{font-size:13px;line-height:18px;color:var(--label-2)}
+  .side-qr{display:flex;align-items:center;justify-content:center;gap:8px;height:42px;border:0;border-radius:12px;background:var(--ink);color:var(--on-ink);font-size:14px;font-weight:600;cursor:pointer}
+  .side-qr svg{width:18px;height:18px}
+  /* Sổ nợ: cột trái tổng + ghi nhanh, bên phải danh sách */
+  #tab-so{grid-template-columns:minmax(300px,350px) minmax(0,1fr);grid-template-rows:auto 1fr}
+  #tab-so>.hero{display:none}
+  #tab-so>:nth-child(2){grid-column:1;grid-row:1}
+  #tab-so>:nth-child(4){grid-column:1;grid-row:2}
+  #tab-so>:nth-child(3){grid-column:2;grid-row:1 / span 2}
+  #tab-bao>:nth-child(1){grid-column:1;grid-row:1}
+  #tab-bao>:nth-child(2){grid-column:1;grid-row:2}
+  #tab-bao>:nth-child(3){grid-column:1;grid-row:3}
+  #tab-bao>:nth-child(5){grid-column:1;grid-row:4}
+  #tab-bao>:nth-child(4){grid-column:2;grid-row:1 / span 4}
+  /* Chia bill */
+  #tab-bill{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto 1fr}
   #tab-bill>:nth-child(1){grid-column:1;grid-row:1}
   #tab-bill>:nth-child(2){grid-column:1;grid-row:2}
-  #tab-bill>:nth-child(3){grid-column:2;grid-row:1 / span 2;position:sticky;top:24px}
+  #tab-bill>:nth-child(3){grid-column:2;grid-row:1 / span 2;position:sticky;top:0}
+  /* Báo Zalo: tin nhắn bên trái, mã QR bên phải trong cùng khung */
+  #tab-bao{grid-template-columns:minmax(290px,330px) minmax(0,1fr);grid-template-rows:auto auto auto 1fr}
+  #baoOut .chat:has(.qr-row){grid-template-columns:minmax(0,1fr) 316px;column-gap:16px;align-items:start}
+  #baoOut .chat>.msg,#baoOut .chat>p{grid-column:1}
+  #baoOut .chat>.qr-row,#baoOut .chat>.qr-all{grid-column:2;justify-content:flex-start}
+  /* Thống kê */
   #tab-stat>.seg{max-width:380px}
-  #statOut{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);grid-template-rows:auto auto 1fr;gap:28px 32px;align-items:start}
-  #statOut>:nth-child(1){grid-column:1;grid-row:1}
-  #statOut>:nth-child(2){grid-column:1;grid-row:2}
-  #statOut>:nth-child(3){grid-column:2;grid-row:1 / span 3}
-  #statOut>:nth-child(4){grid-column:1;grid-row:3}
-  #spendOut{max-width:760px}
-  .toast{bottom:32px}
-  .tabbar{left:calc(max(0px,(100vw - 1240px) / 2) + 32px);top:28px;bottom:auto;transform:none;width:240px;flex-direction:column;align-items:stretch;gap:2px;padding:12px 10px 10px;border-radius:26px}
-  .tabbar .brand{display:flex;align-items:center;gap:10px;padding:2px 8px 14px}
-  .tabbar .brand img{width:36px;height:36px;border-radius:10px;box-shadow:var(--shadow-xs)}
-  .tabbar .brand span{font-family:var(--f-serif);font-size:24px;line-height:28px;font-weight:500;letter-spacing:-.02em;color:var(--label)}
-  .tabbar button,.tabbar button[aria-selected="true"]{flex:none;justify-content:flex-start;gap:12px;height:46px;min-width:0;padding:0 12px;border-radius:14px}
-  .tabbar svg{width:24px;height:24px}
-  .tabbar .tl{display:block;font-size:15px;font-weight:500;letter-spacing:0}
-  .tabbar button[aria-selected="true"] .tl{font-weight:600}
-  .tabbar button:not([aria-selected="true"]):hover{background:rgba(118,118,128,.08);color:var(--label)}
+  #statOut{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);align-items:start;gap:24px clamp(20px,2vw,32px)}
+  .stat-col{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;min-width:0}
+  #spendOut{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);grid-template-rows:auto auto 1fr;gap:24px clamp(20px,2vw,32px);align-items:start}
+  #spendOut>:nth-child(1){grid-column:1;grid-row:1}
+  #spendOut>:nth-child(2){grid-column:1;grid-row:2}
+  #spendOut>:nth-child(3){grid-column:1;grid-row:3}
+  #spendOut>:nth-child(4){grid-column:2;grid-row:1 / span 3}
   .qrp-actions{width:min(560px,100%);margin:0 auto;border-radius:22px 22px 0 0}
+}
+@media (min-width:1280px){
+  :root{--side:252px}
+  #tab-so{grid-template-columns:minmax(300px,350px) minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto 1fr}
+  #tab-so>:nth-child(2){grid-column:1;grid-row:1 / span 2}
+  #people{display:contents}
+  #people>:nth-child(1){grid-column:2;grid-row:1}
+  #people>:nth-child(2){grid-column:3;grid-row:1 / span 2}
+  #tab-so>:nth-child(4){grid-column:2;grid-row:2}
+  #tab-bill{grid-template-columns:minmax(0,1.2fr) minmax(280px,.9fr) minmax(0,1fr);grid-template-rows:auto}
+  #tab-bill>:nth-child(2){grid-column:2;grid-row:1}
+  #tab-bill>:nth-child(3){grid-column:3;grid-row:1}
+}
+@media (min-width:1500px){
+  #tab-so{grid-template-columns:minmax(320px,380px) minmax(0,1fr) minmax(0,1fr)}
+  .bill-item{grid-template-columns:minmax(120px,.8fr) minmax(0,1.2fr) 96px 32px;grid-template-areas:"who nm pr x";padding:8px 8px 8px 14px}
+  #baoOut .chat:has(.qr-row){grid-template-columns:minmax(0,1fr) 484px}
+  #statOut{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)}
 }
 
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(96px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--on-ink);border-radius:22px;padding:10px 10px 10px 18px;display:flex;gap:10px;align-items:center;box-shadow:var(--shadow-float);width:max-content;max-width:calc(100% - 40px);z-index:20;font-size:15px;line-height:20px}
@@ -462,6 +508,7 @@ button.row:active{background:var(--fill-2)}
       <label class="item row sw-row" for="optBank"><span>Kèm số tài khoản</span><input type="checkbox" class="switch" id="optBank" checked></label>
       <label class="item row sw-row" for="optQR"><span>Hiện mã QR</span><input type="checkbox" class="switch" id="optQR" checked></label>
     </div>
+    <div class="stack" id="baoPick" hidden></div>
     <div class="stack" id="baoOut"></div>
     <div class="sec">
       <div class="sec-h"><h2>Cài đặt</h2></div>
@@ -536,6 +583,7 @@ button.row:active{background:var(--fill-2)}
     <span class="tl">Thống kê</span>
   </button>
 </nav>
+<aside class="side-foot" aria-label="Tóm tắt"><div class="side-sum"><span>Đang cho nợ</span><b id="sideTotal">…</b><small id="sideSub"></small></div><button type="button" class="side-qr" data-qrsheet="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="6.5" height="6.5" rx="1.6"/><rect x="14" y="3.5" width="6.5" height="6.5" rx="1.6"/><rect x="3.5" y="14" width="6.5" height="6.5" rx="1.6"/><path d="M14 14h3v3M20.5 14v.01M14 20.5h.01M17 20.5h3.5V17"/></svg><span>Mã QR nhận tiền</span></button></aside>
 <div class="toast" id="toast" hidden role="status"></div>
 
 <div class="qrpage" id="qrSheet" role="dialog" aria-modal="true" aria-labelledby="qrTitle" hidden>
@@ -776,6 +824,7 @@ function render(){
   if (S.tab === "bill") { var ae = document.activeElement; if (ae && ae.closest && ae.closest("#tab-bill")) renderBillRes(); else renderBill(); }
   if (S.tab === "stat") renderStat();
   if (QR.open) renderQrSheet();
+  var stEl = $("#sideTotal"); if (stEl) { stEl.textContent = $("#grandTotal").textContent; var gs = $("#grandSub b"); var lt = $("#grandSub .late"); $("#sideSub").textContent = gs ? gs.textContent + (gs.textContent === "Sạch nợ" ? "" : " còn nợ") + (lt ? " · " + lt.textContent.replace("người nợ quá", "quá") : "") : ""; }
 }
 function renderHeader(){
   $("#today").textContent = new Date().toLocaleDateString("vi-VN", { weekday:"long", day:"numeric", month:"numeric" });
@@ -907,7 +956,8 @@ var msgCache = {};
 function renderBao(){
   document.querySelectorAll("[data-mode]").forEach(function(b){ b.setAttribute("aria-pressed", String(b.dataset.mode === S.mode)); });
   fillSettings();
-  var out = $("#baoOut");
+  var out = $("#baoOut"), pick = $("#baoPick");
+  pick.innerHTML = ""; pick.hidden = true;
   if (!S.loaded) { out.innerHTML = '<div class="glass empty">Đang tải sổ…</div>'; return; }
   var rows = owingRows();
   msgCache = {};
@@ -917,8 +967,9 @@ function renderBao(){
   if (S.mode === "group") {
     var sel = rows.filter(function(r){ return !S.excl[r.p.id]; });
     var anyLate = rows.some(function(r){ return daysSince(r.L.from) >= OVERDUE; });
-    h += '<div class="glass pick"><div class="pick-h"><span>Gửi cho ' + sel.length + "/" + rows.length + ' người</span><div class="pick-links">' + (anyLate ? '<button type="button" class="link" data-gold="1">Chỉ người nợ lâu</button>' : "") + '<button type="button" class="link" data-gall="1">' + (sel.length === rows.length ? "Bỏ chọn hết" : "Chọn tất cả") + '</button></div></div><div class="chips wrap" role="group" aria-label="Người có trong tin nhắn nhóm">' +
+    var ph = '<div class="glass pick"><div class="pick-h"><span>Gửi cho ' + sel.length + "/" + rows.length + ' người</span><div class="pick-links">' + (anyLate ? '<button type="button" class="link" data-gold="1">Chỉ người nợ lâu</button>' : "") + '<button type="button" class="link" data-gall="1">' + (sel.length === rows.length ? "Bỏ chọn hết" : "Chọn tất cả") + '</button></div></div><div class="chips wrap" role="group" aria-label="Người có trong tin nhắn nhóm">' +
       rows.map(function(r){ return '<button type="button" class="chip" data-gpick="' + esc(r.p.id) + '" aria-pressed="' + (!S.excl[r.p.id]) + '">' + esc(r.p.name) + '<span class="cv">' + fmt(r.L.bal) + "</span></button>"; }).join("") + "</div></div>";
+    pick.innerHTML = ph; pick.hidden = false;
     h += '<div class="chat">';
     if (sel.length) {
       msgCache.g = groupMessage(sel);
@@ -1276,7 +1327,7 @@ function renderStat(){
   });
   if (!S.statMonth || !agg[S.statMonth]) S.statMonth = keys[keys.length - 1];
   var max = Math.max.apply(null, keys.map(function(k){ return Math.max(agg[k].lent, agg[k].got); }).concat([1]));
-  var h = '<div class="glass"><div class="chart">' + keys.map(function(k){
+  var h = '<div class="stat-col"><div class="glass"><div class="chart">' + keys.map(function(k){
     var a = agg[k], hl = a.lent ? Math.max(2, Math.round(a.lent / max * 100)) : 0, hg = a.got ? Math.max(2, Math.round(a.got / max * 100)) : 0;
     return '<button type="button" class="bar" data-month="' + k + '" aria-pressed="' + (k === S.statMonth) + '" aria-label="Tháng ' + Number(k.slice(5)) + ': cho nợ ' + fmt(a.lent) + ', đã thu ' + fmt(a.got) + '">' +
       '<span class="bv">' + (a.lent ? shortMoney(a.lent) : "") + '</span><span class="bw"><span class="bt" style="height:' + hl + '%"></span><span class="bt g" style="height:' + hg + '%"></span></span>' +
@@ -1289,14 +1340,14 @@ function renderStat(){
     '<div class="glass stat"><span class="k">Số lần</span><span class="v">' + s.n + "</span></div></div></div>";
   var per = Object.keys(s.per).map(function(pid){ return { p: personById(pid) || { id:pid, name:pid }, v:s.per[pid].v, n:s.per[pid].n }; }).sort(function(a, b){ return b.v - a.v; });
   var pmax = per.length ? per[0].v : 1;
-  h += '<div class="sec"><div class="sec-h"><h2>Ai nợ nhiều nhất</h2></div>' + (per.length
+  h += '</div><div class="stat-col"><div class="sec"><div class="sec-h"><h2>Ai nợ nhiều nhất</h2></div>' + (per.length
     ? '<div class="glass list">' + per.map(function(x){ return '<div class="item prow"><span>' + esc(x.p.name) + ' <span class="n">· ' + x.n + ' lần</span></span><span class="v">' + fmt(x.v) + '</span><span class="pbar"><i style="width:' + Math.max(4, Math.round(x.v / pmax * 100)) + '%"></i></span></div>'; }).join("") + "</div>"
     : '<div class="glass empty">Tháng này chưa có khoản nợ nào.</div>') + "</div>";
   var outstanding = S.people.reduce(function(t, p){ var b = ledgerOf(p.id).bal; return t + (b > 0 ? b : 0); }, 0);
   h += '<div class="sec"><div class="sec-h"><h2>Từ trước tới nay</h2></div><div class="glass list">' +
     '<div class="item sum-row"><span>Đã cho nợ</span><b>' + fmt(allLent) + '</b></div>' +
     '<div class="item sum-row"><span>Đã thu về</span><b>' + fmt(allGot) + '</b></div>' +
-    '<div class="item sum-row"><span>Đang cho nợ</span><b>' + fmt(outstanding) + "</b></div></div></div>";
+    '<div class="item sum-row"><span>Đang cho nợ</span><b>' + fmt(outstanding) + "</b></div></div></div></div>";
   so.innerHTML = h;
 }
 
@@ -1475,7 +1526,7 @@ function setTab(t){
   document.querySelectorAll(".tabbar button").forEach(function(b){ b.setAttribute("aria-selected", String(b.dataset.tab === t)); });
   ["so","bill","bao","stat"].forEach(function(k){ $("#tab-" + k).hidden = k !== t; });
   try { history.replaceState(null, "", t === "so" ? location.pathname + location.search : "#" + t); } catch (e) {}
-  try { window.scrollTo(0, 0); } catch (e) {}
+  try { window.scrollTo(0, 0); $(".app").scrollTop = 0; } catch (e) {}
   render();
 }
 document.addEventListener("click", function(ev){
