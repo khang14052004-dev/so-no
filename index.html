@@ -312,7 +312,7 @@ button.row:active{background:var(--fill-2)}
 }
 @media (min-width:1500px){
   #tab-so{grid-template-columns:minmax(320px,380px) minmax(0,1fr) minmax(0,1fr)}
-  .bill-item{grid-template-columns:minmax(120px,.8fr) minmax(0,1.2fr) 96px 32px;grid-template-areas:"who nm pr x";padding:8px 14px}
+  .bill-item{grid-template-columns:minmax(120px,.8fr) minmax(0,1.2fr) 96px 32px;grid-template-areas:"who nm pr x";padding:8px 8px 8px 14px}
   #baoOut .chat:has(.qr-row){grid-template-columns:minmax(0,1fr) 484px}
   #statOut{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)}
 }
@@ -443,10 +443,11 @@ button.row:active{background:var(--fill-2)}
 .prow .pbar i{display:block;height:100%;border-radius:3px;background:var(--c-lend)}
 
 /* Chia bill */
-.bill-item{display:grid;grid-template-columns:minmax(0,1fr) 104px 36px;grid-template-areas:"who pr x" "nm nm nm";gap:8px;padding:10px 16px;align-items:center}
+.bill-item{display:grid;grid-template-columns:minmax(0,1fr) 104px 36px;grid-template-areas:"who pr x" "nm nm nm";gap:8px;padding:10px 10px 10px 16px;align-items:center}
 .bill-item select,.bill-item input{min-width:0;border:0;background:var(--fill-2);border-radius:10px;min-height:40px;padding:0 10px;font-size:15px;color:var(--label);outline:none;width:100%}
 .bill-item select:focus,.bill-item input:focus{box-shadow:inset 0 0 0 2px var(--tint)}
 .bill-item .who{grid-area:who;font-weight:600}
+.bill-item select,.imp select{-webkit-appearance:none;appearance:none;padding-right:32px;background-image:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%233c3c43%27 stroke-opacity=%270.6%27 stroke-width=%272.4%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpath d=%27m6 9 6 6 6-6%27/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;background-size:14px 14px;text-overflow:ellipsis}
 .bill-item .pr{grid-area:pr;text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
 .bill-item .nm{grid-area:nm}
 .bill-item .x{grid-area:x;border:0;background:transparent;color:var(--label-3);font-size:22px;line-height:1;cursor:pointer;min-height:40px;padding:0}
