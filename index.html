@@ -1487,6 +1487,7 @@ function billMessage(c){
   if (c.equal && (c.ship || c.fee || c.disc)) lines.push("Tiền món ai nấy trả, phí và giảm chia đều " + c.n + " người: " + signed(c.share) + "/người");
   lines.push("");
   c.rows.forEach(function(r){
+    if (r.who === "__me") return;
     if (!r.priced) { lines.push(r.name + ": tiền món của mình " + signed(r.share)); return; }
     var its = r.items.map(function(i){ return (i.name ? i.name + " " : "") + fmt(amtOf(i.price)); }).join(" + ");
     lines.push(r.name + ": " + fmt(r.pay) + (its ? " (" + its + ")" : ""));
@@ -1514,6 +1515,7 @@ function renderBillRes(){
     else { if (r.ship + r.fee) det.push("phí " + fmt(Math.round(r.ship + r.fee))); if (r.disc) det.push("giảm " + fmt(Math.round(r.disc))); }
     var person = r.who === "__me" ? { id:"__me", name:"Tôi" } : (personById(r.who) || { id:r.who, name:r.name });
     var meta = r.priced ? its + (det.length ? " · " + det.join(", ") : "") : "tự biết tiền món";
+    if (r.who === "__me") meta = "Phần của mình, không ghi nợ" + (meta ? " · " + meta : "");
     var bal = r.priced ? fmt(r.pay) : '<span class="p-formula">món ' + esc(signed(r.share)) + "</span>";
     return '<div class="item row share-row">' + avatar(person) + '<span class="p-txt"><span class="p-name">' + esc(r.name) + '</span><span class="p-meta">' + esc(meta) + '</span></span><span class="p-bal">' + bal + "</span></div>";
   }).join("") + "</div>";
