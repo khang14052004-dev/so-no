@@ -121,6 +121,9 @@ button.row:active{background:var(--fill-2)}
 .qa > *{min-width:0}
 .qa-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 .lbl{margin:0 0 8px;font-size:13px;line-height:18px;color:var(--label-2);font-weight:500}
+.lbl-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.lbl-row .hint{font-size:13px;line-height:18px;color:var(--label-3)}
+.lbl-row .link{min-height:auto;padding:0;font-size:13px;line-height:18px;font-weight:600}
 .amount{display:flex;align-items:center;gap:12px;background:var(--fill-2);border-radius:var(--r-field);padding:0 16px;min-height:60px}
 .amount input{flex:1;min-width:0;border:0;background:transparent;font-size:28px;font-weight:600;letter-spacing:-.02em;color:var(--label);outline:none;font-variant-numeric:tabular-nums;padding:0}
 .amount input::placeholder{color:var(--label-3);font-weight:500;font-size:22px}
@@ -202,17 +205,86 @@ button.row:active{background:var(--fill-2)}
 .tag{display:inline-block;font-size:12px;line-height:16px;padding:2px 8px;border-radius:10px;background:var(--fill);color:var(--label-2);margin-left:6px;white-space:nowrap;vertical-align:1px}
 .months{display:grid;gap:20px}
 
-.tabbar{position:fixed;z-index:10;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));width:min(440px,calc(100% - 40px));display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:6px;border-radius:32px;background:var(--glass-strong);-webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%);box-shadow:var(--shadow-float);border:1px solid var(--rim)}
-.tabbar button{border:0;background:transparent;display:grid;justify-items:center;gap:2px;padding:7px 4px 6px;border-radius:26px;color:var(--label-3);font-size:11px;line-height:13px;font-weight:500;cursor:pointer;min-height:50px}
-.tabbar svg{width:24px;height:24px}
-.tabbar button[aria-selected="true"]{color:var(--label);background:var(--fill-2)}
+.tabbar{position:fixed;z-index:10;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));width:min(320px,calc(100% - 40px));display:flex;align-items:center;gap:4px;padding:6px;border-radius:32px;background:rgba(255,255,255,.42);-webkit-backdrop-filter:blur(22px) saturate(190%);backdrop-filter:blur(22px) saturate(190%);box-shadow:0 12px 32px -10px rgba(17,17,34,.22),0 1px 3px rgba(17,17,34,.06),inset 0 0 0 1px rgba(255,255,255,.55),inset 0 1px 0 rgba(255,255,255,.85)}
+.tabbar button{flex:1 1 0;border:0;background:transparent;display:flex;align-items:center;justify-content:center;gap:6px;min-width:44px;height:52px;padding:0;border-radius:26px;box-sizing:border-box;color:var(--label-2);cursor:pointer;transition:background-color .2s,color .2s}
+.tabbar svg{width:26px;height:26px;flex:none}
+.tabbar .f,.tabbar .tl{display:none}
+.tabbar .cut{stroke:#fff}
+.tabbar button:not([aria-selected="true"]):active{background:rgba(118,118,128,.1)}
+.tabbar .tl{font-size:16px;line-height:20px;font-weight:600;letter-spacing:-.01em;white-space:nowrap}
+.tabbar button[aria-selected="true"]{color:var(--label);background:rgba(118,118,128,.14);box-shadow:inset 0 0 0 .5px rgba(255,255,255,.5);flex:none;padding:0 14px 0 11px}
+.tabbar button[aria-selected="true"] .o{display:none}
+.tabbar button[aria-selected="true"] .f,.tabbar button[aria-selected="true"] .tl{display:block}
+@media (prefers-reduced-motion:reduce){.tabbar button{transition:none}}
 
-.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(96px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--on-ink);border-radius:22px;padding:10px 10px 10px 18px;display:flex;gap:10px;align-items:center;box-shadow:var(--shadow-float);max-width:calc(100% - 40px);z-index:20;font-size:15px;line-height:20px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(96px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--on-ink);border-radius:22px;padding:10px 10px 10px 18px;display:flex;gap:10px;align-items:center;box-shadow:var(--shadow-float);width:max-content;max-width:calc(100% - 40px);z-index:20;font-size:15px;line-height:20px}
 .toast button{border:0;background:transparent;color:var(--glow-a);font-weight:600;cursor:pointer;padding:4px 8px;min-height:32px;white-space:nowrap}
 
 /* Nhắc nợ lâu */
 .age{display:inline-block;margin-right:6px;padding:0 7px;border-radius:9px;background:var(--warn-bg);color:var(--warn);font-size:11px;line-height:17px;font-weight:600}
 .age.hot{background:rgba(220,51,40,.12);color:var(--owe)}
+.hero-top{display:flex;align-items:center;justify-content:space-between;gap:12px;position:relative}
+.qr-open{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 14px 0 11px;border:0;border-radius:18px;background:var(--surface);box-shadow:var(--shadow-xs);color:var(--label);font-size:14px;font-weight:600;cursor:pointer;margin-block:-6px}
+.qr-open svg{width:18px;height:18px}
+.x-btn{flex:none;width:36px;height:36px;border-radius:50%;border:0;background:var(--fill);font-size:22px;line-height:1;color:var(--label-2);cursor:pointer}
+.chip .cv{opacity:.6;font-variant-numeric:tabular-nums}
+/* trang mã QR nhận tiền */
+.qrpage{position:fixed;inset:0;z-index:15;display:flex;flex-direction:column;background:var(--bg);overflow:hidden}
+.qrp-bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(110% 55% at 0% 0%,var(--orb-1),transparent 62%),radial-gradient(90% 55% at 100% 35%,rgba(205,200,255,.75),transparent 62%),radial-gradient(80% 50% at 20% 100%,rgba(255,227,198,.6),transparent 70%)}
+.qrp-top{position:relative;display:flex;align-items:center;gap:2px;padding:calc(env(safe-area-inset-top,0px) + 6px) 12px 2px 8px}
+.qrp-top .back{width:44px;height:44px;border:0;background:transparent;border-radius:50%;display:grid;place-items:center;color:var(--label);cursor:pointer}
+.qrp-top .back svg{width:24px;height:24px}
+.qrp-top h2{margin:0;font-size:20px;line-height:26px;font-weight:600;letter-spacing:-.02em}
+.qrp-body{position:relative;flex:1;min-height:0;overflow-y:auto;display:flex;flex-direction:column;justify-content:center;gap:0;padding-block:4px 12px}
+.qrp-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+.qrp-track::-webkit-scrollbar{display:none}
+.qrp-slide{flex:0 0 100%;box-sizing:border-box;scroll-snap-align:center;scroll-snap-stop:always;display:flex;flex-direction:column;align-items:center;gap:16px;padding:4px 20px 48px}
+.qrp-bank{margin:0;font-family:var(--f-serif);font-size:32px;line-height:38px;font-weight:500;letter-spacing:-.02em;text-align:center}
+.qrp-bank.muted{color:var(--label-2)}
+.ticket{width:min(316px,100%);display:grid;filter:drop-shadow(0 14px 22px rgba(17,17,34,.10)) drop-shadow(0 1px 2px rgba(17,17,34,.06))}
+.t-top,.t-bot{background:var(--surface);display:grid;justify-items:center;text-align:center}
+.t-top{border-radius:28px 28px 0 0;padding:22px 22px 14px;gap:10px;-webkit-mask:radial-gradient(circle at left bottom,transparent 11px,#000 11.5px) left/51% 100% no-repeat,radial-gradient(circle at right bottom,transparent 11px,#000 11.5px) right/51% 100% no-repeat;mask:radial-gradient(circle at left bottom,transparent 11px,#000 11.5px) left/51% 100% no-repeat,radial-gradient(circle at right bottom,transparent 11px,#000 11.5px) right/51% 100% no-repeat}
+.t-bot{position:relative;border-radius:0 0 28px 28px;padding:18px 22px 20px;gap:2px;-webkit-mask:radial-gradient(circle at left top,transparent 11px,#000 11.5px) left/51% 100% no-repeat,radial-gradient(circle at right top,transparent 11px,#000 11.5px) right/51% 100% no-repeat;mask:radial-gradient(circle at left top,transparent 11px,#000 11.5px) left/51% 100% no-repeat,radial-gradient(circle at right top,transparent 11px,#000 11.5px) right/51% 100% no-repeat}
+.t-bot::before{content:"";position:absolute;top:0;left:20px;right:20px;border-top:2px dashed var(--sep)}
+.t-qr{width:100%;max-width:252px;aspect-ratio:1}
+.t-qr svg{display:block;width:100%;height:100%}
+.t-std{margin:0;font-size:12px;line-height:16px;color:var(--label-2)}
+.t-amt{margin:0 0 2px;font-family:var(--f-serif);font-size:32px;line-height:38px;font-weight:500;letter-spacing:-.02em;font-variant-numeric:lining-nums tabular-nums}
+.t-for{margin:-2px 0 8px;font-size:13px;line-height:18px;color:var(--label-2)}
+.t-name{margin:0;font-size:15px;line-height:20px;font-weight:600;letter-spacing:.01em}
+.t-no{margin:2px 0 0;display:flex;align-items:center;gap:8px;font-size:17px;line-height:24px;font-weight:600;letter-spacing:.04em;font-variant-numeric:tabular-nums}
+.t-copy{border:0;background:var(--fill);border-radius:12px;padding:3px 10px;font-size:12px;line-height:18px;font-weight:600;letter-spacing:0;color:var(--tint);cursor:pointer}
+.add-card{width:min(316px,100%);aspect-ratio:316/420;border:2px dashed rgba(60,60,67,.22);border-radius:28px;background:var(--glass);display:grid;place-content:center;justify-items:center;gap:6px;padding:24px;font-size:17px;font-weight:600;color:var(--tint);cursor:pointer;text-align:center}
+.add-card .plus{width:52px;height:52px;border-radius:50%;background:var(--surface);box-shadow:var(--shadow-xs);display:grid;place-items:center;font-size:30px;line-height:1;font-weight:400;margin-bottom:6px}
+.add-card small{font-size:13px;line-height:18px;font-weight:400;color:var(--label-2)}
+.qrp-foot{display:grid;justify-items:center;gap:6px;min-height:20px;margin-top:-28px;position:relative}
+.qrp-dots{display:flex;justify-content:center}
+.qrp-dots button{border:0;background:transparent;padding:8px 4px;cursor:pointer}
+.qrp-dots button::after{content:"";display:block;width:8px;height:8px;border-radius:4px;background:var(--label-3);transition:width .2s}
+.qrp-dots button[aria-current="true"]::after{width:20px;background:var(--ink)}
+.qrp-hint{margin:0;font-size:13px;line-height:18px;color:var(--label-2)}
+.qrp-empty{display:grid;gap:12px;padding:0 20px}
+.qrp-actions{position:relative;display:grid;grid-template-columns:repeat(3,1fr);background:var(--surface);box-shadow:0 -1px 0 var(--sep);padding:6px 8px calc(8px + env(safe-area-inset-bottom,0px))}
+.qrp-actions button{border:0;background:transparent;display:grid;justify-items:center;align-content:center;gap:6px;min-height:72px;padding:6px 4px;font-size:14px;line-height:18px;font-weight:500;color:var(--label);cursor:pointer}
+.qrp-actions svg{width:26px;height:26px;color:var(--tint)}
+.qrp-actions button:disabled{opacity:.35;cursor:default}
+.qrp-dim{position:absolute;inset:0;z-index:2;background:rgba(28,28,40,.28)}
+.qrp-amt{position:absolute;left:0;right:0;bottom:0;z-index:3;background:var(--surface);border-radius:24px 24px 0 0;box-shadow:var(--shadow-float);padding:16px 20px calc(16px + env(safe-area-inset-bottom,0px));display:grid;gap:12px;max-height:80%;overflow:auto}
+.qrp-amt .sheet-h{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.qrp-amt h3{margin:0;font-size:20px;line-height:26px;font-weight:600;letter-spacing:-.02em}
+.qrp-amt .lbl{margin:0 0 -4px}
+.qrp-amt form{display:grid;gap:12px}
+.qrp-amt,.qrp-amt form{grid-template-columns:minmax(0,1fr)}
+.qrp-amt .amount input{width:100%}
+.qrp-btns{display:flex;gap:10px;align-items:center}
+.qrp-btns .pill-btn{flex:none;min-height:50px;border-radius:14px;padding:0 16px}
+/* nhiều tài khoản trong Cài đặt */
+.acct-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:14px 16px 4px;font-size:13px;line-height:18px;font-weight:600;color:var(--label-2)}
+.acct-h .hint{font-weight:400}
+.acct-h .link{min-height:auto;padding:0;font-size:13px;font-weight:600}
+.acct-more{border-top:1px solid var(--sep)}
+.acct-add{padding:4px 16px 6px;border-top:1px solid var(--sep)}
+.acct-add .link{min-height:40px;padding:0;font-weight:600}
 .hero-sub .late{display:block;margin-top:2px;color:var(--owe);font-weight:500}
 .pick-links{display:flex;gap:14px}
 
@@ -292,7 +364,7 @@ button.row:active{background:var(--fill-2)}
   <section class="tab" id="tab-so" role="tabpanel" aria-labelledby="t-so">
     <div class="glass hero">
       <div class="orb" aria-hidden="true"></div>
-      <p class="cap">Đang cho nợ</p>
+      <div class="hero-top"><p class="cap">Đang cho nợ</p><button type="button" class="qr-open" data-qrsheet="1" aria-label="Mở mã QR nhận tiền"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="6.5" height="6.5" rx="1.6"/><rect x="14" y="3.5" width="6.5" height="6.5" rx="1.6"/><rect x="3.5" y="14" width="6.5" height="6.5" rx="1.6"/><path d="M14 14h3v3M20.5 14v.01M14 20.5h.01M17 20.5h3.5V17"/></svg><span>Mã QR</span></button></div>
       <div class="hero-row">
         <span class="hero-num" id="grandTotal">…</span>
         <span class="hero-div" aria-hidden="true"></span>
@@ -311,8 +383,8 @@ button.row:active{background:var(--fill-2)}
           <input class="date-pill" type="date" id="qaDate" aria-label="Ngày">
         </div>
         <div>
-          <p class="lbl">Người</p>
-          <div class="chips" id="qaPeople" role="group" aria-label="Người"></div>
+          <div class="lbl-row"><p class="lbl">Người</p><span class="hint" id="qaHint">Chọn được nhiều người</span><button type="button" class="link" id="qaClear" hidden>Bỏ chọn</button></div>
+          <div class="chips wrap" id="qaPeople" role="group" aria-label="Người"></div>
         </div>
         <div>
           <p class="lbl">Số tiền</p>
@@ -354,10 +426,13 @@ button.row:active{background:var(--fill-2)}
       <details class="glass list settings" id="settingsBox">
         <summary class="item"><span class="row"><span>Tài khoản nhận tiền</span><span class="sum-v" id="setSummary">Chưa có</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></span></summary>
         <form id="setForm" autocomplete="off">
+          <div class="acct-h"><span>Tài khoản chính</span><span class="hint">Dùng trong tin nhắn Zalo</span></div>
           <label class="item f-row"><span>Ngân hàng</span><select id="setBank"></select></label>
           <label class="item f-row"><span>Số tài khoản</span><input id="setAcc" class="num" inputmode="numeric" placeholder="0123456789"></label>
           <label class="item f-row"><span>Tên</span><input id="setName" placeholder="NGUYEN VAN A"></label>
-          <label class="item f-row"><span>Câu mở đầu</span><input id="setGreet" placeholder="Em gửi nợ nha"></label>
+          <div id="setMore"></div>
+          <div class="acct-add"><button type="button" class="link" id="addAcct">+ Thêm ngân hàng</button></div>
+          <label class="item f-row acct-more"><span>Câu mở đầu</span><input id="setGreet" placeholder="Em gửi nợ nha"></label>
           <div class="f-save"><button class="btn-primary" type="submit">Lưu</button></div>
         </form>
       </details>
@@ -401,24 +476,37 @@ button.row:active{background:var(--fill-2)}
 </div>
 
 <nav class="tabbar" role="tablist" aria-label="Mục">
-  <button role="tab" id="t-so" data-tab="so" aria-selected="true">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H19v15H6.5A1.5 1.5 0 0 0 5 19.5z"/><path d="M5 19.5A1.5 1.5 0 0 0 6.5 21H19v-3"/><path d="M9 8h6M9 11.5h4"/></svg>
-    Sổ nợ
+  <button role="tab" id="t-so" data-tab="so" aria-selected="true" aria-label="Sổ nợ">
+    <svg class="o" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="3" width="14" height="18" rx="3.2"/><path d="M3.5 7.5h4M3.5 12h4M3.5 16.5h4"/><path d="M11 8.5h5M11 12h5M11 15.5h3"/></svg><svg class="f" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="3" width="14" height="18" rx="3.2"/><path d="M3.5 7.5h4M3.5 12h4M3.5 16.5h4" fill="none"/><path class="cut" d="M11 8.5h5M11 12h5M11 15.5h3" fill="none"/></svg>
+    <span class="tl">Sổ nợ</span>
   </button>
-  <button role="tab" id="t-bill" data-tab="bill" aria-selected="false">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2.4-1.6L13.2 21 12 20.2 10.8 21l-2.4-1.6L6 21z"/><path d="M9 8h6M9 11.5h6M9 15h3.5"/></svg>
-    Chia bill
+  <button role="tab" id="t-bill" data-tab="bill" aria-selected="false" aria-label="Chia bill">
+    <svg class="o" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4.6A2.1 2.1 0 0 1 8.1 2.5h7.8A2.1 2.1 0 0 1 18 4.6V21l-2-1.4-2 1.4-2-1.4-2 1.4-2-1.4L6 21z"/><path d="M9.5 14.5 14.5 8"/><circle cx="9.7" cy="8.6" r="1.2"/><circle cx="14.3" cy="13.9" r="1.2"/></svg><svg class="f" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4.6A2.1 2.1 0 0 1 8.1 2.5h7.8A2.1 2.1 0 0 1 18 4.6V21l-2-1.4-2 1.4-2-1.4-2 1.4-2-1.4L6 21z"/><path class="cut" d="M9.5 14.5 14.5 8" fill="none"/><circle class="cut" cx="9.7" cy="8.6" r=".9" fill="#fff"/><circle class="cut" cx="14.3" cy="13.9" r=".9" fill="#fff"/></svg>
+    <span class="tl">Chia bill</span>
   </button>
-  <button role="tab" id="t-bao" data-tab="bao" aria-selected="false">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8 8 0 0 1-11.7 7.1L4 19.8l1.2-4.4a8 8 0 1 1 15.3-3.9z"/><path d="M8.5 11.5h.01M12.5 11.5h.01M16.5 11.5h.01" stroke-width="2.6"/></svg>
-    Báo Zalo
+  <button role="tab" id="t-bao" data-tab="bao" aria-selected="false" aria-label="Báo Zalo">
+    <svg class="o" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 3.5 3.5 10.3l7 3.2 3.2 7z"/><path d="M10.5 13.5 20.5 3.5"/></svg><svg class="f" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 3.5 3.5 10.3l7 3.2 3.2 7z"/><path class="cut" d="M10.5 13.5 17 7" fill="none"/></svg>
+    <span class="tl">Báo Zalo</span>
   </button>
-  <button role="tab" id="t-stat" data-tab="stat" aria-selected="false">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16"/><rect x="5.5" y="11" width="3" height="6" rx="1"/><rect x="10.5" y="6" width="3" height="11" rx="1"/><rect x="15.5" y="9" width="3" height="8" rx="1"/></svg>
-    Thống kê
+  <button role="tab" id="t-stat" data-tab="stat" aria-selected="false" aria-label="Thống kê">
+    <svg class="o" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.5 5.6a7.6 7.6 0 1 0 7.9 7.9h-7.9z"/><path d="M13.5 2.6a7.9 7.9 0 0 1 7.9 7.9h-7.9z"/></svg><svg class="f" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.5 5.6a7.6 7.6 0 1 0 7.9 7.9h-7.9z"/><path d="M13.5 2.6a7.9 7.9 0 0 1 7.9 7.9h-7.9z"/></svg>
+    <span class="tl">Thống kê</span>
   </button>
 </nav>
 <div class="toast" id="toast" hidden role="status"></div>
+
+<div class="qrpage" id="qrSheet" role="dialog" aria-modal="true" aria-labelledby="qrTitle" hidden>
+  <div class="qrp-bg" aria-hidden="true"></div>
+  <header class="qrp-top"><button type="button" class="back" data-qrclose="1" aria-label="Quay lại"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button><h2 id="qrTitle">Mã QR nhận tiền</h2></header>
+  <div class="qrp-body" id="qrCard"></div>
+  <nav class="qrp-actions" id="qrActs" aria-label="Thao tác với mã QR">
+    <button type="button" id="qrShare" data-qrshare="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5.5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="18.5" r="2.5"/><path d="m8.2 10.8 7.6-4.1M8.2 13.2l7.6 4.1"/></svg><span>Chia sẻ mã QR</span></button>
+    <button type="button" id="qrSave" data-qrsave="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="4" width="17" height="16" rx="3.5"/><circle cx="9" cy="9.5" r="1.6"/><path d="m4 17 4.6-4.4a1.5 1.5 0 0 1 2.1 0L15 17m-1.6-1.6 1.5-1.4a1.5 1.5 0 0 1 2.1 0L20 17"/></svg><span>Lưu ảnh</span></button>
+    <button type="button" id="qrAmtBtn" data-qrpanel="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="6.5" height="6.5" rx="1.6"/><rect x="14" y="3.5" width="6.5" height="6.5" rx="1.6"/><rect x="3.5" y="14" width="6.5" height="6.5" rx="1.6"/><path d="M17.25 13.5v7M13.75 17h7"/></svg><span class="lb">Thêm số tiền</span></button>
+  </nav>
+  <div class="qrp-dim" id="qrDim" hidden></div>
+  <div class="qrp-amt" id="qrAmt" role="dialog" aria-label="Số tiền trên mã QR" hidden></div>
+</div>
 
 <div class="setup" id="setup" hidden>
   <div class="glass setup-card">
@@ -446,7 +534,7 @@ var TITLES = { so:"Sổ nợ", bill:"Chia bill", bao:"Báo Zalo", stat:"Thống 
 var CHEV = '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>';
 var S = {
   people:[], entries:[], spending:[], settings:{}, sync:{},
-  loaded:false, kind:"debt", sel:null, expanded:{}, showOld:{}, editing:null, pendingRender:false,
+  loaded:false, kind:"debt", picks:[], expanded:{}, showOld:{}, editing:null, pendingRender:false,
   mode:"group", tab:"so", excl:{}, statMode:"debt", statMonth:null
 };
 
@@ -464,7 +552,6 @@ function vnd(n){ return Math.round(n).toLocaleString("vi-VN") + "đ"; }
 function usd(cents){ return "$" + (cents/100).toLocaleString("en-US",{minimumFractionDigits:2, maximumFractionDigits:2}); }
 function strip(s){ return String(s).normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/đ/g,"d").replace(/Đ/g,"D"); }
 function shortName(n){ return String(n).replace(/^(a|c|e|anh|chị|chi|em|cô|chú|bác)\s+/i,"").trim(); }
-function memo(n){ return ("NO " + strip(shortName(n)).toUpperCase().replace(/[^A-Z0-9 ]/g,"")).replace(/\s+/g," ").trim().slice(0,25); }
 function slug(n){ return strip(n).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"") || "nguoi"; }
 function partsText(e){ return (e.parts && e.parts.length > 1) ? e.parts.map(fmt).join("+") : fmt(e.amount); }
 function newId(p){ return p + Date.now().toString(36) + Math.random().toString(36).slice(2,6); }
@@ -645,6 +732,7 @@ function render(){
   if (S.tab === "bao") renderBao();
   if (S.tab === "bill") { var ae = document.activeElement; if (ae && ae.closest && ae.closest("#tab-bill")) renderBillRes(); else renderBill(); }
   if (S.tab === "stat") renderStat();
+  if (QR.open) renderQrSheet();
 }
 function renderHeader(){
   $("#today").textContent = new Date().toLocaleDateString("vi-VN", { weekday:"long", day:"numeric", month:"numeric" });
@@ -657,11 +745,11 @@ function renderHeader(){
 }
 function renderQuickAdd(){
   var people = sortedPeople();
-  if (S.sel && !people.some(function(p){ return p.id === S.sel; })) S.sel = null;
+  S.picks = S.picks.filter(function(id){ return people.some(function(p){ return p.id === id; }); });
   var box = $("#qaPeople"), html;
   if (!S.loaded) html = '<span class="lbl" style="margin:0">Đang tải…</span>';
   else if (!people.length) html = '<span class="lbl" style="margin:0">Thêm người ở cuối trang trước.</span>';
-  else html = people.map(function(p){ return '<button type="button" class="chip" data-pid="' + esc(p.id) + '" aria-pressed="' + (S.sel === p.id) + '">' + esc(p.name) + "</button>"; }).join("");
+  else html = people.map(function(p){ return '<button type="button" class="chip" data-pid="' + esc(p.id) + '" aria-pressed="' + (S.picks.indexOf(p.id) >= 0) + '">' + esc(p.name) + "</button>"; }).join("");
   if (box.innerHTML !== html) box.innerHTML = html;
   var freq = {};
   S.entries.slice().sort(sortEntries).slice(-80).forEach(function(e){ if (e.kind !== "payment" && (!e.parts || e.parts.length < 2)) freq[e.amount] = (freq[e.amount] || 0) + 1; });
@@ -678,9 +766,12 @@ function updatePreview(){
   if (!v.trim()) { pv.textContent = ""; pv.className = "preview"; }
   else if (!p) { pv.textContent = "Chưa hiểu số"; pv.className = "preview bad"; }
   else { pv.textContent = (pay ? "−" : "") + fmt(p.total); pv.className = "preview"; pv.style.color = pay ? "var(--paid)" : "var(--owe)"; }
-  $("#qaSubmit").disabled = !(p && S.sel && CFG);
-  var who = S.sel ? (personById(S.sel) || {}).name : "";
-  $("#qaSubmit").textContent = pay ? (who ? "Ghi " + who + " trả" : "Ghi trả") : (who ? "Ghi nợ " + who : "Ghi nợ");
+  var n = S.picks.length;
+  $("#qaSubmit").disabled = !(p && n && CFG);
+  var who = n === 1 ? (personById(S.picks[0]) || {}).name : (n > 1 ? n + " người" : "");
+  var each = n > 1 && p ? ", mỗi người " + fmt(p.total) : "";
+  $("#qaSubmit").textContent = (pay ? (who ? "Ghi " + who + " trả" : "Ghi trả") : (who ? "Ghi nợ " + who : "Ghi nợ")) + each;
+  $("#qaHint").hidden = n > 1; $("#qaClear").hidden = n < 2; $("#qaClear").textContent = "Bỏ chọn " + n + " người";
 }
 function renderPeople(){
   S.pendingRender = false;
@@ -724,7 +815,7 @@ function personHTML(r){
       }).join("") + "</ol>";
     } else h += '<p class="lbl" style="margin:8px 0 0">Chưa có khoản nào. Chọn tên ở khung Ghi nhanh để ghi.</p>';
     h += '<div class="actions">';
-    if (!clear) h += '<button type="button" class="pill-btn" data-act="settle">Đã trả hết ' + fmt(L.bal) + '</button><button type="button" class="pill-btn" data-act="partial">Trả một phần</button>';
+    if (!clear) h += '<button type="button" class="pill-btn" data-act="settle">Đã trả hết ' + fmt(L.bal) + '</button><button type="button" class="pill-btn" data-act="partial">Trả một phần</button><button type="button" class="pill-btn" data-act="qr">Mã QR</button>';
     else h += '<button type="button" class="pill-btn" data-act="pick">Ghi nợ cho ' + esc(p.name) + "</button>";
     h += '<button type="button" class="pill-btn danger" data-act="remove">Xóa khỏi sổ</button></div></div>';
   }
@@ -760,7 +851,7 @@ function eachMessage(r){
 }
 function qrCard(r){
   if (!$("#optQR").checked || !bankReady()) return "";
-  var svg = qrSvg(vietqr(S.settings.bankBin, String(S.settings.accountNo), r.L.bal, memo(r.p.name)));
+  var svg = qrSvg(vietqr(S.settings.bankBin, String(S.settings.accountNo), r.L.bal, ""));
   if (!svg) return "";
   return '<div class="qr-card">' + svg + '<span class="qn">' + esc(r.p.name) + '</span><span class="qa2 num">' + fmt(r.L.bal) + '</span><button type="button" class="qr-send" data-qr="' + esc(r.p.id) + '">Gửi ảnh</button></div>';
 }
@@ -805,7 +896,8 @@ function renderBao(){
 var settingsFilled = false;
 function fillSettings(){
   var st = S.settings;
-  $("#setSummary").textContent = bankReady() ? bankName(st.bankBin) + " ••" + String(st.accountNo).slice(-4) : "Chưa có";
+  var nMore = (st.more || []).length;
+  $("#setSummary").textContent = bankReady() ? bankName(st.bankBin) + " ••" + String(st.accountNo).slice(-4) + (nMore ? " +" + nMore : "") : (nMore ? nMore + " tài khoản" : "Chưa có");
   if (settingsFilled) return;
   var sel = $("#setBank");
   if (!sel.options.length) sel.innerHTML = BANKS.map(function(b){ return '<option value="' + b[0] + '">' + b[1] + "</option>"; }).join("");
@@ -813,8 +905,33 @@ function fillSettings(){
   $("#setAcc").value = st.accountNo || "";
   $("#setName").value = st.accountName || "";
   $("#setGreet").value = st.greeting || "";
+  MORE = (st.more || []).map(function(a){ return { bankBin:a.bankBin, accountNo:a.accountNo, accountName:a.accountName }; });
+  renderMore();
   settingsFilled = true;
 }
+var MORE = [];
+function bankOpts(sel){ return BANKS.map(function(b){ return '<option value="' + b[0] + '"' + (b[0] === sel ? " selected" : "") + ">" + b[1] + "</option>"; }).join(""); }
+function renderMore(){
+  $("#setMore").innerHTML = MORE.map(function(a, i){
+    return '<div class="acct-more" data-mi="' + i + '"><div class="acct-h"><span>Tài khoản ' + (i + 2) + '</span><button type="button" class="link" data-mdel="' + i + '">Xóa</button></div>' +
+      '<label class="item f-row"><span>Ngân hàng</span><select data-mf="bankBin">' + bankOpts(a.bankBin || "970436") + "</select></label>" +
+      '<label class="item f-row"><span>Số tài khoản</span><input data-mf="accountNo" class="num" inputmode="numeric" placeholder="0123456789" value="' + esc(a.accountNo || "") + '"></label>' +
+      '<label class="item f-row"><span>Tên</span><input data-mf="accountName" placeholder="NGUYEN VAN A" value="' + esc(a.accountName || "") + '"></label></div>';
+  }).join("");
+}
+function addMoreAccount(){
+  MORE.push({ bankBin:"970436", accountNo:"", accountName:(S.settings && S.settings.accountName) || "" });
+  renderMore();
+  var ins = document.querySelectorAll('#setMore [data-mf="accountNo"]');
+  if (ins.length) try { ins[ins.length - 1].focus({ preventScroll:true }); } catch (e) {}
+}
+["input","change"].forEach(function(t){
+  $("#setMore").addEventListener(t, function(ev){
+    var f = ev.target.dataset && ev.target.dataset.mf, box = ev.target.closest("[data-mi]");
+    if (f && box && MORE[box.dataset.mi]) MORE[box.dataset.mi][f] = ev.target.value;
+  });
+});
+$("#addAcct").addEventListener("click", addMoreAccount);
 
 /* ---------- Chi tiêu ---------- */
 function renderSpend(){
@@ -882,38 +999,45 @@ function daysSince(iso){
 }
 
 /* ---------- gửi mã QR thành ảnh ---------- */
-function qrCanvas(r){
-  var st = S.settings, payload = vietqr(st.bankBin, String(st.accountNo), r.L.bal, memo(r.p.name));
-  var qr = window.qrcode(0, "M"); qr.addData(payload); qr.make();
-  var n = qr.getModuleCount(), W = 720, H = 960, cv = document.createElement("canvas");
-  cv.width = W; cv.height = H;
-  var g = cv.getContext("2d"), F = "Inter, -apple-system, Roboto, 'Segoe UI', sans-serif";
-  g.fillStyle = "#ffffff"; g.fillRect(0, 0, W, H);
-  var grad = g.createLinearGradient(0, 0, W, 0); grad.addColorStop(0, "#ffbd8c"); grad.addColorStop(1, "#c9c2ff");
-  g.fillStyle = grad; g.fillRect(0, 0, W, 16);
-  g.textAlign = "center"; g.fillStyle = "#111114";
-  g.font = "600 40px " + F; g.fillText(r.p.name, W / 2, 96);
-  g.font = "700 68px " + F; g.fillText(fmt(r.L.bal), W / 2, 178);
-  var cell = Math.floor(520 / (n + 4)), qs = cell * (n + 4), x0 = Math.round((W - qs) / 2), y0 = 214;
-  g.fillStyle = "#111111";
-  for (var rr = 0; rr < n; rr++) for (var cc = 0; cc < n; cc++) if (qr.isDark(rr, cc)) g.fillRect(x0 + (cc + 2) * cell, y0 + (rr + 2) * cell, cell, cell);
-  var y = y0 + qs + 58;
-  g.fillStyle = "#3c3c43"; g.font = "500 30px " + F; g.fillText(bankName(st.bankBin) + " · " + st.accountNo, W / 2, y);
-  if (st.accountName) { g.fillStyle = "rgba(60,60,67,.7)"; g.font = "500 26px " + F; g.fillText(st.accountName, W / 2, y + 42); }
-  g.fillStyle = "rgba(60,60,67,.55)"; g.font = "500 24px " + F; g.fillText("Quét bằng app ngân hàng bất kỳ · " + memo(r.p.name), W / 2, H - 40);
+function rrect(g, x, y, w, h, r){
+  g.beginPath(); g.moveTo(x + r, y); g.arcTo(x + w, y, x + w, y + h, r); g.arcTo(x + w, y + h, x, y + h, r);
+  g.arcTo(x, y + h, x, y, r); g.arcTo(x, y, x + w, y, r); g.closePath();
+}
+function qrImage(o){
+  var a = o.acct, amt = o.amount || 0, who = o.who || "";
+  var qr = window.qrcode(0, "M"); qr.addData(vietqr(a.bankBin, String(a.accountNo), amt, "")); qr.make();
+  var n = qr.getModuleCount(), W = 720, X = 60, TW = 600;
+  var SANS = "Inter, -apple-system, Roboto, 'Segoe UI', sans-serif", SERIF = "Newsreader, Georgia, 'Times New Roman', serif";
+  var cell = Math.floor(440 / n), qs = cell * n, y0 = 150, qy = y0 + 52, capY = qy + qs + 46, cutY = capY + 38;
+  var y = cutY + 64, pos = {};
+  if (amt) { pos.amt = y; y += who ? 40 : 52; if (who) { pos.who = y; y += 50; } }
+  if (a.accountName) { pos.name = y; y += 46; }
+  pos.no = y; var bottom = y + 44, H = bottom + 70;
+  var cv = document.createElement("canvas"); cv.width = W; cv.height = H;
+  var g = cv.getContext("2d");
+  var bg = g.createLinearGradient(0, 0, W, H); bg.addColorStop(0, "#ffe6cf"); bg.addColorStop(.5, "#f6f4f8"); bg.addColorStop(1, "#e3e0ff");
+  g.fillStyle = bg; g.fillRect(0, 0, W, H);
+  g.textAlign = "center"; g.fillStyle = "#111114"; g.font = "500 54px " + SERIF; g.fillText(bankName(a.bankBin), W / 2, 104);
+  g.save(); g.shadowColor = "rgba(17,17,34,.12)"; g.shadowBlur = 36; g.shadowOffsetY = 12;
+  g.fillStyle = "#ffffff"; rrect(g, X, y0, TW, bottom - y0, 44); g.fill(); g.restore();
+  g.fillStyle = bg; g.beginPath(); g.arc(X, cutY, 18, 0, Math.PI * 2); g.arc(X + TW, cutY, 18, 0, Math.PI * 2); g.fill();
+  g.save(); g.strokeStyle = "rgba(60,60,67,.22)"; g.lineWidth = 3; g.setLineDash([12, 10]);
+  g.beginPath(); g.moveTo(X + 34, cutY); g.lineTo(X + TW - 34, cutY); g.stroke(); g.restore();
+  var qx = Math.round((W - qs) / 2); g.fillStyle = "#111111";
+  for (var rr = 0; rr < n; rr++) for (var cc = 0; cc < n; cc++) if (qr.isDark(rr, cc)) g.fillRect(qx + cc * cell, qy + rr * cell, cell, cell);
+  g.fillStyle = "rgba(60,60,67,.62)"; g.font = "500 24px " + SANS; g.fillText("Quét bằng app ngân hàng nào cũng được", W / 2, capY);
+  if (pos.amt) { g.fillStyle = "#111114"; g.font = "500 60px " + SERIF; g.fillText(vnd(amt), W / 2, pos.amt); }
+  if (pos.who) { g.fillStyle = "rgba(60,60,67,.62)"; g.font = "500 26px " + SANS; g.fillText(who + " trả nợ", W / 2, pos.who); }
+  if (pos.name) { g.fillStyle = "#111114"; g.font = "600 30px " + SANS; g.fillText(a.accountName, W / 2, pos.name); }
+  g.fillStyle = "#111114"; g.font = "700 36px " + SANS; try { g.letterSpacing = "2px"; } catch (e) {} g.fillText(String(a.accountNo), W / 2, pos.no);
   return cv;
 }
-function shareQr(rows){
-  if (!rows.length) return;
-  if (!bankReady()) { toast("Điền tài khoản nhận tiền ở mục Cài đặt trước."); return; }
-  if (typeof window.qrcode !== "function") { toast("Chưa tải được thư viện QR, kiểm tra mạng."); return; }
+function canvasesOut(list, save){
   var files = [];
-  rows.reduce(function(p, r){
-    return p.then(function(){ return new Promise(function(res){
-      qrCanvas(r).toBlob(function(b){ files.push(new File([b], "QR-" + slug(r.p.name) + ".png", { type:"image/png" })); res(); }, "image/png");
-    }); });
+  list.reduce(function(p, it){
+    return p.then(function(){ return new Promise(function(res){ it.cv.toBlob(function(b){ files.push(new File([b], it.name, { type:"image/png" })); res(); }, "image/png"); }); });
   }, Promise.resolve()).then(function(){
-    if (navigator.canShare && navigator.canShare({ files: files })) { navigator.share({ files: files }).catch(function(){}); return; }
+    if (!save && navigator.canShare && navigator.canShare({ files: files })) { navigator.share({ files: files }).catch(function(){}); return; }
     files.forEach(function(f){
       var a = document.createElement("a"); a.href = URL.createObjectURL(f); a.download = f.name;
       document.body.appendChild(a); a.click();
@@ -921,6 +1045,135 @@ function shareQr(rows){
     });
     toast(files.length > 1 ? "Đã lưu " + files.length + " ảnh QR vào máy" : "Đã lưu ảnh QR vào máy");
   });
+}
+function shareQr(rows){
+  if (!rows.length) return;
+  var a = accounts()[0];
+  if (!a) { toast("Điền tài khoản nhận tiền ở mục Cài đặt trước."); return; }
+  if (typeof window.qrcode !== "function") { toast("Chưa tải được thư viện QR, kiểm tra mạng."); return; }
+  canvasesOut(rows.map(function(r){ return { cv:qrImage({ acct:a, amount:r.L.bal, who:r.p.name }), name:"QR-" + slug(r.p.name) + ".png" }; }), false);
+}
+
+/* ---------- trang mã QR nhận tiền ---------- */
+var QR = { open:false, pid:"", amt:0, idx:Number(lsGet("soNo.qrIdx", 0)) || 0, panel:false };
+function accounts(){
+  var st = S.settings || {}, list = [];
+  if (bankReady()) list.push({ bankBin:st.bankBin, accountNo:String(st.accountNo), accountName:st.accountName || "" });
+  (st.more || []).forEach(function(a){
+    if (a && a.bankBin && /^\d{6,19}$/.test(String(a.accountNo || ""))) list.push({ bankBin:a.bankBin, accountNo:String(a.accountNo), accountName:a.accountName || "" });
+  });
+  return list;
+}
+function qrPicked(){
+  if (!QR.pid) return null;
+  var p = personById(QR.pid); if (!p) return null;
+  var L = ledgerOf(p.id); return L.bal > 0 ? { p:p, L:L } : null;
+}
+function qrAmount(){ var r = qrPicked(); return r ? r.L.bal : (QR.amt > 0 ? QR.amt : 0); }
+function vnd(n){ return Math.round(n).toLocaleString("vi-VN") + "đ"; }
+function qrSlide(a, i, n, amt, r){
+  var svg = qrSvg(vietqr(a.bankBin, a.accountNo, amt, ""));
+  return '<section class="qrp-slide" aria-label="' + esc(bankName(a.bankBin)) + ", tài khoản " + (i + 1) + " trên " + n + '">' +
+    '<p class="qrp-bank">' + esc(bankName(a.bankBin)) + "</p>" +
+    '<div class="ticket"><div class="t-top">' +
+      (svg ? '<div class="t-qr">' + svg + "</div>" : '<p class="notice">Chưa tải được mã QR, kiểm tra mạng rồi mở lại.</p>') +
+      '<p class="t-std">Quét bằng app ngân hàng nào cũng được</p></div>' +
+    '<div class="t-bot">' +
+      (amt ? '<p class="t-amt">' + vnd(amt) + "</p>" + (r ? '<p class="t-for">' + esc(r.p.name) + " trả nợ</p>" : "") : "") +
+      (a.accountName ? '<p class="t-name">' + esc(a.accountName) + "</p>" : "") +
+      '<p class="t-no"><span>' + esc(a.accountNo) + '</span><button type="button" class="t-copy" data-qrcopy="' + esc(a.accountNo) + '" aria-label="Chép số tài khoản">Chép</button></p>' +
+    "</div></div></section>";
+}
+var qrScrollT = 0;
+function onQrScroll(ev){
+  var tr = ev.currentTarget;
+  clearTimeout(qrScrollT);
+  qrScrollT = setTimeout(function(){
+    var n = accounts().length, i = Math.round(tr.scrollLeft / Math.max(1, tr.clientWidth));
+    if (i === QR.idx) return;
+    QR.idx = i; if (i < n) lsSet("soNo.qrIdx", i);
+    syncQrFoot(n);
+  }, 60);
+}
+function syncQrFoot(n){
+  document.querySelectorAll("#qrCard [data-qrdot]").forEach(function(d){ d.setAttribute("aria-current", String(Number(d.dataset.qrdot) === QR.idx)); });
+  var hint = $("#qrHint"); if (hint) hint.hidden = !(n === 1 && QR.idx === 0);
+  var onAdd = QR.idx >= n;
+  $("#qrShare").disabled = onAdd; $("#qrSave").disabled = onAdd; $("#qrAmtBtn").disabled = onAdd;
+  $("#qrAmtBtn .lb").textContent = qrAmount() ? "Đổi số tiền" : "Thêm số tiền";
+}
+function renderQrSheet(){
+  if (!QR.open) return;
+  var list = accounts(), body = $("#qrCard");
+  if (!list.length) {
+    body.innerHTML = '<div class="qrp-empty"><p class="notice">Chưa có tài khoản nhận tiền. Điền một lần ở mục Cài đặt, cuối tab Báo Zalo.</p><button type="button" class="btn-primary" data-qrsettings="1">Mở Cài đặt</button></div>';
+    $("#qrActs").hidden = true; QR.panel = false; renderQrPanel(); return;
+  }
+  $("#qrActs").hidden = false;
+  if (QR.idx > list.length) QR.idx = 0;
+  var r = qrPicked(); if (QR.pid && !r) QR.pid = "";
+  var amt = qrAmount();
+  var slides = list.map(function(a, i){ return qrSlide(a, i, list.length, amt, r); }).join("") +
+    '<section class="qrp-slide" aria-label="Thêm ngân hàng"><p class="qrp-bank muted">Ngân hàng khác</p><button type="button" class="add-card" data-qrsettings="add"><span class="plus" aria-hidden="true">+</span>Thêm tài khoản<small>Thêm xong, lướt qua lại để đổi ngân hàng</small></button></section>';
+  var dots = list.length > 1 ? list.map(function(a, i){ return '<button type="button" data-qrdot="' + i + '" aria-label="' + esc(bankName(a.bankBin)) + '" aria-current="false"></button>'; }).join("") : "";
+  body.innerHTML = '<div class="qrp-track" id="qrTrack">' + slides + '</div><div class="qrp-foot"><div class="qrp-dots">' + dots + '</div><p class="qrp-hint" id="qrHint" hidden>Lướt sang phải để thêm ngân hàng khác</p></div>';
+  var tr = $("#qrTrack");
+  tr.scrollLeft = QR.idx * tr.clientWidth;
+  tr.addEventListener("scroll", onQrScroll, { passive:true });
+  syncQrFoot(list.length);
+  renderQrPanel();
+}
+function renderQrPanel(){
+  var p = $("#qrAmt");
+  p.hidden = $("#qrDim").hidden = !QR.panel;
+  if (!QR.panel) { p.innerHTML = ""; return; }
+  var rows = owingRows(), amt = qrAmount();
+  p.innerHTML = '<div class="sheet-h"><h3>Số tiền trên mã</h3><button type="button" class="x-btn" data-qrpanel="0" aria-label="Đóng">×</button></div>' +
+    (rows.length ? '<p class="lbl">Người đang nợ</p><div class="chips wrap">' + rows.map(function(x){
+      return '<button type="button" class="chip" data-qrp="' + esc(x.p.id) + '" aria-pressed="' + (QR.pid === x.p.id) + '">' + esc(x.p.name) + ' <span class="cv">' + fmt(x.L.bal) + "</span></button>";
+    }).join("") + "</div>" : "") +
+    '<form id="qrAmtForm" autocomplete="off"><p class="lbl">Hoặc nhập số khác</p>' +
+    '<div class="amount"><input id="qrAmtIn" placeholder="35k hoặc 120000" enterkeyhint="done" aria-label="Số tiền" value="' + (!QR.pid && QR.amt ? esc(String(QR.amt)) : "") + '"><span class="preview" id="qrAmtPv" aria-live="polite"></span></div>' +
+    '<div class="qrp-btns">' + (amt ? '<button type="button" class="pill-btn" data-qrclear="1">Bỏ số tiền</button>' : "") + '<button type="submit" class="btn-primary">Xong</button></div></form>';
+}
+function openQr(pid){
+  QR.open = true; QR.pid = pid || ""; QR.amt = 0; QR.panel = false;
+  $("#qrSheet").hidden = false; renderQrSheet();
+  try { history.pushState({ qr:1 }, ""); } catch (e) {}
+  setTimeout(function(){ var x = $("#qrSheet .back"); if (x) try { x.focus({ preventScroll:true }); } catch (e) {} }, 60);
+}
+function hideQr(){ QR.open = false; QR.panel = false; $("#qrSheet").hidden = true; renderQrPanel(); }
+function closeQr(){ if (history.state && history.state.qr) history.back(); else hideQr(); }
+window.addEventListener("popstate", function(){ if (QR.open) hideQr(); });
+$("#qrDim").addEventListener("click", function(){ QR.panel = false; renderQrPanel(); });
+document.addEventListener("keydown", function(ev){
+  if (ev.key !== "Escape" || !QR.open) return;
+  if (QR.panel) { QR.panel = false; renderQrPanel(); } else closeQr();
+});
+document.addEventListener("submit", function(ev){
+  if (!ev.target || ev.target.id !== "qrAmtForm") return;
+  ev.preventDefault();
+  var v = $("#qrAmtIn").value.trim();
+  if (v) {
+    var pa = parseAmount(v);
+    if (!pa || pa.neg || !pa.total) { toast("Chưa hiểu số tiền, nhập như 35k hoặc 120000."); return; }
+    QR.pid = ""; QR.amt = pa.total;
+  }
+  QR.panel = false; renderQrSheet();
+});
+document.addEventListener("input", function(ev){
+  if (!ev.target || ev.target.id !== "qrAmtIn") return;
+  var pa = parseAmount(ev.target.value), pv = $("#qrAmtPv");
+  if (!ev.target.value.trim()) { pv.textContent = ""; pv.className = "preview"; }
+  else if (!pa || pa.neg) { pv.textContent = "Chưa hiểu số"; pv.className = "preview bad"; }
+  else { pv.textContent = fmt(pa.total); pv.className = "preview"; }
+});
+function qrExport(save){
+  var a = accounts()[QR.idx]; if (!a) return;
+  if (typeof window.qrcode !== "function") { toast("Chưa tải được thư viện QR, kiểm tra mạng."); return; }
+  var r = qrPicked(), amt = qrAmount();
+  var name = "QR-" + slug(bankName(a.bankBin)) + (r ? "-" + slug(r.p.name) : (amt ? "-" + amt : "")) + ".png";
+  canvasesOut([{ cv:qrImage({ acct:a, amount:amt, who:r ? r.p.name : "" }), name:name }], save);
 }
 
 /* ---------- quét mail ngay ---------- */
@@ -1174,6 +1427,20 @@ document.addEventListener("click", function(ev){
   var b = ev.target.closest("button"); if (!b) return;
   if (b.dataset.tab) { setTab(b.dataset.tab); return; }
   if (b.dataset.stat) { S.statMode = b.dataset.stat; renderStat(); return; }
+  if (b.dataset.qrsheet) { openQr(""); return; }
+  if (b.hasAttribute("data-qrp")) { QR.pid = b.getAttribute("data-qrp"); QR.amt = 0; QR.panel = false; renderQrSheet(); return; }
+  if (b.dataset.qrclose) { closeQr(); return; }
+  if (b.dataset.qrcopy) { copyText(b.dataset.qrcopy, b); return; }
+  if (b.dataset.qrdot) { var qtr = $("#qrTrack"); if (qtr) qtr.scrollTo({ left: Number(b.dataset.qrdot) * qtr.clientWidth, behavior:"smooth" }); return; }
+  if (b.dataset.qrpanel) { QR.panel = b.dataset.qrpanel === "1"; renderQrPanel(); return; }
+  if (b.dataset.qrclear) { QR.pid = ""; QR.amt = 0; QR.panel = false; renderQrSheet(); return; }
+  if (b.dataset.qrshare || b.dataset.qrsave) { qrExport(!!b.dataset.qrsave); return; }
+  if (b.dataset.mdel) { MORE.splice(Number(b.dataset.mdel), 1); renderMore(); return; }
+  if (b.dataset.qrsettings) {
+    var addNew = b.dataset.qrsettings === "add"; closeQr(); setTab("bao");
+    setTimeout(function(){ $("#settingsBox").open = true; if (addNew) addMoreAccount(); $("#settingsBox").scrollIntoView({ behavior:"smooth", block: addNew ? "end" : "center" }); }, 80);
+    return;
+  }
   if (b.dataset.month) { S.statMonth = b.dataset.month; renderStat(); return; }
   if (b.dataset.scan) { scanNow(b); return; }
   if (b.dataset.qr) { var qrRow = owingRows().find(function(r){ return r.p.id === b.dataset.qr; }); if (qrRow) shareQr([qrRow]); return; }
@@ -1184,7 +1451,7 @@ document.addEventListener("click", function(ev){
   if (b.dataset.bcopy) { copyText(billMsg, b); return; }
   if (b.dataset.bshare) { navigator.share({ text: billMsg }).catch(function(){}); return; }
   if (b.dataset.kind) { S.kind = b.dataset.kind; renderQuickAdd(); return; }
-  if (b.dataset.pid && b.classList.contains("chip")) { S.sel = S.sel === b.dataset.pid ? null : b.dataset.pid; renderQuickAdd(); $("#qaAmount").focus(); return; }
+  if (b.dataset.pid && b.classList.contains("chip")) { var k = S.picks.indexOf(b.dataset.pid); if (k >= 0) S.picks.splice(k, 1); else S.picks.push(b.dataset.pid); renderQuickAdd(); $("#qaAmount").focus(); return; }
   if (b.dataset.amt) { $("#qaAmount").value = fmt(Number(b.dataset.amt)); updatePreview(); return; }
   if (b.dataset.mode) { S.mode = b.dataset.mode; renderBao(); return; }
   if (b.dataset.copy) { copyText(msgCache[b.dataset.copy] || "", b); return; }
@@ -1202,8 +1469,9 @@ document.addEventListener("click", function(ev){
   if (act === "old") { S.showOld[pid] = !S.showOld[pid]; renderPeople(); return; }
   if (act === "edit") { S.editing = b.dataset.eid; renderPeople(); var f = $("#ed-amt"); if (f) f.focus(); return; }
   if (act === "cancel") { S.editing = null; renderPeople(); return; }
+  if (act === "qr") { openQr(pid); return; }
   if (act === "pick" || act === "partial") {
-    S.sel = pid; S.kind = act === "partial" ? "payment" : "debt"; renderQuickAdd();
+    S.picks = [pid]; S.kind = act === "partial" ? "payment" : "debt"; renderQuickAdd();
     $("#qa").scrollIntoView({ behavior:"smooth", block:"start" }); setTimeout(function(){ $("#qaAmount").focus(); }, 300); return;
   }
   if (!CFG) { showSetup(); return; }
@@ -1246,19 +1514,35 @@ document.addEventListener("click", function(ev){
 $("#qaAmount").addEventListener("input", updatePreview);
 $("#qa").addEventListener("submit", function(ev){
   ev.preventDefault();
-  var p = parseAmount($("#qaAmount").value); if (!p || !S.sel || !CFG) return;
-  var kind = (p.neg || S.kind === "payment") ? "payment" : "debt", who = personById(S.sel), date = $("#qaDate").value || todayISO();
-  var row = addEntry({ person:S.sel, date:date, amount:p.total, parts:p.parts.length > 1 ? p.parts : [], kind:kind, note:$("#qaNote").value.trim() });
-  $("#qaAmount").value = ""; $("#qaNote").value = ""; updatePreview();
-  toast((kind === "payment" ? who.name + " trả " : "Ghi nợ " + who.name + " ") + fmt(p.total) + " · " + dm(date), function(){ removeEntry(row.id); });
+  var p = parseAmount($("#qaAmount").value); if (!p || !S.picks.length || !CFG) return;
+  var kind = (p.neg || S.kind === "payment") ? "payment" : "debt", date = $("#qaDate").value || todayISO();
+  var note = $("#qaNote").value.trim(), base = Date.now(), now = new Date().toISOString();
+  var rows = S.picks.map(function(pid, i){
+    return { id:newId("e"), person:pid, date:date, amount:p.total, parts:p.parts.length > 1 ? p.parts : [], kind:kind, note:note, seq:base + i, src:"app", createdAt:now };
+  });
+  var ids = rows.map(function(r){ return r.id; }), many = rows.length > 1;
+  var name1 = (personById(rows[0].person) || {}).name;
+  rows.forEach(function(r){ S.entries.push(r); });
+  S.picks = []; $("#qaAmount").value = ""; $("#qaNote").value = ""; render();
+  quiet(many ? write({ action:"upsertMany", table:"entries", rows:rows }) : write({ action:"upsert", table:"entries", row:rows[0] }));
+  var msg = many
+    ? (kind === "payment" ? rows.length + " người trả" : "Ghi nợ " + rows.length + " người") + ", mỗi người " + fmt(p.total)
+    : (kind === "payment" ? name1 + " trả " : "Ghi nợ " + name1 + " ") + fmt(p.total);
+  toast(msg + " · " + dm(date), function(){
+    S.entries = S.entries.filter(function(e){ return ids.indexOf(e.id) < 0; }); render();
+    quiet(many ? write({ action:"deleteMany", table:"entries", ids:ids }) : write({ action:"delete", table:"entries", id:ids[0] }));
+  });
 });
+$("#qaClear").addEventListener("click", function(){ S.picks = []; renderQuickAdd(); });
+/* giữ bàn phím khi bấm chọn thêm người */
+$("#qaPeople").addEventListener("mousedown", function(ev){ if (document.activeElement === $("#qaAmount") && ev.target.closest(".chip")) ev.preventDefault(); });
 $("#addPerson").addEventListener("submit", function(ev){
   ev.preventDefault();
   var name = $("#newPerson").value.trim(); if (!name) return;
   if (!CFG) { showSetup(); return; }
   if (S.people.some(function(p){ return p.name.toLowerCase() === name.toLowerCase(); })) { toast(name + " đã có trong sổ."); return; }
   var row = createPerson(name); if (!row) return;
-  S.sel = row.id; render();
+  S.picks = [row.id]; render();
   $("#newPerson").value = ""; toast("Đã thêm " + name);
 });
 ["optDetail","optBank","optQR"].forEach(function(id){ $("#" + id).addEventListener("change", renderBao); });
@@ -1267,7 +1551,15 @@ $("#setForm").addEventListener("submit", function(ev){
   if (!CFG) { showSetup(); return; }
   var acc = $("#setAcc").value.replace(/\D/g,"");
   if (acc && !/^\d{6,19}$/.test(acc)) { toast("Số tài khoản gồm 6–19 chữ số."); return; }
-  S.settings = { bankBin:$("#setBank").value, accountNo:acc, accountName:strip($("#setName").value.trim()).toUpperCase(), greeting:$("#setGreet").value.trim() };
+  var more = [];
+  for (var mi = 0; mi < MORE.length; mi++) {
+    var mno = String(MORE[mi].accountNo || "").replace(/\D/g,"");
+    if (!mno) continue;
+    if (!/^\d{6,19}$/.test(mno)) { toast("Số tài khoản " + (mi + 2) + " gồm 6–19 chữ số."); return; }
+    more.push({ bankBin:MORE[mi].bankBin || "970436", accountNo:mno, accountName:strip(String(MORE[mi].accountName || "").trim()).toUpperCase() });
+  }
+  S.settings = { bankBin:$("#setBank").value, accountNo:acc, accountName:strip($("#setName").value.trim()).toUpperCase(), greeting:$("#setGreet").value.trim(), more:more };
+  MORE = more.map(function(a){ return { bankBin:a.bankBin, accountNo:a.accountNo, accountName:a.accountName }; }); renderMore();
   quiet(write({ action:"upsert", table:"config", row:{ id:"settings", json:S.settings } }));
   $("#settingsBox").open = false; render(); toast("Đã lưu tài khoản nhận tiền");
 });
@@ -1292,6 +1584,7 @@ setSync(CFG ? "busy" : "none");
 render();
 if (h0 === "chi") { S.statMode = "card"; setTab("stat"); }
 else if (h0 === "bao" || h0 === "bill" || h0 === "stat") setTab(h0);
+if (h0 === "qr") { try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {} openQr(""); }
 if (h0 === "ghi") setTimeout(function(){ try { $("#qa").scrollIntoView({ block:"start" }); $("#qaAmount").focus({ preventScroll:true }); } catch (e) {} }, 350);
 if (!CFG) showSetup(); else refresh();
 if ("serviceWorker" in navigator) window.addEventListener("load", function(){ navigator.serviceWorker.register("sw.js").catch(function(){}); });
