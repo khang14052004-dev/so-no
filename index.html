@@ -355,6 +355,11 @@ button.row:active{background:var(--fill-2)}
 .imp-raw summary{cursor:pointer;font-size:13px;color:var(--label-2)}
 .imp-raw pre{margin:8px 0 0;max-height:220px;overflow:auto;padding:10px;border-radius:12px;background:var(--fill-2);font-size:12px;line-height:16px;white-space:pre-wrap;overflow-wrap:anywhere}
 @media (prefers-reduced-motion:reduce){.imp-bar i{transition:none}}
+.share-hero{display:grid;gap:2px;padding:16px;text-align:center;margin-bottom:8px}
+.share-hero .k{font-size:13px;line-height:18px;font-weight:600;color:var(--label-2)}
+.share-hero .v{font-family:var(--f-serif);font-size:30px;line-height:36px;font-weight:500;letter-spacing:-.02em;font-variant-numeric:lining-nums tabular-nums}
+.share-hero .s{font-size:13px;line-height:18px;color:var(--label-2)}
+.p-formula{font-size:15px;font-weight:600;color:var(--label-2);white-space:nowrap}
 .x-btn{flex:none;width:36px;height:36px;border-radius:50%;border:0;background:var(--fill);font-size:22px;line-height:1;color:var(--label-2);cursor:pointer}
 .chip .cv{opacity:.6;font-variant-numeric:tabular-nums}
 /* trang mã QR nhận tiền */
@@ -586,7 +591,7 @@ button.row:active{background:var(--fill-2)}
       <div class="sec-h"><h2>Phí và khuyến mãi</h2></div>
       <div class="seg full" role="group" aria-label="Cách chia phí và khuyến mãi">
         <button type="button" data-bsplit="ratio" aria-pressed="true">Theo tỷ lệ món</button>
-        <button type="button" data-bsplit="equal" aria-pressed="false">Chia đều cho mọi người</button>
+        <button type="button" data-bsplit="equal" aria-pressed="false">Chia đều</button>
       </div>
       <div class="glass list">
         <label class="item f-row"><span>Phí giao hàng</span><input id="billShip" class="num" placeholder="0" autocomplete="off"></label>
@@ -1448,35 +1453,41 @@ function renderBill(){
   renderBillRes();
 }
 function billCalc(){
-  var by = {}, order = [];
+  var by = {}, order = [], equal = billSplit() === "equal";
   BILL.items.forEach(function(i){
-    var v = amtOf(i.price); if (!i.who || !whoName(i.who) || !v) return;
-    if (!by[i.who]) { by[i.who] = { sub:0, items:[] }; order.push(i.who); }
-    by[i.who].sub += v; by[i.who].items.push(i);
+    if (!i.who || !whoName(i.who)) return;
+    var v = amtOf(i.price);
+    if (!v && !equal) return;
+    if (!by[i.who]) { by[i.who] = { sub:0, items:[], priced:false }; order.push(i.who); }
+    if (v) { by[i.who].sub += v; by[i.who].items.push(i); by[i.who].priced = true; }
   });
   var subtotal = order.reduce(function(t, w){ return t + by[w].sub; }, 0);
   var ship = amtOf(BILL.ship), fee = amtOf(BILL.fee), disc = amtOf(BILL.disc), n = order.length;
-  var equal = billSplit() === "equal", share = n ? (ship + fee - disc) / n : 0;
+  var share = n ? (ship + fee - disc) / n : 0;
   var rows = order.map(function(w){
     var x = by[w], ratio = subtotal ? x.sub / subtotal : 0, sh, fe, di;
     if (equal) { sh = n ? ship / n : 0; fe = n ? fee / n : 0; di = n ? disc / n : 0; }
     else { sh = BILL.shipEqual !== false ? (n ? ship / n : 0) : ship * ratio; fe = fee * ratio; di = disc * ratio; }
     var raw = x.sub + sh + fe - di;
-    return { who:w, name:whoName(w), sub:x.sub, ship:sh, fee:fe, disc:di, share:sh + fe - di, pay: BILL.round !== false ? Math.round(raw / 1000) * 1000 : Math.round(raw), items:x.items };
+    return { who:w, name:whoName(w), sub:x.sub, ship:sh, fee:fe, disc:di, share:sh + fe - di, priced:x.priced,
+      pay: !x.priced ? null : BILL.round !== false ? Math.round(raw / 1000) * 1000 : Math.round(raw), items:x.items };
   });
+  var unpriced = rows.filter(function(r){ return !r.priced; }).length;
   var total = subtotal + ship + fee - disc;
-  var paySum = rows.reduce(function(t, r){ return t + r.pay; }, 0);
-  return { rows:rows, subtotal:subtotal, ship:ship, fee:fee, disc:disc, total:total, n:n, equal:equal, share:share, diff: paySum - Math.round(total) };
+  var paySum = rows.reduce(function(t, r){ return t + (r.pay || 0); }, 0);
+  return { rows:rows, subtotal:subtotal, ship:ship, fee:fee, disc:disc, total:total, n:n, equal:equal, share:share, unpriced:unpriced, diff: unpriced ? 0 : paySum - Math.round(total) };
 }
 function billMessage(c){
   var lines = [(BILL.title ? "Chia bill " + BILL.title : "Chia bill") + " (" + dm(todayISO()) + ")"];
-  var meta = ["tổng " + fmt(Math.round(c.total))];
+  var meta = c.unpriced ? [] : ["tổng " + fmt(Math.round(c.total))];
   if (c.disc) meta.push("đã giảm " + fmt(c.disc));
   if (c.ship) meta.push("ship " + fmt(c.ship));
-  lines.push(meta.join(", "));
-  if (c.equal && (c.ship || c.fee || c.disc)) lines.push("Tiền món ai nấy trả, phí và giảm chia đều: " + signed(c.share) + "/người");
+  if (c.fee) meta.push("phí khác " + fmt(c.fee));
+  if (meta.length) lines.push(meta.join(", "));
+  if (c.equal && (c.ship || c.fee || c.disc)) lines.push("Tiền món ai nấy trả, phí và giảm chia đều " + c.n + " người: " + signed(c.share) + "/người");
   lines.push("");
   c.rows.forEach(function(r){
+    if (!r.priced) { lines.push(r.name + ": tiền món của mình " + signed(r.share)); return; }
     var its = r.items.map(function(i){ return (i.name ? i.name + " " : "") + fmt(amtOf(i.price)); }).join(" + ");
     lines.push(r.name + ": " + fmt(r.pay) + (its ? " (" + its + ")" : ""));
   });
@@ -1484,32 +1495,36 @@ function billMessage(c){
   return lines.join("\n");
 }
 function renderBillRes(){
-  var c = billCalc(), out = $("#billRes");
-  if (!c.n) { billMsg = ""; out.innerHTML = '<div class="glass empty"><strong>Mỗi người trả bao nhiêu?</strong>Chọn người và nhập giá từng món, kết quả hiện ở đây.</div>'; return; }
-  if (c.total < 0) { billMsg = ""; out.innerHTML = '<p class="notice">Khuyến mãi đang lớn hơn tổng tiền món và phí, kiểm tra lại số giảm.</p>'; return; }
-  var h = '<div class="sec"><div class="sec-h"><h2>Kết quả</h2><span class="aside">' + c.n + ' người</span></div><div class="glass list">' +
-    '<div class="item sum-row"><span>Tiền món</span><b>' + fmt(c.subtotal) + "</b></div>" +
+  var c = billCalc(), out = $("#billRes"), hasFees = !!(c.ship || c.fee || c.disc);
+  if (!c.n) { billMsg = ""; out.innerHTML = '<div class="glass empty"><strong>Mỗi người trả bao nhiêu?</strong>' + (c.equal ? "Chọn người cho từng món. Ai tự biết tiền món của mình thì để trống giá, app vẫn chia phí và giảm cho mỗi người." : "Chọn người và nhập giá từng món, kết quả hiện ở đây.") + "</div>"; return; }
+  if (!c.unpriced && c.total < 0) { billMsg = ""; out.innerHTML = '<p class="notice">Khuyến mãi đang lớn hơn tổng tiền món và phí, kiểm tra lại số giảm.</p>'; return; }
+  var h = '<div class="sec"><div class="sec-h"><h2>Kết quả</h2><span class="aside">' + c.n + ' người</span></div>';
+  if (c.equal && hasFees) h += '<div class="glass share-hero"><span class="k">Mỗi người trả</span><span class="v">Tiền món ' + (c.share < 0 ? "−" : "+") + " " + fmt(Math.abs(Math.round(c.share))) + '</span><span class="s">(' + [c.ship ? "phí giao " + fmt(c.ship) : "", c.fee ? "phí khác " + fmt(c.fee) : "", c.disc ? "giảm " + fmt(c.disc) : ""].filter(Boolean).join(" · ") + ") ÷ " + c.n + " người</span></div>";
+  h += '<div class="glass list">' +
+    (c.subtotal ? '<div class="item sum-row"><span>' + (c.unpriced ? "Tiền món đã nhập" : "Tiền món") + "</span><b>" + fmt(c.subtotal) + "</b></div>" : "") +
     (c.ship ? '<div class="item sum-row"><span>Phí giao hàng</span><b>' + fmt(c.ship) + "</b></div>" : "") +
     (c.fee ? '<div class="item sum-row"><span>Phí dịch vụ, khác</span><b>' + fmt(c.fee) + "</b></div>" : "") +
     (c.disc ? '<div class="item sum-row"><span>Khuyến mãi</span><b>−' + fmt(c.disc) + "</b></div>" : "") +
-    '<div class="item sum-row total"><span>Tổng đơn</span><b>' + fmt(Math.round(c.total)) + "</b></div>" +
-    (c.equal && (c.ship || c.fee || c.disc) ? '<div class="item sum-row"><span>Phí − giảm, chia ' + c.n + ' người</span><b>' + signed(c.share) + "/người</b></div>" : "") + "</div>" +
-    '<p class="foot">Đối chiếu với tổng thanh toán trên app Grab, khớp là đúng.</p></div>';
+    (c.unpriced ? "" : '<div class="item sum-row total"><span>Tổng đơn</span><b>' + fmt(Math.round(c.total)) + "</b></div>") + "</div>" +
+    (c.unpriced ? "" : '<p class="foot">Đối chiếu với tổng thanh toán trên app Grab, khớp là đúng.</p>') + "</div>";
   h += '<div class="glass list people">' + c.rows.map(function(r){
     var its = r.items.map(function(i){ return (i.name ? i.name + " " : "") + fmt(amtOf(i.price)); }).join(" + ");
     var det = [];
     if (c.equal) { if (Math.round(r.share)) det.push("chia đều " + signed(r.share)); }
     else { if (r.ship + r.fee) det.push("phí " + fmt(Math.round(r.ship + r.fee))); if (r.disc) det.push("giảm " + fmt(Math.round(r.disc))); }
     var person = r.who === "__me" ? { id:"__me", name:"Tôi" } : (personById(r.who) || { id:r.who, name:r.name });
-    return '<div class="item row share-row">' + avatar(person) + '<span class="p-txt"><span class="p-name">' + esc(r.name) + '</span><span class="p-meta">' + esc(its + (det.length ? " · " + det.join(", ") : "")) + '</span></span><span class="p-bal">' + fmt(r.pay) + "</span></div>";
+    var meta = r.priced ? its + (det.length ? " · " + det.join(", ") : "") : "tự biết tiền món";
+    var bal = r.priced ? fmt(r.pay) : '<span class="p-formula">món ' + esc(signed(r.share)) + "</span>";
+    return '<div class="item row share-row">' + avatar(person) + '<span class="p-txt"><span class="p-name">' + esc(r.name) + '</span><span class="p-meta">' + esc(meta) + '</span></span><span class="p-bal">' + bal + "</span></div>";
   }).join("") + "</div>";
   if (c.diff) h += '<p class="foot">Do làm tròn, tổng mọi người trả ' + (c.diff > 0 ? "dư " : "thiếu ") + fmt(Math.abs(c.diff)) + " so với tổng đơn.</p>";
-  var others = c.rows.filter(function(r){ return r.who !== "__me"; });
+  var others = c.rows.filter(function(r){ return r.who !== "__me" && r.priced; });
   billMsg = billMessage(c);
   h += '<div class="bill-actions">';
   if (others.length) h += BILL.recorded
     ? '<button type="button" class="btn-primary" disabled>Đã ghi nợ vào sổ</button>'
     : '<button type="button" class="btn-primary" data-brec="1">Ghi nợ cho ' + others.length + " người · " + fmt(others.reduce(function(t, r){ return t + r.pay; }, 0)) + "</button>";
+  else if (c.unpriced) h += '<p class="foot">Nhập giá món của ai thì app tính ra số tiền và ghi nợ được cho người đó.</p>';
   h += '<div class="row2">' + (canShare ? '<button type="button" class="pill-btn" data-bshare="1">Gửi qua Zalo…</button>' : "") + '<button type="button" class="pill-btn ink" data-bcopy="1">Chép tin chia bill</button></div></div>';
   out.innerHTML = h;
 }
@@ -1521,7 +1536,7 @@ function billDel(id){
 function billRecord(){
   if (!CFG) { showSetup(); return; }
   var c = billCalc(), base = Date.now(), now = new Date().toISOString();
-  var rows = c.rows.filter(function(r){ return r.who !== "__me" && r.pay > 0; }).map(function(r, i){
+  var rows = c.rows.filter(function(r){ return r.who !== "__me" && r.priced && r.pay > 0; }).map(function(r, i){
     return { id:newId("e"), person:r.who, date:todayISO(), amount:r.pay, parts:[], kind:"debt", note:(BILL.title || "Chia bill"), seq:base + i, src:"bill", createdAt:now };
   });
   if (!rows.length) return;
@@ -1956,7 +1971,9 @@ function buildImp(texts){
   });
   if (bills.length) {
     IMP.bill = mergeBills(bills);
-    IMP.bill.heads.forEach(function(h){ IMP.map[h.name] = h.me ? "__me" : guessWho(h.name, true).id; });
+    var gs = IMP.bill.heads.map(function(h){ return h.me ? { id:"__me", sure:true } : guessWho(h.name, true); }), used = {};
+    IMP.bill.heads.forEach(function(h, k){ if (gs[k].sure && gs[k].id) { IMP.map[h.name] = gs[k].id; used[gs[k].id] = 1; } });
+    IMP.bill.heads.forEach(function(h, k){ if (!gs[k].sure) IMP.map[h.name] = gs[k].id && !used[gs[k].id] ? gs[k].id : ""; if (IMP.map[h.name]) used[IMP.map[h.name]] = 1; });
   }
 }
 function whoOptions(sel, withMe){
@@ -1990,7 +2007,9 @@ function renderImp(){
     var fees = []; if (b.ship) fees.push("Phí giao " + fmt(b.ship)); if (b.fee) fees.push("Phí khác " + fmt(b.fee)); if (b.disc) fees.push("Giảm " + fmt(b.disc));
     if (fees.length) h += '<p class="imp-sub">' + fees.join(" · ") + "</p>";
     var missing = who.filter(function(x){ return x.count && !b.items.some(function(i){ return i.who === x.name; }); });
-    if (missing.length) h += '<p class="notice">Chưa thấy giá món của ' + esc(missing.map(function(x){ return x.name; }).join(", ")) + '. Mở "Xem chi tiết" trên app, chụp thêm rồi nhập tất cả ảnh cùng lúc.</p>';
+    if (missing.length) h += '<p class="imp-sub">Chưa thấy giá món của ' + esc(missing.map(function(x){ return x.name; }).join(", ")) + '. Không sao: app vẫn chia đều phí và giảm cho mỗi người, ai tự biết tiền món của mình. Muốn app tính luôn thì mở "Xem chi tiết" trên app, chụp thêm rồi nhập cùng.</p>';
+    var cnt = {}; who.forEach(function(x){ var v = IMP.map[x.name]; if (v && v !== "__new") (cnt[v] = cnt[v] || []).push(x.name); });
+    Object.keys(cnt).forEach(function(v){ if (cnt[v].length > 1) h += '<p class="notice">' + esc(cnt[v].join(" và ")) + " đang cùng chọn là " + esc(v === "__me" ? "Tôi" : (personById(v) || {}).name || "") + ", kiểm tra lại nhé.</p>"; });
     if (b.total && b.itemSum && !missing.length) {
       var calc = b.itemSum + b.ship + b.fee - b.disc, off = Math.round(calc - b.total);
       h += off ? '<p class="imp-check bad">Lệch ' + fmt(Math.abs(off)) + " so với tổng cộng " + vnd(b.total) + " trên ảnh, kiểm tra lại giá sau khi điền.</p>"
@@ -2022,12 +2041,14 @@ function impFill(){
   var b = IMP.bill; if (!b) return;
   var prev = JSON.parse(JSON.stringify(BILL));
   var items = b.items.map(function(i){ var w = IMP.map[i.who] || ""; return { id:newId("i"), who:w === "__new" ? "" : w, name:i.name, price:amtStr(i.price) }; });
+  var bare = b.heads.filter(function(x){ return x.count && !b.items.some(function(i){ return i.who === x.name; }); });
+  bare.forEach(function(x){ var w = IMP.map[x.name] || ""; items.push({ id:newId("i"), who:w === "__new" ? "" : w, name:"", price:"" }); });
   if (!items.length) items = [{ id:newId("i"), who:"", name:"", price:"" }];
   BILL = { title:(b.app || "Đơn nhóm") + (b.date ? " " + dm(b.date) : ""), items:items, ship:b.ship ? amtStr(b.ship) : "", fee:b.fee ? amtStr(b.fee) : "", disc:b.disc ? amtStr(b.disc) : "",
-    shipEqual:prev.shipEqual !== false, round:prev.round !== false, split:prev.split || lsGet("soNo.billSplit", "ratio"), recorded:null };
-  saveAliases(b.heads.filter(function(x){ return !x.me && b.items.some(function(i){ return i.who === x.name; }); }).map(function(x){ return [x.name, IMP.map[x.name]]; }));
+    shipEqual:prev.shipEqual !== false, round:prev.round !== false, split:bare.length ? "equal" : (prev.split || lsGet("soNo.billSplit", "ratio")), recorded:null };
+  saveAliases(b.heads.filter(function(x){ return !x.me && (x.count || b.items.some(function(i){ return i.who === x.name; })); }).map(function(x){ return [x.name, IMP.map[x.name]]; }));
   saveBill(); closeImp(); setTab("bill"); renderBill();
-  toast("Đã điền đơn từ ảnh", function(){ BILL = prev; saveBill(); renderBill(); });
+  toast(bare.length ? "Đã điền đơn, chia đều phí và giảm cho " + (b.items.length ? "mọi người" : bare.length + " người") : "Đã điền đơn từ ảnh", function(){ BILL = prev; saveBill(); renderBill(); });
 }
 function impRecordTx(i){
   var x = IMP.txs[i], p = x && personById(x.who), amt = x && parseAmount(x.amt);
