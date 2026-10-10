@@ -102,6 +102,9 @@ button.row:active{background:var(--fill-2)}
 .chips.wrap{flex-wrap:wrap;overflow:visible;margin-inline:0;padding-inline:0}
 .chip{flex:none;min-height:36px;border:0;background:var(--fill);border-radius:18px;padding:0 14px;font-size:15px;font-weight:500;cursor:pointer;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
 .chip[aria-pressed="true"]{background:var(--ink);color:var(--on-ink)}
+.chip.all{background:transparent;color:var(--tint);box-shadow:inset 0 0 0 1.5px rgba(88,86,214,.32);padding:0 14px 0 11px}
+.chip.all svg{width:18px;height:18px;flex:none}
+.chip.all[aria-pressed="true"]{background:var(--ink);color:var(--on-ink);box-shadow:none}
 .chip .cv{font-variant-numeric:tabular-nums;opacity:.7}
 .field{width:100%;min-width:0;border:0;background:var(--fill-2);border-radius:var(--r-field);padding:0 16px;min-height:44px;font-size:17px;color:var(--label);outline:none}
 .field::placeholder{color:var(--label-3)}
@@ -855,7 +858,11 @@ function renderQuickAdd(){
   var box = $("#qaPeople"), html;
   if (!S.loaded) html = '<span class="lbl" style="margin:0">Đang tải…</span>';
   else if (!people.length) html = '<span class="lbl" style="margin:0">Thêm người ở cuối trang trước.</span>';
-  else html = people.map(function(p){ return '<button type="button" class="chip" data-pid="' + esc(p.id) + '" aria-pressed="' + (S.picks.indexOf(p.id) >= 0) + '">' + esc(p.name) + "</button>"; }).join("");
+  else {
+    var all = people.length > 1 && S.picks.length === people.length;
+    html = (people.length > 1 ? '<button type="button" class="chip all" data-pickall="1" aria-pressed="' + all + '"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19.5a5.5 5.5 0 0 1 11 0"/><path d="M15.5 5.2a3.2 3.2 0 0 1 0 5.8M17.5 14.3a5.5 5.5 0 0 1 3 5.2"/></svg>Tất cả</button>' : "") +
+      people.map(function(p){ return '<button type="button" class="chip" data-pid="' + esc(p.id) + '" aria-pressed="' + (S.picks.indexOf(p.id) >= 0) + '">' + esc(p.name) + "</button>"; }).join("");
+  }
   if (box.innerHTML !== html) box.innerHTML = html;
   var freq = {};
   S.entries.slice().sort(sortEntries).slice(-80).forEach(function(e){ if (e.kind !== "payment" && (!e.parts || e.parts.length < 2)) freq[e.amount] = (freq[e.amount] || 0) + 1; });
@@ -1572,6 +1579,7 @@ document.addEventListener("click", function(ev){
   if (b.dataset.bcopy) { copyText(billMsg, b); return; }
   if (b.dataset.bshare) { navigator.share({ text: billMsg }).catch(function(){}); return; }
   if (b.dataset.kind) { S.kind = b.dataset.kind; renderQuickAdd(); return; }
+  if (b.dataset.pickall) { var ps = sortedPeople(); S.picks = S.picks.length === ps.length ? [] : ps.map(function(p){ return p.id; }); renderQuickAdd(); $("#qaAmount").focus(); return; }
   if (b.dataset.pid && b.classList.contains("chip")) { var k = S.picks.indexOf(b.dataset.pid); if (k >= 0) S.picks.splice(k, 1); else S.picks.push(b.dataset.pid); renderQuickAdd(); $("#qaAmount").focus(); return; }
   if (b.dataset.amt) { $("#qaAmount").value = fmt(Number(b.dataset.amt)); updatePreview(); return; }
   if (b.dataset.mode) { S.mode = b.dataset.mode; renderBao(); return; }
