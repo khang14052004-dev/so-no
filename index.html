@@ -206,12 +206,12 @@ button.row:active{background:var(--fill-2)}
 .months{display:grid;gap:20px}
 
 .tabbar{position:fixed;z-index:10;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));width:max-content;max-width:calc(100% - 40px);display:flex;align-items:center;gap:4px;padding:6px;border-radius:32px;background:var(--glass-strong);-webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%);box-shadow:var(--shadow-float),inset 0 0 0 1px var(--rim)}
-.tabbar button{flex:none;border:0;background:transparent;display:flex;align-items:center;justify-content:center;gap:8px;min-width:56px;height:52px;padding:0 16px;border-radius:26px;color:var(--label-2);cursor:pointer;transition:background-color .2s,color .2s}
+.tabbar button{flex:none;border:0;background:transparent;display:flex;align-items:center;justify-content:center;gap:8px;min-width:52px;height:52px;padding:0 13px;border-radius:26px;box-sizing:border-box;color:var(--label-2);cursor:pointer;transition:background-color .2s,color .2s}
 .tabbar svg{width:26px;height:26px;flex:none}
 .tabbar .f,.tabbar .tl{display:none}
 .tabbar .cut{stroke:#fff}
 .tabbar .tl{font-size:16px;line-height:20px;font-weight:600;letter-spacing:-.01em;white-space:nowrap}
-.tabbar button[aria-selected="true"]{color:var(--label);background:var(--fill);padding:0 20px 0 16px;min-width:148px}
+.tabbar button[aria-selected="true"]{color:var(--label);background:var(--fill);padding:0 18px 0 14px;min-width:140px}
 .tabbar button[aria-selected="true"] .o{display:none}
 .tabbar button[aria-selected="true"] .f,.tabbar button[aria-selected="true"] .tl{display:block}
 @media (prefers-reduced-motion:reduce){.tabbar button{transition:none}}
