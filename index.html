@@ -1796,7 +1796,7 @@ function ocrDate(t){
 }
 function ocrKind(t){
   var L = ocrLines(t);
-  var bill = L.some(function(l){ return /:\s*\d+\s*m\S?n\b/i.test(l) || /^\d+\s*[xX×]\s+\S/.test(l) || /t[ổo]ng t[ạa]m t[íi]nh/i.test(l); });
+  var bill = L.some(function(l){ return /:\s*\d+\s*m\S?n\b/i.test(l) || /^\d+\s*[xX×]\s+\S/.test(l) || /t[ổo]ng (t[ạa]m t[íi]nh|c[ộo]ng)/i.test(l) || /[đd][ơo]n\s*h\S*ng\s*nh[óo]m/i.test(l); });
   if (bill) return "bill";
   if (/\+\s?\d{1,3}(?:[.,]\d{3})+\s*VND|giao d[iị]ch th[aà]nh c[oô]ng|s[ốo] d[ưu] TK|chuy[eể]n (kho[aả]n|ti[eề]n)|n[ộo]i dung/i.test(t)) return "transfer";
   return "";
@@ -1804,9 +1804,20 @@ function ocrKind(t){
 
 /* Đơn nhóm (Grab, ShopeeFood…): "Tên: 1 món", "1x Món 33.000", phí, giảm, tổng cộng */
 function parseBillText(t, carry){
-  var r = { heads:[], items:[], ship:0, fee:0, disc:0, discLines:[], feeLines:[], total:0, subtotal:0, date:ocrDate(t), app:/grab/i.test(t) ? "Grab" : /shopee/i.test(t) ? "ShopeeFood" : /\bbe\b/.test(t) && /bemin|befood/i.test(t) ? "beFood" : "", last:carry || null };
+  var lm = t.match(/nh[óo]m\s*c[ủu]\S?\s*([A-ZÀ-Ỹ][^\s.,:;]*(?:\s+[A-ZÀ-Ỹ][^\s.,:;]*)?)/);
+  var r = { heads:[], items:[], shares:[], leader:lm ? lm[1] : "", ship:0, fee:0, disc:0, discLines:[], feeLines:[], total:0, subtotal:0, date:ocrDate(t), app:/grab/i.test(t) ? "Grab" : /shopee/i.test(t) ? "ShopeeFood" : /\bbe\b/.test(t) && /bemin|befood/i.test(t) ? "beFood" : "", last:carry || null };
+  var pend = null;
   ocrLines(t).forEach(function(l){
     var m;
+    if (pend && (m = l.match(new RegExp("^" + MONEY + "\\s*đ?$")))) {
+      var sh = { name:pend.name, me:pend.me, lead:pend.lead, count:0, amount:moneyOf(m[1]) };
+      r.shares.push(sh); r.heads.push(sh); pend = null; return;
+    }
+    var nm0 = l.replace(/^[A-Za-zÀ-ỹ]\s+(?=[A-ZÀ-Ỹ])/, "").replace(/[^A-Za-zÀ-ỹ)]+$/, "").replace(/\s+[a-zà-ỹ]$/, "").trim();
+    if (!/\d/.test(l) && /[A-ZÀ-Ỹ][a-zà-ỹ]+/.test(nm0) && nm0.length <= 40 && nm0.split(" ").length <= 6 && !/t[ổo]ng|xem chi|ph[íi]|gi[ảa]m|[đd][ơo]n h|l[àa]m tr[òo]n|c[óo] th[ểe]/i.test(nm0)) {
+      var ld = /tr[ưu][ởo]ng nh[óo]m/i.test(nm0), nn = nm0.replace(/\s*\(.*?\)\s*/g, " ").trim();
+      if (nn) pend = { name:nn, me:/^b[ạa]n$/i.test(nn), lead:ld };
+    }
     if ((m = l.match(/^(.+?)\s*:\s*(\d+)\s*m\S?n\b/i))) {
       var raw = m[1].replace(/^[^A-Za-zÀ-ỹ]+/, "").trim(), lead = /tr[ưu][ởo]ng nh[óo]m/i.test(raw);
       raw = raw.replace(/\s*\(.*?\)\s*/g, " ").trim();
@@ -1832,7 +1843,7 @@ function parseBillText(t, carry){
   return r;
 }
 function mergeBills(list){
-  var out = { heads:[], items:[], ship:0, fee:0, disc:0, total:0, subtotal:0, date:null, app:"" }, seen = {}, hs = {};
+  var out = { heads:[], items:[], shares:[], leader:"", ship:0, fee:0, disc:0, total:0, subtotal:0, date:null, app:"" }, seen = {}, hs = {}, ss = {};
   list.forEach(function(r){
     r.heads.forEach(function(h){ if (!hs[h.name]) { hs[h.name] = h; out.heads.push(h); } });
     r.items.forEach(function(i){
@@ -1840,10 +1851,13 @@ function mergeBills(list){
       if (seen[k]) return; seen[k] = 1; out.items.push(i);
       if (!hs[i.who]) { hs[i.who] = { name:i.who, me:i.me, count:0 }; out.heads.push(hs[i.who]); }
     });
+    r.shares.forEach(function(x){ if (!ss[x.name]) { ss[x.name] = 1; out.shares.push(x); } });
+    out.leader = out.leader || r.leader;
     out.ship = Math.max(out.ship, r.ship); out.fee = Math.max(out.fee, r.fee); out.disc = Math.max(out.disc, r.disc);
     out.total = out.total || r.total; out.subtotal = out.subtotal || r.subtotal; out.date = out.date || r.date; out.app = out.app || r.app;
   });
   out.itemSum = out.items.reduce(function(t, i){ return t + i.price; }, 0);
+  out.shareSum = out.shares.reduce(function(t, x){ return t + x.amount; }, 0);
   return out;
 }
 
@@ -1971,7 +1985,16 @@ function buildImp(texts){
   });
   if (bills.length) {
     IMP.bill = mergeBills(bills);
-    var gs = IMP.bill.heads.map(function(h){ return h.me ? { id:"__me", sure:true } : guessWho(h.name, true); }), used = {};
+    var myT = nrm(S.settings.accountName || "").split(" ").filter(Boolean);
+    var isMe = function(n){ var t = nrm(n).split(" ").filter(Boolean); return myT.length > 1 && t.length > 1 && t.every(function(x){ return myT.indexOf(x) >= 0; }); };
+    var meByName = IMP.bill.heads.some(function(h){ return !h.me && isMe(h.name); }), ld = IMP.bill.leader;
+    IMP.bill.heads.forEach(function(h){
+      h.isMe = h.me ? !meByName : isMe(h.name);
+      h.key = h.me && !h.isMe ? ld : h.name;
+      h.label = h.me && !h.isMe && ld ? "Bạn (" + ld + ")" : h.name;
+    });
+    IMP.leaderNotMe = IMP.bill.heads.some(function(h){ return h.lead && !h.isMe; }) || (!!ld && !IMP.bill.heads.some(function(h){ return h.lead && h.isMe; }) && meByName);
+    var gs = IMP.bill.heads.map(function(h){ return h.isMe ? { id:"__me", sure:true } : h.key ? guessWho(h.key, true) : { id:"", sure:false }; }), used = {};
     IMP.bill.heads.forEach(function(h, k){ if (gs[k].sure && gs[k].id) { IMP.map[h.name] = gs[k].id; used[gs[k].id] = 1; } });
     IMP.bill.heads.forEach(function(h, k){ if (!gs[k].sure) IMP.map[h.name] = gs[k].id && !used[gs[k].id] ? gs[k].id : ""; if (IMP.map[h.name]) used[IMP.map[h.name]] = 1; });
   }
@@ -1996,26 +2019,28 @@ function renderImp(){
   if (IMP.err) h += '<p class="notice">' + esc(IMP.err) + "</p>";
   var b = IMP.bill;
   if (b) {
-    var who = b.heads.filter(function(x){ return x.count || b.items.some(function(i){ return i.who === x.name; }); });
-    h += '<section class="imp-sec"><h3>' + esc((b.app || "Đơn nhóm") + (b.date ? " · " + dm(b.date) : "")) + '</h3><p class="imp-sub">' + who.length + " người · " + b.items.length + " món" + (b.itemSum ? " · " + fmt(b.itemSum) : "") + "</p>";
+    var useShares = b.shares.length > 0;
+    var who = useShares ? b.shares : b.heads.filter(function(x){ return x.count || b.items.some(function(i){ return i.who === x.name; }); });
+    h += '<section class="imp-sec"><h3>' + esc(billTitleOf(b).replace(/ (\d+\/\d+)$/, " · $1")) + '</h3><p class="imp-sub">' + who.length + " người · " + (useShares ? "app đã chia sẵn số tiền từng người" : b.items.length + " món" + (b.itemSum ? " · " + fmt(b.itemSum) : "")) + "</p>";
     h += who.map(function(x){
-      var its = b.items.filter(function(i){ return i.who === x.name; }), sum = its.reduce(function(t, i){ return t + i.price; }, 0);
-      var meta = its.length ? its.map(function(i){ return i.name + " " + fmt(i.price); }).join(" + ") : "chưa thấy giá món";
-      return '<div class="imp-row"><div class="imp-n"><b>' + esc(x.name) + (x.lead ? ' <span class="tag">trưởng nhóm</span>' : "") + "</b><small>" + esc(meta) + "</small></div>" +
+      var its = b.items.filter(function(i){ return i.who === x.name; });
+      var meta = useShares ? vnd(x.amount) : its.length ? its.map(function(i){ return i.name + " " + fmt(i.price); }).join(" + ") : "chưa thấy giá món";
+      return '<div class="imp-row"><div class="imp-n"><b>' + esc(x.label || x.name) + (x.lead ? ' <span class="tag">trưởng nhóm</span>' : "") + "</b><small>" + esc(meta) + "</small></div>" +
         '<select data-imap="' + esc(x.name) + '" aria-label="' + esc(x.name) + ' là ai">' + whoOptions(IMP.map[x.name] || "", true) + "</select></div>";
     }).join("");
-    var fees = []; if (b.ship) fees.push("Phí giao " + fmt(b.ship)); if (b.fee) fees.push("Phí khác " + fmt(b.fee)); if (b.disc) fees.push("Giảm " + fmt(b.disc));
+    if (IMP.leaderNotMe) { var mine = who.filter(function(x){ return IMP.map[x.name] === "__me"; })[0], lh = b.heads.filter(function(x){ return x.lead && !x.isMe; })[0]; h += '<p class="notice">' + esc((b.leader || (lh ? lh.label || lh.name : "Người khác")) + " là trưởng nhóm, đã trả cho cả nhóm" + (mine && mine.amount ? ". Phần của anh: " + vnd(mine.amount) : "") + ". Chỉ ghi nợ vào sổ nếu anh là người thu tiền.") + "</p>"; }
+    var fees = []; if (!useShares && b.ship) fees.push("Phí giao " + fmt(b.ship)); if (b.fee) fees.push("Phí khác " + fmt(b.fee)); if (b.disc) fees.push("Giảm " + fmt(b.disc));
     if (fees.length) h += '<p class="imp-sub">' + fees.join(" · ") + "</p>";
-    var missing = who.filter(function(x){ return x.count && !b.items.some(function(i){ return i.who === x.name; }); });
+    var missing = useShares ? [] : who.filter(function(x){ return x.count && !b.items.some(function(i){ return i.who === x.name; }); });
     if (missing.length) h += '<p class="imp-sub">Chưa thấy giá món của ' + esc(missing.map(function(x){ return x.name; }).join(", ")) + '. Không sao: app vẫn chia đều phí và giảm cho mỗi người, ai tự biết tiền món của mình. Muốn app tính luôn thì mở "Xem chi tiết" trên app, chụp thêm rồi nhập cùng.</p>';
     var cnt = {}; who.forEach(function(x){ var v = IMP.map[x.name]; if (v && v !== "__new") (cnt[v] = cnt[v] || []).push(x.name); });
     Object.keys(cnt).forEach(function(v){ if (cnt[v].length > 1) h += '<p class="notice">' + esc(cnt[v].join(" và ")) + " đang cùng chọn là " + esc(v === "__me" ? "Tôi" : (personById(v) || {}).name || "") + ", kiểm tra lại nhé.</p>"; });
-    if (b.total && b.itemSum && !missing.length) {
-      var calc = b.itemSum + b.ship + b.fee - b.disc, off = Math.round(calc - b.total);
+    if (b.total && (useShares ? b.shareSum : b.itemSum) && !missing.length) {
+      var calc = useShares ? b.shareSum : b.itemSum + b.ship + b.fee - b.disc, off = Math.round(calc - b.total);
       h += off ? '<p class="imp-check bad">Lệch ' + fmt(Math.abs(off)) + " so với tổng cộng " + vnd(b.total) + " trên ảnh, kiểm tra lại giá sau khi điền.</p>"
                : '<p class="imp-check ok">✓ Khớp tổng cộng ' + vnd(b.total) + " trên ảnh</p>";
     } else if (!b.ship && !b.disc && b.items.length) h += '<p class="imp-sub">Chưa thấy phí và khuyến mãi. Mở mục "Thu lại" trên app và chụp thêm nếu có.</p>';
-    h += '<button type="button" class="btn-primary" data-impfill="1"' + (b.items.length || b.ship || b.disc ? "" : " disabled") + ">Điền vào Chia bill</button></section>";
+    h += '<button type="button" class="btn-primary" data-impfill="1"' + (useShares || b.items.length || b.ship || b.disc || who.length ? "" : " disabled") + ">Điền vào Chia bill</button></section>";
   }
   IMP.txs.forEach(function(x, i){
     var p = x.who ? personById(x.who) : null, bal = p ? ledgerOf(p.id).bal : 0, amt = parseAmount(x.amt);
@@ -2036,17 +2061,20 @@ function renderImp(){
   if (IMP.texts && IMP.texts.length) h += '<details class="imp-raw"><summary>Chữ đọc được từ ảnh</summary><pre>' + esc(IMP.texts.join("\n— — —\n")) + "</pre></details>";
   $("#impBody").innerHTML = h;
 }
+function billTitleOf(b){ return (b.app || "Đơn nhóm") + (b.leader ? " của " + b.leader : "") + (b.date ? " " + dm(b.date) : ""); }
 function closeImp(){ IMP = { open:false }; OCR.log = null; renderImp(); }
 function impFill(){
   var b = IMP.bill; if (!b) return;
   var prev = JSON.parse(JSON.stringify(BILL));
-  var items = b.items.map(function(i){ var w = IMP.map[i.who] || ""; return { id:newId("i"), who:w === "__new" ? "" : w, name:i.name, price:amtStr(i.price) }; });
-  var bare = b.heads.filter(function(x){ return x.count && !b.items.some(function(i){ return i.who === x.name; }); });
+  var useShares = b.shares.length > 0, pick = function(n){ var w = IMP.map[n] || ""; return w === "__new" ? "" : w; };
+  var items = useShares ? b.shares.map(function(x){ return { id:newId("i"), who:pick(x.name), name:"", price:amtStr(x.amount) }; })
+    : b.items.map(function(i){ return { id:newId("i"), who:pick(i.who), name:i.name, price:amtStr(i.price) }; });
+  var bare = useShares ? [] : b.heads.filter(function(x){ return x.count && !b.items.some(function(i){ return i.who === x.name; }); });
   bare.forEach(function(x){ var w = IMP.map[x.name] || ""; items.push({ id:newId("i"), who:w === "__new" ? "" : w, name:"", price:"" }); });
   if (!items.length) items = [{ id:newId("i"), who:"", name:"", price:"" }];
-  BILL = { title:(b.app || "Đơn nhóm") + (b.date ? " " + dm(b.date) : ""), items:items, ship:b.ship ? amtStr(b.ship) : "", fee:b.fee ? amtStr(b.fee) : "", disc:b.disc ? amtStr(b.disc) : "",
+  BILL = { title:billTitleOf(b), items:items, ship:!useShares && b.ship ? amtStr(b.ship) : "", fee:!useShares && b.fee ? amtStr(b.fee) : "", disc:!useShares && b.disc ? amtStr(b.disc) : "",
     shipEqual:prev.shipEqual !== false, round:prev.round !== false, split:bare.length ? "equal" : (prev.split || lsGet("soNo.billSplit", "ratio")), recorded:null };
-  saveAliases(b.heads.filter(function(x){ return !x.me && (x.count || b.items.some(function(i){ return i.who === x.name; })); }).map(function(x){ return [x.name, IMP.map[x.name]]; }));
+  saveAliases(b.heads.filter(function(x){ return x.key && (x.count || x.amount || b.items.some(function(i){ return i.who === x.name; })); }).map(function(x){ return [x.key, IMP.map[x.name]]; }));
   saveBill(); closeImp(); setTab("bill"); renderBill();
   toast(bare.length ? "Đã điền đơn, chia đều phí và giảm cho " + (b.items.length ? "mọi người" : bare.length + " người") : "Đã điền đơn từ ảnh", function(){ BILL = prev; saveBill(); renderBill(); });
 }
