@@ -205,10 +205,16 @@ button.row:active{background:var(--fill-2)}
 .tag{display:inline-block;font-size:12px;line-height:16px;padding:2px 8px;border-radius:10px;background:var(--fill);color:var(--label-2);margin-left:6px;white-space:nowrap;vertical-align:1px}
 .months{display:grid;gap:20px}
 
-.tabbar{position:fixed;z-index:10;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));width:min(440px,calc(100% - 40px));display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:6px;border-radius:32px;background:var(--glass-strong);-webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%);box-shadow:var(--shadow-float);border:1px solid var(--rim)}
-.tabbar button{border:0;background:transparent;display:grid;justify-items:center;gap:2px;padding:7px 4px 6px;border-radius:26px;color:var(--label-3);font-size:11px;line-height:13px;font-weight:500;cursor:pointer;min-height:50px}
-.tabbar svg{width:24px;height:24px}
-.tabbar button[aria-selected="true"]{color:var(--label);background:var(--fill-2)}
+.tabbar{position:fixed;z-index:10;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));width:max-content;max-width:calc(100% - 40px);display:flex;align-items:center;gap:4px;padding:6px;border-radius:32px;background:var(--glass-strong);-webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%);box-shadow:var(--shadow-float),inset 0 0 0 1px var(--rim)}
+.tabbar button{flex:none;border:0;background:transparent;display:flex;align-items:center;justify-content:center;gap:8px;min-width:56px;height:52px;padding:0 16px;border-radius:26px;color:var(--label-2);cursor:pointer;transition:background-color .2s,color .2s}
+.tabbar svg{width:26px;height:26px;flex:none}
+.tabbar .f,.tabbar .tl{display:none}
+.tabbar .cut{stroke:#fff}
+.tabbar .tl{font-size:16px;line-height:20px;font-weight:600;letter-spacing:-.01em;white-space:nowrap}
+.tabbar button[aria-selected="true"]{color:var(--label);background:var(--fill);padding:0 20px 0 16px;min-width:148px}
+.tabbar button[aria-selected="true"] .o{display:none}
+.tabbar button[aria-selected="true"] .f,.tabbar button[aria-selected="true"] .tl{display:block}
+@media (prefers-reduced-motion:reduce){.tabbar button{transition:none}}
 
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(96px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--on-ink);border-radius:22px;padding:10px 10px 10px 18px;display:flex;gap:10px;align-items:center;box-shadow:var(--shadow-float);width:max-content;max-width:calc(100% - 40px);z-index:20;font-size:15px;line-height:20px}
 .toast button{border:0;background:transparent;color:var(--glow-a);font-weight:600;cursor:pointer;padding:4px 8px;min-height:32px;white-space:nowrap}
@@ -469,21 +475,21 @@ button.row:active{background:var(--fill-2)}
 </div>
 
 <nav class="tabbar" role="tablist" aria-label="Mục">
-  <button role="tab" id="t-so" data-tab="so" aria-selected="true">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H19v15H6.5A1.5 1.5 0 0 0 5 19.5z"/><path d="M5 19.5A1.5 1.5 0 0 0 6.5 21H19v-3"/><path d="M9 8h6M9 11.5h4"/></svg>
-    Sổ nợ
+  <button role="tab" id="t-so" data-tab="so" aria-selected="true" aria-label="Sổ nợ">
+    <svg class="o" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H19v15H6.5A1.5 1.5 0 0 0 5 19.5z"/><path d="M5 19.5A1.5 1.5 0 0 0 6.5 21H19v-3"/><path d="M9 8h6M9 11.5h4"/></svg><svg class="f" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H19v15H6.5A1.5 1.5 0 0 0 5 19.5z"/><path d="M5 19.5A1.5 1.5 0 0 0 6.5 21H19v-3" fill="none"/><path class="cut" d="M9 8h6M9 11.5h4" fill="none"/></svg>
+    <span class="tl">Sổ nợ</span>
   </button>
-  <button role="tab" id="t-bill" data-tab="bill" aria-selected="false">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2.4-1.6L13.2 21 12 20.2 10.8 21l-2.4-1.6L6 21z"/><path d="M9 8h6M9 11.5h6M9 15h3.5"/></svg>
-    Chia bill
+  <button role="tab" id="t-bill" data-tab="bill" aria-selected="false" aria-label="Chia bill">
+    <svg class="o" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2.4-1.6L13.2 21 12 20.2 10.8 21l-2.4-1.6L6 21z"/><path d="M9 8h6M9 11.5h6M9 15h3.5"/></svg><svg class="f" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-2.4-1.6L13.2 21 12 20.2 10.8 21l-2.4-1.6L6 21z"/><path class="cut" d="M9 8h6M9 11.5h6M9 15h3.5" fill="none"/></svg>
+    <span class="tl">Chia bill</span>
   </button>
-  <button role="tab" id="t-bao" data-tab="bao" aria-selected="false">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8 8 0 0 1-11.7 7.1L4 19.8l1.2-4.4a8 8 0 1 1 15.3-3.9z"/><path d="M8.5 11.5h.01M12.5 11.5h.01M16.5 11.5h.01" stroke-width="2.6"/></svg>
-    Báo Zalo
+  <button role="tab" id="t-bao" data-tab="bao" aria-selected="false" aria-label="Báo Zalo">
+    <svg class="o" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8 8 0 0 1-11.7 7.1L4 19.8l1.2-4.4a8 8 0 1 1 15.3-3.9z"/><path d="M8.5 11.5h.01M12.5 11.5h.01M16.5 11.5h.01" stroke-width="2.6"/></svg><svg class="f" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8 8 0 0 1-11.7 7.1L4 19.8l1.2-4.4a8 8 0 1 1 15.3-3.9z"/><path class="cut" d="M8.5 11.5h.01M12.5 11.5h.01M16.5 11.5h.01" stroke-width="2.6" fill="none"/></svg>
+    <span class="tl">Báo Zalo</span>
   </button>
-  <button role="tab" id="t-stat" data-tab="stat" aria-selected="false">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16"/><rect x="5.5" y="11" width="3" height="6" rx="1"/><rect x="10.5" y="6" width="3" height="11" rx="1"/><rect x="15.5" y="9" width="3" height="8" rx="1"/></svg>
-    Thống kê
+  <button role="tab" id="t-stat" data-tab="stat" aria-selected="false" aria-label="Thống kê">
+    <svg class="o" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16"/><rect x="5.5" y="11" width="3" height="6" rx="1"/><rect x="10.5" y="6" width="3" height="11" rx="1"/><rect x="15.5" y="9" width="3" height="8" rx="1"/></svg><svg class="f" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16" fill="none"/><rect x="5.5" y="11" width="3" height="6" rx="1"/><rect x="10.5" y="6" width="3" height="11" rx="1"/><rect x="15.5" y="9" width="3" height="8" rx="1"/></svg>
+    <span class="tl">Thống kê</span>
   </button>
 </nav>
 <div class="toast" id="toast" hidden role="status"></div>
