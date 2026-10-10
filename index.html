@@ -26,6 +26,7 @@
   --owe:#dc3328; --paid:#1f8a43; --warn:#8f5400; --warn-bg:rgba(255,159,10,.16);
   --glow-a:#ffbd8c; --glow-b:#ffdcbc; --glow-c:#c9c2ff; --glow-d:#b9cfff;
   --orb-1:#ffe3c6; --orb-2:#ffa874; --orb-3:#cdc8ff; --orb-4:#8c88ff;
+  --c-lend:#ffc925; --c-got:#163d89;
   --chat:#edf1f7; --bubble:#e1ecff; --bubble-line:#c3d8fc; --bubble-ink:#0b1c38;
   --qr-bg:#ffffff; --qr-fg:#111111;
   --shadow-xs:0 1px 2px rgba(17,17,34,.08);
@@ -112,10 +113,10 @@ button.row:active{background:var(--fill-2)}
 .pill-btn.danger{color:var(--owe)}
 .pill-btn.armed{background:var(--owe);color:var(--on-ink)}
 .link{border:0;background:transparent;color:var(--tint);font-size:15px;cursor:pointer;padding:8px 0 8px 8px;min-height:44px;white-space:nowrap}
-.switch{appearance:none;-webkit-appearance:none;flex:none;width:51px;height:31px;border-radius:16px;background:var(--fill);position:relative;cursor:pointer;margin:0;transition:background .2s}
-.switch::after{content:"";position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:50%;background:var(--surface);box-shadow:var(--shadow-seg);transition:transform .2s}
+.switch{appearance:none;-webkit-appearance:none;flex:none;width:40px;height:24px;border-radius:12px;background:var(--fill);position:relative;cursor:pointer;margin:0;transition:background .2s}
+.switch::after{content:"";position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:var(--surface);box-shadow:var(--shadow-seg);transition:transform .2s}
 .switch:checked{background:var(--paid)}
-.switch:checked::after{transform:translateX(20px)}
+.switch:checked::after{transform:translateX(16px)}
 
 .qa{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;padding:16px}
 .qa > *{min-width:0}
@@ -206,7 +207,7 @@ button.row:active{background:var(--fill-2)}
 .months{display:grid;gap:20px}
 
 .tabbar{position:fixed;z-index:10;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));width:min(320px,calc(100% - 40px));display:flex;align-items:center;gap:4px;padding:6px;border-radius:32px;background:rgba(255,255,255,.42);-webkit-backdrop-filter:blur(22px) saturate(190%);backdrop-filter:blur(22px) saturate(190%);box-shadow:0 12px 32px -10px rgba(17,17,34,.22),0 1px 3px rgba(17,17,34,.06),inset 0 0 0 1px rgba(255,255,255,.55),inset 0 1px 0 rgba(255,255,255,.85)}
-.tabbar button{flex:1 1 0;border:0;background:transparent;display:flex;align-items:center;justify-content:center;gap:6px;min-width:44px;height:52px;padding:0;border-radius:26px;box-sizing:border-box;color:var(--label-2);cursor:pointer;transition:background-color .2s,color .2s}
+.tabbar button{flex:1 1 0;border:0;background:transparent;display:flex;align-items:center;justify-content:center;gap:6px;min-width:44px;height:52px;padding:0;border-radius:26px;box-sizing:border-box;color:var(--label-2);cursor:pointer;transition:background-color .15s ease,color .15s ease,box-shadow .15s ease}
 .tabbar svg{width:26px;height:26px;flex:none}
 .tabbar .f,.tabbar .tl{display:none}
 .tabbar .cut{stroke:#fff}
@@ -215,7 +216,7 @@ button.row:active{background:var(--fill-2)}
 .tabbar button[aria-selected="true"]{color:var(--label);background:rgba(118,118,128,.14);box-shadow:inset 0 0 0 .5px rgba(255,255,255,.5);flex:none;padding:0 14px 0 11px}
 .tabbar button[aria-selected="true"] .o{display:none}
 .tabbar button[aria-selected="true"] .f,.tabbar button[aria-selected="true"] .tl{display:block}
-@media (prefers-reduced-motion:reduce){.tabbar button{transition:none}}
+@media (prefers-reduced-motion:reduce){.tabbar button,.side-qr{transition:none}}
 .tabbar .brand{display:none}
 .qrp-nav{display:none}
 @media (hover:hover) and (pointer:fine){
@@ -246,14 +247,22 @@ button.row:active{background:var(--fill-2)}
   .tabbar button[aria-selected="true"]{background:rgba(255,255,255,.66);color:var(--label);box-shadow:0 1px 2px rgba(17,17,34,.07),inset 0 0 0 1px rgba(255,255,255,.8)}
   .tabbar button[aria-selected="true"] .tl{font-weight:600}
   .tabbar button:not([aria-selected="true"]){color:rgba(40,40,52,.72)}
-  .tabbar button:not([aria-selected="true"]):hover{background:rgba(255,255,255,.38);color:var(--label)}
-  .side-foot{display:grid;gap:10px;position:fixed;z-index:10;left:14px;bottom:16px;width:calc(var(--side) - 28px)}
-  .side-sum{display:grid;gap:2px;padding:14px 14px 12px;border-radius:16px;background:rgba(255,255,255,.5);box-shadow:inset 0 0 0 1px rgba(255,255,255,.7)}
-  .side-sum span{font-size:12px;line-height:16px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--label-2)}
-  .side-sum b{font-family:var(--f-serif);font-size:30px;line-height:36px;font-weight:500;letter-spacing:-.02em;font-variant-numeric:lining-nums tabular-nums}
-  .side-sum small{font-size:13px;line-height:18px;color:var(--label-2)}
-  .side-qr{display:flex;align-items:center;justify-content:center;gap:8px;height:42px;border:0;border-radius:12px;background:var(--ink);color:var(--on-ink);font-size:14px;font-weight:600;cursor:pointer}
+  .tabbar button:not([aria-selected="true"]):hover{background:rgba(255,255,255,.45);color:var(--label);box-shadow:inset 0 0 0 1px rgba(255,255,255,.6)}
+  .side-foot{display:block;position:fixed;z-index:10;left:14px;bottom:16px;width:calc(var(--side) - 26px)}
+  .side-sum{position:relative;overflow:hidden;display:grid;gap:12px;padding:16px;border-radius:22px}
+  .side-sum .orb{right:-50px;top:-56px;width:170px;height:170px}
+  .side-num{position:relative;display:grid;gap:2px;min-width:0}
+  .side-num .cap{font-size:14px;line-height:20px;color:var(--label-2)}
+  .side-num .big{font-family:var(--f-serif);font-size:40px;line-height:46px;font-weight:500;letter-spacing:-.03em;font-variant-numeric:lining-nums tabular-nums}
+  .side-num .who{font-size:14px;line-height:20px;color:var(--label-2)}
+  .side-num .who strong{font-weight:600;color:var(--label)}
+  .side-late{position:relative;justify-self:start;display:inline-flex;align-items:center;gap:6px;min-height:26px;padding:0 10px;border-radius:13px;background:rgba(220,51,40,.1);color:#c42b21;font-size:13px;line-height:16px;font-weight:600}
+  .side-late::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--owe)}
+  .side-late[hidden]{display:none}
+  .side-qr{position:relative;display:flex;align-items:center;justify-content:center;gap:7px;min-height:40px;border:0;border-radius:20px;background:var(--surface);box-shadow:0 1px 2px rgba(17,17,34,.08),inset 0 0 0 1px rgba(17,17,34,.04);color:var(--label);font-size:14px;font-weight:600;cursor:pointer;transition:background-color .15s ease}
+  .side-qr:hover{background:#f2f2f6}
   .side-qr svg{width:18px;height:18px}
+  @media (max-height:520px){.side-num,.side-late{display:none}}
   /* Sổ nợ: cột trái tổng + ghi nhanh, bên phải danh sách */
   #tab-so{grid-template-columns:minmax(300px,350px) minmax(0,1fr);grid-template-rows:auto 1fr}
   #tab-so>.hero{display:none}
@@ -270,7 +279,7 @@ button.row:active{background:var(--fill-2)}
   #tab-bill>:nth-child(1){grid-column:1;grid-row:1}
   #tab-bill>:nth-child(2){grid-column:1;grid-row:2}
   #tab-bill>:nth-child(3){grid-column:2;grid-row:1 / span 2;position:sticky;top:0}
-  /* Báo Zalo: tin nhắn bên trái, mã QR bên phải trong cùng khung */
+  /* Gửi báo nợ: tin nhắn bên trái, mã QR bên phải trong cùng khung */
   #tab-bao{grid-template-columns:minmax(290px,330px) minmax(0,1fr);grid-template-rows:auto auto auto 1fr}
   #baoOut .chat:has(.qr-row){grid-template-columns:minmax(0,1fr) 316px;column-gap:16px;align-items:start}
   #baoOut .chat>.msg,#baoOut .chat>p{grid-column:1}
@@ -385,11 +394,11 @@ button.row:active{background:var(--fill-2)}
 .bar{display:grid;grid-template-rows:auto 1fr auto;justify-items:center;border:0;background:transparent;cursor:pointer;padding:0;gap:6px;color:var(--label-2);min-width:0}
 .bar .bv{font-size:11px;line-height:13px;font-variant-numeric:tabular-nums;white-space:nowrap}
 .bar .bw{width:100%;height:100%;display:flex;align-items:flex-end;justify-content:center;gap:3px}
-.bar .bt{width:42%;max-width:15px;border-radius:5px 5px 3px 3px;min-height:3px;background:rgba(140,136,255,.35)}
-.bar .bt.g{background:rgba(31,138,67,.28)}
+.bar .bt{width:42%;max-width:15px;border-radius:5px 5px 3px 3px;min-height:3px;background:rgba(255,201,37,.4)}
+.bar .bt.g{background:rgba(22,61,137,.25)}
 .bar .bl{font-size:12px;line-height:16px;padding-bottom:10px}
-.bar[aria-pressed="true"] .bt{background:linear-gradient(180deg,var(--orb-2),var(--orb-4))}
-.bar[aria-pressed="true"] .bt.g{background:var(--paid)}
+.bar[aria-pressed="true"] .bt{background:var(--c-lend)}
+.bar[aria-pressed="true"] .bt.g{background:var(--c-got)}
 .bar[aria-pressed="true"] .bl,.bar[aria-pressed="true"] .bv{color:var(--label);font-weight:600}
 .legend{display:flex;gap:16px;padding:0 16px 14px;font-size:12px;color:var(--label-2)}
 .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
@@ -399,7 +408,7 @@ button.row:active{background:var(--fill-2)}
 .prow .n{font-size:13px;color:var(--label-2)}
 .prow .v{font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
 .prow .pbar{grid-column:1 / -1;height:6px;border-radius:3px;background:var(--fill);overflow:hidden}
-.prow .pbar i{display:block;height:100%;border-radius:3px;background:linear-gradient(90deg,var(--orb-2),var(--orb-4))}
+.prow .pbar i{display:block;height:100%;border-radius:3px;background:var(--c-lend)}
 
 /* Chia bill */
 .bill-item{display:grid;grid-template-columns:minmax(0,1fr) 104px 36px;grid-template-areas:"who pr x" "nm nm nm";gap:8px;padding:10px 10px 10px 16px;align-items:center}
@@ -574,16 +583,16 @@ button.row:active{background:var(--fill-2)}
     <svg class="o" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4.6A2.1 2.1 0 0 1 8.1 2.5h7.8A2.1 2.1 0 0 1 18 4.6V21l-2-1.4-2 1.4-2-1.4-2 1.4-2-1.4L6 21z"/><path d="M9.5 14.5 14.5 8"/><circle cx="9.7" cy="8.6" r="1.2"/><circle cx="14.3" cy="13.9" r="1.2"/></svg><svg class="f" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4.6A2.1 2.1 0 0 1 8.1 2.5h7.8A2.1 2.1 0 0 1 18 4.6V21l-2-1.4-2 1.4-2-1.4-2 1.4-2-1.4L6 21z"/><path class="cut" d="M9.5 14.5 14.5 8" fill="none"/><circle class="cut" cx="9.7" cy="8.6" r=".9" fill="#fff"/><circle class="cut" cx="14.3" cy="13.9" r=".9" fill="#fff"/></svg>
     <span class="tl">Chia bill</span>
   </button>
-  <button role="tab" id="t-bao" data-tab="bao" aria-selected="false" aria-label="Báo Zalo">
+  <button role="tab" id="t-bao" data-tab="bao" aria-selected="false" aria-label="Gửi báo nợ">
     <svg class="o" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 3.5 3.5 10.3l7 3.2 3.2 7z"/><path d="M10.5 13.5 20.5 3.5"/></svg><svg class="f" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 3.5 3.5 10.3l7 3.2 3.2 7z"/><path class="cut" d="M10.5 13.5 17 7" fill="none"/></svg>
-    <span class="tl">Báo Zalo</span>
+    <span class="tl">Gửi báo nợ</span>
   </button>
   <button role="tab" id="t-stat" data-tab="stat" aria-selected="false" aria-label="Thống kê">
     <svg class="o" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.5 5.6a7.6 7.6 0 1 0 7.9 7.9h-7.9z"/><path d="M13.5 2.6a7.9 7.9 0 0 1 7.9 7.9h-7.9z"/></svg><svg class="f" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.5 5.6a7.6 7.6 0 1 0 7.9 7.9h-7.9z"/><path d="M13.5 2.6a7.9 7.9 0 0 1 7.9 7.9h-7.9z"/></svg>
     <span class="tl">Thống kê</span>
   </button>
 </nav>
-<aside class="side-foot" aria-label="Tóm tắt"><div class="side-sum"><span>Đang cho nợ</span><b id="sideTotal">…</b><small id="sideSub"></small></div><button type="button" class="side-qr" data-qrsheet="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="6.5" height="6.5" rx="1.6"/><rect x="14" y="3.5" width="6.5" height="6.5" rx="1.6"/><rect x="3.5" y="14" width="6.5" height="6.5" rx="1.6"/><path d="M14 14h3v3M20.5 14v.01M14 20.5h.01M17 20.5h3.5V17"/></svg><span>Mã QR nhận tiền</span></button></aside>
+<aside class="side-foot" aria-label="Tóm tắt"><div class="glass side-sum"><div class="orb" aria-hidden="true"></div><div class="side-num"><span class="cap">Đang cho nợ</span><b class="big" id="sideTotal">…</b><span class="who" id="sideSub"></span></div><span class="side-late" id="sideLate" hidden></span><button type="button" class="side-qr" data-qrsheet="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="6.5" height="6.5" rx="1.6"/><rect x="14" y="3.5" width="6.5" height="6.5" rx="1.6"/><rect x="3.5" y="14" width="6.5" height="6.5" rx="1.6"/><path d="M14 14h3v3M20.5 14v.01M14 20.5h.01M17 20.5h3.5V17"/></svg><span>Mã QR nhận tiền</span></button></div></aside>
 <div class="toast" id="toast" hidden role="status"></div>
 
 <div class="qrpage" id="qrSheet" role="dialog" aria-modal="true" aria-labelledby="qrTitle" hidden>
@@ -621,7 +630,7 @@ button.row:active{background:var(--fill-2)}
 var $ = function(s){ return document.querySelector(s); };
 var BANKS = [["970436","Vietcombank"],["970415","VietinBank"],["970418","BIDV"],["970405","Agribank"],["970407","Techcombank"],["970422","MB Bank"],["970416","ACB"],["970432","VPBank"],["970423","TPBank"],["970403","Sacombank"],["970441","VIB"],["970437","HDBank"],["970443","SHB"],["970426","MSB"],["970448","OCB"],["970431","Eximbank"]];
 var AV = [["#ffc49e","#ff8752"],["#d5d0ff","#8b80ff"],["#bfeed6","#36b97b"],["#c9e1ff","#4b8ff5"],["#ffd0e2","#f2669a"],["#ffe7a3","#e3a01f"]];
-var TITLES = { so:"Sổ nợ", bill:"Chia bill", bao:"Báo Zalo", stat:"Thống kê" };
+var TITLES = { so:"Sổ nợ", bill:"Chia bill", bao:"Gửi báo nợ", stat:"Thống kê" };
 var CHEV = '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>';
 var S = {
   people:[], entries:[], spending:[], settings:{}, sync:{},
@@ -824,7 +833,12 @@ function render(){
   if (S.tab === "bill") { var ae = document.activeElement; if (ae && ae.closest && ae.closest("#tab-bill")) renderBillRes(); else renderBill(); }
   if (S.tab === "stat") renderStat();
   if (QR.open) renderQrSheet();
-  var stEl = $("#sideTotal"); if (stEl) { stEl.textContent = $("#grandTotal").textContent; var gs = $("#grandSub b"); var lt = $("#grandSub .late"); $("#sideSub").textContent = gs ? gs.textContent + (gs.textContent === "Sạch nợ" ? "" : " còn nợ") + (lt ? " · " + lt.textContent.replace("người nợ quá", "quá") : "") : ""; }
+  var stEl = $("#sideTotal"); if (stEl) {
+    stEl.textContent = $("#grandTotal").textContent;
+    var gs = $("#grandSub b"), lt = $("#grandSub .late"), sl = $("#sideLate");
+    $("#sideSub").innerHTML = gs ? "<strong>" + esc(gs.textContent) + "</strong> " + (gs.textContent === "Sạch nợ" ? "không ai nợ" : "còn nợ") : esc($("#grandSub").textContent);
+    sl.hidden = !lt; sl.textContent = lt ? lt.textContent : "";
+  }
 }
 function renderHeader(){
   $("#today").textContent = new Date().toLocaleDateString("vi-VN", { weekday:"long", day:"numeric", month:"numeric" });
@@ -922,7 +936,7 @@ function editorHTML(e){
     '<button type="button" class="pill-btn danger" data-act="del" data-eid="' + esc(e.id) + '">Xóa dòng này</button></div></li>';
 }
 
-/* ---------- Báo Zalo ---------- */
+/* ---------- Gửi báo nợ ---------- */
 function owingRows(){ return sortedPeople().map(function(p){ return { p: p, L: ledgerOf(p.id) }; }).filter(function(r){ return r.L.bal > 0; }); }
 function detailLine(L){ return L.open.map(function(e){ return dm(e.date) + ": " + (e.kind === "payment" ? "trả " : "") + partsText(e); }).join(" | "); }
 function bankLines(){
@@ -1202,7 +1216,7 @@ function renderQrSheet(){
   if (!QR.open) return;
   var list = accounts(), body = $("#qrCard");
   if (!list.length) {
-    body.innerHTML = '<div class="qrp-empty"><p class="notice">Chưa có tài khoản nhận tiền. Điền một lần ở mục Cài đặt, cuối tab Báo Zalo.</p><button type="button" class="btn-primary" data-qrsettings="1">Mở Cài đặt</button></div>';
+    body.innerHTML = '<div class="qrp-empty"><p class="notice">Chưa có tài khoản nhận tiền. Điền một lần ở mục Cài đặt, cuối tab Gửi báo nợ.</p><button type="button" class="btn-primary" data-qrsettings="1">Mở Cài đặt</button></div>';
     $("#qrActs").hidden = true; QR.panel = false; renderQrPanel(); return;
   }
   $("#qrActs").hidden = false;
@@ -1332,12 +1346,12 @@ function renderStat(){
     return '<button type="button" class="bar" data-month="' + k + '" aria-pressed="' + (k === S.statMonth) + '" aria-label="Tháng ' + Number(k.slice(5)) + ': cho nợ ' + fmt(a.lent) + ', đã thu ' + fmt(a.got) + '">' +
       '<span class="bv">' + (a.lent ? shortMoney(a.lent) : "") + '</span><span class="bw"><span class="bt" style="height:' + hl + '%"></span><span class="bt g" style="height:' + hg + '%"></span></span>' +
       '<span class="bl">T' + Number(k.slice(5)) + "</span></button>";
-  }).join("") + '</div><div class="legend"><span><i style="background:linear-gradient(180deg,var(--orb-2),var(--orb-4))"></i>Cho nợ</span><span><i style="background:var(--paid)"></i>Đã thu</span></div></div>';
+  }).join("") + '</div><div class="legend"><span><i style="background:var(--c-lend)"></i>Cho nợ</span><span><i style="background:var(--c-got)"></i>Đã thu</span></div></div>';
   var s = agg[S.statMonth], mm = S.statMonth.split("-");
   h += '<div class="sec"><div class="sec-h"><h2>Tháng ' + Number(mm[1]) + "/" + mm[0] + '</h2></div><div class="stats3">' +
     '<div class="glass stat"><span class="k">Cho nợ</span><span class="v">' + fmt(s.lent) + '</span></div>' +
     '<div class="glass stat"><span class="k">Đã thu</span><span class="v">' + fmt(s.got) + '</span></div>' +
-    '<div class="glass stat"><span class="k">Số lần</span><span class="v">' + s.n + "</span></div></div></div>";
+    '<div class="glass stat"><span class="k">Tỷ lệ thu</span><span class="v">' + (s.lent ? Math.round(s.got / s.lent * 100) + "%" : "—") + "</span></div></div></div>";
   var per = Object.keys(s.per).map(function(pid){ return { p: personById(pid) || { id:pid, name:pid }, v:s.per[pid].v, n:s.per[pid].n }; }).sort(function(a, b){ return b.v - a.v; });
   var pmax = per.length ? per[0].v : 1;
   h += '</div><div class="stat-col"><div class="sec"><div class="sec-h"><h2>Ai nợ nhiều nhất</h2></div>' + (per.length

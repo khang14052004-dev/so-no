@@ -64,8 +64,8 @@
       ]
     },
     {
-      "name": "Báo Zalo",
-      "short_name": "Báo Zalo",
+      "name": "Gửi báo nợ",
+      "short_name": "Báo nợ",
       "url": "./#bao",
       "icons": [
         {
