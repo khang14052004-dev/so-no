@@ -1,5 +1,5 @@
 // Sổ nợ: lưu khung app để mở nhanh và mở được khi mất mạng. Dữ liệu luôn lấy mới từ Google Sheet.
-const CACHE = 'so-no-v12';
+const CACHE = 'so-no-v13';
 const SHELL = ['./', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png', './apple-touch-icon.png'];
 
 self.addEventListener('install', (e) => {
