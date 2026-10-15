@@ -51,6 +51,8 @@ Bảng thiết kế nằm trong artifact Design tên "Done Nha – Thiết kế 
 - Bảng tĩnh tổng thể (15/10): 53 bảng `DN-*.dc.html` chụp từ bảng bấm thử bằng tools/snap.py + states.json, xếp 5 hàng dưới cùng canvas; các bảng "Gộp" cũ phía trên đã lỗi thời.
 - Script sinh bảng thiết kế (gen_dn.py, gen_dn2.py, shoot2.py, gen_proto.py, proto_logic.js, proto_screens.py, snap.py, states.json) chỉ nằm trong thư mục tạm của phiên, chưa lưu vào repo; mất khi phiên bị thu hồi.
 
+- Quy tắc vẽ danh sách/bảng (anh nhắc 2 lần, 15/10): dòng CUỐI của mọi bảng thông tin, danh sách, khối dòng KHÔNG có đường line phía dưới; chỉ có line ngăn giữa các dòng. Kiểm trước khi đăng.
+
 ## Lỗi đã gặp, đừng lặp lại
 - Đừng nói chỉ Safari mới thêm được vào màn hình chính trên iPhone; Chrome và Edge cũng được.
 - Giá gói của MoVi Group trên App Store Việt Nam là đồng (119.000 / 409.000 / 549.000), không phải USD.
