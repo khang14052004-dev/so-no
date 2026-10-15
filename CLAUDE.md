@@ -35,6 +35,17 @@ Tài liệu gốc (đọc trước khi làm):
 
 Còn mở: mức góp quỹ, màu chủ đạo chính thức và biểu tượng, tên gói trả phí, tra App Store / tên miền / nhãn hiệu cho "Done Nha", ảnh mẫu thông báo ngân hàng (Vietcombank, ACB, MB, Techcombank, MoMo, che số dư), việc Zalo Mini App có cho cá nhân đăng ký không.
 
+## Quyết định thiết kế (14–15/10/2026)
+Bảng thiết kế nằm trong artifact Design tên "Done Nha – Thiết kế (gộp Sổ nợ)" (tìm bằng danh sách artifact, không ghi link vào repo). Ảnh mẫu anh đưa chỉ để tham khảo, không làm giống; còn lại theo design system cũ của Sổ nợ. Bình luận "gửi cho Claude" trên artifact thì sửa trong artifact, trả lời trong thread, đóng thread, trong phiên chỉ ghi một dòng.
+- Màu tiền: ĐỎ = người ta nợ bạn, XANH DƯƠNG = bạn nợ (cần góp quỹ), XANH LÁ = sạch nợ. Mỗi màn chỉ một nút vàng.
+- Thanh menu dưới (5 mục): Sổ nợ, Nhóm, Báo nợ, Thống kê, Tôi. "Báo nợ" nằm ở thanh menu, không nằm trong thẻ Đang cho nợ (thẻ chỉ còn nút Mã QR). Icon Sổ nợ là cuốn sổ có gáy như bảng cũ: đặc khi đang chọn, viền khi không.
+- Màn Sổ nợ tổng: thứ tự Ghi nhanh, thẻ Đang cho nợ, danh sách Theo người (tab Tất cả | Nợ bạn | Bạn nợ). Ghi nhanh giữ như bảng Sổ nợ cũ: Ghi nợ | Ghi trả, ngày, chip chọn người có chip "Tất cả" đứng đầu, "+ Người mới", ô số tiền ("35k hoặc 25k+12", chip 12k–50k), ghi chú, nút vàng.
+- Ghi trả nợ: thao tác nhanh bằng mũi tên xổ xuống ngay trên dòng người (chip Hết / 200k / 100k / Khác, nút "Ghi Lan trả 200k ✓"). Vào chi tiết chỉ khi cần; chi tiết không có Ảnh CK (đã có tin nhắn riêng hoặc nhóm). Ô số tiền ở chi tiết canh giữa cả ngang và dọc, số cỡ 30px.
+- Gửi báo nợ: gửi qua tin nhắn, ứng dụng nào cũng được (Zalo, Messenger, SMS...), không gắn riêng Zalo. Đã bỏ cụm "Vì sao báo qua Zalo". Có: gửi chung 1 tin hoặc từng người, tùy chọn kèm từng ngày / tài khoản nhận tiền / mã QR / link xem sổ, xem trước tin, mã QR từng người. Các chữ "Zalo" trong bảng gộp đã đổi thành "tin nhắn", "nhóm".
+- Cấn trừ chéo: ví dụ Minh nợ bạn 300k (Sổ riêng), bạn nợ Minh 120k (cơm trưa) thì còn 180k; chỉ làm khi bấm tay và Minh xác nhận.
+- Việc còn treo: tin nhắn mẫu ở bảng cũ Mobile-BaoZalo còn hiện số tài khoản đầy đủ, cần che; bảng cũ Mobile-BaoZalo, Desktop-BaoZalo, Main chưa đổi theo bảng gộp; chưa vẽ Cài đặt nhóm, Lưu trữ nhóm, Sao lưu/xuất CSV, Chi tiêu thẻ, danh sách Khoản chi; Design System chưa cập nhật cho Done Nha.
+- Script sinh bảng thiết kế (gen_dn.py, gen_dn2.py, shoot2.py) chỉ nằm trong thư mục tạm của phiên, chưa lưu vào repo; mất khi phiên bị thu hồi.
+
 ## Lỗi đã gặp, đừng lặp lại
 - Đừng nói chỉ Safari mới thêm được vào màn hình chính trên iPhone; Chrome và Edge cũng được.
 - Giá gói của MoVi Group trên App Store Việt Nam là đồng (119.000 / 409.000 / 549.000), không phải USD.
