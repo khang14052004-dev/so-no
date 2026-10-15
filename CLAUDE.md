@@ -45,7 +45,8 @@ Bảng thiết kế nằm trong artifact Design tên "Done Nha – Thiết kế 
 - Cấn trừ chéo: ví dụ Minh nợ bạn 300k (Sổ riêng), bạn nợ Minh 120k (cơm trưa) thì còn 180k; chỉ làm khi bấm tay và Minh xác nhận.
 - 15/10: đã vẽ tab Thống kê (Nợ | Nhóm, chuyến | Thẻ; bảng "Theo nơi" hai cột Nợ bạn / Bạn nợ) và tab Tôi (nhận tiền, dữ liệu, chi tiêu thẻ để sau, cài đặt, trạng thái đồng bộ). Các màn gộp đã nối link để bấm Play đi thử từ Sổ nợ tổng; bảng "Kiểm tra UX" liệt kê số lần chạm, chỗ rườm rà (R1–R4), chỗ thiếu (T1–T8) và 4 câu hỏi chờ anh chốt (ghi nhiều người mỗi người hay chia đều; chip Tất cả gồm ai; nút ghi chi nhanh cho chuyến; một chuông chung).
 - Việc còn treo: bảng cũ Mobile-BaoZalo và Mobile-MaQR còn hiện số tài khoản đầy đủ (MaQR còn tên chủ tài khoản), cần che; bảng cũ Mobile-BaoZalo, Desktop-BaoZalo, Main chưa đổi theo bảng gộp; chưa vẽ Cài đặt nhóm, Lưu trữ nhóm, Sao lưu/xuất CSV, Nhập từ Sổ nợ cũ, Chi tiêu thẻ, danh sách Khoản chi, màn lần đầu và màn trống; Design System chưa cập nhật cho Done Nha.
-- Script sinh bảng thiết kế (gen_dn.py, gen_dn2.py, shoot2.py) chỉ nằm trong thư mục tạm của phiên, chưa lưu vào repo; mất khi phiên bị thu hồi.
+- Bảng "Done Nha bấm thử" (15/10): một artboard 412×915 có state thật, cuộn trong khung, dùng để thử UX (ghi nợ/ghi trả cập nhật số, Hoàn tác, Nhắc nợ chọn sẵn người, Báo nợ đổi tin theo người chọn, Thêm khoản chi chia đều, Góp quỹ, Cân đối). Các bảng tĩnh chỉ để duyệt giao diện; nút trên bảng tĩnh không có hành vi.
+- Script sinh bảng thiết kế (gen_dn.py, gen_dn2.py, shoot2.py, gen_proto.py, proto_logic.js) chỉ nằm trong thư mục tạm của phiên, chưa lưu vào repo; mất khi phiên bị thu hồi.
 
 ## Lỗi đã gặp, đừng lặp lại
 - Đừng nói chỉ Safari mới thêm được vào màn hình chính trên iPhone; Chrome và Edge cũng được.
