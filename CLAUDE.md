@@ -58,6 +58,7 @@ Bảng thiết kế nằm trong artifact Design tên "Done Nha – Thiết kế 
 - Thẻ đầu và danh sách Sổ nợ: kiểu D. Hiện số đã trừ qua lại cho gọn (chỉ để xem); người có nhiều nơi thì mũi tên xổ xuống mở bảng từng nơi (+ nợ bạn, − bạn nợ), dòng "đã trừ để dễ xem · chưa cấn trừ", nút Cấn trừ và Ghi trả theo từng nơi. Cấn trừ chỉ nằm trong chi tiết từng người, không đưa lên thẻ đầu. Ghi trả, báo nợ, trang xem sổ vẫn tính từng nơi cho tới khi người kia đồng ý cấn trừ.
 - Nhóm Cơm trưa (nhóm dài hạn, không quỹ): trong tuần tính một nồi, chốt tuần vào thứ Bảy; ai thích thì trả từng buổi ("Trả buổi này" cho người trả bữa đó); ai mai nghỉ thì "Chốt riêng" cho người đó (tính phần của họ tới hôm nay, trả xong là sạch), người còn lại chốt thứ Bảy.
 - Làm tròn khi chuyển tiền: tới 1.000đ, phần lẻ từ 500đ trở lên làm tròn lên, dưới 500đ bỏ (1.500đ → 2.000đ, 1.499đ → 1.000đ). Chênh lệch vài trăm đồng do người nhận tiền chịu.
+- Đã làm trong bảng bấm thử (16/10): kiểu D ở Sổ nợ (xổ xuống từng nơi, Cấn trừ có giả lập người kia đồng ý, Ghi trả theo từng nơi); báo nợ và trang xem sổ xin theo từng nơi, người kia đồng ý trừ ngay trên trang; Ghi nhanh chia đều có "Gồm cả phần bạn" và làm tròn; Cân đối làm tròn 1.000đ; Cơm trưa theo tuần (Trả buổi này, Chốt riêng, Chốt tuần ghi vào Sổ nợ). Bảng tĩnh tổng thể giờ 61 bảng (thêm Minh xổ xuống, ghi trả từng nơi, chờ cấn trừ, chia đều, trang xem sổ của Minh, chốt tuần, chốt riêng).
 
 ## Lỗi đã gặp, đừng lặp lại
 - Đừng nói chỉ Safari mới thêm được vào màn hình chính trên iPhone; Chrome và Edge cũng được.
