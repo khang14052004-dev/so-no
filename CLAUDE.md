@@ -53,6 +53,12 @@ Bảng thiết kế nằm trong artifact Design tên "Done Nha – Thiết kế 
 
 - Quy tắc vẽ danh sách/bảng (anh nhắc 2 lần, 15/10): dòng CUỐI của mọi bảng thông tin, danh sách, khối dòng KHÔNG có đường line phía dưới; chỉ có line ngăn giữa các dòng. Kiểm trước khi đăng.
 
+## Chốt 16/10/2026
+- Mô hình số dư nhóm: cách 3 "lai". Trong chuyến/nhóm tính một nồi (quỹ là thành viên ảo do thủ quỹ giữ), gợi ý chuyển chỉ là tạm tính; bấm Cân đối thì khóa, mới ghi nợ theo từng cặp vào Sổ nợ. Trả tiền khoản của nhóm thì ghi vào sổ nhóm, không ghi vào Sổ riêng.
+- Thẻ đầu và danh sách Sổ nợ: kiểu D. Hiện số đã trừ qua lại cho gọn (chỉ để xem); người có nhiều nơi thì mũi tên xổ xuống mở bảng từng nơi (+ nợ bạn, − bạn nợ), dòng "đã trừ để dễ xem · chưa cấn trừ", nút Cấn trừ và Ghi trả theo từng nơi. Cấn trừ chỉ nằm trong chi tiết từng người, không đưa lên thẻ đầu. Ghi trả, báo nợ, trang xem sổ vẫn tính từng nơi cho tới khi người kia đồng ý cấn trừ.
+- Nhóm Cơm trưa (nhóm dài hạn, không quỹ): trong tuần tính một nồi, chốt tuần vào thứ Bảy; ai thích thì trả từng buổi ("Trả buổi này" cho người trả bữa đó); ai mai nghỉ thì "Chốt riêng" cho người đó (tính phần của họ tới hôm nay, trả xong là sạch), người còn lại chốt thứ Bảy.
+- Làm tròn khi chuyển tiền: tới 1.000đ, phần lẻ từ 500đ trở lên làm tròn lên, dưới 500đ bỏ (1.500đ → 2.000đ, 1.499đ → 1.000đ). Chênh lệch vài trăm đồng do người nhận tiền chịu.
+
 ## Lỗi đã gặp, đừng lặp lại
 - Đừng nói chỉ Safari mới thêm được vào màn hình chính trên iPhone; Chrome và Edge cũng được.
 - Giá gói của MoVi Group trên App Store Việt Nam là đồng (119.000 / 409.000 / 549.000), không phải USD.
