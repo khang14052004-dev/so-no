@@ -80,4 +80,5 @@ Bảng thiết kế nằm trong artifact Design tên "Done Nha – Thiết kế 
 - Giá gói của MoVi Group trên App Store Việt Nam là đồng (119.000 / 409.000 / 549.000), không phải USD.
 - Sửa nguyên bảng trong tài liệu dễ mất định dạng; sửa từng ô hoặc từng dòng.
 - Đặt mốc "app sẵn sàng" theo ngày đi trừ thời gian thử, không phải theo ngày đi.
-- Số liệu pháp lý và giá Supabase chưa kiểm trên nguồn chính thức; kiểm lại trước khi dựa vào.
+- Supabase gói Free đã kiểm 17/10/2026 trên trang giá chính thức: 500 MB số liệu, 1 GB ảnh, 5 GB tải xuống, 50.000 người dùng/tháng, tối đa 2 dự án, tự ngủ sau 1 tuần không dùng. Đăng nhập Apple cần tài khoản Apple Developer (chưa kiểm giá); chuyến Đà Lạt dùng khách và Google trước. Số liệu pháp lý vẫn chưa kiểm trên nguồn chính thức.
+- Địa chỉ dự án Supabase và khóa publishable chỉ nằm trong file cấu hình của app, không ghi vào tài liệu hay trí nhớ; khóa secret và service_role, mật khẩu cơ sở dữ liệu thì tuyệt đối không đưa cho Claude hay ghi ở đâu.
