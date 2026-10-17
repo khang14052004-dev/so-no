@@ -33,7 +33,7 @@ Tài liệu gốc (đọc trước khi làm):
 
 - Gộp app (chốt 14/10/2026): Sổ nợ và Done Nha gộp thành MỘT app tên **Done Nha**, mô hình "1 app, 2 không gian, 1 sổ cái": Sổ cá nhân (ghi hộ, riêng tư) và Nhóm/Chuyến (thủ quỹ). Màn "Sổ nợ tổng" theo người chỉ để xem; không tự bù trừ, cấn trừ chéo phải bấm tay và người kia xác nhận. Quét thẻ giữ ở Apps Script, làm sau. Màu tạm dùng vàng #FFC925 và xanh #163D89 của Sổ nợ.
 
-Còn mở: mức góp quỹ, màu chủ đạo chính thức và biểu tượng, tên gói trả phí, tra App Store / tên miền / nhãn hiệu cho "Done Nha", ảnh mẫu thông báo ngân hàng (Vietcombank, ACB, MB, Techcombank, MoMo, che số dư), việc Zalo Mini App có cho cá nhân đăng ký không.
+Còn mở: mức góp quỹ (2 triệu/người chỉ là dự kiến, chưa chốt được), màu chủ đạo chính thức và biểu tượng, tên gói trả phí, ảnh mẫu thông báo ngân hàng (Vietcombank, ACB, MB, Techcombank, MoMo, che số dư), việc Zalo Mini App có cho cá nhân đăng ký không.
 
 ## Quyết định thiết kế (14–15/10/2026)
 Bảng thiết kế nằm trong artifact Design tên "Done Nha – Thiết kế (gộp Sổ nợ)" (tìm bằng danh sách artifact, không ghi link vào repo). Ảnh mẫu anh đưa chỉ để tham khảo, không làm giống; còn lại theo design system cũ của Sổ nợ. Bình luận "gửi cho Claude" trên artifact thì sửa trong artifact, trả lời trong thread, đóng thread, trong phiên chỉ ghi một dòng.
@@ -49,7 +49,7 @@ Bảng thiết kế nằm trong artifact Design tên "Done Nha – Thiết kế 
 - 15/10 chiều: bảng bấm thử có thêm trang xem sổ qua link (người nợ mở web, bấm "Mình đã chuyển" thì vào Chờ xác nhận), màn lần đầu (vào bằng khách/Google/Apple), tài khoản nhận tiền nhiều TK (vé QR vuốt đổi TK, số TK luôn che), cài đặt chuyến (đổi thủ quỹ có bàn giao, ủy quyền ghi chi quỹ), chi tiết khoản chi (lịch sử, sửa, xóa có Hoàn tác; ai ghi mới sửa, chi quỹ chỉ thủ quỹ/ủy quyền), nhóm không quỹ (Cơm trưa, nhóm mới), tạo nhóm, mời, vào nhóm bằng link/QR, sửa hồ sơ, nhập từ ảnh, chụp bill. Cân đối gộp quỹ vào thủ quỹ (không còn dòng "Quỹ → Kiệt"). "Ai trả" mặc định là thủ quỹ.
 - 15/10 tối (theo góp ý anh): khoản chi trước chuyến chỉ là đặt cọc, vé xe, đồ mang theo, dụng cụ (không có ăn uống khi chưa đi). Số dư chuyến: hai ô "Bạn sẽ nhận / Bạn cần trả" kèm tên người, danh sách "Với từng người" mô tả ngắn, khối "Tiền của bạn trong chuyến" (ứng trước, phần của bạn, góp quỹ, phần dùng từ quỹ). Icon cài đặt là bánh răng. Góp quỹ chỉ hiện 1 STK thủ quỹ gửi, không đổi số tiền. Thống kê Nhóm, chuyến liệt kê mọi nhóm, bấm để xem chi tiết; "Tiền chi từ đâu" có chú thích màu. Thanh menu 6 mục: Sổ nợ, Chia bill, Nhóm, Báo nợ, Thống kê, Tôi. Mọi chỗ thêm tên: trùng thì hỏi "có phải người này không", chọn Người khác thì báo trùng để đặt tên khác. Đăng ký có thêm số điện thoại + mã 6 số.
 - Bảng tĩnh tổng thể (15/10): 53 bảng `DN-*.dc.html` chụp từ bảng bấm thử bằng tools/snap.py + states.json, xếp 5 hàng dưới cùng canvas; các bảng "Gộp" cũ phía trên đã lỗi thời.
-- Script sinh bảng thiết kế (gen_dn.py, gen_dn2.py, shoot2.py, gen_proto.py, proto_logic.js, proto_screens.py, snap.py, states.json) chỉ nằm trong thư mục tạm của phiên, chưa lưu vào repo; mất khi phiên bị thu hồi.
+- Script sinh bảng thiết kế (gen_dn.py, gen_dn2.py, shoot2.py, gen_proto.py, proto_logic.js, proto_screens.py, snap.py, states.json) KHÔNG lưu vào repo công khai; bản lưu riêng của anh (17/10, gói dn-tools.zip kèm README chạy lại).
 
 - Quy tắc vẽ danh sách/bảng (anh nhắc 2 lần, 15/10): dòng CUỐI của mọi bảng thông tin, danh sách, khối dòng KHÔNG có đường line phía dưới; chỉ có line ngăn giữa các dòng. Kiểm trước khi đăng.
 
@@ -62,6 +62,18 @@ Bảng thiết kế nằm trong artifact Design tên "Done Nha – Thiết kế 
 - Sửa lỗi rà soát lần 2 (16/10, bảng bấm thử): Ghi nhanh có "Họ nợ bạn | Bạn nợ họ", Ghi trả tự biết chiều theo số dư và cảnh báo trả dư; Cân đối có nút Khóa (chỉ thủ quỹ), trước khóa chỉ là tạm tính và Sổ nợ hiện mục "Nhóm chưa chốt", sau khóa mới ghi nợ từng cặp; trả tiền chuyến ghi vào sổ chuyến, phát sinh sau khóa thành "đợt 2"; đổi thủ quỹ có bàn giao (quỹ vẫn ở người cũ tới khi xác nhận); góp quỹ chưa xác nhận thì cảnh báo trước khi khóa; khối "Tiền của bạn trong chuyến" cộng lại khớp Cân đối; Chia bill chọn "Ai trả đơn" và báo lỗi giảm giá lớn hơn tiền món; ô số tiền hiểu "2tr5", "1k5". Bảng tĩnh tổng thể giờ 68 bảng.
 - Chốt 16/10 chiều (anh trả lời 4 câu hỏi; anh dùng Opus cho mọi việc): Ghi nhanh bỏ "Ai nợ ai" (đã có Ghi nợ | Ghi trả); chọn nhiều người thì mỗi người cùng số tiền (mặc định), bỏ chia đều ở Ghi nhanh. Chia đều nằm ở tab Chia bill: tổng tiền ÷ số người (tính cả bạn), chưa cần biết ai, bấm Ghi nợ thì sang Sổ nợ điền sẵn số tiền mỗi người để chọn người. Chip "Tất cả" là chọn hết; có Cài đặt Ghi nhanh để tạo chip nhóm (vd "Cơm trưa · 5") và sửa chip số tiền. Dùng một chuông chung cho cả app (màn Thông báo + Cài đặt thông báo). Anh hỏi "ghi chi nhanh cho nhóm có khác khoản chi không": cùng dữ liệu, chỉ là lối tắt (thẻ chuyến đã có nút + Khoản chi); chưa chốt có làm thêm lối tắt hay không.
 - Đã vẽ 16/10 chiều trong bảng bấm thử: màn trống (tài khoản mới), mất mạng, gửi lỗi, sửa trùng trên 2 máy (chọn bản giữ), lưu trữ chuyến (chỉ ẩn ở máy mình, cần khóa cân đối trước), nhóm đã lưu trữ, sao lưu và khôi phục (khôi phục chỉ Sổ riêng), xuất CSV, nhập từ Sổ nợ cũ (chọn file, ghép tên, xem trước, hoàn tác), chi tiêu thẻ (màn mẫu, phần quét vẫn ở Apps Script). Công tắc giả lập nằm ở Tôi › Bản thử. Bảng tĩnh tổng thể giờ 94 bảng, 6 hàng.
+
+## Chốt 17/10/2026
+- Tra tên "Done Nha" (anh tự tra): hiện không thấy trùng; việc tra tên coi như xong, chỉ cần tra lại gần ngày đưa lên cửa hàng.
+- Mức góp quỹ 2 triệu/người chỉ là dự kiến, chưa chốt; thiết kế không được ghi cứng con số này.
+- Chia đều (tab Chia bill): số người gõ thẳng được, từ 2 đến 50, nhãn "Số người" (không phải "Số người ăn", vì còn đi chơi, uống, đá banh, cầu lông). Gõ 1 hoặc trống thì báo "Ít nhất 2 người".
+- Tổng tiền đọc được từ ảnh bill là ô gõ được (camera và Nhập từ ảnh › bill giấy), hiểu "412k", "1tr2", sai thì nút mờ. Anh xác nhận đúng ý (thread "cho chỉnh sửa số tiền").
+- Lối tắt "+ Khoản chi" (chốt có làm): nằm cuối thẻ Ghi nhanh ở Sổ nợ, chỉ hiện khi có chuyến; mở tờ Thêm khoản chi của chuyến, cùng dữ liệu với khoản chi thường, chỉ là lối tắt.
+- Tờ Thêm khoản chi: hai nút Chụp bill và Done nha ✓ ghim sát đáy, nền đặc, viền trên 1px, bóng nhẹ; danh sách chia đều cuộn bên trên.
+- Thanh menu dưới: cả 6 icon đều đặc khi chọn (Sổ nợ, Chia bill, Nhóm, Báo nợ, Thống kê, Tôi), viền khi không chọn.
+- Thanh tiêu đề trang con (có nút quay lại) ghim trên cùng khi cuộn; chưa cuộn thì không bóng, cuộn xuống thì nền nguyên khối kèm bóng đổ phía dưới. Hàng thẻ ở Thống kê có lề trái 16px khi vuốt.
+- Bảng tĩnh tổng thể: 94 bảng, 6 hàng; chín bảng Sổ nợ dài thêm 65px do lối tắt mới.
+- Tiến độ: pha 1 thiết kế kết thúc 25/10; pha 2 nền tảng (Supabase) bắt đầu 26/10; ngừng thêm tính năng 20/12; app sẵn sàng 28/12.
 
 ## Lỗi đã gặp, đừng lặp lại
 - Đừng nói chỉ Safari mới thêm được vào màn hình chính trên iPhone; Chrome và Edge cũng được.
