@@ -73,6 +73,7 @@ Bảng thiết kế nằm trong artifact Design tên "Done Nha – Thiết kế 
 - Thanh menu dưới: cả 6 icon đều đặc khi chọn (Sổ nợ, Chia bill, Nhóm, Báo nợ, Thống kê, Tôi), viền khi không chọn.
 - Thanh tiêu đề trang con (có nút quay lại) ghim trên cùng khi cuộn; chưa cuộn thì không bóng, cuộn xuống thì nền nguyên khối kèm bóng đổ phía dưới. Hàng thẻ ở Thống kê có lề trái 16px khi vuốt.
 - Bảng tĩnh tổng thể: 94 bảng, 6 hàng; chín bảng Sổ nợ dài thêm 65px do lối tắt mới.
+- Code Done Nha nằm ở repo RIÊNG TƯ `khang14052004-dev/done-nha` (nhánh main, chốt 18/10): `core/ledger.js` lõi sổ cái + test, `supabase/schema.sql` + `supabase/test/run.sh` (chạy thử trên Postgres tạm). Chỗ chạy app (Cloudflare Pages hoặc Netlify, gói miễn phí) chọn khi có bản đầu. Đăng ký bằng số điện thoại cần nhà cung cấp SMS trả phí nên đề xuất bỏ cho chuyến này (chờ anh chốt).
 - Tiến độ: pha 1 thiết kế kết thúc 25/10; pha 2 nền tảng (Supabase) bắt đầu 26/10; ngừng thêm tính năng 20/12; app sẵn sàng 28/12.
 
 ## Lỗi đã gặp, đừng lặp lại
