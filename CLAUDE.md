@@ -88,6 +88,23 @@ Bảng thiết kế nằm trong artifact Design tên "Done Nha – Thiết kế 
   - Hoãn sau chuyến: Nhập từ Sổ nợ cũ, cài đặt thông báo đẩy (giữ chuông trong app).
 - Tài liệu kế hoạch đã đổi tên "Done Nha – kế hoạch đến tháng 1/2027" và cập nhật 18/10: gộp app, Supabase đã tạo, việc của anh (tick xong), rủi ro iPhone/Zalo/dữ liệu cá nhân, 3 mục mới (Rà soát 18/10, Phương án thực tế cho người Việt, Pháp lý).
 
+## Chốt 21/10/2026
+- Lịch (anh đưa ảnh một app lịch chi tiêu có ảnh món; chỉ tham khảo, không làm giống): đặt ở Thống kê, giờ có 3 mục Nợ | Nhóm, chuyến | Lịch. Không thêm tab thứ 7.
+- Mỗi ô ngày là PHẦN CỦA BẠN trong ngày: phần chia của bạn trong mọi khoản, ai trả cũng tính. Khoản bạn ứng trả giùm người khác thì không tính (đó là tiền người ta nợ bạn).
+- Màu ô: 3 mức vàng (dưới 100k, 100k–500k, từ 500k). KHÔNG dùng xanh lá/cam/đỏ như mẫu vì trùng màu tiền.
+- Ô có ảnh thì ảnh làm nền, số tiền ở góc trên phải. Hôm nay có số ngày trong chấm tròn; ngày đang chọn viền xanh.
+- Có lọc theo nơi (Tất cả, Sổ riêng, Cơm trưa, Đà Lạt) và đổi tháng. Bấm một ngày thì ra danh sách khoản; bấm khoản thì mở khoản chi, nhóm hoặc người.
+- Ảnh trong Lịch: ảnh nhỏ (khoảng 15 KB) giữ trên máy. Ảnh gốc trên mạng vẫn tự xóa 30 ngày sau khi khóa cân đối; đổi máy thì ô lịch chỉ còn số.
+  - Quyền riêng tư đã có dòng "Ảnh nhỏ trong Lịch · Chỉ trên máy này".
+  - Bước "Dữ liệu của bạn" đã thêm câu về ảnh nhỏ.
+- Canvas bản 206:
+  - Thêm 4 bảng DN-TK-Lich, DN-TK-Lich-Ngay, DN-TK-Lich-Loc, DN-TK-Lich-T9. Bảng tĩnh giờ 100 bảng, 6 hàng.
+  - Cơm trưa trước 12/10 trong bảng bấm thử chỉ là số mẫu cho Lịch.
+  - Ảnh món trong ô là hình vẽ tay, không phải ảnh thật.
+- Code: `ledger_entries` đã có `occurred_at`, `photo_path` và chỉ mục (group_id, occurred_at). Lịch còn thiếu:
+  - truy vấn phần của bạn theo ngày;
+  - kho ảnh nhỏ trên máy (IndexedDB).
+
 ## Lỗi đã gặp, đừng lặp lại
 - Trả tiền theo kế hoạch đã khóa phải TRỪ khỏi kế hoạch, không cộng thành lượt chuyển mới (lỗi bắt được khi viết test 18/10).
 - Đừng nói chỉ Safari mới thêm được vào màn hình chính trên iPhone; Chrome và Edge cũng được.
