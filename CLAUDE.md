@@ -2,6 +2,32 @@
 
 Chủ dự án: Nguyên Khang (UI/UX designer). Giao tiếp bằng tiếng Việt, ngắn gọn, hành động trước; việc nhiều lựa chọn thì dùng bảng so sánh có đánh đổi. Việc nặng cỡ Opus thì báo cho anh biết.
 
+## Index nhanh (đọc mục này trước)
+| Cần gì | Xem ở đâu |
+|---|---|
+| Quyết định sản phẩm và thiết kế, theo ngày | Các mục "Chốt …" trong file này (mới nhất ở dưới cùng, trước "Lỗi đã gặp") |
+| Lỗi đã gặp | Mục "Lỗi đã gặp, đừng lặp lại" cuối file |
+| Định hướng sản phẩm | https://claude.ai/code/artifact/be6b0138-86ef-4cd1-bbf6-4a8a10dca24a |
+| Kế hoạch đến tháng 1/2027 | https://claude.ai/code/artifact/1b8c88d0-e732-4508-a9e9-9040b27314f2 |
+| Bảng thiết kế | Artifact Design "Done Nha – Thiết kế (gộp Sổ nợ)": tìm bằng danh sách artifact, không ghi link vào repo |
+| Quy tắc tính tiền, schema, test | `CLAUDE.md` và `README.md` của repo riêng tư `khang14052004-dev/done-nha` (nhánh `main`) |
+| Script sinh bảng thiết kế | Gói `dn-tools.zip` do anh giữ riêng, không nằm trong repo nào |
+
+## Nơi lưu trữ lịch sử dự án
+| Chỗ | Lưu gì | Bền? |
+|---|---|---|
+| `CLAUDE.md` repo `so-no` (nhánh `claude/v3-ghi-no-nhieu-nguoi`) | Mọi quyết định sản phẩm và thiết kế, theo ngày chốt | Bền, có lịch sử commit |
+| `CLAUDE.md` repo `done-nha` (riêng tư, `main`) | Quy tắc tính tiền, việc tiếp theo, ghi chú kỹ thuật | Bền, có lịch sử commit |
+| Hai tài liệu claude.ai (Định hướng sản phẩm, Kế hoạch) | Hướng sản phẩm, kế hoạch chuyến đi | Bền |
+| Artifact Design "Done Nha – Thiết kế (gộp Sổ nợ)" | Toàn bộ bảng thiết kế (bản 208, 100 bảng) | Bền, có các bản cũ |
+| `dn-tools.zip` (anh giữ, kèm README chạy lại) | Script sinh và chụp bảng thiết kế | Bền nếu anh giữ bản này |
+| Thư mục tạm của phiên Claude, bản ghi hội thoại `.jsonl` | Script đang làm, ảnh chụp, file `.bak` | KHÔNG bền, mất khi phiên kết thúc |
+
+Quy tắc giữ lịch sử:
+- Quyết định chốt xong thì ghi vào `CLAUDE.md` ngay trong phiên, không để dành cuối ngày.
+- Mỗi lần xuất bản canvas mới: cập nhật số bản, số bảng và các bảng thêm/sửa ở mục "Chốt" của ngày đó, rồi gửi lại `dn-tools.zip` cho anh chép về máy.
+- Không ghi token, link cài đặt riêng, số tài khoản, số thẻ, khóa Supabase vào bất kỳ chỗ nào ở trên.
+
 ## Dự án trong repo này: Sổ nợ
 - PWA ghi nợ cá nhân, chạy trên GitHub Pages (`khang14052004-dev/so-no`). Repo chỉ có giao diện.
 - Backend là Apps Script + Google Sheet. `Code.gs` KHÔNG được đưa lên repo công khai này.
