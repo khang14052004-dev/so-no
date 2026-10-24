@@ -12,9 +12,9 @@ Cột "Model": gợi ý để đỡ tốn token. Opus cho việc khó, dễ sai 
 | | Việc | Ai | Model |
 |---|---|---|---|
 | [ ] | Anh duyệt bàn giao Lịch (`07-handoff/lich-nhom-chuyen.md`) | Anh | – |
-| [ ] | Anh trả lời 3 câu hỏi Xấp ảnh (`docs/de-xuat-xap-anh.md`) | Anh | – |
-| [ ] | Vẽ Xấp ảnh cho chuyến trên bảng bấm thử + 5 bảng tĩnh; thêm `PhotoStack` vào Design System | Claude | Opus (kiểu mới) |
-| [ ] | Canvas 209: sửa màu lệch DS (`05-tokens/khoang-trong-v208.md`), vẽ 2 trạng thái Lịch còn thiếu, gửi lại `dn-tools.zip` | Claude | Sonnet |
+| [x] | Anh trả lời 3 câu hỏi Xấp ảnh (`docs/de-xuat-xap-anh.md`) | Anh | – |
+| [x] | Vẽ Xấp ảnh cho chuyến trên bảng bấm thử + 4 bảng tĩnh (canvas 210); thêm `PhotoStack` vào Design System (bản 19) | Claude | Opus (kiểu mới) |
+| [ ] | Canvas 211: sửa màu lệch DS (`05-tokens/khoang-trong-v208.md`), vẽ 2 trạng thái Lịch còn thiếu, gửi lại `dn-tools.zip` | Claude | Sonnet |
 | [ ] | Bàn giao màn Vào nhóm bằng link (iPhone tách bộ nhớ, trình duyệt Zalo) | Claude | Opus |
 
 Nếu Xấp ảnh chưa xong 25/10 thì dời sang tuần 26/10, không chặn pha 2 (Xấp chỉ đổi cách hiện, dữ liệu đã đủ).
@@ -37,4 +37,4 @@ Nếu Xấp ảnh chưa xong 25/10 thì dời sang tuần 26/10, không chặn p
 Bàn giao (`07-handoff/<man>.md`) → code trong repo `done-nha` → `npm test` + `bash supabase/test/run.sh` → chụp 412px so với bảng `DN-*` → ghi `_progress.md`.
 
 ## Còn chờ anh chốt (không chặn)
-Mức góp quỹ · màu chủ đạo và biểu tượng app · cách đo thành công trong brief · 3 câu hỏi Xấp ảnh.
+Mức góp quỹ · màu chủ đạo và biểu tượng app · cách đo thành công trong brief · token màu loại khoản (`cat-*`).

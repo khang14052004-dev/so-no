@@ -1,6 +1,19 @@
 # Đề xuất: "Xấp ảnh" cho Lịch chuyến đi
 
-Ngày 24/10/2026. Trạng thái: **hướng đã chọn (anh muốn), chi tiết chờ duyệt, CHƯA vẽ trên canvas.** Nghiên cứu sâu đang chạy; có kết quả thì bổ sung mục "Nghiên cứu".
+Ngày 24/10/2026. Trạng thái: **anh đã chốt 6 câu (24/10 trưa), đã vẽ bản đầu trên canvas bản 210.** Mục "Đã chốt" bên dưới thay cho các chỗ đề xuất cũ nếu khác.
+
+## Đã chốt (anh đồng ý hết, 24/10 trưa; theo nghiên cứu sâu)
+1. Thứ tự: **Trước chuyến → Ngày 1 → ngày cuối**, đọc như câu chuyện; đang đi thì đánh dấu "Hôm nay" (app thật tự cuộn tới).
+2. **3 thẻ** mỗi xấp; từ 4 khoản thì thẻ thứ 3 thành "+N" mờ.
+3. **Số tiền chỉ ở thẻ trên cùng** (thẳng 0°, dải trắng dưới ảnh); các thẻ sau để dải trống; tổng ngày ghi bằng chữ thẳng bên phải tiêu đề, kèm viên mức "~k/người" (Trước chuyến không có viên mức).
+4. **Polaroid** (khung trắng, dải đáy).
+5. Nhóm dài hạn (Cơm trưa) **chưa dùng Xấp**; để sau chuyến.
+6. **Tổng kết chuyến**: vẽ 1 bảng phác (ảnh story 9:16, không ghi ai nợ ai); làm thật tuần 14–20/12 bằng canvas, tạo sẵn ảnh trước khi bấm Chia sẻ.
+- Nút đổi kiểu "Xấp ảnh | Lịch tháng" ở đầu mục Lịch; chuyến mặc định Xấp. Thẻ đầu ở kiểu Xấp: "4 ngày đi · cả nhóm" thay cho "Tháng này".
+- Bấm xấp: mở tại chỗ thành dải thẻ vuốt ngang (có "1/6"), bấm thẻ mở chi tiết khoản; nút "Thu gọn". Ngày chưa tới: khung nét đứt `cal-trip-edge` "Sắp tới"; ngày đã qua mà trống: nút "Chưa có khoản nào · Ghi khoản".
+- Thẻ chữ dùng màu token có sẵn theo loại (Ăn uống `warn-tint`, Chỗ ở `blue-wash`, Đi lại `success-tint`, Đồ mang theo `yellow-tint`, Vé và chơi `blue-tint`, Khác `fill-quiet`); token riêng cho loại khoản chờ anh chốt.
+- Bản thử: Tôi › Bản thử › "Giả lập đang đi Đà Lạt" (hôm nay 4/1, 11 khoản của 3 ngày đầu, 6 ảnh).
+- Nghiên cứu sâu 24/10 (báo cáo trong phiên): chưa app chia tiền lớn nào lấy ảnh làm giao diện chính; iOS 18+ làm được bằng CSS gốc (transform, scroll-snap, View Transitions); xấp chỉ dùng ảnh nhỏ 15 KB; chuyến từ 8 ngày thêm chip chọn ngày, quá 14 ngày mặc định Lịch tháng; tổng kết vẽ bằng canvas 1080×1920, chia sẻ bằng Web Share (không `await` trước `share()`).
 
 ## Anh muốn gì (lời anh, 24/10)
 - Chuyến đã có ngày đi và ngày về, nên nếu cả chuyến nằm trong một tháng thì bỏ phần tháng cho đỡ tốn chỗ.
@@ -39,10 +52,8 @@ Ngày 24/10/2026. Trạng thái: **hướng đã chọn (anh muốn), chi tiết
 - **Tổng kết chuyến:** một ảnh dọc (khổ story) gồm các xấp của từng ngày, tổng tiền, số người, để chia sẻ lên Zalo hay Instagram. Đây là cách kéo người dùng mới (mỗi lần chia sẻ là một lần quảng cáo).
 - Nhóm dài hạn dùng Xấp theo tuần.
 
-## Câu hỏi chờ anh chốt
-1. Sau chuyến có đảo thứ tự thành Ngày 1 → cuối không?
-2. Khung polaroid hay thẻ bo góc (ảnh mẫu 2)? Em nghiêng về polaroid vì dải đáy ghi được số tiền.
-3. Nhóm dài hạn có cần Xấp không, hay chỉ chuyến?
+## Câu hỏi đã trả lời
+Xem mục "Đã chốt" ở đầu file.
 
 ## Bảng cần vẽ (khi duyệt)
 `DN-Chuyen-Xap` (mặc định), `DN-Chuyen-Xap-MoNgay` (mở một xấp), `DN-Chuyen-Xap-ItAnh` (toàn thẻ chữ), `DN-Chuyen-Xap-TruocChuyen`, `DN-Chuyen-DaiNgay` (kiểu Lịch thu gọn). Thêm thành phần `PhotoStack` vào Design System.
