@@ -33,8 +33,9 @@ Phiên mới trên đám mây có thể chưa có repo: dùng add_repo rồi clo
 
 ## 4. Đang dở
 - **Xấp ảnh cho chuyến:** đã vẽ bản đầu (canvas 211), chờ anh xem và góp ý. Chốt ở `docs/de-xuat-xap-anh.md`. Còn mở: token màu loại khoản (`cat-*`).
-- **Icon:** Phosphor Regular (canvas 213, DS 21); Sổ nợ + Chia bill vẽ riêng bo tròn, Chia bill có dấu % (canvas 214, DS 22); Xấp hình vẽ riêng, nút đổi kiểu xem chỉ icon (canvas 216, DS 23). Còn mở: anh duyệt Cân đối dùng cán cân `scales` (hiện giữ vẽ tay; không chung màn với Cấn trừ).
-- Canvas kế tiếp (số hệ thống tự nhảy, tạm gọi 217): sửa màu lệch DS (`05-tokens/khoang-trong-v208.md`), 2 trạng thái Lịch còn thiếu. Bàn giao Vào nhóm.
+- **Icon:** Phosphor Regular (canvas 213, DS 21); Sổ nợ + Chia bill vẽ riêng, Chia bill có dấu % (canvas 214, DS 22), chỉnh lại thân chữ nhật đứng (canvas 217, DS 24); Xấp hình vẽ riêng, nút đổi kiểu xem chỉ icon (canvas 216, DS 23). Còn mở: anh duyệt Cân đối dùng cán cân `scales` (hiện giữ vẽ tay; không chung màn với Cấn trừ).
+- **Thẻ đầu Lịch chuyến:** thu gọn còn tổng tiền, nhãn "Cái hậu quả của nhóm" (canvas 218, DS 25). Cơm trưa giữ ba số, chờ anh nói có thu gọn giống vậy không.
+- Canvas kế tiếp (số hệ thống tự nhảy, tạm gọi 219): sửa màu lệch DS (`05-tokens/khoang-trong-v208.md`), 2 trạng thái Lịch còn thiếu. Bàn giao Vào nhóm.
 
 ## 5. Luật hay vấp
 - Giao diện nói "hình", không nói "ảnh" (giọng Nam bộ, anh chốt 24/10).
