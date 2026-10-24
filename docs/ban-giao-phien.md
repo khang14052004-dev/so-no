@@ -36,8 +36,9 @@ Phiên mới trên đám mây có thể chưa có repo: dùng add_repo rồi clo
 - **Icon:** Phosphor Regular (canvas 213, DS 21); Sổ nợ + Chia bill vẽ riêng, Chia bill có dấu % (canvas 214, DS 22), chỉnh lại thân chữ nhật đứng (canvas 217, DS 24); Xấp hình vẽ riêng, nút đổi kiểu xem chỉ icon (canvas 216, DS 23). Còn mở: anh duyệt Cân đối dùng cán cân `scales` (hiện giữ vẽ tay; không chung màn với Cấn trừ).
 - **Thẻ đầu Lịch chuyến:** thu gọn còn tổng tiền, nhãn "Cái hậu quả của nhóm" (canvas 218, DS 25). Cơm trưa giữ ba số, chờ anh nói có thu gọn giống vậy không.
 - **Lối tắt chi theo nhóm ở Ghi nhanh:** mỗi nhóm một dòng, bật/tắt ở Cài đặt Ghi nhanh (canvas 219, DS 26; mặc định chuyến bật, Cơm trưa tắt). Còn mở: giới hạn tối đa 3 dòng và sắp xếp thứ tự, chờ anh nói.
-- **Lịch sử giao dịch ở Sổ nợ tổng:** mục 5 khoản mới nhất + màn xem tất cả có lọc Khoản nợ / Khoản trả (canvas 220, DS 27, 107 bảng). Anh chưa nói rõ chỗ đặt, em chọn Sổ nợ tổng; chờ anh xác nhận.
-- Canvas kế tiếp (số hệ thống tự nhảy, tạm gọi 221): sửa màu lệch DS (`05-tokens/khoang-trong-v208.md`), 2 trạng thái Lịch còn thiếu. Bàn giao Vào nhóm.
+- **Lịch sử giao dịch ở Sổ nợ tổng:** mục 5 khoản mới nhất + màn xem tất cả có lọc Khoản nợ / Khoản trả (canvas 220). Anh bảo GIỮ NGUYÊN, sau này sẽ chỉnh vị trí.
+- **Các đợt trước trong chi tiết người:** đây mới là ý chính của anh (biết đợt trước người ta trả ngày mấy, rà thiếu dòng). Mỗi đợt xổ xuống xem từng khoản (canvas 221, DS 28, 108 bảng). Còn mở: có muốn cờ nhắc "có thể thiếu dòng" không.
+- Canvas kế tiếp (số hệ thống tự nhảy, tạm gọi 222): sửa màu lệch DS (`05-tokens/khoang-trong-v208.md`), 2 trạng thái Lịch còn thiếu. Bàn giao Vào nhóm.
 
 ## 5. Luật hay vấp
 - Giao diện nói "hình", không nói "ảnh" (giọng Nam bộ, anh chốt 24/10).

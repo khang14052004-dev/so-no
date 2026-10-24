@@ -23,7 +23,9 @@ Cột "Model": gợi ý để đỡ tốn token. Opus cho việc khó, dễ sai 
 | [x] | Thẻ đầu Lịch chuyến thu gọn còn tổng tiền, nhãn "Cái hậu quả của nhóm"; xếp lại canvas (canvas 218, DS 25) | Claude | Sonnet |
 | [x] | Lối tắt chi theo từng nhóm ở Ghi nhanh, công tắc ẩn/hiện trong Cài đặt Ghi nhanh; thêm bảng DN-SoNo-LoiTat (canvas 219, DS 26, 105 bảng) | Claude | Sonnet |
 | [x] | Lịch sử giao dịch ở Sổ nợ tổng (5 khoản mới nhất + màn xem tất cả, lọc Khoản nợ / Khoản trả); thêm 2 bảng, xếp lại canvas (canvas 220, DS 27, 107 bảng) | Claude | Sonnet |
-| [ ] | Anh xác nhận chỗ đặt Lịch sử giao dịch (Sổ nợ tổng) hay muốn trong từng người / gồm khoản chi nhóm | Anh | – |
+| [x] | Anh xác nhận: giữ Lịch sử giao dịch ở Sổ nợ tổng, sau này chỉnh vị trí; ý chính là lịch sử các đợt trước trong chi tiết người | Anh | – |
+| [x] | Mục "Các đợt trước" trong chi tiết một người + dữ liệu mẫu đợt cũ; thêm bảng DN-Nguoi-DotTruoc (canvas 221, DS 28, 108 bảng) | Claude | Sonnet |
+| [ ] | Anh nói có muốn cờ nhắc "có thể thiếu dòng" ở Các đợt trước (vd trả dư hơn nợ) không | Anh | – |
 | [ ] | Anh nói có giới hạn tối đa 3 dòng lối tắt và cho sắp xếp thứ tự không | Anh | – |
 | [ ] | Anh nói có thu gọn thẻ đầu Lịch Cơm trưa giống chuyến không | Anh | – |
 | [ ] | Anh duyệt Cân đối dùng cán cân `scales` (hiện giữ vẽ tay, giống Cấn trừ; hai icon không nằm chung màn) | Anh | – |
