@@ -152,7 +152,11 @@ Bảng thiết kế nằm trong artifact Design tên "Done Nha – Thiết kế 
 - Design System "Done Nha" thêm màu Lịch: `cal-low-bg/ink`, `cal-mid-bg/ink`, `cal-high-bg/ink`, `cal-trip-edge` (giờ 48 màu) và mục "Lịch nhóm/chuyến" trong README. Canvas còn vài màu lệch nhẹ DS: danh sách ở `05-tokens/khoang-trong-v208.md`.
 - Schema `done-nha` (commit f619e79): cột ngày đi/về của chuyến + `set_trip_dates` (chủ nhóm hoặc thủ quỹ); `group_calendar` và `group_spend_totals` gộp theo giờ Việt Nam; chỉ người tải ảnh lên được xóa ảnh. 102 kiểm tra SQL qua.
 - Bàn giao đầu tiên: Lịch nhóm/chuyến (`07-handoff/lich-nhom-chuyen.md`, nháp, chờ anh duyệt). Thứ tự đề xuất: Vào nhóm → Lịch → Thêm khoản chi → Góp quỹ → Cân đối → Sổ nợ → Báo nợ.
-- Còn mở: ảnh nằm trên dòng sổ cái (chỉ ghi thêm) nên chưa "Thêm ảnh bill" cho khoản đã ghi và chưa biết "ai chụp"; đề xuất bảng ảnh riêng, chờ anh chốt.
+- Ảnh hóa đơn: anh chốt **bảng ảnh riêng** (`entry_photos`, commit 0df29e7), không nằm trên dòng sổ cái nữa.
+  - "Thêm ảnh bill" cho khoản đã ghi được; ai trong nhóm cũng thêm ảnh, app ghi người chụp ("ai chụp").
+  - Chỉ người chụp xóa ảnh, kể cả khi đã được mở lại tên.
+  - Sửa khoản hoặc hoàn tác xóa thì ảnh đi theo khoản mới.
+  - Ô Lịch dùng ảnh nhỏ (~15 KB), không có thì dùng ảnh lớn. 125 kiểm tra SQL qua.
 
 ## Lỗi đã gặp, đừng lặp lại
 - Prompt dùng lại được mà chỉ nằm trong hội thoại thì mất khi hội thoại bị tóm tắt (prompt Figma Make 21/10). Lưu vào `06-claude-input/` của thư mục làm việc.
