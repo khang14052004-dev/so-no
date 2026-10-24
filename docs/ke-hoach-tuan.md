@@ -15,9 +15,10 @@ Cột "Model": gợi ý để đỡ tốn token. Opus cho việc khó, dễ sai 
 | [x] | Anh trả lời 3 câu hỏi Xấp ảnh (`docs/de-xuat-xap-anh.md`) | Anh | – |
 | [x] | Vẽ Xấp ảnh cho chuyến trên bảng bấm thử + 4 bảng tĩnh (canvas 211); thêm `PhotoStack` vào Design System (bản 20) | Claude | Opus (kiểu mới) |
 | [x] | Bảng thử icon Phosphor (phương án C) trên canvas 212 | Claude | Sonnet |
-| [ ] | Anh chọn nét Regular hay Bold; duyệt Cân đối dùng cán cân | Anh | – |
-| [ ] | Thay icon theo lựa chọn ở bảng bấm thử + Design System, chụp lại 104 bảng (canvas 213) | Claude | Sonnet |
-| [ ] | Canvas 213: sửa màu lệch DS (`05-tokens/khoang-trong-v208.md`), vẽ 2 trạng thái Lịch còn thiếu, gửi lại `dn-tools.zip` | Claude | Sonnet |
+| [x] | Anh chọn nét Regular (24/10) | Anh | – |
+| [x] | Thay icon sang Phosphor Regular ở bảng bấm thử + Design System, chụp lại 104 bảng (canvas 213, DS 21) | Claude | Sonnet |
+| [ ] | Anh duyệt Cân đối dùng cán cân `scales` (hiện giữ vẽ tay, giống Cấn trừ) | Anh | – |
+| [ ] | Canvas 214: sửa màu lệch DS (`05-tokens/khoang-trong-v208.md`), vẽ 2 trạng thái Lịch còn thiếu, gửi lại `dn-tools.zip` | Claude | Sonnet |
 | [ ] | Bàn giao màn Vào nhóm bằng link (iPhone tách bộ nhớ, trình duyệt Zalo) | Claude | Opus |
 
 Nếu Xấp ảnh chưa xong 25/10 thì dời sang tuần 26/10, không chặn pha 2 (Xấp chỉ đổi cách hiện, dữ liệu đã đủ).
