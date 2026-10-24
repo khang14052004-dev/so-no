@@ -1,0 +1,40 @@
+# Kế hoạch theo tuần tới 28/12/2026
+
+Lập 24/10/2026. **Đề xuất, anh duyệt.** Kế hoạch tổng nằm ở tài liệu claude.ai "Done Nha – kế hoạch đến tháng 1/2027"; file này là việc cụ thể theo tuần.
+Xong việc nào thì đánh dấu [x] và ghi ngày. Đổi thứ tự thì ghi lý do một dòng.
+
+Mốc cứng: pha 1 thiết kế xong **25/10** · pha 2 từ **26/10** · ngừng thêm tính năng **20/12** · app sẵn sàng **28/12** · đi Đà Lạt tối **2/1/2027**.
+
+Cột "Model": gợi ý để đỡ tốn token. Opus cho việc khó, dễ sai đắt (tiền, SQL, bảo mật, giao diện kiểu mới); Sonnet cho việc theo khuôn đã có.
+
+## Pha 1 – thiết kế (tới 25/10)
+
+| | Việc | Ai | Model |
+|---|---|---|---|
+| [ ] | Anh duyệt bàn giao Lịch (`07-handoff/lich-nhom-chuyen.md`) | Anh | – |
+| [ ] | Anh trả lời 3 câu hỏi Xấp ảnh (`docs/de-xuat-xap-anh.md`) | Anh | – |
+| [ ] | Vẽ Xấp ảnh cho chuyến trên bảng bấm thử + 5 bảng tĩnh; thêm `PhotoStack` vào Design System | Claude | Opus (kiểu mới) |
+| [ ] | Canvas 209: sửa màu lệch DS (`05-tokens/khoang-trong-v208.md`), vẽ 2 trạng thái Lịch còn thiếu, gửi lại `dn-tools.zip` | Claude | Sonnet |
+| [ ] | Bàn giao màn Vào nhóm bằng link (iPhone tách bộ nhớ, trình duyệt Zalo) | Claude | Opus |
+
+Nếu Xấp ảnh chưa xong 25/10 thì dời sang tuần 26/10, không chặn pha 2 (Xấp chỉ đổi cách hiện, dữ liệu đã đủ).
+
+## Pha 2 – nền tảng và các màn
+
+| Tuần | Việc | Model |
+|---|---|---|
+| 26/10–1/11 | Anh dán `schema.sql`, bật Allow manual linking. Claude kiểm schema trên Supabase thật. Chọn chỗ chạy (Cloudflare Pages hoặc Netlify), dựng khung app PWA, `tokens.css` sinh từ Design System, luật `.claude/rules/ui.md`. Đăng nhập khách + Google, "Giữ chỗ của bạn", link mời (Zalo, iPhone). | Opus |
+| 2–8/11 | Nhóm/chuyến: tạo, mời, vào nhóm. Lịch + Xấp ảnh. Thêm khoản chi (chia đều), ảnh (nén ~200 KB + ảnh nhỏ ~15 KB, tải lên, `add_photo`). Ghi trên máy trước, đồng bộ sau. | Opus |
+| 9–15/11 | Góp quỹ + thủ quỹ xác nhận; Số dư; Cân đối + Khóa; VietQR. | Opus |
+| 16–22/11 | Sổ nợ tổng, Ghi nhanh, Ghi trả, Sổ riêng, kiểu D, Cấn trừ. | Sonnet (theo bàn giao), Opus khi đụng tính tiền |
+| 23–29/11 | Báo nợ (tin nhắn, mã QR), trang xem sổ qua link, Chia bill (chia đều, theo món). | Sonnet |
+| 30/11–6/12 | Thống kê, Tôi, Quyền riêng tư và dữ liệu, xuất CSV, mất mạng / gửi lỗi / sửa trùng. | Sonnet |
+| 7–13/12 | Thử kín với cả nhóm trên iPhone thật (thêm vào màn hình chính, Zalo); sửa lỗi. | Opus cho lỗi khó |
+| 14–20/12 | Tổng kết chuyến (ảnh chia sẻ) nếu kịp; hàm xóa chuyến dọn ảnh (Edge Function). **20/12 ngừng thêm tính năng.** | Opus |
+| 21–28/12 | Chỉ sửa lỗi. Hướng dẫn nhóm cài app, tạo chuyến Đà Lạt thật, đặt ngày đi/về. **28/12 sẵn sàng.** | Sonnet |
+
+## Mỗi màn làm theo vòng
+Bàn giao (`07-handoff/<man>.md`) → code trong repo `done-nha` → `npm test` + `bash supabase/test/run.sh` → chụp 412px so với bảng `DN-*` → ghi `_progress.md`.
+
+## Còn chờ anh chốt (không chặn)
+Mức góp quỹ · màu chủ đạo và biểu tượng app · cách đo thành công trong brief · 3 câu hỏi Xấp ảnh.
