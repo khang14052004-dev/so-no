@@ -156,6 +156,10 @@ Giao diện:
   - Thêm DN-Chuyen-LichThang, DN-Chuyen-Xap-DangDi, DN-Chuyen-Xap-ChiTiet (bấm thẻ ra chi tiết; thay DN-Chuyen-Xap-MoNgay), DN-Chuyen-TongKet. DN-Chuyen-KhoanChi giờ mở ra Xấp ảnh.
   - Bảng tĩnh 104 bảng, 6 hàng. Công tắc Tôi › Bản thử › "Giả lập đang đi Đà Lạt" (hôm nay 4/1, 11 khoản, 6 ảnh).
   - Design System bản 19: thành phần PhotoStack (bản 20 sau sửa chiều 24/10: hàng vuốt ngang, giá đóng mộc).
+- Icon (24/10 chiều, anh chốt "làm phương án C"): Phosphor (MIT) làm bộ nền cho 6 icon menu (đang chọn = bản đặc) và các icon phụ; GIỮ vẽ tay cho Cấn trừ và biểu tượng app (Cân đối đang chờ, xem dưới). Chọn nét Regular (1,5px) hay Bold (2,25px) bằng mắt trên bảng thử; CHƯA thay icon ở bảng bấm thử và Design System cho tới khi anh chọn.
+  - Canvas bản 212: thêm bảng thử `DN-Icon-Phosphor` (1280 × 2810, nằm dưới hàng cuối; ngoài 104 bảng tĩnh). Gồm 6 icon menu ba bộ, thanh menu thật, 40 icon phụ, phóng to 56px, mục "Giữ vẽ tay".
+  - Phát hiện: icon Cấn trừ và Cân đối đang gần như giống hệt nhau (hai mũi tên ngược chiều). Gợi ý Cân đối dùng cán cân (Phosphor scales); chờ anh duyệt. Chia bill: bản vẽ tay có dấu %, Phosphor receipt thì không.
+  - Phosphor lock-simple trông như túi xách ở 24px, dùng `lock`.
 - Làm gọn file này (24/10): các mục 14–18/10 chuyển nguyên văn sang `docs/lich-su-chot-2026-10.md`, thay bằng "Quyết định đang áp dụng" (đã bỏ các ý bị thay). Thêm `docs/ban-giao-phien.md` để đổi model không mất ngữ cảnh, `docs/ke-hoach-tuan.md` cho việc theo tuần.
 
 ## Lỗi đã gặp, đừng lặp lại

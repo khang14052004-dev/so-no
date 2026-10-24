@@ -18,9 +18,9 @@ Cập nhật: 24/10/2026 10:40. Người viết: Claude (Opus). Cuối mỗi phi
 |---|---|
 | Quyết định | `khang14052004-dev/so-no`, nhánh `claude/v3-ghi-no-nhieu-nguoi`, `CLAUDE.md` |
 | Code, schema, test | `khang14052004-dev/done-nha` (riêng tư), nhánh `main` |
-| Bảng thiết kế | Artifact Design "Done Nha – Thiết kế (gộp Sổ nợ)", bản 211. Tìm bằng Artifact list, KHÔNG ghi link vào repo |
+| Bảng thiết kế | Artifact Design "Done Nha – Thiết kế (gộp Sổ nợ)", bản 212. Tìm bằng Artifact list, KHÔNG ghi link vào repo |
 | Token | Artifact Design System "Done Nha" (48 màu) |
-| Script vẽ bảng | `dn-tools.zip` (bản 211) ở `So-no/done-nha-workspace/08-tools/` trên máy anh; cách chạy trong README của gói |
+| Script vẽ bảng | `dn-tools.zip` (bản 212) ở `So-no/done-nha-workspace/08-tools/` trên máy anh; cách chạy trong README của gói |
 | Thư mục làm việc | `So-no/done-nha-workspace/` trên máy anh (máy đã liên kết với phiên); đọc `00-START-HERE.md` |
 Phiên mới trên đám mây có thể chưa có repo: dùng add_repo rồi clone; máy anh có thể chưa liên kết thì hỏi anh.
 
@@ -33,7 +33,8 @@ Phiên mới trên đám mây có thể chưa có repo: dùng add_repo rồi clo
 
 ## 4. Đang dở
 - **Xấp ảnh cho chuyến:** đã vẽ bản đầu (canvas 211), chờ anh xem và góp ý. Chốt ở `docs/de-xuat-xap-anh.md`. Còn mở: token màu loại khoản (`cat-*`).
-- Canvas 212: sửa màu lệch DS (`05-tokens/khoang-trong-v208.md`), 2 trạng thái Lịch còn thiếu. Bàn giao Vào nhóm.
+- **Icon (phương án C):** bảng thử `DN-Icon-Phosphor` đã đăng (canvas 212). Chờ anh chọn nét Regular hay Bold (và duyệt Cân đối dùng cán cân), rồi mới thay icon ở `gen_proto.py`/`proto_screens.py` (dict `I`, `tab()`, `_on`) và Design System, chụp lại 104 bảng.
+- Canvas 213: sửa màu lệch DS (`05-tokens/khoang-trong-v208.md`), 2 trạng thái Lịch còn thiếu. Bàn giao Vào nhóm.
 
 ## 5. Luật hay vấp
 - Tiếng Việt, ngắn, hành động trước; nhiều lựa chọn thì bảng có đánh đổi.
