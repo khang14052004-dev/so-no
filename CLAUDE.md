@@ -12,6 +12,8 @@ Chủ dự án: Nguyên Khang (UI/UX designer). Giao tiếp bằng tiếng Việ
 | Bảng thiết kế | Artifact Design "Done Nha – Thiết kế (gộp Sổ nợ)": tìm bằng danh sách artifact, không ghi link vào repo |
 | Quy tắc tính tiền, schema, test | `CLAUDE.md` và `README.md` của repo riêng tư `khang14052004-dev/done-nha` (nhánh `main`) |
 | Script sinh bảng thiết kế | Gói `dn-tools.zip` do anh giữ riêng, không nằm trong repo nào |
+| Màu, chữ, khoảng cách (token) | Artifact Design System "Done Nha" (tìm bằng danh sách artifact) |
+| Tài nguyên, bản xuất, bàn giao từng màn, tiến độ tuần, mẫu quy trình UX/UI | Thư mục `So-no/done-nha-workspace` trên máy anh: đọc `00-START-HERE.md` |
 
 ## Nơi lưu trữ lịch sử dự án
 | Chỗ | Lưu gì | Bền? |
@@ -21,6 +23,8 @@ Chủ dự án: Nguyên Khang (UI/UX designer). Giao tiếp bằng tiếng Việ
 | Hai tài liệu claude.ai (Định hướng sản phẩm, Kế hoạch) | Hướng sản phẩm, kế hoạch chuyến đi | Bền |
 | Artifact Design "Done Nha – Thiết kế (gộp Sổ nợ)" | Toàn bộ bảng thiết kế (bản 208, 100 bảng) | Bền, có các bản cũ |
 | `dn-tools.zip` (anh giữ, kèm README chạy lại) | Script sinh và chụp bảng thiết kế | Bền nếu anh giữ bản này |
+| Artifact Design System "Done Nha" | Token màu, chữ, khoảng cách, bo góc, bóng; thành phần | Bền, có các bản cũ |
+| Thư mục `So-no/done-nha-workspace` trên máy anh | Bản xuất PDF/PNG, ảnh gốc, nghiên cứu gốc, bàn giao từng màn (`07-handoff`), `_progress.md`, mẫu quy trình (`_mau`) | Bền nếu anh sao lưu (không phải git) |
 | Thư mục tạm của phiên Claude, bản ghi hội thoại `.jsonl` | Script đang làm, ảnh chụp, file `.bak` | KHÔNG bền, mất khi phiên kết thúc |
 
 Quy tắc giữ lịch sử:
@@ -140,7 +144,18 @@ Bảng thiết kế nằm trong artifact Design tên "Done Nha – Thiết kế 
   - Bảng tĩnh 100 bảng, 6 hàng.
   - Số Cơm trưa trước 12/10 chỉ là số mẫu; ảnh món là hình vẽ tay.
 
+## Chốt 24/10/2026
+- Anh duyệt cấu trúc thư mục làm việc `done-nha-workspace` (trong thư mục So-no trên máy anh). Chỉ giữ thứ không nằm trong git; đánh số theo thứ tự làm: `01-brief`, `02-research`, `03-assets`, `04-design`, `05-tokens`, `06-claude-input`, `07-handoff`, `08-tools`, `99-luu-tru`, `_mau`.
+  - Quyết định vẫn ghi ở file này. Việc đã làm trong tuần ghi ở `_progress.md` của thư mục đó.
+  - `_mau/QUY-TRINH-UXUI.md`: quy trình 7 bước (brief → nghiên cứu → token → vẽ và bấm thử → chốt → bàn giao từng màn → code và kiểm), dùng lại cho dự án sau.
+- Đánh giá báo cáo video (Design Tokens, cấu trúc PIKA): lấy token theo tầng, cấm ghi thẳng mã màu trong code (chỉ `tokens.css`), bàn giao từng màn có mẫu. Để sau: Tokens Studio, Style Dictionary, CI/CD (khi có giao diện tối hoặc người thứ 2). Báo cáo sai 3 chỗ: Done Nha đã có Design System; màu không theo thu/chi; SQL View dễ bỏ qua RLS nên dùng hàm. Chi tiết: `02-research/danh-gia-bao-cao-video.md`.
+- Design System "Done Nha" thêm màu Lịch: `cal-low-bg/ink`, `cal-mid-bg/ink`, `cal-high-bg/ink`, `cal-trip-edge` (giờ 48 màu) và mục "Lịch nhóm/chuyến" trong README. Canvas còn vài màu lệch nhẹ DS: danh sách ở `05-tokens/khoang-trong-v208.md`.
+- Schema `done-nha` (commit f619e79): cột ngày đi/về của chuyến + `set_trip_dates` (chủ nhóm hoặc thủ quỹ); `group_calendar` và `group_spend_totals` gộp theo giờ Việt Nam; chỉ người tải ảnh lên được xóa ảnh. 102 kiểm tra SQL qua.
+- Bàn giao đầu tiên: Lịch nhóm/chuyến (`07-handoff/lich-nhom-chuyen.md`, nháp, chờ anh duyệt). Thứ tự đề xuất: Vào nhóm → Lịch → Thêm khoản chi → Góp quỹ → Cân đối → Sổ nợ → Báo nợ.
+- Còn mở: ảnh nằm trên dòng sổ cái (chỉ ghi thêm) nên chưa "Thêm ảnh bill" cho khoản đã ghi và chưa biết "ai chụp"; đề xuất bảng ảnh riêng, chờ anh chốt.
+
 ## Lỗi đã gặp, đừng lặp lại
+- Prompt dùng lại được mà chỉ nằm trong hội thoại thì mất khi hội thoại bị tóm tắt (prompt Figma Make 21/10). Lưu vào `06-claude-input/` của thư mục làm việc.
 - Trả tiền theo kế hoạch đã khóa phải TRỪ khỏi kế hoạch, không cộng thành lượt chuyển mới (lỗi bắt được khi viết test 18/10).
 - Đừng nói chỉ Safari mới thêm được vào màn hình chính trên iPhone; Chrome và Edge cũng được.
 - Giá gói của MoVi Group trên App Store Việt Nam là đồng (119.000 / 409.000 / 549.000), không phải USD.
