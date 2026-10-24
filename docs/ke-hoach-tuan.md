@@ -18,6 +18,7 @@ Cột "Model": gợi ý để đỡ tốn token. Opus cho việc khó, dễ sai 
 | [x] | Anh chọn nét Regular (24/10) | Anh | – |
 | [x] | Thay icon sang Phosphor Regular ở bảng bấm thử + Design System, chụp lại 104 bảng (canvas 213, DS 21) | Claude | Sonnet |
 | [x] | Vẽ riêng Sổ nợ + Chia bill (bo tròn, Chia bill có dấu %), chụp lại 104 bảng (canvas 214, DS 22) | Claude | Sonnet |
+| [x] | Xấp hình vẽ riêng, nút đổi kiểu xem chỉ icon, đổi chữ "ảnh" → "hình" (canvas 216, DS 23) | Claude | Sonnet |
 | [ ] | Anh duyệt Cân đối dùng cán cân `scales` (hiện giữ vẽ tay, giống Cấn trừ; hai icon không nằm chung màn) | Anh | – |
 | [ ] | Canvas kế tiếp: sửa màu lệch DS (`05-tokens/khoang-trong-v208.md`), vẽ 2 trạng thái Lịch còn thiếu, gửi lại `dn-tools.zip` | Claude | Sonnet |
 | [ ] | Bàn giao màn Vào nhóm bằng link (iPhone tách bộ nhớ, trình duyệt Zalo) | Claude | Opus |
