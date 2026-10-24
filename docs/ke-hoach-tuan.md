@@ -13,8 +13,8 @@ Cột "Model": gợi ý để đỡ tốn token. Opus cho việc khó, dễ sai 
 |---|---|---|---|
 | [ ] | Anh duyệt bàn giao Lịch (`07-handoff/lich-nhom-chuyen.md`) | Anh | – |
 | [x] | Anh trả lời 3 câu hỏi Xấp ảnh (`docs/de-xuat-xap-anh.md`) | Anh | – |
-| [x] | Vẽ Xấp ảnh cho chuyến trên bảng bấm thử + 4 bảng tĩnh (canvas 210); thêm `PhotoStack` vào Design System (bản 19) | Claude | Opus (kiểu mới) |
-| [ ] | Canvas 211: sửa màu lệch DS (`05-tokens/khoang-trong-v208.md`), vẽ 2 trạng thái Lịch còn thiếu, gửi lại `dn-tools.zip` | Claude | Sonnet |
+| [x] | Vẽ Xấp ảnh cho chuyến trên bảng bấm thử + 4 bảng tĩnh (canvas 211); thêm `PhotoStack` vào Design System (bản 20) | Claude | Opus (kiểu mới) |
+| [ ] | Canvas 212: sửa màu lệch DS (`05-tokens/khoang-trong-v208.md`), vẽ 2 trạng thái Lịch còn thiếu, gửi lại `dn-tools.zip` | Claude | Sonnet |
 | [ ] | Bàn giao màn Vào nhóm bằng link (iPhone tách bộ nhớ, trình duyệt Zalo) | Claude | Opus |
 
 Nếu Xấp ảnh chưa xong 25/10 thì dời sang tuần 26/10, không chặn pha 2 (Xấp chỉ đổi cách hiện, dữ liệu đã đủ).

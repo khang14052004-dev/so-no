@@ -26,7 +26,7 @@ Chủ dự án: Nguyên Khang (UI/UX designer). Giao tiếp bằng tiếng Việ
 | `docs/` repo `so-no` | Bàn giao phiên, kế hoạch tuần, lịch sử chốt cũ, đề xuất đang chờ | Bền, có lịch sử commit |
 | `CLAUDE.md` repo `done-nha` (riêng tư, `main`) | Quy tắc tính tiền, việc tiếp theo, ghi chú kỹ thuật | Bền, có lịch sử commit |
 | Hai tài liệu claude.ai (Định hướng sản phẩm, Kế hoạch) | Hướng sản phẩm, kế hoạch chuyến đi | Bền |
-| Artifact Design "Done Nha – Thiết kế (gộp Sổ nợ)" | Toàn bộ bảng thiết kế (bản 210, 104 bảng) | Bền, có các bản cũ |
+| Artifact Design "Done Nha – Thiết kế (gộp Sổ nợ)" | Toàn bộ bảng thiết kế (bản 211, 104 bảng) | Bền, có các bản cũ |
 | `dn-tools.zip` (anh giữ, kèm README chạy lại) | Script sinh và chụp bảng thiết kế | Bền nếu anh giữ bản này |
 | Artifact Design System "Done Nha" | Token màu, chữ, khoảng cách, bo góc, bóng; thành phần | Bền, có các bản cũ |
 | Thư mục `So-no/done-nha-workspace` trên máy anh | Bản xuất PDF/PNG, ảnh gốc, nghiên cứu gốc, bàn giao từng màn (`07-handoff`), `_progress.md`, mẫu quy trình (`_mau`) | Bền nếu anh sao lưu (không phải git) |
@@ -148,14 +148,14 @@ Giao diện:
   - Ô Lịch dùng ảnh nhỏ (~15 KB), không có thì dùng ảnh lớn. 125 kiểm tra SQL qua.
 
 - Lịch chuyến: **Xấp ảnh theo ngày** (anh chốt 24/10 trưa, đồng ý cả 6 câu). Chuyến mặc định Xấp, nút đổi "Xấp ảnh | Lịch tháng".
-  - Thứ tự Trước chuyến → Ngày 1 → cuối; 3 thẻ polaroid mỗi xấp, từ 4 khoản thẻ thứ 3 là "+N"; số tiền chỉ ở thẻ trên cùng (thẳng), tổng ngày bằng chữ thẳng + viên mức "~k/người".
-  - Bấm xấp mở dải thẻ vuốt ngang; ngày chưa tới nét đứt "Sắp tới"; khoản không ảnh là thẻ chữ theo loại.
+  - Thứ tự Trước chuyến → Ngày 1 → cuối; thẻ polaroid; tổng ngày bằng chữ thẳng + viên mức "~k/người" (ý "3 thẻ, +N, số tiền chỉ ở thẻ trên cùng" đã bị thay, xem dòng SỬA bên dưới).
+  - SỬA 24/10 chiều (anh góp ý trên canvas): bỏ "+N" và bước mở dải; mỗi ngày là một hàng thẻ nghiêng vuốt ngang (giữ góc nghiêng), bấm thẻ ra thẳng chi tiết khoản; GIÁ ĐÓNG MỘC lên ảnh (kiểu "Done nha ✓" ở Tổng kết), tên khoản chữ nhạt dưới ảnh. Ngày chưa tới nét đứt "Sắp tới"; khoản không ảnh là thẻ chữ theo loại.
   - Cơm trưa chưa dùng Xấp. "Tổng kết chuyến" (ảnh story, không ghi ai nợ ai) mới là bảng phác; làm thật 14–20/12.
   - Chi tiết, nghiên cứu: `docs/de-xuat-xap-anh.md`.
-- Canvas bản 210 (24/10 chiều; hệ thống tự nhảy từ 208 lên 210):
-  - Thêm DN-Chuyen-LichThang, DN-Chuyen-Xap-DangDi, DN-Chuyen-Xap-MoNgay, DN-Chuyen-TongKet. DN-Chuyen-KhoanChi giờ mở ra Xấp ảnh.
+- Canvas bản 211 (24/10 chiều; hệ thống tự nhảy từ 208 lên 210, rồi 211 sau góp ý):
+  - Thêm DN-Chuyen-LichThang, DN-Chuyen-Xap-DangDi, DN-Chuyen-Xap-ChiTiet (bấm thẻ ra chi tiết; thay DN-Chuyen-Xap-MoNgay), DN-Chuyen-TongKet. DN-Chuyen-KhoanChi giờ mở ra Xấp ảnh.
   - Bảng tĩnh 104 bảng, 6 hàng. Công tắc Tôi › Bản thử › "Giả lập đang đi Đà Lạt" (hôm nay 4/1, 11 khoản, 6 ảnh).
-  - Design System bản 19: thành phần PhotoStack.
+  - Design System bản 19: thành phần PhotoStack (bản 20 sau sửa chiều 24/10: hàng vuốt ngang, giá đóng mộc).
 - Làm gọn file này (24/10): các mục 14–18/10 chuyển nguyên văn sang `docs/lich-su-chot-2026-10.md`, thay bằng "Quyết định đang áp dụng" (đã bỏ các ý bị thay). Thêm `docs/ban-giao-phien.md` để đổi model không mất ngữ cảnh, `docs/ke-hoach-tuan.md` cho việc theo tuần.
 
 ## Lỗi đã gặp, đừng lặp lại

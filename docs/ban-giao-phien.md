@@ -18,22 +18,22 @@ Cập nhật: 24/10/2026 10:40. Người viết: Claude (Opus). Cuối mỗi phi
 |---|---|
 | Quyết định | `khang14052004-dev/so-no`, nhánh `claude/v3-ghi-no-nhieu-nguoi`, `CLAUDE.md` |
 | Code, schema, test | `khang14052004-dev/done-nha` (riêng tư), nhánh `main` |
-| Bảng thiết kế | Artifact Design "Done Nha – Thiết kế (gộp Sổ nợ)", bản 210. Tìm bằng Artifact list, KHÔNG ghi link vào repo |
+| Bảng thiết kế | Artifact Design "Done Nha – Thiết kế (gộp Sổ nợ)", bản 211. Tìm bằng Artifact list, KHÔNG ghi link vào repo |
 | Token | Artifact Design System "Done Nha" (48 màu) |
-| Script vẽ bảng | `dn-tools.zip` (bản 210) ở `So-no/done-nha-workspace/08-tools/` trên máy anh; cách chạy trong README của gói |
+| Script vẽ bảng | `dn-tools.zip` (bản 211) ở `So-no/done-nha-workspace/08-tools/` trên máy anh; cách chạy trong README của gói |
 | Thư mục làm việc | `So-no/done-nha-workspace/` trên máy anh (máy đã liên kết với phiên); đọc `00-START-HERE.md` |
 Phiên mới trên đám mây có thể chưa có repo: dùng add_repo rồi clone; máy anh có thể chưa liên kết thì hỏi anh.
 
 ## 3. Trạng thái hiện tại (24/10)
-- Pha 1 thiết kế: canvas bản 210 (104 bảng). Lịch nhóm dài hạn: lưới tháng. Chuyến: Xấp ảnh theo ngày (mặc định) + nút đổi Lịch tháng, bảng phác Tổng kết chuyến. Design System có PhotoStack (bản 19).
+- Pha 1 thiết kế: canvas bản 211 (104 bảng). Lịch nhóm dài hạn: lưới tháng. Chuyến: Xấp ảnh theo ngày (mặc định) + nút đổi Lịch tháng, bảng phác Tổng kết chuyến. Design System có PhotoStack (bản 20).
 - Design System: thêm màu Lịch `cal-*` (24/10).
 - Schema `done-nha` (commit 0df29e7): ngày đi/về, `group_calendar`, `group_spend_totals`, bảng ảnh riêng `entry_photos` (`add_photo`, `remove_photo`, `move_photos`). 125 kiểm tra SQL + 30 test lõi + 40 chuyến ngẫu nhiên đều qua. CHƯA chạy trên Supabase thật (anh dán ngày 26/10).
 - Thư mục làm việc trên máy anh đã sắp xong.
 - Bàn giao màn đầu tiên: Lịch (nháp, chờ anh duyệt).
 
 ## 4. Đang dở
-- **Xấp ảnh cho chuyến:** đã vẽ bản đầu (canvas 210), chờ anh xem và góp ý. Chốt ở `docs/de-xuat-xap-anh.md`. Còn mở: token màu loại khoản (`cat-*`).
-- Canvas 211: sửa màu lệch DS (`05-tokens/khoang-trong-v208.md`), 2 trạng thái Lịch còn thiếu. Bàn giao Vào nhóm.
+- **Xấp ảnh cho chuyến:** đã vẽ bản đầu (canvas 211), chờ anh xem và góp ý. Chốt ở `docs/de-xuat-xap-anh.md`. Còn mở: token màu loại khoản (`cat-*`).
+- Canvas 212: sửa màu lệch DS (`05-tokens/khoang-trong-v208.md`), 2 trạng thái Lịch còn thiếu. Bàn giao Vào nhóm.
 
 ## 5. Luật hay vấp
 - Tiếng Việt, ngắn, hành động trước; nhiều lựa chọn thì bảng có đánh đổi.

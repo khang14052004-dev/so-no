@@ -1,6 +1,13 @@
 # Đề xuất: "Xấp ảnh" cho Lịch chuyến đi
 
-Ngày 24/10/2026. Trạng thái: **anh đã chốt 6 câu (24/10 trưa), đã vẽ bản đầu trên canvas bản 210.** Mục "Đã chốt" bên dưới thay cho các chỗ đề xuất cũ nếu khác.
+Ngày 24/10/2026. Trạng thái: **anh đã chốt 6 câu (24/10 trưa), đã vẽ bản đầu trên canvas bản 211.** Mục "Đã chốt" bên dưới thay cho các chỗ đề xuất cũ nếu khác.
+
+## Sửa theo góp ý của anh (24/10 chiều, thay các ý 2, 3 và dải mở ngày bên dưới nếu khác)
+- Bỏ thẻ "+N" và bỏ bước "mở xấp thành dải". Mỗi ngày là MỘT hàng thẻ polaroid nghiêng, **vuốt ngang** (thẻ thứ ba ló ra một phần để gợi ý). Mọi khoản đều có thẻ; giữ góc nghiêng cũ (thẻ 1 thẳng, thẻ chẵn −3 đến −5°, thẻ lẻ +3 đến +5°).
+- Bấm thẻ mở **thẳng trang chi tiết khoản** (không còn "Thu gọn", không còn dải 1/6).
+- **Giá đóng mộc lên ảnh**, cùng kiểu dấu "Done nha ✓" ở Tổng kết (viền xanh, xoay −6°, nền kem đặc để đọc trên mọi ảnh), góc dưới phải. Ghi gọn (`870k`, `1,2tr`). Thẻ chữ (không ảnh) cũng có mộc.
+- Tên khoản nằm dưới ảnh, chữ nhạt `ink-2`, một dòng. Thay ý cũ "số tiền chỉ ở thẻ trên cùng, không đặt lên ảnh".
+- Bảng `DN-Chuyen-Xap-MoNgay` đổi thành `DN-Chuyen-Xap-ChiTiet` (bấm thẻ ra chi tiết khoản). Design System: PhotoStack bản 20.
 
 ## Đã chốt (anh đồng ý hết, 24/10 trưa; theo nghiên cứu sâu)
 1. Thứ tự: **Trước chuyến → Ngày 1 → ngày cuối**, đọc như câu chuyện; đang đi thì đánh dấu "Hôm nay" (app thật tự cuộn tới).
