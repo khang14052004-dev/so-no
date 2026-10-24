@@ -21,6 +21,8 @@ Cột "Model": gợi ý để đỡ tốn token. Opus cho việc khó, dễ sai 
 | [x] | Xấp hình vẽ riêng, nút đổi kiểu xem chỉ icon, đổi chữ "ảnh" → "hình" (canvas 216, DS 23) | Claude | Sonnet |
 | [x] | Sổ nợ + Chia bill chỉnh thành hình chữ nhật đứng như bảng cũ, chụp lại 104 bảng (canvas 217, DS 24) | Claude | Sonnet |
 | [x] | Thẻ đầu Lịch chuyến thu gọn còn tổng tiền, nhãn "Cái hậu quả của nhóm"; xếp lại canvas (canvas 218, DS 25) | Claude | Sonnet |
+| [x] | Lối tắt chi theo từng nhóm ở Ghi nhanh, công tắc ẩn/hiện trong Cài đặt Ghi nhanh; thêm bảng DN-SoNo-LoiTat (canvas 219, DS 26, 105 bảng) | Claude | Sonnet |
+| [ ] | Anh nói có giới hạn tối đa 3 dòng lối tắt và cho sắp xếp thứ tự không | Anh | – |
 | [ ] | Anh nói có thu gọn thẻ đầu Lịch Cơm trưa giống chuyến không | Anh | – |
 | [ ] | Anh duyệt Cân đối dùng cán cân `scales` (hiện giữ vẽ tay, giống Cấn trừ; hai icon không nằm chung màn) | Anh | – |
 | [ ] | Canvas kế tiếp: sửa màu lệch DS (`05-tokens/khoang-trong-v208.md`), vẽ 2 trạng thái Lịch còn thiếu, gửi lại `dn-tools.zip` | Claude | Sonnet |
