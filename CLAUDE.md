@@ -184,7 +184,7 @@ Giao diện:
   - Nhóm mới tạo và nhóm vừa vào bằng link giờ cũng mở ra **Lịch** (như Cơm trưa), bỏ danh sách "Khoản đã ghi" cũ. Chưa có khoản nào thì thẻ tiền đổi thành thẻ "Nhóm mới, chưa có khoản nào" chỉ xuống nút ghim đáy, ẩn danh sách. Thêm bảng DN-Nhom-MoiLich.
   - Hình đang tải: ô Lịch giữ nền màu mức + dấu hình mờ, dưới chú thích có dòng "Hình đang tải…". Công tắc Tôi › Bản thử › "Giả lập hình đang tải". Thêm bảng DN-Com-Lich-HinhTai.
   - Icon Cân đối (DN-Dau-1) là cán cân `scales`. Sửa 4 màu lệch DS: nền báo lỗi/hỏi xóa `#fdecea` → `danger-tint`; vòng tích "Bạn là …" → `success-tint` + `success`; thanh ghim tờ Thêm khoản chi → `cream`, viền trên `line`, bóng như nút ghim đáy; khung xem trước tin nhắn ở Báo nợ → `fill-faint`.
-  - Tôi, Mất mạng · Tôi, Gửi lỗi cao thêm 79px (thêm một công tắc bản thử). Tổng 111 bảng tĩnh; bảng `DN-Icon-Phosphor` để nguyên làm bản so sánh cũ.
+  - Tôi, Mất mạng · Tôi, Gửi lỗi cao thêm 61px (thêm một công tắc bản thử); Cài đặt Ghi nhanh cao thêm 36px (ghi chú dài hơn). Tổng 111 bảng tĩnh; bảng `DN-Icon-Phosphor` để nguyên làm bản so sánh cũ.
 - Bàn giao **Vào nhóm** (`07-handoff/vao-nhom.md`, nháp 26/10): ghi 8 chỗ lệch giữa bảng vẽ và máy chủ (xem trước nhóm đang đòi đăng nhập, dòng tiền dưới tên làm lộ số, link khôi phục không mở được app ở màn hình chính, người tạo nhóm cũng cần Giữ chỗ, "hết hạn 7 ngày" chưa có, Google đã gắn tài khoản khác, nút "Mở bằng Safari" chưa chắc làm được, mã mời dài). 4 câu chờ anh chọn ở mục 10.
 - Ba token mới (`toast-bg`, `pink-*`, `bubble-*`) và màu avatar vẫn chờ anh duyệt tên.
 
