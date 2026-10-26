@@ -25,12 +25,14 @@ Cột "Model": gợi ý để đỡ tốn token. Opus cho việc khó, dễ sai 
 | [x] | Lịch sử giao dịch ở Sổ nợ tổng (5 khoản mới nhất + màn xem tất cả, lọc Khoản nợ / Khoản trả); thêm 2 bảng, xếp lại canvas (canvas 220, DS 27, 107 bảng) | Claude | Sonnet |
 | [x] | Anh xác nhận: giữ Lịch sử giao dịch ở Sổ nợ tổng, sau này chỉnh vị trí; ý chính là lịch sử các đợt trước trong chi tiết người | Anh | – |
 | [x] | Mục "Các đợt trước" trong chi tiết một người + dữ liệu mẫu đợt cũ; thêm bảng DN-Nguoi-DotTruoc (canvas 221, DS 28, 108 bảng) | Claude | Sonnet |
-| [ ] | Anh nói có muốn cờ nhắc "có thể thiếu dòng" ở Các đợt trước (vd trả dư hơn nợ) không | Anh | – |
-| [ ] | Anh nói có giới hạn tối đa 3 dòng lối tắt và cho sắp xếp thứ tự không | Anh | – |
-| [ ] | Anh nói có thu gọn thẻ đầu Lịch Cơm trưa giống chuyến không | Anh | – |
-| [ ] | Anh duyệt Cân đối dùng cán cân `scales` (hiện giữ vẽ tay, giống Cấn trừ; hai icon không nằm chung màn) | Anh | – |
-| [ ] | Canvas kế tiếp: sửa màu lệch DS (`05-tokens/khoang-trong-v208.md`), vẽ 2 trạng thái Lịch còn thiếu, gửi lại `dn-tools.zip` | Claude | Sonnet |
-| [ ] | Bàn giao màn Vào nhóm bằng link (iPhone tách bộ nhớ, trình duyệt Zalo) | Claude | Opus |
+| [x] | Cờ "có thể thiếu dòng" ở Các đợt trước: để sau chuyến (anh ok 26/10) | Anh | – |
+| [x] | Lối tắt Ghi nhanh tối đa 3 dòng, nhóm ghi gần nhất đứng trên (anh ok 26/10; canvas 222) | Anh | – |
+| [x] | Thẻ đầu Lịch Cơm trưa giữ 3 số (anh ok 26/10) | Anh | – |
+| [x] | Cân đối dùng cán cân `scales` (anh ok 26/10; canvas 222) | Anh | – |
+| [x] | Sửa 4 màu lệch DS, vẽ 2 trạng thái Lịch còn thiếu (nhóm mới chưa có khoản, hình đang tải), gửi lại `dn-tools.zip` (canvas 222, 111 bảng, 26/10) | Claude | Sonnet |
+| [x] | Bàn giao màn Vào nhóm bằng link (`07-handoff/vao-nhom.md`, nháp 26/10; 4 câu chờ anh chọn) | Claude | Opus |
+| [ ] | Anh duyệt bàn giao Vào nhóm và trả lời 4 câu ở mục 10 | Anh | – |
+| [ ] | Anh duyệt 3 token mới (`toast-bg`, `pink-*`, `bubble-*`) và cách tô màu avatar | Anh | – |
 
 Nếu Xấp ảnh chưa xong 25/10 thì dời sang tuần 26/10, không chặn pha 2 (Xấp chỉ đổi cách hiện, dữ liệu đã đủ).
 
@@ -38,7 +40,7 @@ Nếu Xấp ảnh chưa xong 25/10 thì dời sang tuần 26/10, không chặn p
 
 | Tuần | Việc | Model |
 |---|---|---|
-| 26/10–1/11 | Anh dán `schema.sql`, bật Allow manual linking. Claude kiểm schema trên Supabase thật. Chọn chỗ chạy (Cloudflare Pages hoặc Netlify), dựng khung app PWA, `tokens.css` sinh từ Design System, luật `.claude/rules/ui.md`. Đăng nhập khách + Google, "Giữ chỗ của bạn", link mời (Zalo, iPhone). | Opus |
+| 26/10–1/11 | ~~Anh dán `schema.sql`~~ (xong 26/10). Bật Anonymous sign-ins + Allow manual linking khi làm đăng nhập. Claude kiểm schema trên Supabase thật. Chọn chỗ chạy (Cloudflare Pages hoặc Netlify), dựng khung app PWA, `tokens.css` sinh từ Design System, luật `.claude/rules/ui.md`. Đăng nhập khách + Google, "Giữ chỗ của bạn", link mời (Zalo, iPhone). | Opus |
 | 2–8/11 | Nhóm/chuyến: tạo, mời, vào nhóm. Lịch + Xấp ảnh. Thêm khoản chi (chia đều), ảnh (nén ~200 KB + ảnh nhỏ ~15 KB, tải lên, `add_photo`). Ghi trên máy trước, đồng bộ sau. | Opus |
 | 9–15/11 | Góp quỹ + thủ quỹ xác nhận; Số dư; Cân đối + Khóa; VietQR. | Opus |
 | 16–22/11 | Sổ nợ tổng, Ghi nhanh, Ghi trả, Sổ riêng, kiểu D, Cấn trừ. | Sonnet (theo bàn giao), Opus khi đụng tính tiền |

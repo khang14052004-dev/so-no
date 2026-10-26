@@ -26,7 +26,7 @@ Chủ dự án: Nguyên Khang (UI/UX designer). Giao tiếp bằng tiếng Việ
 | `docs/` repo `so-no` | Bàn giao phiên, kế hoạch tuần, lịch sử chốt cũ, đề xuất đang chờ | Bền, có lịch sử commit |
 | `CLAUDE.md` repo `done-nha` (riêng tư, `main`) | Quy tắc tính tiền, việc tiếp theo, ghi chú kỹ thuật | Bền, có lịch sử commit |
 | Hai tài liệu claude.ai (Định hướng sản phẩm, Kế hoạch) | Hướng sản phẩm, kế hoạch chuyến đi | Bền |
-| Artifact Design "Done Nha – Thiết kế (gộp Sổ nợ)" | Toàn bộ bảng thiết kế (bản 221, 108 bảng) | Bền, có các bản cũ |
+| Artifact Design "Done Nha – Thiết kế (gộp Sổ nợ)" | Toàn bộ bảng thiết kế (bản 222, 111 bảng) | Bền, có các bản cũ |
 | `dn-tools.zip` (anh giữ, kèm README chạy lại) | Script sinh và chụp bảng thiết kế | Bền nếu anh giữ bản này |
 | Artifact Design System "Done Nha" | Token màu, chữ, khoảng cách, bo góc, bóng; thành phần | Bền, có các bản cũ |
 | Thư mục `So-no/done-nha-workspace` trên máy anh | Bản xuất PDF/PNG, ảnh gốc, nghiên cứu gốc, bàn giao từng màn (`07-handoff`), `_progress.md`, mẫu quy trình (`_mau`) | Bền nếu anh sao lưu (không phải git) |
@@ -171,6 +171,22 @@ Giao diện:
   - SỬA 24/10 tối (anh nói rõ ý "lịch sử giao dịch các đợt trước của từng người khi xem trong trang chi tiết, để biết đợt trước người ta trả ngày mấy, rà soát coi có nhập thiếu dữ liệu không"): **chi tiết một người có mục "Các đợt trước"** dưới hàng nút Nhắc nợ / Ghi trả. "Đợt" = từ lúc nợ lại tới khi số dư của người đó về đúng 0 (tính theo ngày; cấn trừ không tự chốt đợt); đợt chưa hết nợ là "đợt hiện tại" và là mục "Từng khoản" (có chữ "đợt hiện tại" bên phải tiêu đề khi người đó có đợt trước). Mỗi đợt trước là một dòng bấm xổ xuống (mới nhất ở trên): "Trả hết ngày 3/10", "Từ 20/9 · sau 13 ngày", "1 khoản nợ · 2 lần trả", tổng nợ của đợt theo màu tiền; xổ ra là từng khoản theo ngày (cũ ở trên). Ghi trả hết thì đợt hiện tại tự chuyển xuống Các đợt trước. Người chưa có đợt nào thì ẩn mục. Báo nợ, trang xem sổ qua link và số "đã trả" ở dòng Sổ nợ chỉ tính đợt hiện tại. Dữ liệu mẫu thêm 10 dòng của các đợt cũ (Lan 1 đợt, Minh 2 đợt, Tuấn 1 đợt; số dư không đổi). Chưa làm: cờ nhắc "có thể thiếu dòng" (vd trả dư hơn nợ) vì anh mới nói mục đích là tự rà bằng mắt. Canvas bản 221: thêm DN-Nguoi-DotTruoc (mở một đợt trước, Minh); DN-Nguoi cao thêm 264px; DN-SoNo-LichSu giờ 19 khoản; tổng 108 bảng. Design System bản 28 (README "Danh sách và bảng").
   - Phosphor `lock-simple` trông như túi xách ở 24px, dùng `lock`. Nút "Đổi số tiền" trên màn Mã QR dùng `qr-code` (mất dấu cộng của bản vẽ tay).
 - Làm gọn file này (24/10): các mục 14–18/10 chuyển nguyên văn sang `docs/lich-su-chot-2026-10.md`, thay bằng "Quyết định đang áp dụng" (đã bỏ các ý bị thay). Thêm `docs/ban-giao-phien.md` để đổi model không mất ngữ cảnh, `docs/ke-hoach-tuan.md` cho việc theo tuần.
+
+## Chốt 26/10/2026
+- Supabase: anh đã dán `schema.sql` (commit 0df29e7) và Run thành công; đủ 8 bảng + bucket `receipts`. Gói Free gửi thư cảnh báo tự tạm dừng sau 7 ngày ít hoạt động: tạm dừng không mất dữ liệu, bật lại trong dashboard (thư ghi 90 ngày, trang hướng dẫn ghi 1 năm; tính 90 ngày cho chắc). Trước 28/12 chọn cách giữ hoạt động hoặc lên Pro trong tháng đi chuyến.
+- Anh ok theo đề xuất (26/10 sáng):
+  - Cờ tự động "có thể thiếu dòng" ở Các đợt trước: **để sau chuyến**; giờ anh tự rà bằng mắt.
+  - Lối tắt chi cho nhóm ở Ghi nhanh: **tối đa 3 dòng**, nhóm nào ghi khoản gần nhất đứng trên (ghi bằng lối tắt hay ở trong nhóm đều tính); nhóm bật mà ngoài 3 dòng thì ẩn, Cài đặt Ghi nhanh có ghi chú.
+  - Thẻ đầu Lịch Cơm trưa **giữ 3 số** (không thu gọn như chuyến).
+  - Cân đối dùng **cán cân Phosphor `scales`** (Regular); Cấn trừ vẫn vẽ tay.
+- Canvas bản 222 (26/10), Design System bản 29:
+  - Lối tắt Ghi nhanh: tối đa 3 dòng, sắp theo lần ghi khoản gần nhất; Cài đặt Ghi nhanh đếm "n/m đang bật", bật hơn 3 nhóm thì có thanh nhắc nhóm nào đang hiện. Thêm bảng DN-GhiNhanh-LoiTat-ToiDa.
+  - Nhóm mới tạo và nhóm vừa vào bằng link giờ cũng mở ra **Lịch** (như Cơm trưa), bỏ danh sách "Khoản đã ghi" cũ. Chưa có khoản nào thì thẻ tiền đổi thành thẻ "Nhóm mới, chưa có khoản nào" chỉ xuống nút ghim đáy, ẩn danh sách. Thêm bảng DN-Nhom-MoiLich.
+  - Hình đang tải: ô Lịch giữ nền màu mức + dấu hình mờ, dưới chú thích có dòng "Hình đang tải…". Công tắc Tôi › Bản thử › "Giả lập hình đang tải". Thêm bảng DN-Com-Lich-HinhTai.
+  - Icon Cân đối (DN-Dau-1) là cán cân `scales`. Sửa 4 màu lệch DS: nền báo lỗi/hỏi xóa `#fdecea` → `danger-tint`; vòng tích "Bạn là …" → `success-tint` + `success`; thanh ghim tờ Thêm khoản chi → `cream`, viền trên `line`, bóng như nút ghim đáy; khung xem trước tin nhắn ở Báo nợ → `fill-faint`.
+  - Tôi, Mất mạng · Tôi, Gửi lỗi cao thêm 79px (thêm một công tắc bản thử). Tổng 111 bảng tĩnh; bảng `DN-Icon-Phosphor` để nguyên làm bản so sánh cũ.
+- Bàn giao **Vào nhóm** (`07-handoff/vao-nhom.md`, nháp 26/10): ghi 8 chỗ lệch giữa bảng vẽ và máy chủ (xem trước nhóm đang đòi đăng nhập, dòng tiền dưới tên làm lộ số, link khôi phục không mở được app ở màn hình chính, người tạo nhóm cũng cần Giữ chỗ, "hết hạn 7 ngày" chưa có, Google đã gắn tài khoản khác, nút "Mở bằng Safari" chưa chắc làm được, mã mời dài). 4 câu chờ anh chọn ở mục 10.
+- Ba token mới (`toast-bg`, `pink-*`, `bubble-*`) và màu avatar vẫn chờ anh duyệt tên.
 
 ## Lỗi đã gặp, đừng lặp lại
 - Prompt dùng lại được mà chỉ nằm trong hội thoại thì mất khi hội thoại bị tóm tắt (prompt Figma Make 21/10). Lưu vào `06-claude-input/` của thư mục làm việc.
