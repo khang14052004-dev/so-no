@@ -32,7 +32,8 @@ Cột "Model": gợi ý để đỡ tốn token. Opus cho việc khó, dễ sai 
 | [x] | Sửa 4 màu lệch DS, vẽ 2 trạng thái Lịch còn thiếu (nhóm mới chưa có khoản, hình đang tải), gửi lại `dn-tools.zip` (canvas 222, 111 bảng, 26/10) | Claude | Sonnet |
 | [x] | Bàn giao màn Vào nhóm bằng link (`07-handoff/vao-nhom.md`, nháp 26/10; 4 câu chờ anh chọn) | Claude | Opus |
 | [x] | Anh trả lời 4 câu Vào nhóm (đồng ý cả 4, 26/10); bảng vẽ sửa theo (canvas 223), máy chủ có `invite_card`, `rotate_join_code` (commit 821fc77) | Anh | – |
-| [ ] | Anh trả lời 3 chỗ nhỏ ở mục 6 bàn giao Vào nhóm (dòng tiền dưới tên, Giữ chỗ cho người tạo nhóm, nút "Đã dùng Done Nha? Đăng nhập Google") | Anh | – |
+| [x] | 3 chỗ nhỏ Vào nhóm: bỏ dòng tiền dưới tên, Giữ chỗ cho người tạo nhóm, nút "Đã dùng Done Nha? Đăng nhập Google" (anh ok 26/10; canvas 224) | Anh | – |
+| [ ] | Anh đọc duyệt cả bản bàn giao Vào nhóm (`07-handoff/vao-nhom.md`) | Anh | – |
 | [ ] | Anh dán lại `schema.sql` mới vào Supabase và Run | Anh | – |
 | [ ] | Anh duyệt 3 token mới (`toast-bg`, `pink-*`, `bubble-*`) và cách tô màu avatar | Anh | – |
 

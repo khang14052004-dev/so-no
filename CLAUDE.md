@@ -26,7 +26,7 @@ Chủ dự án: Nguyên Khang (UI/UX designer). Giao tiếp bằng tiếng Việ
 | `docs/` repo `so-no` | Bàn giao phiên, kế hoạch tuần, lịch sử chốt cũ, đề xuất đang chờ | Bền, có lịch sử commit |
 | `CLAUDE.md` repo `done-nha` (riêng tư, `main`) | Quy tắc tính tiền, việc tiếp theo, ghi chú kỹ thuật | Bền, có lịch sử commit |
 | Hai tài liệu claude.ai (Định hướng sản phẩm, Kế hoạch) | Hướng sản phẩm, kế hoạch chuyến đi | Bền |
-| Artifact Design "Done Nha – Thiết kế (gộp Sổ nợ)" | Toàn bộ bảng thiết kế (bản 223, 114 bảng) | Bền, có các bản cũ |
+| Artifact Design "Done Nha – Thiết kế (gộp Sổ nợ)" | Toàn bộ bảng thiết kế (bản 224, 115 bảng) | Bền, có các bản cũ |
 | `dn-tools.zip` (anh giữ, kèm README chạy lại) | Script sinh và chụp bảng thiết kế | Bền nếu anh giữ bản này |
 | Artifact Design System "Done Nha" | Token màu, chữ, khoảng cách, bo góc, bóng; thành phần | Bền, có các bản cũ |
 | Thư mục `So-no/done-nha-workspace` trên máy anh | Bản xuất PDF/PNG, ảnh gốc, nghiên cứu gốc, bàn giao từng màn (`07-handoff`), `_progress.md`, mẫu quy trình (`_mau`) | Bền nếu anh sao lưu (không phải git) |
@@ -194,7 +194,7 @@ Giao diện:
   4. **Bỏ link khôi phục**: lưu bằng Google là chính; mất tên thì chủ nhóm hoặc thủ quỹ "Mở lại tên". Bỏ nút "Chép link khôi phục" ở Giữ chỗ và Lưu tài khoản.
   - Code: `done-nha` commit 821fc77 (2 hàm + 17 kiểm tra; 142 kiểm tra SQL qua). Anh dán lại `schema.sql` vào Supabase và Run.
   - Canvas bản 223 (114 bảng): thêm DN-VaoNhom-Ten (chọn tên), DN-VaoNhom-TenMoi (tự thêm tên, hỏi trùng), DN-Moi-DoiLink; DN-VaoNhom-Link giờ là bước thẻ mời; bỏ "Chép link khôi phục" ở Giữ chỗ và Lưu tài khoản; chữ Zalo và lời nhắc khách ở Tôi sửa theo. Chiều cao bảng không đổi.
-  - Còn chờ anh (bàn giao mục 6): bỏ dòng tiền dưới tên khi chọn tên; người tạo nhóm còn là khách cũng hiện Giữ chỗ; nút "Đã dùng Done Nha? Đăng nhập Google" trên thẻ mời.
+  - Anh ok thêm 3 chỗ (26/10 trưa): **bỏ dòng tiền dưới tên** khi chọn tên (ai có link cũng thấy); **người tạo nhóm còn là khách cũng qua Giữ chỗ** trước màn Mời (ghi chú: bạn là chủ nhóm, nhóm không quỹ thì mất tên không ai mở lại được; nút "Xong, mời mọi người"); thẻ mời có nút chữ **"Đã dùng Done Nha? Đăng nhập Google"** (chỉ khi máy chưa đăng nhập Google; vào xong thẳng Lịch, khỏi Giữ chỗ). Canvas bản 224: thêm DN-TaoNhom-Luu, tổng 115 bảng; DN-Nhom-MoiLich và DN-GhiNhanh-LoiTat-ToiDa thêm bước "Để sau". Bàn giao Vào nhóm đã chốt hết câu hỏi.
 
 ## Lỗi đã gặp, đừng lặp lại
 - Prompt dùng lại được mà chỉ nằm trong hội thoại thì mất khi hội thoại bị tóm tắt (prompt Figma Make 21/10). Lưu vào `06-claude-input/` của thư mục làm việc.
