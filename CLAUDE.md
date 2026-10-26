@@ -26,7 +26,7 @@ Chủ dự án: Nguyên Khang (UI/UX designer). Giao tiếp bằng tiếng Việ
 | `docs/` repo `so-no` | Bàn giao phiên, kế hoạch tuần, lịch sử chốt cũ, đề xuất đang chờ | Bền, có lịch sử commit |
 | `CLAUDE.md` repo `done-nha` (riêng tư, `main`) | Quy tắc tính tiền, việc tiếp theo, ghi chú kỹ thuật | Bền, có lịch sử commit |
 | Hai tài liệu claude.ai (Định hướng sản phẩm, Kế hoạch) | Hướng sản phẩm, kế hoạch chuyến đi | Bền |
-| Artifact Design "Done Nha – Thiết kế (gộp Sổ nợ)" | Toàn bộ bảng thiết kế (bản 222, 111 bảng) | Bền, có các bản cũ |
+| Artifact Design "Done Nha – Thiết kế (gộp Sổ nợ)" | Toàn bộ bảng thiết kế (bản 223, 114 bảng) | Bền, có các bản cũ |
 | `dn-tools.zip` (anh giữ, kèm README chạy lại) | Script sinh và chụp bảng thiết kế | Bền nếu anh giữ bản này |
 | Artifact Design System "Done Nha" | Token màu, chữ, khoảng cách, bo góc, bóng; thành phần | Bền, có các bản cũ |
 | Thư mục `So-no/done-nha-workspace` trên máy anh | Bản xuất PDF/PNG, ảnh gốc, nghiên cứu gốc, bàn giao từng màn (`07-handoff`), `_progress.md`, mẫu quy trình (`_mau`) | Bền nếu anh sao lưu (không phải git) |
@@ -187,6 +187,14 @@ Giao diện:
   - Tôi, Mất mạng · Tôi, Gửi lỗi cao thêm 61px (thêm một công tắc bản thử); Cài đặt Ghi nhanh cao thêm 36px (ghi chú dài hơn). Tổng 111 bảng tĩnh; bảng `DN-Icon-Phosphor` để nguyên làm bản so sánh cũ.
 - Bàn giao **Vào nhóm** (`07-handoff/vao-nhom.md`, nháp 26/10): ghi 8 chỗ lệch giữa bảng vẽ và máy chủ (xem trước nhóm đang đòi đăng nhập, dòng tiền dưới tên làm lộ số, link khôi phục không mở được app ở màn hình chính, người tạo nhóm cũng cần Giữ chỗ, "hết hạn 7 ngày" chưa có, Google đã gắn tài khoản khác, nút "Mở bằng Safari" chưa chắc làm được, mã mời dài). 4 câu chờ anh chọn ở mục 10.
 - Ba token mới (`toast-bg`, `pink-*`, `bubble-*`) và màu avatar vẫn chờ anh duyệt tên.
+- **Vào nhóm, anh chốt 26/10 (đồng ý cả 4 đề xuất trong bàn giao):**
+  1. Mở link mời: hiện **thẻ mời trước, chưa cần đăng nhập** (hàm mới `invite_card`: tên nhóm, người tạo, ngày, số người, có quỹ; không có tên, không có tiền). Bấm "Chọn tên của bạn" = đồng ý dữ liệu → tạo khách → chọn tên. Trong Zalo chỉ thấy thẻ mời, không tạo khách.
+  2. Tên không có trong danh sách: **người đó tự thêm tên** (không chờ người mời), hỏi trùng tên như Sổ nợ ("Nhóm đã có X. Có phải bạn không?").
+  3. Link mời **không hết hạn**; chủ nhóm có nút **"Đổi link mời"** ở màn Mời (hàm `rotate_join_code`): link cũ hết dùng, người đã vào vẫn ở lại.
+  4. **Bỏ link khôi phục**: lưu bằng Google là chính; mất tên thì chủ nhóm hoặc thủ quỹ "Mở lại tên". Bỏ nút "Chép link khôi phục" ở Giữ chỗ và Lưu tài khoản.
+  - Code: `done-nha` commit 821fc77 (2 hàm + 17 kiểm tra; 142 kiểm tra SQL qua). Anh dán lại `schema.sql` vào Supabase và Run.
+  - Canvas bản 223 (114 bảng): thêm DN-VaoNhom-Ten (chọn tên), DN-VaoNhom-TenMoi (tự thêm tên, hỏi trùng), DN-Moi-DoiLink; DN-VaoNhom-Link giờ là bước thẻ mời; bỏ "Chép link khôi phục" ở Giữ chỗ và Lưu tài khoản; chữ Zalo và lời nhắc khách ở Tôi sửa theo. Chiều cao bảng không đổi.
+  - Còn chờ anh (bàn giao mục 6): bỏ dòng tiền dưới tên khi chọn tên; người tạo nhóm còn là khách cũng hiện Giữ chỗ; nút "Đã dùng Done Nha? Đăng nhập Google" trên thẻ mời.
 
 ## Lỗi đã gặp, đừng lặp lại
 - Prompt dùng lại được mà chỉ nằm trong hội thoại thì mất khi hội thoại bị tóm tắt (prompt Figma Make 21/10). Lưu vào `06-claude-input/` của thư mục làm việc.

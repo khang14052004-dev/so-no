@@ -18,20 +18,20 @@ Cập nhật: 26/10/2026 11:00. Người viết: Claude (Opus). Cuối mỗi phi
 |---|---|
 | Quyết định | `khang14052004-dev/so-no`, nhánh `claude/v3-ghi-no-nhieu-nguoi`, `CLAUDE.md` |
 | Code, schema, test | `khang14052004-dev/done-nha` (riêng tư), nhánh `main` |
-| Bảng thiết kế | Artifact Design "Done Nha – Thiết kế (gộp Sổ nợ)", bản 222. Tìm bằng Artifact list, KHÔNG ghi link vào repo |
+| Bảng thiết kế | Artifact Design "Done Nha – Thiết kế (gộp Sổ nợ)", bản 223. Tìm bằng Artifact list, KHÔNG ghi link vào repo |
 | Token | Artifact Design System "Done Nha" (48 màu) |
-| Script vẽ bảng | `dn-tools.zip` (bản 222) ở `So-no/done-nha-workspace/08-tools/` trên máy anh; cách chạy trong README của gói |
+| Script vẽ bảng | `dn-tools.zip` (bản 223) ở `So-no/done-nha-workspace/08-tools/` trên máy anh; cách chạy trong README của gói |
 | Thư mục làm việc | `So-no/done-nha-workspace/` trên máy anh (máy đã liên kết với phiên); đọc `00-START-HERE.md` |
 Phiên mới trên đám mây có thể chưa có repo: dùng add_repo rồi clone; máy anh có thể chưa liên kết thì hỏi anh.
 
 ## 3. Trạng thái hiện tại (26/10)
-- Pha 1 thiết kế gần xong: canvas bản 222 (111 bảng tĩnh + bảng so sánh icon), Design System bản 29. Mọi câu hỏi giao diện trong `docs/ke-hoach-tuan.md` đã chốt, trừ 3 token mới và màu avatar.
-- Supabase: schema (commit 0df29e7) đã chạy trên dự án thật 26/10, đủ 8 bảng + bucket `receipts`. Chưa bật Anonymous sign-ins, Allow manual linking. Gói Free tự tạm dừng sau 7 ngày ít hoạt động (thư cảnh báo 26/10): không mất dữ liệu, bật lại trong dashboard.
+- Pha 1 thiết kế gần xong: canvas bản 223 (114 bảng tĩnh + bảng so sánh icon), Design System bản 29. Mọi câu hỏi giao diện trong `docs/ke-hoach-tuan.md` đã chốt, trừ 3 token mới và màu avatar.
+- Supabase: schema (commit 0df29e7) đã chạy trên dự án thật 26/10, đủ 8 bảng + bucket `receipts`. Bản mới (commit 821fc77, thêm 2 hàm Vào nhóm) chưa dán. Chưa bật Anonymous sign-ins, Allow manual linking. Gói Free tự tạm dừng sau 7 ngày ít hoạt động (thư cảnh báo 26/10): không mất dữ liệu, bật lại trong dashboard.
 - Bàn giao (`done-nha-workspace/07-handoff/`): Lịch nhóm/chuyến (nháp, đã thêm 2 trạng thái), Vào nhóm (nháp 26/10, 4 câu chờ anh ở mục 10, có 8 chỗ lệch giữa bảng vẽ và máy chủ ở mục 6).
 - Code app: chưa bắt đầu. Pha 2 (khung PWA, đăng nhập, vào nhóm) là việc kế tiếp, nên dùng Opus.
 
 ## 4. Đang dở
-- **Vào nhóm:** chờ anh trả lời 4 câu (thẻ nhóm trước khi tạo khách bằng hàm mới `invite_card`; tên không có trong danh sách thì tự thêm; link mời không hết hạn + nút đổi link; bỏ link khôi phục, dùng Google + Mở lại tên). Trả lời xong thì sửa bảng `DN-VaoNhom-*`, `DN-Moi` theo, rồi mới code.
+- **Vào nhóm:** anh đồng ý cả 4 câu (26/10). Bảng vẽ đã sửa (canvas 223: thẻ mời trước, tự thêm tên có hỏi trùng, Đổi link mời, bỏ link khôi phục). Máy chủ có `invite_card` (anon xem được) và `rotate_join_code` (chủ nhóm), commit 821fc77, 142 kiểm tra SQL; anh cần dán lại `schema.sql`. Còn 3 chỗ nhỏ chờ anh ở mục 6 của bàn giao.
 - **Token chờ duyệt:** `toast-bg`, `pink-wash`/`pink-ink`, `bubble-bg`/`bubble-edge`/`bubble-ink`; màu avatar (gradient hay 1 màu, gán cố định theo người). Danh sách: `05-tokens/khoang-trong-v208.md`.
 - **Lịch sử giao dịch ở Sổ nợ tổng:** giữ nguyên, anh sẽ chỉnh vị trí sau.
 - **Cờ "có thể thiếu dòng"** ở Các đợt trước: để sau chuyến.
