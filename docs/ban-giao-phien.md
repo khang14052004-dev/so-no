@@ -27,7 +27,7 @@ Phiên mới trên đám mây có thể chưa có repo: dùng add_repo rồi clo
 ## 3. Trạng thái hiện tại (24/10)
 - Pha 1 thiết kế: canvas bản 216 (104 bảng + bảng so sánh icon). Lịch nhóm dài hạn: lưới tháng. Chuyến: Xấp ảnh theo ngày (mặc định) + nút đổi Lịch tháng, bảng phác Tổng kết chuyến. Design System có PhotoStack (bản 20).
 - Design System: thêm màu Lịch `cal-*` (24/10).
-- Schema `done-nha` (commit 0df29e7): ngày đi/về, `group_calendar`, `group_spend_totals`, bảng ảnh riêng `entry_photos` (`add_photo`, `remove_photo`, `move_photos`). 125 kiểm tra SQL + 30 test lõi + 40 chuyến ngẫu nhiên đều qua. CHƯA chạy trên Supabase thật (anh dán ngày 26/10).
+- Schema `done-nha` (commit 0df29e7): ngày đi/về, `group_calendar`, `group_spend_totals`, bảng ảnh riêng `entry_photos` (`add_photo`, `remove_photo`, `move_photos`). 125 kiểm tra SQL + 30 test lõi + 40 chuyến ngẫu nhiên đều qua. Đã chạy trên Supabase thật 26/10 (Success, đủ 8 bảng + bucket `receipts`); chưa kiểm các hàm bằng khách thật.
 - Thư mục làm việc trên máy anh đã sắp xong.
 - Bàn giao màn đầu tiên: Lịch (nháp, chờ anh duyệt).
 
