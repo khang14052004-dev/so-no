@@ -192,7 +192,7 @@ Giao diện:
   2. Tên không có trong danh sách: **người đó tự thêm tên** (không chờ người mời), hỏi trùng tên như Sổ nợ ("Nhóm đã có X. Có phải bạn không?").
   3. Link mời **không hết hạn**; chủ nhóm có nút **"Đổi link mời"** ở màn Mời (hàm `rotate_join_code`): link cũ hết dùng, người đã vào vẫn ở lại.
   4. **Bỏ link khôi phục**: lưu bằng Google là chính; mất tên thì chủ nhóm hoặc thủ quỹ "Mở lại tên". Bỏ nút "Chép link khôi phục" ở Giữ chỗ và Lưu tài khoản.
-  - Code: `done-nha` commit 821fc77 (2 hàm + 17 kiểm tra; 142 kiểm tra SQL qua). Anh dán lại `schema.sql` vào Supabase và Run.
+  - Code: `done-nha` commit 821fc77 (2 hàm + 17 kiểm tra; 142 kiểm tra SQL qua). Anh đã dán lại `schema.sql` vào Supabase (26/10 trưa).
   - Canvas bản 223 (114 bảng): thêm DN-VaoNhom-Ten (chọn tên), DN-VaoNhom-TenMoi (tự thêm tên, hỏi trùng), DN-Moi-DoiLink; DN-VaoNhom-Link giờ là bước thẻ mời; bỏ "Chép link khôi phục" ở Giữ chỗ và Lưu tài khoản; chữ Zalo và lời nhắc khách ở Tôi sửa theo. Chiều cao bảng không đổi.
   - Anh ok thêm 3 chỗ (26/10 trưa): **bỏ dòng tiền dưới tên** khi chọn tên (ai có link cũng thấy); **người tạo nhóm còn là khách cũng qua Giữ chỗ** trước màn Mời (ghi chú: bạn là chủ nhóm, nhóm không quỹ thì mất tên không ai mở lại được; nút "Xong, mời mọi người"); thẻ mời có nút chữ **"Đã dùng Done Nha? Đăng nhập Google"** (chỉ khi máy chưa đăng nhập Google; vào xong thẳng Lịch, khỏi Giữ chỗ). Canvas bản 224: thêm DN-TaoNhom-Luu, tổng 115 bảng; DN-Nhom-MoiLich và DN-GhiNhanh-LoiTat-ToiDa thêm bước "Để sau". Bàn giao Vào nhóm đã chốt hết câu hỏi.
 

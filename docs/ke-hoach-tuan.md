@@ -34,7 +34,7 @@ Cột "Model": gợi ý để đỡ tốn token. Opus cho việc khó, dễ sai 
 | [x] | Anh trả lời 4 câu Vào nhóm (đồng ý cả 4, 26/10); bảng vẽ sửa theo (canvas 223), máy chủ có `invite_card`, `rotate_join_code` (commit 821fc77) | Anh | – |
 | [x] | 3 chỗ nhỏ Vào nhóm: bỏ dòng tiền dưới tên, Giữ chỗ cho người tạo nhóm, nút "Đã dùng Done Nha? Đăng nhập Google" (anh ok 26/10; canvas 224) | Anh | – |
 | [ ] | Anh đọc duyệt cả bản bàn giao Vào nhóm (`07-handoff/vao-nhom.md`) | Anh | – |
-| [ ] | Anh dán lại `schema.sql` mới vào Supabase và Run | Anh | – |
+| [x] | Anh dán lại `schema.sql` mới (commit 821fc77) vào Supabase (26/10 trưa) | Anh | – |
 | [ ] | Anh duyệt 3 token mới (`toast-bg`, `pink-*`, `bubble-*`) và cách tô màu avatar | Anh | – |
 
 Nếu Xấp ảnh chưa xong 25/10 thì dời sang tuần 26/10, không chặn pha 2 (Xấp chỉ đổi cách hiện, dữ liệu đã đủ).
