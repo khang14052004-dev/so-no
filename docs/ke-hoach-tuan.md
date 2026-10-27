@@ -35,7 +35,9 @@ Cột "Model": gợi ý để đỡ tốn token. Opus cho việc khó, dễ sai 
 | [x] | 3 chỗ nhỏ Vào nhóm: bỏ dòng tiền dưới tên, Giữ chỗ cho người tạo nhóm, nút "Đã dùng Done Nha? Đăng nhập Google" (anh ok 26/10; canvas 224) | Anh | – |
 | [ ] | Anh đọc duyệt cả bản bàn giao Vào nhóm (`07-handoff/vao-nhom.md`) | Anh | – |
 | [x] | Anh dán lại `schema.sql` mới (commit 821fc77) vào Supabase (26/10 trưa) | Anh | – |
-| [ ] | Anh duyệt 3 token mới (`toast-bg`, `pink-*`, `bubble-*`) và cách tô màu avatar | Anh | – |
+| [x] | Anh duyệt 3 token mới (`toast-bg`, `pink-*`, `bubble-*`) và cách tô màu avatar (27/10 "ok hết"; Design System bản 31, 54 màu) | Anh | – |
+| [x] | 27/10: bật Anonymous sign-ins + Allow manual linking; gửi Project URL + publishable key; tạo Google OAuth, dán vào Supabase (Google đang Testing, Publish sau khi có trang chủ + Chính sách quyền riêng tư) | Anh | – |
+| [x] | 27/10: anh chốt Vite + Preact | Anh | – |
 
 Nếu Xấp ảnh chưa xong 25/10 thì dời sang tuần 26/10, không chặn pha 2 (Xấp chỉ đổi cách hiện, dữ liệu đã đủ).
 
