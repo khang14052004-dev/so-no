@@ -196,6 +196,10 @@ Giao diện:
   - Canvas bản 223 (114 bảng): thêm DN-VaoNhom-Ten (chọn tên), DN-VaoNhom-TenMoi (tự thêm tên, hỏi trùng), DN-Moi-DoiLink; DN-VaoNhom-Link giờ là bước thẻ mời; bỏ "Chép link khôi phục" ở Giữ chỗ và Lưu tài khoản; chữ Zalo và lời nhắc khách ở Tôi sửa theo. Chiều cao bảng không đổi.
   - Anh ok thêm 3 chỗ (26/10 trưa): **bỏ dòng tiền dưới tên** khi chọn tên (ai có link cũng thấy); **người tạo nhóm còn là khách cũng qua Giữ chỗ** trước màn Mời (ghi chú: bạn là chủ nhóm, nhóm không quỹ thì mất tên không ai mở lại được; nút "Xong, mời mọi người"); thẻ mời có nút chữ **"Đã dùng Done Nha? Đăng nhập Google"** (chỉ khi máy chưa đăng nhập Google; vào xong thẳng Lịch, khỏi Giữ chỗ). Canvas bản 224: thêm DN-TaoNhom-Luu, tổng 115 bảng; DN-Nhom-MoiLich và DN-GhiNhanh-LoiTat-ToiDa thêm bước "Để sau". Bàn giao Vào nhóm đã chốt hết câu hỏi.
 
+## Chốt 27/10/2026
+- Cách viết giao diện app (pha 2): **Vite + Preact** (anh chốt 27/10). Mỗi thành phần Design System là một khối code dùng lại; `core/ledger.js` vẫn là JS thuần, không phụ thuộc Preact. Cần bước build (Vite), Claude lo. Hosting (Cloudflare Pages hoặc Netlify) chưa chọn, chạy thử trên máy trước.
+- Thứ tự việc anh làm với Supabase và Google (Claude dẫn từng bước): (1) bật Anonymous sign-ins + Allow manual linking, (2) gửi Project URL + publishable key (chỉ đặt vào file cấu hình app), (3) tạo khóa OAuth Google dán thẳng vào Supabase (không gửi Claude), (4) duyệt 3 token mới + màu avatar.
+
 ## Lỗi đã gặp, đừng lặp lại
 - Prompt dùng lại được mà chỉ nằm trong hội thoại thì mất khi hội thoại bị tóm tắt (prompt Figma Make 21/10). Lưu vào `06-claude-input/` của thư mục làm việc.
 - Trả tiền theo kế hoạch đã khóa phải TRỪ khỏi kế hoạch, không cộng thành lượt chuyển mới (lỗi bắt được khi viết test 18/10).
