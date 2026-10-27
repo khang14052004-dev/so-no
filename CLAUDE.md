@@ -199,6 +199,8 @@ Giao diện:
 ## Chốt 27/10/2026
 - Cách viết giao diện app (pha 2): **Vite + Preact** (anh chốt 27/10). Mỗi thành phần Design System là một khối code dùng lại; `core/ledger.js` vẫn là JS thuần, không phụ thuộc Preact. Cần bước build (Vite), Claude lo. Hosting (Cloudflare Pages hoặc Netlify) chưa chọn, chạy thử trên máy trước.
 - Thứ tự việc anh làm với Supabase và Google (Claude dẫn từng bước): (1) bật Anonymous sign-ins + Allow manual linking, (2) gửi Project URL + publishable key (chỉ đặt vào file cấu hình app), (3) tạo khóa OAuth Google dán thẳng vào Supabase (không gửi Claude), (4) duyệt 3 token mới + màu avatar.
+- Tiến độ 27/10 chiều: đã bật Anonymous sign-ins + Allow manual linking; đã gửi Project URL + publishable key (chưa ghi vào đâu, sẽ đặt vào file cấu hình app); đã tạo dự án Google Cloud "Done Nha" + OAuth client, dán vào Supabase (đã bật Google; secret cũ lộ trong ảnh chụp nên đã thay secret mới). Shell của Claude KHÔNG gọi được supabase.co (proxy chặn) nên kiểm kết nối thật phải làm trên máy anh.
+- Màn hình đồng ý Google đang **Testing** (chỉ "test users" đăng nhập được, tối đa 100): nút Publish bị khóa tới khi điền trang Branding (trang chủ app, link chính sách quyền riêng tư, tên miền). Làm khi có chỗ chạy app: Claude làm trang chủ + trang Chính sách quyền riêng tư (cần cho Luật BVDLCN dù sao), anh điền Branding rồi Publish. Hạn: trước thử kín 7–13/12. Trong lúc phát triển: thêm email anh và vài người thử vào Test users.
 
 ## Lỗi đã gặp, đừng lặp lại
 - Prompt dùng lại được mà chỉ nằm trong hội thoại thì mất khi hội thoại bị tóm tắt (prompt Figma Make 21/10). Lưu vào `06-claude-input/` của thư mục làm việc.
