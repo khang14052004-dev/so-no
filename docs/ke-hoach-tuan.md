@@ -39,7 +39,8 @@ Cột "Model": gợi ý để đỡ tốn token. Opus cho việc khó, dễ sai 
 | [x] | 27/10: bật Anonymous sign-ins + Allow manual linking; gửi Project URL + publishable key; tạo Google OAuth, dán vào Supabase (Google đang Testing, Publish sau khi có trang chủ + Chính sách quyền riêng tư) | Anh | – |
 | [x] | 27/10: anh chốt Vite + Preact | Anh | – |
 | [x] | 27/10: khung app `done-nha/app` (Vite + Preact, PWA, tokens.css, luật giao diện) + màn thẻ mời và bản Zalo (commit 1d20de6) | Claude | Opus |
-| [ ] | Anh chọn chỗ chạy app (đề xuất Cloudflare), nối repo `done-nha`; thử thẻ mời trên điện thoại với Supabase thật | Anh | – |
+| [x] | 27/10: anh chọn Cloudflare, nối repo `done-nha`, app chạy ở `done-nha.pages.dev`; thẻ mời thử với Supabase thật trên Android (Chrome + Zalo) đạt | Anh | – |
+| [ ] | Thử thẻ mời trên iPhone thật (Zalo → Safari) | Anh | – |
 
 Nếu Xấp ảnh chưa xong 25/10 thì dời sang tuần 26/10, không chặn pha 2 (Xấp chỉ đổi cách hiện, dữ liệu đã đủ).
 
