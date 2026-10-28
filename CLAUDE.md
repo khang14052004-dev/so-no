@@ -215,6 +215,9 @@ Giao diện:
   - Mở lại link khi đã ở trong nhóm: "Bạn đã ở trong <nhóm> rồi, tên <X>." + "Mở nhóm".
   - Sau khi vào: màn nhóm TẠM `/g/<id>` (thẻ "Bạn là …", nhắc iPhone, danh sách thành viên đã vào/chưa vào); màn đầu có "Nhóm của bạn". Giữ chỗ + Lưu bằng Google và Lịch là bước kế tiếp.
   - Toast giờ chạm xuyên qua (trước đó che nút vàng ở đáy) và rộng đủ đọc câu dài.
+- Anh thử chọn tên với Supabase thật (28/10 chiều, Chrome + Samsung Internet trên S24 Ultra): đạt hết (nhận Khang, mở lại link báo "đã ở trong nhóm", Khang mờ ở máy thứ hai, hỏi trùng "Lan", "Kiet" trùng "Kiệt", thêm "Khang Samsung", danh sách 4 người đúng ở cả hai bên).
+- Anh chốt (28/10): **gợi ý tên khỏi trùng bằng SỐ**: "Trùng tên Lan trong nhóm. Thêm số cho dễ phân biệt, ví dụ Lan 2" (có "Lan 2" rồi thì gợi "Lan 3"); bỏ kiểu "Lan Anh", "Kiệt Anh". Canvas DN-VaoNhom-TenMoi vẫn ghi kiểu cũ, sửa ở lần chụp lại sau.
+- Samsung Internet tự đổi trang sang nền tối (vòng tròn chọn tên gần như mất, nút vàng thành nâu) và theo diễn đàn Samsung thì trang web không tắt được. App đã khai `color-scheme: only light` (Chrome nghe). Nhóm Đà Lạt dùng Safari/Chrome nên không chặn. Ghi nhớ cho VietQR sau này: vẽ mã QR thành hình (`<img>`/canvas), đừng vẽ bằng SVG màu trong trang, kẻo bị đảo màu.
 
 ## Lỗi đã gặp, đừng lặp lại
 - Prompt dùng lại được mà chỉ nằm trong hội thoại thì mất khi hội thoại bị tóm tắt (prompt Figma Make 21/10). Lưu vào `06-claude-input/` của thư mục làm việc.
