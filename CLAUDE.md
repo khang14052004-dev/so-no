@@ -219,6 +219,11 @@ Giao diện:
 - Anh chốt (28/10): **gợi ý tên khỏi trùng bằng SỐ**: "Trùng tên Lan trong nhóm. Thêm số cho dễ phân biệt, ví dụ Lan 2" (có "Lan 2" rồi thì gợi "Lan 3"); bỏ kiểu "Lan Anh", "Kiệt Anh". Canvas DN-VaoNhom-TenMoi vẫn ghi kiểu cũ, sửa ở lần chụp lại sau.
 - Samsung Internet tự đổi trang sang nền tối (vòng tròn chọn tên gần như mất, nút vàng thành nâu) và theo diễn đàn Samsung thì trang web không tắt được. App đã khai `color-scheme: only light` (Chrome nghe). Nhóm Đà Lạt dùng Safari/Chrome nên không chặn. Ghi nhớ cho VietQR sau này: vẽ mã QR thành hình (`<img>`/canvas), đừng vẽ bằng SVG màu trong trang, kẻo bị đảo màu.
 
+- **Giữ chỗ + Lưu bằng Google đã code (28/10 chiều, Opus)**, `done-nha` commit 68f20ac:
+  - Vào nhóm bằng khách xong → màn Giữ chỗ (`/g/<id>/luu`, như DN-VaoNhom-Luu). "Lưu bằng Google" gắn Google vào chính tài khoản khách (giữ nguyên tên, nhóm); Google trả về đúng màn đó → "Giờ thêm vào màn hình chính" 3 bước + "Xong, vào nhóm" (DN-VaoNhom-Luu-Xong). Android ghi bước 2 là "⋮ › Thêm vào màn hình chính (hoặc Cài đặt ứng dụng)".
+  - Lỗi: Google này đã gắn Done Nha ở máy khác → nhắc chọn tài khoản Google khác hoặc Để sau; hủy ở Google / chưa phải test user → nhắc bấm lại hoặc Để sau. Google chặn người ngoài Test users ngay trên trang Google (app không thấy được), nên trước thử kín phải Publish.
+  - "Đã dùng Done Nha? Đăng nhập Google" có ở thẻ mời VÀ màn đầu (để app ở màn hình chính iPhone vào lại đúng tên), CHỈ hiện khi máy chưa có phiên nào (chặt hơn bàn giao "chưa đăng nhập Google": đang là khách mà đăng nhập Google thì bỏ rơi tên khách; khách thì lưu ở Giữ chỗ). Máy đã có Google thì vào nhóm xong thẳng vào nhóm, khỏi Giữ chỗ.
+
 ## Lỗi đã gặp, đừng lặp lại
 - Prompt dùng lại được mà chỉ nằm trong hội thoại thì mất khi hội thoại bị tóm tắt (prompt Figma Make 21/10). Lưu vào `06-claude-input/` của thư mục làm việc.
 - Trả tiền theo kế hoạch đã khóa phải TRỪ khỏi kế hoạch, không cộng thành lượt chuyển mới (lỗi bắt được khi viết test 18/10).
