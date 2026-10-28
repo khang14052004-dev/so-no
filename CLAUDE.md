@@ -238,6 +238,13 @@ Giao diện:
   - Máy chủ: `create_group` nhận thêm tên thủ quỹ; tên thêm cùng lúc giữ đúng thứ tự (màu avatar). 147 kiểm tra SQL qua.
   - Anh đã dán lại `schema.sql` (commit 4d54d3a) vào Supabase và thử trên Android với Supabase thật (28/10 chiều): **đạt cả 5 bước** (tạo chuyến "Thử tạo" chọn Kiệt làm thủ quỹ, vào thẳng Mời vì đã có Google; mời máy thứ hai bằng link; Đổi link làm link cũ hết dùng, người đã vào vẫn ở lại; Mở lại tên rồi chọn lại được). Thứ tự tên và màu avatar đúng.
 
+- Anh chốt (28/10 chiều): đợt code kế làm **Lịch + Thêm khoản chi cùng lúc** (để thử trọn vòng), và **làm Xấp hình luôn** cho chuyến dù chưa có tải hình (khoản chưa có hình là thẻ chữ theo loại).
+- **Lịch + Xấp hình + khoản chi đã code (28/10 chiều, Opus)**, `done-nha` commit 9497018 (không đổi schema, khỏi dán lại):
+  - Bấm vào nhóm mở Lịch. Chuyến mặc định Xấp hình (Trước chuyến → Ngày 1…, thẻ nghiêng vuốt ngang, giá đóng mộc, ngày chưa tới nét đứt "Sắp tới"), nút đổi Xấp hình | Lịch tháng chỉ icon. Nhóm dài hạn: Lịch tháng + thẻ đầu 3 số. Nhóm mới: thẻ "Nhóm mới, chưa có khoản nào".
+  - Thêm khoản chi: số tiền (35k, 2tr5, 25k+12…), tên, ngày, ai trả, loại, chia đều; chi tiết khoản có Sửa, Xóa (hỏi trước) và Hoàn tác ở Lịch.
+  - Lệch bảng vẽ: (1) **Ai trả mặc định là người đang ghi**, không phải thủ quỹ; người không phải thủ quỹ chỉ chọn được chính mình (người được ủy quyền thêm Quỹ chung), vì máy chủ chỉ cho ghi khoản mình trả. (2) Thêm ô **Ngày** để ghi bù khoản hôm trước (mặc định ngày đang chọn ở Lịch, không thì hôm nay). (3) Chưa có mục Số dư / Quỹ / Tuần này; bánh răng mở Cài đặt nhóm tạm (Giữ chỗ, Mời, thành viên, Mở lại tên). (4) Lịch tháng ghi "n khoản trong tháng" thay "n hình". (5) Nhóm dài hạn chưa biết là Cơm trưa nên nút luôn là "Ghi khoản chi". (6) Chưa có: Chụp bill và hình, Lịch sử thay đổi, Gửi đề nghị sửa, ghi khi mất mạng (giờ cần mạng; bấm lại không ghi đôi), Tổng kết chuyến (thẻ chỉ báo "có sau khi về").
+  - Câu hỏi chờ anh: nhóm không quỹ (Cơm trưa) thì ai trả người đó tự ghi; có muốn cho người khác ghi hộ khoản người khác trả không (phải sửa luật máy chủ `add_entry`)?
+
 ## Lỗi đã gặp, đừng lặp lại
 - Prompt dùng lại được mà chỉ nằm trong hội thoại thì mất khi hội thoại bị tóm tắt (prompt Figma Make 21/10). Lưu vào `06-claude-input/` của thư mục làm việc.
 - Trả tiền theo kế hoạch đã khóa phải TRỪ khỏi kế hoạch, không cộng thành lượt chuyển mới (lỗi bắt được khi viết test 18/10).
