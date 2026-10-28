@@ -256,3 +256,4 @@ Giao diện:
 - Địa chỉ dự án Supabase và khóa publishable chỉ nằm trong file cấu hình của app, không ghi vào tài liệu hay trí nhớ; khóa secret và service_role, mật khẩu cơ sở dữ liệu thì tuyệt đối không đưa cho Claude hay ghi ở đâu.
 - Bản giả lập (`?mock=1`) chạy đúng không có nghĩa Supabase thật chạy đúng: 28/10 "Nhóm của bạn" không hiện vì câu đọc nhúng `groups(...)` bị PostgREST từ chối (3 khóa ngoại giữa groups và members), app lại nuốt lỗi im lặng. Phần gọi máy chủ phải nhờ anh thử trên điện thoại sau mỗi lần sửa; lỗi tải luôn hiện ra, không giấu.
 - Đo tương phản bằng số trước khi nói một cặp màu đọc rõ (27/10 em nói chữ trắng đọc rõ trên màu avatar, thực tế chỉ `avatar-blue` đạt).
+- Ghi tệp về máy anh (bàn giao, `_progress.md`): mỗi lần ghi dùng một thư mục tạm MỚI trong outputs và kiểm kích thước tệp trên máy sau khi ghi. 28/10 dùng lại đường dẫn cũ nên máy nhận bản cũ; tệp đọc từ máy cũng có lúc là bản cũ, đọc lại nếu thấy lạ.
