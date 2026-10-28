@@ -224,6 +224,8 @@ Giao diện:
   - Lỗi: Google này đã gắn Done Nha ở máy khác → nhắc chọn tài khoản Google khác hoặc Để sau; hủy ở Google / chưa phải test user → nhắc bấm lại hoặc Để sau. Google chặn người ngoài Test users ngay trên trang Google (app không thấy được), nên trước thử kín phải Publish.
   - "Đã dùng Done Nha? Đăng nhập Google" có ở thẻ mời VÀ màn đầu (để app ở màn hình chính iPhone vào lại đúng tên), CHỈ hiện khi máy chưa có phiên nào (chặt hơn bàn giao "chưa đăng nhập Google": đang là khách mà đăng nhập Google thì bỏ rơi tên khách; khách thì lưu ở Giữ chỗ). Máy đã có Google thì vào nhóm xong thẳng vào nhóm, khỏi Giữ chỗ.
 
+- Anh thử Google trên Supabase thật (28/10 chiều): **đạt cả 3**. (A) Chrome: Khang lưu bằng Google, nhóm ghi "Đã lưu bằng Google"; Supabase chỉ có 1 tài khoản Google (khách Khang được gắn Google, không sinh tài khoản mới). (B) Tab ẩn danh: Đăng nhập Google → "Nhóm của bạn" có Đà Lạt (thử) (sau khi sửa lỗi nhúng `groups(...)`, commit 8e54938). (C) Samsung Internet: "Khang Samsung" lưu bằng cùng Google → báo đúng "đã gắn với Done Nha ở máy khác", tên khách vẫn còn. Chrome Android chặn chụp màn hình trong tab ẩn danh (bật được ở `chrome://flags` › Incognito Screenshot).
+
 ## Lỗi đã gặp, đừng lặp lại
 - Prompt dùng lại được mà chỉ nằm trong hội thoại thì mất khi hội thoại bị tóm tắt (prompt Figma Make 21/10). Lưu vào `06-claude-input/` của thư mục làm việc.
 - Trả tiền theo kế hoạch đã khóa phải TRỪ khỏi kế hoạch, không cộng thành lượt chuyển mới (lỗi bắt được khi viết test 18/10).

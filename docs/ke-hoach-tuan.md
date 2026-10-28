@@ -44,7 +44,7 @@ Cột "Model": gợi ý để đỡ tốn token. Opus cho việc khó, dễ sai 
 | [x] | 28/10: code chọn tên + tự thêm tên + màn nhóm tạm (commit 4656f95) | Claude | Opus |
 | [x] | 28/10: anh thử chọn tên với Supabase thật (Chrome + Samsung Internet), đạt | Anh | – |
 | [x] | 28/10: Giữ chỗ + Lưu bằng Google + Đăng nhập Google ở thẻ mời và màn đầu (commit 68f20ac) | Claude | Opus |
-| [ ] | Anh thử Lưu bằng Google và Đăng nhập Google trên điện thoại (email đã trong Test users) | Anh | – |
+| [x] | 28/10: anh thử Lưu bằng Google, Đăng nhập Google (tab ẩn danh), lỗi Google đã gắn tài khoản khác: đạt | Anh | – |
 
 Nếu Xấp ảnh chưa xong 25/10 thì dời sang tuần 26/10, không chặn pha 2 (Xấp chỉ đổi cách hiện, dữ liệu đã đủ).
 
