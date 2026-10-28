@@ -229,13 +229,14 @@ Giao diện:
 - Anh báo (28/10): **các bạn iPhone dùng Chrome là chủ yếu.** Đã sửa (`done-nha` sau commit 8e54938): trong Zalo trên iPhone, nút vàng là "Mở bằng Chrome" (`googlechromes://`), "Mở bằng Safari" và "Chép link" là hai nút phụ; mọi chữ nhắc iPhone nói "Chrome hay Safari"; bước thêm vào màn hình chính trên Chrome iPhone ghi "nút Chia sẻ (cạnh thanh địa chỉ)". Chrome iPhone thêm được vào màn hình chính từ iOS 16.4, và app ở màn hình chính vẫn tách bộ nhớ với Chrome như với Safari. CHƯA thử: `googlechromes://` từ Zalo trên iPhone thật (chưa cài Chrome thì nút không mở được gì, còn Safari, Chép link, ⋯).
 
 - Anh chốt (28/10) **cách 1** cho người kẹt "Google này đã gắn Done Nha ở máy khác": nhờ chủ nhóm hoặc thủ quỹ "Mở lại tên", rồi bấm "Đăng nhập bằng Google đó" (rời phiên khách trên máy này) và mở lại link mời chọn tên. Câu báo lỗi nói đúng tên người mở lại được (chủ nhóm, thủ quỹ, trừ chính mình); không ai mở được (chủ nhóm kiêm thủ quỹ, hay nhóm không quỹ mà mình là chủ) thì chỉ gợi chọn Google khác.
-- **Tạo nhóm + Mời + Mở lại tên đã code (28/10 tối, Opus)**, `done-nha` commit 4d54d3a:
+- **Tạo nhóm + Mời + Mở lại tên đã code (28/10 chiều, Opus)**, `done-nha` commit 4d54d3a:
   - Màn đầu: nút vàng "Tạo nhóm hoặc chuyến", nút phụ "Có link mời? Vào nhóm bằng link".
   - Tạo nhóm (DN-TaoNhom): loại, tên, ngày đi/về (lịch của máy), Có quỹ chung + **chọn thủ quỹ ngay lúc tạo** (chip tên; Khang tạo Đà Lạt chọn Kiệt được, khỏi bàn giao), thêm tên hỏi trùng gợi ý "Lan 2". Lệch bảng vẽ: chưa có "Chọn từ danh bạ Sổ nợ" (Sổ nợ chưa làm) và ô "Góp dự kiến" (mức góp chưa chốt); có thêm ô "Tên của bạn trong nhóm" (điền sẵn tên gần nhất); Ăn uống, Ở chung, Khác đều lưu là nhóm dài hạn (icon riêng từng loại để sau).
   - Người tạo còn là khách → Giữ chỗ (DN-TaoNhom-Luu) → Mời; có Google rồi thì thẳng Mời.
   - Mời (DN-Moi): mã QR là hình, link hiện gọn ở giữa (mã thật dài 32 ký tự; bảng vẽ ghi mã ngắn), Sao chép, "Gửi vào nhóm chat" (bảng chia sẻ của máy), "Ai đã vào". Đổi link mời (DN-Moi-DoiLink) chỉ chủ nhóm, có hỏi lại.
   - Mở lại tên (DN-CaiDat-MoLai) TẠM nằm ở màn nhóm (chủ nhóm, thủ quỹ; có hỏi lại); dời vào Cài đặt nhóm khi có màn đó.
-  - Máy chủ: `create_group` nhận thêm tên thủ quỹ; tên thêm cùng lúc giữ đúng thứ tự (màu avatar). 147 kiểm tra SQL qua. **Anh phải dán lại `schema.sql` vào Supabase trước khi thử Tạo nhóm.**
+  - Máy chủ: `create_group` nhận thêm tên thủ quỹ; tên thêm cùng lúc giữ đúng thứ tự (màu avatar). 147 kiểm tra SQL qua.
+  - Anh đã dán lại `schema.sql` (commit 4d54d3a) vào Supabase và thử trên Android với Supabase thật (28/10 chiều): **đạt cả 5 bước** (tạo chuyến "Thử tạo" chọn Kiệt làm thủ quỹ, vào thẳng Mời vì đã có Google; mời máy thứ hai bằng link; Đổi link làm link cũ hết dùng, người đã vào vẫn ở lại; Mở lại tên rồi chọn lại được). Thứ tự tên và màu avatar đúng.
 
 ## Lỗi đã gặp, đừng lặp lại
 - Prompt dùng lại được mà chỉ nằm trong hội thoại thì mất khi hội thoại bị tóm tắt (prompt Figma Make 21/10). Lưu vào `06-claude-input/` của thư mục làm việc.
