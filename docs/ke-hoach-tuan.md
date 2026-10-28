@@ -40,7 +40,7 @@ Cột "Model": gợi ý để đỡ tốn token. Opus cho việc khó, dễ sai 
 | [x] | 27/10: anh chốt Vite + Preact | Anh | – |
 | [x] | 27/10: khung app `done-nha/app` (Vite + Preact, PWA, tokens.css, luật giao diện) + màn thẻ mời và bản Zalo (commit 1d20de6) | Claude | Opus |
 | [x] | 27/10: anh chọn Cloudflare, nối repo `done-nha`, app chạy ở `done-nha.pages.dev`; thẻ mời thử với Supabase thật trên Android (Chrome + Zalo) đạt | Anh | – |
-| [ ] | Thử thẻ mời trên iPhone thật (Zalo → Safari) | Anh | – |
+| [x] | 28/10: thử thẻ mời trên iPhone thật (Zalo → Safari, Chép link) đạt | Anh | – |
 
 Nếu Xấp ảnh chưa xong 25/10 thì dời sang tuần 26/10, không chặn pha 2 (Xấp chỉ đổi cách hiện, dữ liệu đã đủ).
 
