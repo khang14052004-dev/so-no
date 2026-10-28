@@ -233,4 +233,5 @@ Giao diện:
 - Đặt mốc "app sẵn sàng" theo ngày đi trừ thời gian thử, không phải theo ngày đi.
 - Supabase gói Free đã kiểm 17/10/2026 trên trang giá chính thức: 500 MB số liệu, 1 GB ảnh, 5 GB tải xuống, 50.000 người dùng/tháng, tối đa 2 dự án, tự ngủ sau 1 tuần không dùng. Đăng nhập Apple cần tài khoản Apple Developer (chưa kiểm giá); chuyến Đà Lạt dùng khách và Google trước. Pháp lý đã nghiên cứu 18/10 (xem mục Chốt 18/10) nhưng chỉ là suy luận từ văn bản, chưa có ý kiến luật sư.
 - Địa chỉ dự án Supabase và khóa publishable chỉ nằm trong file cấu hình của app, không ghi vào tài liệu hay trí nhớ; khóa secret và service_role, mật khẩu cơ sở dữ liệu thì tuyệt đối không đưa cho Claude hay ghi ở đâu.
+- Bản giả lập (`?mock=1`) chạy đúng không có nghĩa Supabase thật chạy đúng: 28/10 "Nhóm của bạn" không hiện vì câu đọc nhúng `groups(...)` bị PostgREST từ chối (3 khóa ngoại giữa groups và members), app lại nuốt lỗi im lặng. Phần gọi máy chủ phải nhờ anh thử trên điện thoại sau mỗi lần sửa; lỗi tải luôn hiện ra, không giấu.
 - Đo tương phản bằng số trước khi nói một cặp màu đọc rõ (27/10 em nói chữ trắng đọc rõ trên màu avatar, thực tế chỉ `avatar-blue` đạt).
