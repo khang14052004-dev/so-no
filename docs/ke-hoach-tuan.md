@@ -42,7 +42,7 @@ Cột "Model": gợi ý để đỡ tốn token. Opus cho việc khó, dễ sai 
 | [x] | 27/10: anh chọn Cloudflare, nối repo `done-nha`, app chạy ở `done-nha.pages.dev`; thẻ mời thử với Supabase thật trên Android (Chrome + Zalo) đạt | Anh | – |
 | [x] | 28/10: thử thẻ mời trên iPhone thật (Zalo → Safari, Chép link) đạt | Anh | – |
 | [x] | 28/10: code chọn tên + tự thêm tên + màn nhóm tạm (commit 4656f95) | Claude | Opus |
-| [ ] | Anh thử chọn tên với nhóm "Đà Lạt (thử)" trên Android và iPhone | Anh | – |
+| [x] | 28/10: anh thử chọn tên với Supabase thật (Chrome + Samsung Internet), đạt | Anh | – |
 | [ ] | Giữ chỗ + Lưu bằng Google (cần email trong Test users của Google) | Claude | Opus |
 
 Nếu Xấp ảnh chưa xong 25/10 thì dời sang tuần 26/10, không chặn pha 2 (Xấp chỉ đổi cách hiện, dữ liệu đã đủ).
