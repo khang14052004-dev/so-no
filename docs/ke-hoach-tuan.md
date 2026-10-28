@@ -45,6 +45,7 @@ Cột "Model": gợi ý để đỡ tốn token. Opus cho việc khó, dễ sai 
 | [x] | 28/10: anh thử chọn tên với Supabase thật (Chrome + Samsung Internet), đạt | Anh | – |
 | [x] | 28/10: Giữ chỗ + Lưu bằng Google + Đăng nhập Google ở thẻ mời và màn đầu (commit 68f20ac) | Claude | Opus |
 | [x] | 28/10: anh thử Lưu bằng Google, Đăng nhập Google (tab ẩn danh), lỗi Google đã gắn tài khoản khác: đạt | Anh | – |
+| [ ] | Nhờ một bạn iPhone (Chrome) thử: Zalo › Mở bằng Chrome › chọn tên › Lưu bằng Google › thêm vào màn hình chính › mở app › Đăng nhập Google | Anh | – |
 
 Nếu Xấp ảnh chưa xong 25/10 thì dời sang tuần 26/10, không chặn pha 2 (Xấp chỉ đổi cách hiện, dữ liệu đã đủ).
 

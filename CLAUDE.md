@@ -57,7 +57,7 @@ Tài liệu gốc (đọc trước khi làm):
 Đã chốt (13/10/2026):
 - Tên app: **Done Nha**. Nhà phát triển: **Nguyên Khang**. Slogan: "Hùn chung đi chơi, tính tiền khỏi cãi."
 - Giọng văn Nam bộ, Sài Gòn: nha, nè, lẹ, khỏi. "Tui, hông, dzô" chỉ ở chỗ vui. Nút chính "Done nha ✓". Tránh chữ "kèo" và "hụi".
-- Chuyến đầu tiên: Đà Lạt, tối 2/1 đến chiều 5/1/2027, 7–9 người, chỉ anh dùng Android, còn lại iPhone. Thủ quỹ: Kiệt (đổi được). Góp quỹ bằng chuyển khoản và tiền mặt, dự kiến 2 triệu/người (chưa chốt). App phải xong trước 28/12/2026.
+- Chuyến đầu tiên: Đà Lạt, tối 2/1 đến chiều 5/1/2027, 7–9 người, chỉ anh dùng Android, còn lại iPhone. (Cập nhật 28/10: các bạn dùng iPhone chủ yếu dùng **Chrome**, không phải Safari.) Thủ quỹ: Kiệt (đổi được). Góp quỹ bằng chuyển khoản và tiền mặt, dự kiến 2 triệu/người (chưa chốt). App phải xong trước 28/12/2026.
 - Lõi là sổ cái (ledger); quỹ chung là "thành viên ảo". Số dư luôn tính từ sổ, không lưu riêng. Cân đối tối thiểu số lần chuyển, VietQR điền sẵn cho từng người.
 - Chỉ thủ quỹ (hoặc người thủ quỹ ủy quyền) được ghi khoản chi từ quỹ; thành viên vẫn tự ghi khoản mình trả.
 - App KHÔNG bao giờ giữ tiền (tránh bị coi là trung gian thanh toán, Nghị định 52/2024). Quỹ chỉ là con số; tiền thật nằm ở thủ quỹ.
@@ -83,7 +83,7 @@ Sản phẩm và tính tiền:
 - Đổi thủ quỹ có bàn giao (quỹ ở người cũ tới khi người mới xác nhận). Thủ quỹ ủy quyền ghi chi quỹ được. Chủ nhóm hoặc thủ quỹ "Mở lại tên" cho người mất phiên khách. Cân đối gộp quỹ vào thủ quỹ (không có dòng "Quỹ → Kiệt").
 - Chi tiết khoản chi: lịch sử, sửa, xóa có Hoàn tác; ai ghi mới sửa; khoản chi từ quỹ chỉ thủ quỹ hoặc người được ủy quyền. Cài đặt chuyến có "Xóa chuyến" (chỉ khi đã khóa và chuyển xong). Lưu trữ chuyến chỉ ẩn ở máy mình, cần khóa trước.
 - Đăng nhập: khách + Google. ĐÃ BỎ đăng ký SĐT + OTP (18/10). Apple để sau. Bật "Allow manual linking" trên Supabase.
-- iPhone tách bộ nhớ Safari và app ở màn hình chính: phải "Lưu bằng Google" hoặc chép link khôi phục TRƯỚC khi thêm vào màn hình chính (màn "Giữ chỗ của bạn"). Link mời mở trong Zalo: chỉ cho xem, nút Mở bằng Safari + Chép link. Thông báo đẩy iPhone chỉ khi đã thêm vào màn hình chính, nên nhắc nợ bằng tin nhắn là chính.
+- iPhone tách bộ nhớ trình duyệt (Chrome hay Safari đều vậy) và app ở màn hình chính: phải "Lưu bằng Google" hoặc chép link khôi phục TRƯỚC khi thêm vào màn hình chính (màn "Giữ chỗ của bạn"). Link mời mở trong Zalo: chỉ cho xem; iPhone nút vàng "Mở bằng Chrome" + nút phụ "Mở bằng Safari", "Chép link" (đổi 28/10); Android "Mở bằng Chrome" + "Chép link". Thông báo đẩy iPhone chỉ khi đã thêm vào màn hình chính, nên nhắc nợ bằng tin nhắn là chính.
 - VietQR tự tạo trên máy (nội dung không dấu ≤25 ký tự, số tiền nguyên). MoMo: người dùng tải ảnh QR nhận tiền của mình. STK chỉ hiện cho nhóm khi bật "Cho nhóm thấy"; STK cá nhân giữ trên máy.
 - Pháp lý (suy luận 18/10, CHƯA hỏi luật sư): NĐ 52/2024 nhiều khả năng không áp vì app không giữ tiền. Luật BVDLCN 91/2025 + NĐ 356/2025 (từ 1/1/2026): cần màn đồng ý ("Dữ liệu của bạn"), lưu ở Singapore có thể phải lập hồ sơ chuyển dữ liệu ra nước ngoài, STK có thể là dữ liệu nhạy cảm. Hỏi luật sư trước khi mở cho người ngoài nhóm bạn.
 - Mức góp quỹ CHƯA chốt; thiết kế không ghi cứng 2 triệu. Tên "Done Nha" đã tra, không trùng (tra lại gần ngày lên cửa hàng).
@@ -225,6 +225,8 @@ Giao diện:
   - "Đã dùng Done Nha? Đăng nhập Google" có ở thẻ mời VÀ màn đầu (để app ở màn hình chính iPhone vào lại đúng tên), CHỈ hiện khi máy chưa có phiên nào (chặt hơn bàn giao "chưa đăng nhập Google": đang là khách mà đăng nhập Google thì bỏ rơi tên khách; khách thì lưu ở Giữ chỗ). Máy đã có Google thì vào nhóm xong thẳng vào nhóm, khỏi Giữ chỗ.
 
 - Anh thử Google trên Supabase thật (28/10 chiều): **đạt cả 3**. (A) Chrome: Khang lưu bằng Google, nhóm ghi "Đã lưu bằng Google"; Supabase chỉ có 1 tài khoản Google (khách Khang được gắn Google, không sinh tài khoản mới). (B) Tab ẩn danh: Đăng nhập Google → "Nhóm của bạn" có Đà Lạt (thử) (sau khi sửa lỗi nhúng `groups(...)`, commit 8e54938). (C) Samsung Internet: "Khang Samsung" lưu bằng cùng Google → báo đúng "đã gắn với Done Nha ở máy khác", tên khách vẫn còn. Chrome Android chặn chụp màn hình trong tab ẩn danh (bật được ở `chrome://flags` › Incognito Screenshot).
+
+- Anh báo (28/10): **các bạn iPhone dùng Chrome là chủ yếu.** Đã sửa (`done-nha` sau commit 8e54938): trong Zalo trên iPhone, nút vàng là "Mở bằng Chrome" (`googlechromes://`), "Mở bằng Safari" và "Chép link" là hai nút phụ; mọi chữ nhắc iPhone nói "Chrome hay Safari"; bước thêm vào màn hình chính trên Chrome iPhone ghi "nút Chia sẻ (cạnh thanh địa chỉ)". Chrome iPhone thêm được vào màn hình chính từ iOS 16.4, và app ở màn hình chính vẫn tách bộ nhớ với Chrome như với Safari. CHƯA thử: `googlechromes://` từ Zalo trên iPhone thật (chưa cài Chrome thì nút không mở được gì, còn Safari, Chép link, ⋯).
 
 ## Lỗi đã gặp, đừng lặp lại
 - Prompt dùng lại được mà chỉ nằm trong hội thoại thì mất khi hội thoại bị tóm tắt (prompt Figma Make 21/10). Lưu vào `06-claude-input/` của thư mục làm việc.
