@@ -206,6 +206,16 @@ Giao diện:
 - Chỗ chạy app: em đề xuất **Cloudflare** (miễn phí, băng thông không giới hạn, 500 lần build/tháng, tự cập nhật khi đẩy code; R2 cho hình sau này cùng tài khoản). Netlify gói Free mới tính bằng credit: khoảng 20 lần đưa bản mới/tháng, hết credit thì trang bị tạm dừng tới tháng sau. **Anh chọn Cloudflare (27/10)**: Pages nối repo `done-nha`, thư mục gốc `app`, build `npm run build`, xuất `dist`.
 - **App đã chạy trên Cloudflare Pages (27/10 chiều):** địa chỉ `https://done-nha.pages.dev` (tự build khi đẩy lên `main` của `done-nha`). Supabase Auth › URL Configuration đã đặt Site URL + Redirect URLs (`https://done-nha.pages.dev/**`, `http://localhost:5173/**`). Đăng nhập Google đi qua Supabase nên CHƯA cần thêm Authorized JavaScript origins ở Google (ghi chú cũ sửa lại). Đã thử trên Android với Supabase thật (nhóm thử `Đà Lạt (thử)` tạo bằng SQL, xóa sau khi thử): thẻ mời đọc đúng từ `invite_card` trên Chrome và trong Zalo; nút "Mở bằng Chrome" trong Zalo chạy (Zalo hỏi thoát rồi mở Chrome), Chép link và ⋯ › Mở bằng trình duyệt cũng được. iPhone (`x-safari-https`) ĐÃ thử 28/10: chạy (Zalo hỏi thoát rồi mở Safari, Chép link cũng được). Tệp `_redirects` đã bỏ (Pages tự trả `index.html`). Trang chủ + Chính sách quyền riêng tư cho Google Publish: dùng tên miền này.
 
+## Chốt 28/10/2026
+- Thẻ mời trong Zalo → Safari đã thử trên iPhone thật: chạy (Zalo hỏi thoát rồi mở Safari; Chép link cũng được). Bỏ dòng báo "chưa mở được" theo giờ ở cả hai hệ điều hành (hộp hỏi của Zalo làm nó báo sai).
+- **Chọn tên đã code (28/10, Opus)**, repo `done-nha` commit 4656f95, chạy ở `done-nha.pages.dev`:
+  - Bấm "Chọn tên của bạn" = đồng ý dữ liệu (tạm ghi ngày giờ trên máy, khóa `dn.consent`) → tạo khách CHỈ khi máy chưa có phiên → danh sách tên (`preview_group`) → "Vào nhóm là <tên>" (`join_group`).
+  - Lệch bảng vẽ có chủ ý: **chưa chọn sẵn tên nào** (DN-VaoNhom-Ten chọn sẵn tên đầu; dễ bấm nhầm vào tên người khác). Nút vàng mờ "Chọn tên của bạn ở trên" tới khi chọn. Dòng tên cao 44px (bảng 42px) cho đủ vùng bấm.
+  - Tên đã có người nhận: mờ, bấm thì nhắc nhờ chủ nhóm hoặc thủ quỹ "Mở lại tên". Tự thêm tên: so trùng bỏ dấu, không phân biệt hoa thường ("lân" trùng "Lan"), hỏi "Đúng, là tui / Người khác" như Sổ nợ.
+  - Mở lại link khi đã ở trong nhóm: "Bạn đã ở trong <nhóm> rồi, tên <X>." + "Mở nhóm".
+  - Sau khi vào: màn nhóm TẠM `/g/<id>` (thẻ "Bạn là …", nhắc iPhone, danh sách thành viên đã vào/chưa vào); màn đầu có "Nhóm của bạn". Giữ chỗ + Lưu bằng Google và Lịch là bước kế tiếp.
+  - Toast giờ chạm xuyên qua (trước đó che nút vàng ở đáy) và rộng đủ đọc câu dài.
+
 ## Lỗi đã gặp, đừng lặp lại
 - Prompt dùng lại được mà chỉ nằm trong hội thoại thì mất khi hội thoại bị tóm tắt (prompt Figma Make 21/10). Lưu vào `06-claude-input/` của thư mục làm việc.
 - Trả tiền theo kế hoạch đã khóa phải TRỪ khỏi kế hoạch, không cộng thành lượt chuyển mới (lỗi bắt được khi viết test 18/10).
