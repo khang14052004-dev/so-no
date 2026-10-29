@@ -48,7 +48,8 @@ Cột "Model": gợi ý để đỡ tốn token. Opus cho việc khó, dễ sai 
 | [x] | 28/10: Tạo nhóm (chọn thủ quỹ lúc tạo) + Mời (QR, Sao chép, Gửi, Đổi link) + Mở lại tên + cách 1 cho Google đã gắn máy khác (commit 4d54d3a) | Claude | Opus |
 | [x] | 28/10: anh dán lại `schema.sql` (commit 4d54d3a) và thử Tạo nhóm → Mời → Đổi link → Mở lại tên trên Android với Supabase thật: đạt | Anh | – |
 | [x] | 28/10: Lịch nhóm, Xấp hình cho chuyến, Thêm/sửa/xóa khoản chi (commit 9497018; sớm hơn kế hoạch tuần 2–8/11) | Claude | Opus |
-| [ ] | Anh thử Lịch + khoản chi trên máy thật (ghi, sửa, xóa, Hoàn tác, đổi Xấp hình / Lịch tháng) | Anh | – |
+| [x] | 29/10: anh thử Lịch + khoản chi trên máy thật: chạy đúng; sửa ô chọn ngày (iPhone kéo ngang, mũi tên Android sát viền, commit 8cd84cb) | Anh | – |
+| [ ] | Xem lại ô chọn ngày trên iPhone sau khi sửa | Anh | – |
 | [ ] | Nhờ một bạn iPhone (Chrome) thử: Zalo › Mở bằng Chrome › chọn tên › Lưu bằng Google › thêm vào màn hình chính › mở app › Đăng nhập Google | Anh | – |
 
 Nếu Xấp ảnh chưa xong 25/10 thì dời sang tuần 26/10, không chặn pha 2 (Xấp chỉ đổi cách hiện, dữ liệu đã đủ).
