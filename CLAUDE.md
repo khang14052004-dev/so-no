@@ -257,6 +257,13 @@ Giao diện:
   - Lệch bảng vẽ: chưa có VietQR (làm cùng Tài khoản nhận tiền, đợt sau); chưa có "Mở khóa" (máy chủ chưa có hàm); bỏ "dự kiến 2.000.000đ", "mục tiêu 18.000.000đ", "Bạn cần góp 2.000.000đ" (mức góp chưa chốt); chưa có bàn giao thủ quỹ; nhóm không quỹ chưa khóa được (máy chủ chỉ cho thủ quỹ khóa, nhóm không quỹ không có thủ quỹ).
 - Anh chốt (29/10): **nhóm không quỹ (Cơm trưa, chuyến không quỹ) thì CHỦ NHÓM khóa cân đối / chốt tuần**; nhóm có quỹ vẫn chỉ thủ quỹ khóa. Code: `done-nha` commit be75d74 (`lock_group` đổi, 4 kiểm tra SQL mới, 151 qua; app ghi "Thảo (chủ nhóm) khóa cân đối"). **Anh cần dán lại `schema.sql` vào Supabase.**
 
+- **Rà soát chữ toàn app (29/10, anh duyệt "sửa hết")**, `done-nha` commit sau be75d74, dựa trên nghiên cứu (Splitwise, Tricount, Settle Up, MoMo Quỹ nhóm; NN/g, GOV.UK):
+  - Trên màn chỉ để nhãn, số, trạng thái, nút. Bỏ câu nói khối làm gì, câu lặp tên nút, hướng dẫn tĩnh dưới ô nhập.
+  - Cách tính, làm tròn, khóa, "app không giữ tiền" gom vào tờ **"Tính sao ra vậy?"** (Số dư, Cân đối).
+  - Giữ chữ (ngắn) cho: thao tác không hoàn tác (khóa, xóa, mở lại tên, đổi link), app không chuyển tiền giùm (Góp quỹ, Cân đối đã khóa), đồng ý dữ liệu, cảnh báo iPhone mất tên (giờ chỉ hiện ngoài Android), báo lỗi.
+  - Chữ phụ tối đa 1 câu ~12 chữ, nút 1–4 chữ. Ví dụ: "Nếu cân đối bây giờ · tạm tính" → "Tạm tính"; "Phần của bạn trong các khoản ai đó ứng" → "Phần của bạn"; nút "Tạo chuyến · mời bằng link" → "Tạo chuyến".
+  - 20 màn giả lập: 2.613 → 1.665 chữ (−36%). Luật viết ở `done-nha/.claude/rules/ui.md`. Canvas chưa sửa theo (chữ trên bảng vẽ vẫn bản cũ).
+
 ## Lỗi đã gặp, đừng lặp lại
 - Prompt dùng lại được mà chỉ nằm trong hội thoại thì mất khi hội thoại bị tóm tắt (prompt Figma Make 21/10). Lưu vào `06-claude-input/` của thư mục làm việc.
 - Trả tiền theo kế hoạch đã khóa phải TRỪ khỏi kế hoạch, không cộng thành lượt chuyển mới (lỗi bắt được khi viết test 18/10).
