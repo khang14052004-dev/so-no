@@ -77,7 +77,7 @@ Cách làm:
 - Dòng CUỐI của mọi bảng, danh sách, khối dòng KHÔNG có đường kẻ dưới (anh nhắc 2 lần). Kiểm trước khi đăng.
 
 Sản phẩm và tính tiền:
-- Mô hình số dư "lai": trong nhóm tính một nồi, gợi ý chuyển chỉ là tạm tính; thủ quỹ bấm Khóa ở Cân đối mới ghi nợ từng cặp (lưu kế hoạch chuyển); phát sinh sau khóa là đợt 2. Trả tiền khoản nhóm ghi vào sổ nhóm, không vào Sổ riêng. Góp quỹ chưa xác nhận thì cảnh báo trước khi khóa.
+- Mô hình số dư "lai": trong nhóm tính một nồi, gợi ý chuyển chỉ là tạm tính; thủ quỹ (nhóm không quỹ: chủ nhóm, chốt 29/10) bấm Khóa ở Cân đối mới ghi nợ từng cặp (lưu kế hoạch chuyển); phát sinh sau khóa là đợt 2. Trả tiền khoản nhóm ghi vào sổ nhóm, không vào Sổ riêng. Góp quỹ chưa xác nhận thì cảnh báo trước khi khóa.
 - Cơm trưa (nhóm dài hạn, không quỹ): một nồi trong tuần, chốt thứ Bảy; "Trả buổi này"; "Chốt riêng" cho người nghỉ.
 - Làm tròn khi chuyển theo bước nhóm 1.000 (mặc định) / 5.000 / 10.000đ, lẻ từ nửa bước trở lên thì lên; chênh lệch do người nhận chịu. Chia đều ghi Sổ nợ: người khác nợ số tròn, người trả chịu lẻ.
 - Đổi thủ quỹ có bàn giao (quỹ ở người cũ tới khi người mới xác nhận). Thủ quỹ ủy quyền ghi chi quỹ được. Chủ nhóm hoặc thủ quỹ "Mở lại tên" cho người mất phiên khách. Cân đối gộp quỹ vào thủ quỹ (không có dòng "Quỹ → Kiệt").
@@ -255,7 +255,7 @@ Giao diện:
   - Cân đối (DN-CanDoi, DN-CanDoi-Khoa): tạm tính + cảnh báo góp chưa xác nhận; thủ quỹ "Khóa cân đối" (hỏi lại); đã khóa thì người chuyển "Done nha", người nhận "Đã nhận", thủ quỹ "Ghi đã chuyển" hộ, có Hoàn tác; "Gửi bảng cân đối vào nhóm". Khoản thuộc đợt đã khóa không sửa, xóa được nữa.
   - Góp chưa được thủ quỹ xác nhận KHÔNG tính ở cả Số dư và Cân đối (giống lúc khóa trên máy chủ), để hai màn khớp nhau.
   - Lệch bảng vẽ: chưa có VietQR (làm cùng Tài khoản nhận tiền, đợt sau); chưa có "Mở khóa" (máy chủ chưa có hàm); bỏ "dự kiến 2.000.000đ", "mục tiêu 18.000.000đ", "Bạn cần góp 2.000.000đ" (mức góp chưa chốt); chưa có bàn giao thủ quỹ; nhóm không quỹ chưa khóa được (máy chủ chỉ cho thủ quỹ khóa, nhóm không quỹ không có thủ quỹ).
-- Câu chờ anh: **nhóm không quỹ (Cơm trưa, chuyến không quỹ) ai được khóa cân đối / chốt tuần?** Đề xuất: chủ nhóm (sửa nhỏ `lock_group`, anh dán lại schema).
+- Anh chốt (29/10): **nhóm không quỹ (Cơm trưa, chuyến không quỹ) thì CHỦ NHÓM khóa cân đối / chốt tuần**; nhóm có quỹ vẫn chỉ thủ quỹ khóa. Code: `done-nha` commit be75d74 (`lock_group` đổi, 4 kiểm tra SQL mới, 151 qua; app ghi "Thảo (chủ nhóm) khóa cân đối"). **Anh cần dán lại `schema.sql` vào Supabase.**
 
 ## Lỗi đã gặp, đừng lặp lại
 - Prompt dùng lại được mà chỉ nằm trong hội thoại thì mất khi hội thoại bị tóm tắt (prompt Figma Make 21/10). Lưu vào `06-claude-input/` của thư mục làm việc.
