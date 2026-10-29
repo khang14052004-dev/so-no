@@ -246,6 +246,17 @@ Giao diện:
   - Anh chốt (29/10): nhóm không quỹ (Cơm trưa) **giữ luật ai trả người đó tự ghi**, không cho ghi hộ khoản người khác trả. Không sửa `add_entry`.
 - Anh thử Lịch + khoản chi với Supabase thật (29/10 sáng, iPhone Chrome + Android): **chạy đúng hết**, chỉ lỗi giao diện ô chọn ngày: iPhone ô ngày giãn rộng hơn khung làm cả màn kéo ngang; Android mũi tên chọn ngày dính sát viền ô. Anh dặn: **mọi mũi tên xổ xuống phải đồng bộ, không dính đường viền ô**. Đã sửa (`done-nha` commit 8cd84cb): ô ngày dùng chung `DateInput`, tắt kiểu gốc của trình duyệt, mũi tên giống ô "Ai trả" (caret-down Bold 16px, cách viền phải 14px); chặn kéo ngang cả màn. Ghi vào luật giao diện `done-nha/.claude/rules/ui.md`. Chờ anh xem lại trên iPhone.
 
+## Chốt 29/10/2026
+- **Góp quỹ + Số dư + Cân đối đã code (29/10, Opus)**, `done-nha` commit d1d5646, KHÔNG đổi schema (khỏi dán lại):
+  - Màn nhóm có mục **Lịch | Số dư | Quỹ** (Quỹ chỉ nhóm có quỹ). Nút ghim "Ghi khoản chi" chỉ ở Lịch.
+  - Số dư (DN-Chuyen-SoDu): thẻ "Nếu cân đối bây giờ · tạm tính" / "Sau khi khóa cân đối", Dòng chuyển của bạn, Tiền của bạn trong chuyến (cộng khớp Cân đối; thủ quỹ có thêm dòng "Quỹ đang ở bạn"), thẻ Quỹ chung, nút vàng Cân đối cuối chuyến.
+  - Quỹ (DN-Chuyen-Quy, DN-Quy-ThuQuy): ai đã góp; thủ quỹ "Đã nhận ✓" hoặc "Chưa thấy" (= gỡ báo góp, người đó báo lại), "Ghi góp" hộ người đưa tiền mặt mà chưa vào app, "+ Ghi chi từ quỹ", "Ủy quyền" (công tắc ở Cài đặt nhóm).
+  - Góp quỹ (DN-GopQuy): Chuyển khoản | Tiền mặt → "Mình đã chuyển" / "Mình đã đưa Kiệt" → chờ thủ quỹ xác nhận. Ô số tiền điền sẵn số mọi người đang góp nhiều nhất (không ghi cứng 2 triệu).
+  - Cân đối (DN-CanDoi, DN-CanDoi-Khoa): tạm tính + cảnh báo góp chưa xác nhận; thủ quỹ "Khóa cân đối" (hỏi lại); đã khóa thì người chuyển "Done nha", người nhận "Đã nhận", thủ quỹ "Ghi đã chuyển" hộ, có Hoàn tác; "Gửi bảng cân đối vào nhóm". Khoản thuộc đợt đã khóa không sửa, xóa được nữa.
+  - Góp chưa được thủ quỹ xác nhận KHÔNG tính ở cả Số dư và Cân đối (giống lúc khóa trên máy chủ), để hai màn khớp nhau.
+  - Lệch bảng vẽ: chưa có VietQR (làm cùng Tài khoản nhận tiền, đợt sau); chưa có "Mở khóa" (máy chủ chưa có hàm); bỏ "dự kiến 2.000.000đ", "mục tiêu 18.000.000đ", "Bạn cần góp 2.000.000đ" (mức góp chưa chốt); chưa có bàn giao thủ quỹ; nhóm không quỹ chưa khóa được (máy chủ chỉ cho thủ quỹ khóa, nhóm không quỹ không có thủ quỹ).
+- Câu chờ anh: **nhóm không quỹ (Cơm trưa, chuyến không quỹ) ai được khóa cân đối / chốt tuần?** Đề xuất: chủ nhóm (sửa nhỏ `lock_group`, anh dán lại schema).
+
 ## Lỗi đã gặp, đừng lặp lại
 - Prompt dùng lại được mà chỉ nằm trong hội thoại thì mất khi hội thoại bị tóm tắt (prompt Figma Make 21/10). Lưu vào `06-claude-input/` của thư mục làm việc.
 - Trả tiền theo kế hoạch đã khóa phải TRỪ khỏi kế hoạch, không cộng thành lượt chuyển mới (lỗi bắt được khi viết test 18/10).
