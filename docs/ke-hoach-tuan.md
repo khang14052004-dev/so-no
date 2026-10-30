@@ -58,12 +58,12 @@ Nếu Xấp ảnh chưa xong 25/10 thì dời sang tuần 26/10, không chặn p
 
 | Tuần | Việc | Model |
 |---|---|---|
-| 26/10–1/11 | ~~Anh dán `schema.sql`~~ (xong 26/10). Bật Anonymous sign-ins + Allow manual linking khi làm đăng nhập. Claude kiểm schema trên Supabase thật. Chọn chỗ chạy (Cloudflare Pages hoặc Netlify), dựng khung app PWA, `tokens.css` sinh từ Design System, luật `.claude/rules/ui.md`. Đăng nhập khách + Google, "Giữ chỗ của bạn", link mời (Zalo, iPhone). | Opus |
-| 2–8/11 | Nhóm/chuyến: tạo, mời, vào nhóm. Lịch + Xấp ảnh. Thêm khoản chi (chia đều), ảnh (nén ~200 KB + ảnh nhỏ ~15 KB, tải lên, `add_photo`). Ghi trên máy trước, đồng bộ sau. | Opus |
+| 26/10–1/11 | **Xong 28/10.** ~~Anh dán `schema.sql`; bật Anonymous sign-ins + Allow manual linking; kiểm schema trên Supabase thật (anh thử trên máy); chọn chỗ chạy (Cloudflare Pages); khung app PWA, `tokens.css`, luật `.claude/rules/ui.md`; đăng nhập khách + Google, "Giữ chỗ của bạn", link mời (Zalo, iPhone).~~ | Opus |
+| 2–8/11 | ~~Nhóm/chuyến: tạo, mời, vào nhóm. Lịch + Xấp ảnh. Thêm khoản chi (chia đều)~~ (xong sớm 28/10). Còn: hình (nén ~200 KB + ảnh nhỏ ~15 KB, tải lên, `add_photo`); ghi trên máy trước, đồng bộ sau. | Opus |
 | 9–15/11 | ~~Góp quỹ + thủ quỹ xác nhận; Số dư; Cân đối + Khóa~~ (code xong sớm 29/10, chờ anh thử máy thật). Tài khoản nhận tiền + VietQR (Góp quỹ, Cân đối). Ảnh hóa đơn nếu tuần 2–8/11 chưa xong. | Opus |
 | 16–22/11 | Sổ nợ tổng, Ghi nhanh, Ghi trả, Sổ riêng, kiểu D, Cấn trừ. | Sonnet (theo bàn giao), Opus khi đụng tính tiền |
 | 23–29/11 | Báo nợ (tin nhắn, mã QR), trang xem sổ qua link, Chia bill (chia đều, theo món). | Sonnet |
-| 30/11–6/12 | Thống kê, Tôi, Quyền riêng tư và dữ liệu, xuất CSV, mất mạng / gửi lỗi / sửa trùng. | Sonnet |
+| 30/11–6/12 | Thống kê, Tôi, Quyền riêng tư và dữ liệu, xuất CSV, mất mạng / gửi lỗi / sửa trùng. Trang chủ + trang Chính sách quyền riêng tư để anh Publish màn đồng ý Google (phải xong trước thử kín 7/12; thêm 30/10). | Sonnet |
 | 7–13/12 | Thử kín với cả nhóm trên iPhone thật (thêm vào màn hình chính, Zalo); sửa lỗi. | Opus cho lỗi khó |
 | 14–20/12 | Tổng kết chuyến (ảnh chia sẻ) nếu kịp; hàm xóa chuyến dọn ảnh (Edge Function). **20/12 ngừng thêm tính năng.** | Opus |
 | 21–28/12 | Chỉ sửa lỗi. Hướng dẫn nhóm cài app, tạo chuyến Đà Lạt thật, đặt ngày đi/về. **28/12 sẵn sàng.** | Sonnet |

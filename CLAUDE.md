@@ -6,6 +6,7 @@ Chủ dự án: Nguyên Khang (UI/UX designer). Giao tiếp bằng tiếng Việ
 | Cần gì | Xem ở đâu |
 |---|---|
 | **Mở phiên mới / đổi model** | `docs/ban-giao-phien.md` (đọc đầu tiên: đọc gì, đang dở gì, chọn model) |
+| **Anh nhắn "Báo cáo"** | `docs/bao-cao-tien-do.md`: gửi báo cáo (đã xong, tiếp theo, % tiến độ, việc trễ) theo mẫu, rồi cập nhật file đó |
 | Việc theo tuần tới 28/12 | `docs/ke-hoach-tuan.md` |
 | Quyết định đang áp dụng | Mục "Quyết định đang áp dụng" + các mục "Chốt …" trong file này (mới nhất ở dưới cùng) |
 | Lịch sử chốt 14–18/10 (nguyên văn) | `docs/lich-su-chot-2026-10.md` |
@@ -48,6 +49,7 @@ Quy tắc giữ lịch sử:
 - Mỗi lần sửa file giao diện phải tăng `CACHE` trong `sw.js` (hiện `so-no-v23`), nếu không điện thoại giữ bản cũ.
 - Chỉ sửa đúng phần được yêu cầu; không viết lại cả file.
 - Số tiền là số nguyên đồng. Không dùng số thực cho tiền.
+- Anh nhắn **"Báo cáo"** (anh dặn 30/10): làm theo `docs/bao-cao-tien-do.md`, gửi trong chat, ghi đè "Bản mới nhất" và thêm dòng "Lịch sử %".
 
 ## Dự án mới: Done Nha (app quỹ nhóm và chia tiền chuyến đi)
 Tài liệu gốc (đọc trước khi làm):

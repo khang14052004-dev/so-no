@@ -1,6 +1,6 @@
 # Bàn giao phiên (đọc đầu tiên khi đổi model hoặc mở phiên mới)
 
-Cập nhật: 26/10/2026 11:00. Người viết: Claude (Opus). Cuối mỗi phiên, viết đè file này cho phiên sau.
+Cập nhật: 30/10/2026 (mục 3). Người viết: Claude (Opus). Cuối mỗi phiên, viết đè file này cho phiên sau.
 
 ## 1. Đọc gì, theo thứ tự (đỡ tốn token)
 1. File này.
@@ -24,13 +24,13 @@ Cập nhật: 26/10/2026 11:00. Người viết: Claude (Opus). Cuối mỗi phi
 | Thư mục làm việc | `So-no/done-nha-workspace/` trên máy anh (máy đã liên kết với phiên); đọc `00-START-HERE.md` |
 Phiên mới trên đám mây có thể chưa có repo: dùng add_repo rồi clone; máy anh có thể chưa liên kết thì hỏi anh.
 
-## 3. Trạng thái hiện tại (26/10)
-- Pha 1 thiết kế gần xong: canvas bản 224 (115 bảng tĩnh + bảng so sánh icon), Design System bản 29. Mọi câu hỏi giao diện trong `docs/ke-hoach-tuan.md` đã chốt, trừ 3 token mới và màu avatar.
-- Supabase: schema (commit 0df29e7) đã chạy trên dự án thật 26/10, đủ 8 bảng + bucket `receipts`. Bản mới (commit 821fc77, thêm 2 hàm Vào nhóm) anh đã dán 26/10 trưa. Chưa bật Anonymous sign-ins, Allow manual linking. Gói Free tự tạm dừng sau 7 ngày ít hoạt động (thư cảnh báo 26/10): không mất dữ liệu, bật lại trong dashboard.
-- Bàn giao (`done-nha-workspace/07-handoff/`): Lịch nhóm/chuyến (nháp, đã thêm 2 trạng thái), Vào nhóm (nháp 26/10, 4 câu chờ anh ở mục 10, có 8 chỗ lệch giữa bảng vẽ và máy chủ ở mục 6).
-- Code app: chưa bắt đầu. Pha 2 (khung PWA, đăng nhập, vào nhóm) là việc kế tiếp, nên dùng Opus.
+## 3. Trạng thái hiện tại (30/10)
+- Tiến độ, việc trễ, việc tiếp theo: `docs/bao-cao-tien-do.md` (mục "Bản mới nhất"). Anh nhắn "Báo cáo" thì gửi theo file đó.
+- App chạy ở `done-nha.pages.dev` (repo `done-nha`, thư mục `app/`, Vite + Preact). Đã có từ vào nhóm tới Góp quỹ, Số dư, Cân đối, Khóa; chi tiết trong `done-nha/CLAUDE.md` mục "Việc tiếp theo".
+- Supabase đã bật khách, Allow manual linking, Google (đang Testing). Bản `schema.sql` mới nhất là commit be75d74 (chủ nhóm khóa nhóm không quỹ).
+- Phần dưới (mục 4) là ghi chú từ 26/10, giữ để tham khảo.
 
-## 4. Đang dở
+## 4. Đang dở (ghi 26/10, phần lớn đã xong)
 - **Vào nhóm:** anh đồng ý cả 4 câu (26/10). Bảng vẽ đã sửa (canvas 223: thẻ mời trước, tự thêm tên có hỏi trùng, Đổi link mời, bỏ link khôi phục). Máy chủ có `invite_card` (anon xem được) và `rotate_join_code` (chủ nhóm), commit 821fc77, 142 kiểm tra SQL; anh đã dán lại `schema.sql` (26/10 trưa). Anh ok thêm 3 chỗ nhỏ ở mục 6 (bỏ dòng tiền dưới tên, Giữ chỗ cho người tạo nhóm, nút Đăng nhập Google trên thẻ mời), canvas 224. Bàn giao đã chốt hết câu hỏi; việc kế tiếp là dựng khung app (Opus).
 - **Token chờ duyệt:** `toast-bg`, `pink-wash`/`pink-ink`, `bubble-bg`/`bubble-edge`/`bubble-ink`; màu avatar (gradient hay 1 màu, gán cố định theo người). Danh sách: `05-tokens/khoang-trong-v208.md`.
 - **Lịch sử giao dịch ở Sổ nợ tổng:** giữ nguyên, anh sẽ chỉnh vị trí sau.
