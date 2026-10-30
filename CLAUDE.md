@@ -268,7 +268,7 @@ Giao diện:
 
 ## Chốt 30/10/2026
 - **Xấp hình kiểu cổ điển, đơn giản, hơi châu Âu** (anh góp ý 30/10), `done-nha` commit 94bbd08:
-  - Tên khoản dưới hình là **chữ viết tay** (font Charm, có đủ dấu tiếng Việt, tự chứa trong app). Dưới tên là ngày giờ ghi khoản gọn "3/1 · 12:35"; khoản ghi bù ngày khác (không có giờ thật) chỉ hiện ngày.
+  - Tên khoản dưới hình là **chữ viết tay kiểu bút lông** (font Sriracha, theo mẫu anh gửi; mẫu dùng Caveat nhưng Caveat thiếu dấu tiếng Việt), tự chứa trong app. Dưới tên là ngày giờ ghi khoản gọn "3/1 · 12:35"; khoản ghi bù ngày khác (không có giờ thật) chỉ hiện ngày.
   - Giá là **mảnh giấy cắt** (hai đầu răng cưa, giấy kem, chữ Newsreader) dán đè góc dưới hình, lố ra mép một chút; thay mộc viền xanh.
   - Thẻ to hơn khoảng 10% (148 → 163px, hình 134 → 147px), góc gần vuông như hình in. Tiêu đề ngày và tổng ngày dùng chữ Newsreader.
   - Bỏ dòng "n khoản · loại · phần bạn" dưới mỗi hàng.
