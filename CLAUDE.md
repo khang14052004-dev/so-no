@@ -269,11 +269,11 @@ Giao diện:
 ## Chốt 30/10/2026
 - **Xấp hình kiểu cổ điển, đơn giản, hơi châu Âu** (anh góp ý 30/10), `done-nha` commit 94bbd08:
   - Tên khoản dưới hình là **chữ viết tay** (Pangolin lúc 14:26, rồi đổi theo Figma của anh 16:25 sang **Italianno**, có đủ dấu tiếng Việt), tự chứa trong app. Dưới tên là ngày giờ ghi khoản "2/1/27 · 14:05" (như Figma); khoản ghi bù ngày khác (không có giờ thật) chỉ hiện ngày.
-  - **Theo Figma của anh** (file Done Nha, node 4:431; commit ae9e42d): màu mực nâu `polaroid-ink` #42381d cho tên, mực xanh `polaroid-price` #2c437e cho giá viết tay dạng "2tr1", ngày giờ `polaroid-meta` (đen 30%, chỉ 2.1:1, chờ anh xem có đậm lên không), bóng thẻ `polaroid-shadow`, bóng trong mép hình `polaroid-inset`; góc 1px; tên và ngày canh giữa. Góc xoay thẻ giữ của Claude (anh dặn). Mảnh giấy có kẹp, vân giấy khung thẻ và chấm ngăn lấy thẳng từ Figma (anh mở cho máy Claude tải từ www.figma.com 30/10; commit 0744f21). Hình mảnh giấy chưa rõ nguồn: kiểm giấy phép trước khi lên cửa hàng.
+  - **Theo Figma của anh** (file Done Nha, node 4:431; commit ae9e42d): màu mực nâu `polaroid-ink` #42381d cho tên, mực xanh `polaroid-price` #2c437e cho giá viết tay dạng "2tr1", ngày giờ `polaroid-meta` (đen 30%, chỉ 2.1:1; anh chốt giữ đúng Figma), bóng thẻ `polaroid-shadow`, bóng trong mép hình `polaroid-inset`; góc 1px; tên và ngày canh giữa. Góc xoay thẻ giữ của Claude (anh dặn). Mảnh giấy có kẹp, vân giấy khung thẻ và chấm ngăn lấy thẳng từ Figma (anh mở cho máy Claude tải từ www.figma.com 30/10; commit 0744f21). Hình mảnh giấy chưa rõ nguồn: kiểm giấy phép trước khi lên cửa hàng.
   - Giá là **mảnh giấy cắt** (hai đầu răng cưa, giấy kem, chữ Newsreader) dán đè góc dưới hình, lố ra mép một chút; thay mộc viền xanh.
   - Thẻ to hơn khoảng 10% (148 → 163px, hình 134 → 147px), góc gần vuông như hình in. Tiêu đề ngày và tổng ngày dùng chữ Newsreader.
   - Bỏ dòng "n khoản · loại · phần bạn" dưới mỗi hàng.
-  - Chưa cập nhật: Design System (token chữ `hand`, thành phần PhotoStack) và canvas; làm khi anh ưng kiểu này.
+  - Anh duyệt 5 tên màu `polaroid-*` (30/10). **Design System bản 34**: 59 màu, chữ `hand` (Italianno) + kiểu `polaroid-name` 21px, `polaroid-price` 29px, PhotoStack viết lại theo thẻ mới (README, preview, bundle.css), nhóm hình Paper (mảnh giấy, vân giấy). Canvas chưa chụp lại.
 
 ## Lỗi đã gặp, đừng lặp lại
 - Prompt dùng lại được mà chỉ nằm trong hội thoại thì mất khi hội thoại bị tóm tắt (prompt Figma Make 21/10). Lưu vào `06-claude-input/` của thư mục làm việc.
