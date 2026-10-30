@@ -273,7 +273,7 @@ Giao diện:
   - Giá là **mảnh giấy cắt** (hai đầu răng cưa, giấy kem, chữ Newsreader) dán đè góc dưới hình, lố ra mép một chút; thay mộc viền xanh.
   - Thẻ to hơn khoảng 10% (148 → 163px, hình 134 → 147px), góc gần vuông như hình in. Tiêu đề ngày và tổng ngày dùng chữ Newsreader.
   - Bỏ dòng "n khoản · loại · phần bạn" dưới mỗi hàng.
-  - Anh duyệt 5 tên màu `polaroid-*` (30/10). **Design System bản 34**: 59 màu, chữ `hand` (Italianno) + kiểu `polaroid-name` 21px, `polaroid-price` 29px, PhotoStack viết lại theo thẻ mới (README, preview, bundle.css), nhóm hình Paper (mảnh giấy, vân giấy). Canvas chưa chụp lại.
+  - Anh duyệt 5 tên màu `polaroid-*` (30/10). **Design System bản 35**: 59 màu, chữ `hand` (Italianno) + kiểu `polaroid-name` 25px tối đa 2 dòng (anh chốt tăng từ 21px của Figma vì Italianno chữ thường thấp, mảnh), `polaroid-price` 29px, PhotoStack viết lại theo thẻ mới (README, preview, bundle.css), nhóm hình Paper (mảnh giấy, vân giấy). Canvas chưa chụp lại.
 
 ## Lỗi đã gặp, đừng lặp lại
 - Prompt dùng lại được mà chỉ nằm trong hội thoại thì mất khi hội thoại bị tóm tắt (prompt Figma Make 21/10). Lưu vào `06-claude-input/` của thư mục làm việc.
