@@ -266,6 +266,14 @@ Giao diện:
   - Chữ phụ tối đa 1 câu ~12 chữ, nút 1–4 chữ. Ví dụ: "Nếu cân đối bây giờ · tạm tính" → "Tạm tính"; "Phần của bạn trong các khoản ai đó ứng" → "Phần của bạn"; nút "Tạo chuyến · mời bằng link" → "Tạo chuyến".
   - 20 màn giả lập: 2.613 → 1.665 chữ (−36%). Luật viết ở `done-nha/.claude/rules/ui.md`. Canvas chưa sửa theo (chữ trên bảng vẽ vẫn bản cũ).
 
+## Chốt 30/10/2026
+- **Xấp hình kiểu cổ điển, đơn giản, hơi châu Âu** (anh góp ý 30/10), `done-nha` commit 94bbd08:
+  - Tên khoản dưới hình là **chữ viết tay** (font Charm, có đủ dấu tiếng Việt, tự chứa trong app). Dưới tên là ngày giờ ghi khoản gọn "3/1 · 12:35"; khoản ghi bù ngày khác (không có giờ thật) chỉ hiện ngày.
+  - Giá là **mảnh giấy cắt** (hai đầu răng cưa, giấy kem, chữ Newsreader) dán đè góc dưới hình, lố ra mép một chút; thay mộc viền xanh.
+  - Thẻ to hơn khoảng 10% (148 → 163px, hình 134 → 147px), góc gần vuông như hình in. Tiêu đề ngày và tổng ngày dùng chữ Newsreader.
+  - Bỏ dòng "n khoản · loại · phần bạn" dưới mỗi hàng.
+  - Chưa cập nhật: Design System (token chữ `hand`, thành phần PhotoStack) và canvas; làm khi anh ưng kiểu này.
+
 ## Lỗi đã gặp, đừng lặp lại
 - Prompt dùng lại được mà chỉ nằm trong hội thoại thì mất khi hội thoại bị tóm tắt (prompt Figma Make 21/10). Lưu vào `06-claude-input/` của thư mục làm việc.
 - Trả tiền theo kế hoạch đã khóa phải TRỪ khỏi kế hoạch, không cộng thành lượt chuyển mới (lỗi bắt được khi viết test 18/10).
