@@ -273,7 +273,8 @@ Giao diện:
   - Giá là **mảnh giấy cắt** (hai đầu răng cưa, giấy kem, chữ Newsreader) dán đè góc dưới hình, lố ra mép một chút; thay mộc viền xanh.
   - Thẻ to hơn khoảng 10% (148 → 163px, hình 134 → 147px), góc gần vuông như hình in. Tiêu đề ngày và tổng ngày dùng chữ Newsreader.
   - Bỏ dòng "n khoản · loại · phần bạn" dưới mỗi hàng.
-  - Anh duyệt 5 tên màu `polaroid-*` (30/10). **Design System bản 36**: 59 màu, chữ `hand` (Italianno) + kiểu `polaroid-name` 25px tối đa 2 dòng (anh chốt tăng từ 21px của Figma vì Italianno chữ thường thấp, mảnh; 31/10: chỗ tên luôn cao đủ 2 dòng để mọi thẻ cùng chiều cao, tên 1 dòng nằm giữa), `polaroid-price` 29px, PhotoStack viết lại theo thẻ mới (README, preview, bundle.css), nhóm hình Paper (mảnh giấy, vân giấy). Canvas chưa chụp lại.
+  - Anh duyệt 5 tên màu `polaroid-*` (30/10). **Design System bản 38**: 59 màu, chữ `hand` (Italianno) + kiểu `polaroid-name` 25px tối đa 2 dòng (anh chốt tăng từ 21px của Figma vì Italianno chữ thường thấp, mảnh; 31/10: chỗ tên luôn cao đủ 2 dòng để mọi thẻ cùng chiều cao, tên 1 dòng nằm giữa), `polaroid-price` 29px, PhotoStack viết lại theo thẻ mới (README, preview, bundle.css), nhóm hình Paper (mảnh giấy, vân giấy). Canvas chưa chụp lại.
+  - **Thẻ chưa có hình dùng sticker giấy cắt** (anh chốt 31/10, theo ảnh mẫu sticker du lịch; `done-nha` commit 21468d3): nền giấy kem + vân giấy, giữa là sticker loại khoản viền giấy trắng, bóng nhẹ, màu dịu lại cho hợp ảnh cũ; bỏ chữ tên loại trên ô hình. Ăn uống bát mì, Chỗ ở nhà có vườn, Đi lại xe buýt, Đồ mang theo ba lô, Vé và chơi vé, Khác túi mua sắm. Sticker lấy từ Fluent Emoji Flat của Microsoft (giấy phép MIT, ghi công kèm trong app). Design System bản 38 có nhóm hình Stickers.
 
 ## Lỗi đã gặp, đừng lặp lại
 - Prompt dùng lại được mà chỉ nằm trong hội thoại thì mất khi hội thoại bị tóm tắt (prompt Figma Make 21/10). Lưu vào `06-claude-input/` của thư mục làm việc.
