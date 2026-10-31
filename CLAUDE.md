@@ -287,6 +287,15 @@ Giao diện:
   - Anh sẽ **tự lên layout lại màn Thêm khoản chi + Chụp bill trên Figma**; Claude gửi gói `done-nha-icon-figma.zip` (đã chép vào `done-nha-workspace/03-assets/icons-figma`): 28 sticker có viền trắng vẽ sẵn (SVG khai cỡ 100,8px để phần hình bằng 90px như app, kèm PNG nền trong 300px), 28 sticker gốc, 65 icon Phosphor Regular 24px màu `ink` chia nhóm (khung tờ, ô nhập, ai trả/chia, chọn, loại khoản, chụp bill, trạng thái), 8 dấu Bold 16px, `xem-truoc.png`, README luật dùng.
   - 10 sticker mới chỉ để anh thử trên layout; gắn vào app khi anh chốt màn.
 
+- **Thêm khoản chi làm lại kiểu thẻ polaroid + Chụp bill (31/10, theo wireframe Figma của anh node 10:2954; anh dặn "chỉ tham khảo, bám thông số đã làm")**, `done-nha` commit 95ca1f8:
+  - Cả màn là MỘT thẻ polaroid lớn (số đo thẻ Xấp phóng theo bề rộng màn, tối đa 368px). Bấm thẳng lên thẻ: mảnh giấy = gõ giá (chữ viết tay, gõ "276k", "2tr5"…; rời ô thì về dạng gọn đúng từng đồng), tên khoản (tối đa 2 dòng), ngày giờ (mở lịch của máy). Dưới thẻ một dòng "= 276.000đ · 69.000đ/người" (cũng là chỗ báo lỗi).
+  - Trên thẻ: ô xổ **Chia** (sticker nhóm bạn; "Chia đều" khi cả nhóm, "Chia N" khi chọn bớt; danh sách người + Tất cả/Bỏ hết) và **Ai trả** (avatar + tên; luật cũ: người thường chỉ chọn mình).
+  - Hàng sticker 6 loại khoản giữ đúng 6 loại của app (wireframe để Cà phê, Đi chợ thay Chỗ ở, Đồ mang theo: chưa đổi, chờ anh), gạch vẽ tay (lấy từ Figma) dưới loại đang chọn; sticker trong khung hình đổi theo loại.
+  - Hàng nút ghim đáy (nền kem, không viền như wireframe): chưa có hình = Up hình | Chụp hình | Done nha; camera đang mở = Up hình | Chụp | Done nha; có hình = Up hình | **Done nha (to, giữa)** | Chụp lại (đúng wireframe trạng thái 3). Done nha nằm bên phải khi chưa có hình để vẫn lưu được khoản không hình.
+  - **Camera chạy ngay trong khung hình của thẻ**, chụp đúng khung vuông đang thấy; trình duyệt không cho thì mở camera của máy; bị chặn quyền thì nhắc dùng Up hình.
+  - Hình nén trên máy, gửi lên kho `receipts` + `add_photo`; Xấp hình hiện hình thật; sửa khoản và Hoàn tác xóa chuyển hình theo. Vẽ thêm 2 sticker nút theo ghi chú: **Chụp lại** (vòng mũi tên ôm máy ảnh) và **Check** (con dấu tròn mù tạt). Gói `done-nha-icon-figma.zip` cập nhật (30 sticker), Design System bản 44–45 (nhóm Stickers 30 hình).
+  - CHƯA thử trên máy thật với Supabase thật (camera, gửi hình). Chưa có: Xóa/Thêm hình ở chi tiết khoản, bước che tên/SĐT cho đơn Grab/ShopeeFood, đọc tổng tiền từ hình.
+
 ## Lỗi đã gặp, đừng lặp lại
 - Prompt dùng lại được mà chỉ nằm trong hội thoại thì mất khi hội thoại bị tóm tắt (prompt Figma Make 21/10). Lưu vào `06-claude-input/` của thư mục làm việc.
 - Trả tiền theo kế hoạch đã khóa phải TRỪ khỏi kế hoạch, không cộng thành lượt chuyển mới (lỗi bắt được khi viết test 18/10).
