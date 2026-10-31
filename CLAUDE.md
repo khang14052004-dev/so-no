@@ -295,6 +295,7 @@ Giao diện:
   - **Camera chạy ngay trong khung hình của thẻ**, chụp đúng khung vuông đang thấy; trình duyệt không cho thì mở camera của máy; bị chặn quyền thì nhắc dùng Up hình.
   - Hình nén trên máy, gửi lên kho `receipts` + `add_photo`; Xấp hình hiện hình thật; sửa khoản và Hoàn tác xóa chuyển hình theo. Vẽ thêm 2 sticker nút theo ghi chú: **Chụp lại** (vòng mũi tên ôm máy ảnh) và **Check** (con dấu tròn mù tạt). Gói `done-nha-icon-figma.zip` cập nhật (30 sticker), Design System bản 44–45 (nhóm Stickers 30 hình).
   - CHƯA thử trên máy thật với Supabase thật (camera, gửi hình). Chưa có: Xóa/Thêm hình ở chi tiết khoản, bước che tên/SĐT cho đơn Grab/ShopeeFood, đọc tổng tiền từ hình.
+  - SỬA 31/10 trưa (anh thử trên S24 Chrome, góp ý "giá lệch với nền tờ giấy", "chữ nội dung, ngày giờ nhỏ hơn xíu vì để to thì che hết các icon"), `done-nha` commit c367ba2: giá canh giữa phần giấy; tên khoản nhỏ lại và chỗ tên luôn đủ 2 dòng như thẻ Xấp (gõ tên dài thẻ không dài ra); ngày giờ nhỏ lại; thẻ tự co theo chiều cao màn để hàng icon loại khoản luôn nằm trên hàng nút, khỏi cuộn (S24 thẻ 316px, iPhone Chrome ~246px, màn 844px giữ 346px như wireframe).
 
 ## Lỗi đã gặp, đừng lặp lại
 - Prompt dùng lại được mà chỉ nằm trong hội thoại thì mất khi hội thoại bị tóm tắt (prompt Figma Make 21/10). Lưu vào `06-claude-input/` của thư mục làm việc.
