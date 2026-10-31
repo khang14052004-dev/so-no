@@ -108,7 +108,7 @@ Giao diện:
   1. Nét: vẽ tay mềm, hơi nguệch ngoạc nhẹ (organic), không thẳng tắp kiểu vector; màu nét nâu đất `#3D2B1F` (hoặc `#4A3B32`), không dùng đen.
   2. Tô màu: màu phẳng (flat), không gradient, không bóng cầu kỳ; bảng trầm ấm: đỏ đất `#C84B31`, vàng mù tạt `#F3B32A`, xanh denim `#2B7A78` (thêm kem `#F6EBD9` cho chỗ sáng). Mảng màu được phép lệch nhẹ khỏi nét như tô tay.
   3. Hiển thị: viền trắng 3–4px bao quanh như sticker cắt + bóng đổ nhẹ, như dán lên Polaroid hay sổ tay.
-  - Cách làm hiện tại: `done-nha/app/scripts/gen-stickers.mjs` (rough.js) vẽ SVG; viền trắng + bóng do app thêm bằng bộ lọc `#dn-sticker`.
+  - Cách làm hiện tại: `done-nha/app/scripts/gen-stickers.mjs` (rough.js) vẽ SVG; viền trắng + bóng do app thêm bằng bộ lọc `#dn-sticker`. Design System bản 39 có mục "Minh họa (sticker)" ghi cùng luật này.
 - Thống kê: Nợ | Nhóm, chuyến (bảng "Theo nơi" hai cột Nợ bạn / Bạn nợ; Nhóm, chuyến liệt kê mọi nhóm, "Tiền chi từ đâu" có chú thích màu). Tài khoản nhận tiền nhiều TK: vé QR vuốt đổi TK, số TK luôn che.
 - Đã có trên canvas: màn trống, mất mạng, gửi lỗi, sửa trùng trên 2 máy, lưu trữ chuyến, sao lưu/khôi phục (chỉ Sổ riêng), xuất CSV, Quyền riêng tư và dữ liệu (xóa tài khoản sau 7 ngày), link mời mở trong Zalo. Công tắc giả lập ở Tôi › Bản thử.
 - Repo `done-nha` do anh tự tạo và cấp quyền cho Claude trên GitHub (phiên Claude không tự tạo repo được).
@@ -278,7 +278,7 @@ Giao diện:
   - Giá là **mảnh giấy cắt** (hai đầu răng cưa, giấy kem, chữ Newsreader) dán đè góc dưới hình, lố ra mép một chút; thay mộc viền xanh.
   - Thẻ to hơn khoảng 10% (148 → 163px, hình 134 → 147px), góc gần vuông như hình in. Tiêu đề ngày và tổng ngày dùng chữ Newsreader.
   - Bỏ dòng "n khoản · loại · phần bạn" dưới mỗi hàng.
-  - Anh duyệt 5 tên màu `polaroid-*` (30/10). **Design System bản 38**: 59 màu, chữ `hand` (Italianno) + kiểu `polaroid-name` 25px tối đa 2 dòng (anh chốt tăng từ 21px của Figma vì Italianno chữ thường thấp, mảnh; 31/10: chỗ tên luôn cao đủ 2 dòng để mọi thẻ cùng chiều cao, tên 1 dòng nằm giữa), `polaroid-price` 29px, PhotoStack viết lại theo thẻ mới (README, preview, bundle.css), nhóm hình Paper (mảnh giấy, vân giấy). Canvas chưa chụp lại.
+  - Anh duyệt 5 tên màu `polaroid-*` (30/10). **Design System bản 39**: 59 màu, chữ `hand` (Italianno) + kiểu `polaroid-name` 25px tối đa 2 dòng (anh chốt tăng từ 21px của Figma vì Italianno chữ thường thấp, mảnh; 31/10: chỗ tên luôn cao đủ 2 dòng để mọi thẻ cùng chiều cao, tên 1 dòng nằm giữa), `polaroid-price` 29px, PhotoStack viết lại theo thẻ mới (README, preview, bundle.css), nhóm hình Paper (mảnh giấy, vân giấy). Canvas chưa chụp lại.
   - **Thẻ chưa có hình dùng sticker giấy cắt** (anh chốt 31/10, theo ảnh mẫu sticker du lịch; `done-nha` commit 21468d3): nền giấy kem + vân giấy, giữa là sticker loại khoản viền giấy trắng, bóng nhẹ, màu dịu lại cho hợp ảnh cũ; bỏ chữ tên loại trên ô hình. Ăn uống bát mì, Chỗ ở nhà có vườn, Đi lại xe buýt, Đồ mang theo ba lô, Vé và chơi vé, Khác túi mua sắm. Buổi sáng tạm dùng Fluent Emoji Flat; 9:15 anh đổi sang kiểu **Hand-drawn Flat Color** (luật ở mục "Quyết định đang áp dụng › Giao diện"): 6 sticker vẽ riêng (tô mì, nhà mái đỏ + cây thông, xe khách chở hành lý, vali cổ, cuống vé, túi giấy) bằng `gen-stickers.mjs`, `done-nha` commit ed702cd.
 
 ## Lỗi đã gặp, đừng lặp lại
