@@ -104,6 +104,11 @@ Giao diện:
 - Chuyến: khoản chi trước chuyến chỉ là đặt cọc, vé xe, đồ mang theo, dụng cụ. "Ai trả" mặc định là thủ quỹ. Số dư: "Bạn sẽ nhận / Bạn cần trả", "Với từng người", khối "Tiền của bạn trong chuyến" cộng khớp Cân đối. Góp quỹ hiện 1 STK thủ quỹ.
 - Thêm tên trùng: hỏi "có phải người này không"; chọn Người khác thì báo trùng để đặt tên khác.
 - Thanh tiêu đề trang con ghim khi cuộn (cuộn mới có bóng). Thanh nút ghim đáy (tờ Thêm khoản chi: Chụp bill + Done nha ✓): nền đặc, viền trên 1px, bóng nhẹ. Hàng thẻ vuốt ngang có lề trái 16px.
+- **Minh họa / sticker: kiểu Hand-drawn Flat Color** (anh dặn ghi nhớ 31/10; app theo phong cách Scrapbook / Travel Journal / Vintage Polaroid). Áp cho mọi hình minh họa và sticker (thẻ Xấp hình chưa có hình, màn trống, Tổng kết chuyến…), KHÔNG áp cho icon giao diện (vẫn Phosphor Regular):
+  1. Nét: vẽ tay mềm, hơi nguệch ngoạc nhẹ (organic), không thẳng tắp kiểu vector; màu nét nâu đất `#3D2B1F` (hoặc `#4A3B32`), không dùng đen.
+  2. Tô màu: màu phẳng (flat), không gradient, không bóng cầu kỳ; bảng trầm ấm: đỏ đất `#C84B31`, vàng mù tạt `#F3B32A`, xanh denim `#2B7A78` (thêm kem `#F6EBD9` cho chỗ sáng). Mảng màu được phép lệch nhẹ khỏi nét như tô tay.
+  3. Hiển thị: viền trắng 3–4px bao quanh như sticker cắt + bóng đổ nhẹ, như dán lên Polaroid hay sổ tay.
+  - Cách làm hiện tại: `done-nha/app/scripts/gen-stickers.mjs` (rough.js) vẽ SVG; viền trắng + bóng do app thêm bằng bộ lọc `#dn-sticker`.
 - Thống kê: Nợ | Nhóm, chuyến (bảng "Theo nơi" hai cột Nợ bạn / Bạn nợ; Nhóm, chuyến liệt kê mọi nhóm, "Tiền chi từ đâu" có chú thích màu). Tài khoản nhận tiền nhiều TK: vé QR vuốt đổi TK, số TK luôn che.
 - Đã có trên canvas: màn trống, mất mạng, gửi lỗi, sửa trùng trên 2 máy, lưu trữ chuyến, sao lưu/khôi phục (chỉ Sổ riêng), xuất CSV, Quyền riêng tư và dữ liệu (xóa tài khoản sau 7 ngày), link mời mở trong Zalo. Công tắc giả lập ở Tôi › Bản thử.
 - Repo `done-nha` do anh tự tạo và cấp quyền cho Claude trên GitHub (phiên Claude không tự tạo repo được).
@@ -274,7 +279,7 @@ Giao diện:
   - Thẻ to hơn khoảng 10% (148 → 163px, hình 134 → 147px), góc gần vuông như hình in. Tiêu đề ngày và tổng ngày dùng chữ Newsreader.
   - Bỏ dòng "n khoản · loại · phần bạn" dưới mỗi hàng.
   - Anh duyệt 5 tên màu `polaroid-*` (30/10). **Design System bản 38**: 59 màu, chữ `hand` (Italianno) + kiểu `polaroid-name` 25px tối đa 2 dòng (anh chốt tăng từ 21px của Figma vì Italianno chữ thường thấp, mảnh; 31/10: chỗ tên luôn cao đủ 2 dòng để mọi thẻ cùng chiều cao, tên 1 dòng nằm giữa), `polaroid-price` 29px, PhotoStack viết lại theo thẻ mới (README, preview, bundle.css), nhóm hình Paper (mảnh giấy, vân giấy). Canvas chưa chụp lại.
-  - **Thẻ chưa có hình dùng sticker giấy cắt** (anh chốt 31/10, theo ảnh mẫu sticker du lịch; `done-nha` commit 21468d3): nền giấy kem + vân giấy, giữa là sticker loại khoản viền giấy trắng, bóng nhẹ, màu dịu lại cho hợp ảnh cũ; bỏ chữ tên loại trên ô hình. Ăn uống bát mì, Chỗ ở nhà có vườn, Đi lại xe buýt, Đồ mang theo ba lô, Vé và chơi vé, Khác túi mua sắm. Sticker lấy từ Fluent Emoji Flat của Microsoft (giấy phép MIT, ghi công kèm trong app). Design System bản 38 có nhóm hình Stickers.
+  - **Thẻ chưa có hình dùng sticker giấy cắt** (anh chốt 31/10, theo ảnh mẫu sticker du lịch; `done-nha` commit 21468d3): nền giấy kem + vân giấy, giữa là sticker loại khoản viền giấy trắng, bóng nhẹ, màu dịu lại cho hợp ảnh cũ; bỏ chữ tên loại trên ô hình. Ăn uống bát mì, Chỗ ở nhà có vườn, Đi lại xe buýt, Đồ mang theo ba lô, Vé và chơi vé, Khác túi mua sắm. Buổi sáng tạm dùng Fluent Emoji Flat; 9:15 anh đổi sang kiểu **Hand-drawn Flat Color** (luật ở mục "Quyết định đang áp dụng › Giao diện"): 6 sticker vẽ riêng (tô mì, nhà mái đỏ + cây thông, xe khách chở hành lý, vali cổ, cuống vé, túi giấy) bằng `gen-stickers.mjs`, `done-nha` commit ed702cd.
 
 ## Lỗi đã gặp, đừng lặp lại
 - Prompt dùng lại được mà chỉ nằm trong hội thoại thì mất khi hội thoại bị tóm tắt (prompt Figma Make 21/10). Lưu vào `06-claude-input/` của thư mục làm việc.
