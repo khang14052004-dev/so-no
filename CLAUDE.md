@@ -313,6 +313,7 @@ Giao diện:
   - Bấm hình (hoặc "Xem lớn") mở hình đầy màn, nền tối, nút X / Esc đóng.
   - Dưới thẻ: "Hình của <người chụp>" + Xem lớn + Xóa (chỉ người chụp, hỏi lại "Xóa hình này?"); khoản chưa có hình có nút "Thêm hình bill" (ai trong nhóm cũng thêm được, kể cả khoản đã khóa).
   - Chưa có: chụp bằng camera ngay ở màn này (giờ mở ô chọn hình của máy, trên điện thoại có sẵn lựa chọn chụp), nhiều hình cho một khoản.
+- **Sửa tên nhóm, ngày đi/về** (anh hỏi 2/11 "đổi tên nhóm ở đâu"), `done-nha` commit a6c1aa3: mục "Thông tin nhóm" ở đầu Cài đặt nhóm (bánh răng). Quyền: **chủ nhóm hoặc thủ quỹ** (như đổi ngày đi), người khác chỉ xem. Máy chủ thêm hàm `rename_group` → **anh cần dán lại `schema.sql`** vào Supabase.
 
 ## Lỗi đã gặp, đừng lặp lại
 - Prompt dùng lại được mà chỉ nằm trong hội thoại thì mất khi hội thoại bị tóm tắt (prompt Figma Make 21/10). Lưu vào `06-claude-input/` của thư mục làm việc.
