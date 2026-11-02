@@ -308,6 +308,11 @@ Giao diện:
   - **Bỏ hàng chú thích 3 màu** ("Mỗi người/ngày") dưới Lịch tháng (thay quyết định 21/10); mức vẫn đọc qua số tiền trong ô.
   - Ngày đang chọn: **viền xanh mỏng 1,5px** (trước 2,5px).
   - Design System bản 48–49 (Stickers 31 hình), gói icon Figma cập nhật.
+- **Chi tiết khoản chi có thẻ hình** (anh dặn 2/11 "chưa có chỗ xem hình"), `done-nha` commit b7861be:
+  - Đầu màn là thẻ polaroid giống Xấp hình: hình bill (hoặc sticker loại khoản khi chưa có hình), giá viết tay trên mảnh giấy, tên, ngày giờ. Bỏ thẻ "Tổng tiền" cũ.
+  - Bấm hình (hoặc "Xem lớn") mở hình đầy màn, nền tối, nút X / Esc đóng.
+  - Dưới thẻ: "Hình của <người chụp>" + Xem lớn + Xóa (chỉ người chụp, hỏi lại "Xóa hình này?"); khoản chưa có hình có nút "Thêm hình bill" (ai trong nhóm cũng thêm được, kể cả khoản đã khóa).
+  - Chưa có: chụp bằng camera ngay ở màn này (giờ mở ô chọn hình của máy, trên điện thoại có sẵn lựa chọn chụp), nhiều hình cho một khoản.
 
 ## Lỗi đã gặp, đừng lặp lại
 - Prompt dùng lại được mà chỉ nằm trong hội thoại thì mất khi hội thoại bị tóm tắt (prompt Figma Make 21/10). Lưu vào `06-claude-input/` của thư mục làm việc.
