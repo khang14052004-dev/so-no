@@ -127,7 +127,7 @@ Giao diện:
 - Ô lịch:
   - Ô vuông.
   - Số trong ô là CẢ NHÓM tiêu trong ngày, chữ 10px (nhỏ hơn 1 cỡ).
-  - Màu theo MỨC MỖI NGƯỜI trong ngày: xanh lá dưới 100k, vàng cam 100k–500k, đỏ từ 500k. Dùng nền nhạt, có chú thích "Mỗi người/ngày". Anh chốt dùng 3 màu này dù trùng màu tiền.
+  - Màu theo MỨC MỖI NGƯỜI trong ngày: xanh lá dưới 100k, vàng cam 100k–500k, đỏ từ 500k. Dùng nền nhạt. Anh chốt dùng 3 màu này dù trùng màu tiền. (Chú thích "Mỗi người/ngày" đã BỎ 2/11 theo anh dặn.)
   - Ô có ảnh thì ảnh làm nền. Hôm nay có chấm tròn; ngày chọn viền xanh.
 - Nút "+ Ghi khoản chi" / "+ Ghi bữa ăn" ghim sát đáy màn nhóm/chuyến (nền đặc, viền trên 1px, bóng nhẹ). Ở chuyến chỉ ghim ở mục Lịch, vì Số dư đã có nút vàng Cân đối.
 - ẢNH (chốt lại 21/10 tối): lưu trên MÁY CHỦ cùng khoản chi để CẢ NHÓM thấy, giống Zalo. Thay hai ý cũ: "chỉ trên máy" (chiều 21/10) và "tự xóa 30 ngày sau khóa" (18/10).
@@ -302,6 +302,12 @@ Giao diện:
 - Anh báo, đã sửa (`done-nha` commit 50f4b45):
   1. Chữ viết tay bị cắt (đuôi g, dấu hỏi, nét lượn chữ Đ): chừa lề quanh tên khoản; tên dài cắt sẵn ~32 ký tự để không có dòng 3 ló ra. Tên khoản tối đa 40 ký tự khi ghi.
   2. **Đồng bộ icon Lịch tháng với Xấp hình** (anh dặn): dòng khoản chi có hình thì hình nhỏ, không thì sticker loại khoản trên giấy kem (bỏ ô icon tô màu); ô Lịch tháng có hình thì hình làm nền (chốt 21/10, giờ mới làm), không có hình thì sticker loại của khoản lớn nhất ngày ở góc dưới phải. Từ giờ mọi chỗ hiện loại khoản dùng sticker; icon nút, ô nhập, thanh menu vẫn Phosphor.
+- Anh dặn thêm (2/11 9:42), `done-nha` commit 273750f:
+  - Thêm loại khoản **Thuê xe máy** (sticker xe tay ga vàng + thẻ thuê đỏ). Giờ **7 loại**: Ăn uống, Chỗ ở, Đi lại, Thuê xe máy, Đồ mang theo, Vé và chơi, Khác.
+  - Lịch: hình/sticker ở dòng khoản chi to lên **60px, cao bằng 3 dòng chữ** bên phải.
+  - **Bỏ hàng chú thích 3 màu** ("Mỗi người/ngày") dưới Lịch tháng (thay quyết định 21/10); mức vẫn đọc qua số tiền trong ô.
+  - Ngày đang chọn: **viền xanh mỏng 1,5px** (trước 2,5px).
+  - Design System bản 48–49 (Stickers 31 hình), gói icon Figma cập nhật.
 
 ## Lỗi đã gặp, đừng lặp lại
 - Prompt dùng lại được mà chỉ nằm trong hội thoại thì mất khi hội thoại bị tóm tắt (prompt Figma Make 21/10). Lưu vào `06-claude-input/` của thư mục làm việc.
