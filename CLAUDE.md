@@ -319,8 +319,11 @@ Giao diện:
   2. Biểu tượng nhóm kiểu **sticker vẽ tay** (đồng bộ thẻ hình), **cả nhóm thấy giống nhau**, chủ nhóm hoặc thủ quỹ chọn trong Thông tin nhóm, lưu trên máy chủ.
   3. **Chọn sticker + chọn màu nền** (6 màu): mặc định theo loại nhóm, đổi được sang sticker khác trong bộ.
   4. **Xóa nhóm/chuyến: chỉ chủ nhóm**, có hỏi lại, xóa luôn hình bill; được xóa khi: đã khóa cân đối và chuyển xong, HOẶC nhóm chưa có khoản nào, HOẶC chưa ai khác vào nhóm (nhóm thử). Nới từ chốt 18/10 ("chỉ khi đã khóa và chuyển xong").
+  - Đã code (`done-nha` commit 9ac70a9; **anh cần dán lại `schema.sql`**): màn đầu ghim nút vàng, "Vào bằng link" cạnh tiêu đề; ô sticker giấy màu cho mỗi nhóm (18 sticker, 6 màu: Kem, Vàng, Cam, Hồng, Xanh lá, Xanh dương; mặc định chuyến = vali, nhóm = nhóm bạn; tạo nhóm Ăn uống = tô mì, Ở chung = chìa khóa); Thông tin nhóm chọn Màu + Biểu tượng; mục "Xóa chuyến/nhóm" cuối Cài đặt nhóm (chưa đủ điều kiện thì nút mờ + "Khóa cân đối và chuyển xong mới xóa được."). Màu nền đang mượn token có sẵn (`cream`, `yellow-tint`, `cal-mid-bg`, `pink-wash`, `cal-low-bg`, `blue-wash`), chờ anh duyệt tên riêng `group-*`.
+  - Lúc viết kiểm tra bắt được **lỗi lọt quyền ở máy chủ**: nhóm không quỹ không có thủ quỹ (NULL), phép so sánh với NULL làm điều kiện chặn không chạy, nên thành viên thường ghi hộ được khoản người khác trả, hủy khoản người khác, mở lại tên, đổi ngày đi. Đã sửa cùng commit.
 
 ## Lỗi đã gặp, đừng lặp lại
+- SQL: so sánh `=`/`<>` với cột có thể NULL (vd thủ quỹ của nhóm không quỹ) ra NULL, `if not (...)` thành không chặn: lọt quyền (bắt được 2/11). Dùng `is distinct from` / `is not distinct from` và viết kiểm tra cho nhóm không quỹ.
 - Prompt dùng lại được mà chỉ nằm trong hội thoại thì mất khi hội thoại bị tóm tắt (prompt Figma Make 21/10). Lưu vào `06-claude-input/` của thư mục làm việc.
 - Trả tiền theo kế hoạch đã khóa phải TRỪ khỏi kế hoạch, không cộng thành lượt chuyển mới (lỗi bắt được khi viết test 18/10).
 - Đừng nói chỉ Safari mới thêm được vào màn hình chính trên iPhone; Chrome và Edge cũng được.
