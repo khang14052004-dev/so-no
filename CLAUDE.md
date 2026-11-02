@@ -70,7 +70,7 @@ Tài liệu gốc (đọc trước khi làm):
 
 - Gộp app (chốt 14/10/2026): Sổ nợ và Done Nha gộp thành MỘT app tên **Done Nha**, mô hình "1 app, 2 không gian, 1 sổ cái": Sổ cá nhân (ghi hộ, riêng tư) và Nhóm/Chuyến (thủ quỹ). Màn "Sổ nợ tổng" theo người chỉ để xem; không tự bù trừ, cấn trừ chéo phải bấm tay và người kia xác nhận. Quét thẻ giữ ở Apps Script, làm sau. Màu tạm dùng vàng #FFC925 và xanh #163D89 của Sổ nợ.
 
-Còn mở: mức góp quỹ (2 triệu/người chỉ là dự kiến, chưa chốt được), màu chủ đạo chính thức và biểu tượng, tên gói trả phí, ảnh mẫu thông báo ngân hàng (Vietcombank, ACB, MB, Techcombank, MoMo, che số dư), việc Zalo Mini App có cho cá nhân đăng ký không.
+Còn mở: mức góp quỹ (2 triệu/người chỉ là dự kiến, chưa chốt được), màu chủ đạo chính thức (biểu tượng app đã chốt 2/11), tên gói trả phí, ảnh mẫu thông báo ngân hàng (Vietcombank, ACB, MB, Techcombank, MoMo, che số dư), việc Zalo Mini App có cho cá nhân đăng ký không.
 
 ## Quyết định đang áp dụng (tóm tắt 14–18/10; nguyên văn và lịch sử: `docs/lich-su-chot-2026-10.md`)
 Cách làm:
@@ -322,6 +322,8 @@ Giao diện:
   - Đã code (`done-nha` commit 9ac70a9; **anh cần dán lại `schema.sql`**): màn đầu ghim nút vàng, "Vào bằng link" cạnh tiêu đề; ô sticker giấy màu cho mỗi nhóm (18 sticker, 6 màu: Kem, Vàng, Cam, Hồng, Xanh lá, Xanh dương; mặc định chuyến = vali, nhóm = nhóm bạn; tạo nhóm Ăn uống = tô mì, Ở chung = chìa khóa); Thông tin nhóm chọn Màu + Biểu tượng; mục "Xóa chuyến/nhóm" cuối Cài đặt nhóm (chưa đủ điều kiện thì nút mờ + "Khóa cân đối và chuyển xong mới xóa được."). Màu nền đang mượn token có sẵn (`cream`, `yellow-tint`, `cal-mid-bg`, `pink-wash`, `cal-low-bg`, `blue-wash`), chờ anh duyệt tên riêng `group-*`.
   - Anh dặn thêm (2/11 10:26): màn **Tạo nhóm** cũng đồng bộ: nút Loại hiện sticker, có thẻ "Biểu tượng" + "Đổi" để chọn màu và sticker ngay lúc tạo (cùng bộ chọn với Cài đặt nhóm).
   - Lúc viết kiểm tra bắt được **lỗi lọt quyền ở máy chủ**: nhóm không quỹ không có thủ quỹ (NULL), phép so sánh với NULL làm điều kiện chặn không chạy, nên thành viên thường ghi hộ được khoản người khác trả, hủy khoản người khác, mở lại tên, đổi ngày đi. Đã sửa cùng commit.
+
+- **Biểu tượng app, anh chốt 2/11 15:32** (sau các bản thử: sticker vẽ tay, khỉ + K, kiểu Duolingo, khỉ trắng kiểu gấu, khỉ chống cằm): bản anh tự hoàn thiện trên Figma, khung "Icon App" node `18:77`: khỉ chống cằm (mắt to, mày vàng, tai kem lòng xanh, tay kem cầm bút trắng), chữ K mờ phía sau, tờ ghi chú "Done nha" kèm hình polaroid; nền vàng. Đã thay biểu tượng tạm "DN" trong app (`done-nha` commit sau 39ae0c4): 192/512, maskable (thu 80% neo đáy cho Android cắt tròn), apple-touch, favicon; bản 1024 ở `done-nha/app/design/app-icon/`.
 
 ## Lỗi đã gặp, đừng lặp lại
 - SQL: so sánh `=`/`<>` với cột có thể NULL (vd thủ quỹ của nhóm không quỹ) ra NULL, `if not (...)` thành không chặn: lọt quyền (bắt được 2/11). Dùng `is distinct from` / `is not distinct from` và viết kiểm tra cho nhóm không quỹ.
