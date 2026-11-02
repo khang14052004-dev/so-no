@@ -297,6 +297,12 @@ Giao diện:
   - CHƯA thử trên máy thật với Supabase thật (camera, gửi hình). Chưa có: Xóa/Thêm hình ở chi tiết khoản, bước che tên/SĐT cho đơn Grab/ShopeeFood, đọc tổng tiền từ hình.
   - SỬA 31/10 trưa (anh thử trên S24 Chrome, góp ý "giá lệch với nền tờ giấy", "chữ nội dung, ngày giờ nhỏ hơn xíu vì để to thì che hết các icon"), `done-nha` commit c367ba2: giá canh giữa phần giấy; tên khoản nhỏ lại và chỗ tên luôn đủ 2 dòng như thẻ Xấp (gõ tên dài thẻ không dài ra); ngày giờ nhỏ lại; thẻ tự co theo chiều cao màn để hàng icon loại khoản luôn nằm trên hàng nút, khỏi cuộn (S24 thẻ 316px, iPhone Chrome ~246px, màn 844px giữ 346px như wireframe). Hàng ô xổ Chia / Ai trả giữ lề như bản trước, không co theo thẻ (anh dặn 31/10). Sticker Ăn uống thêm ly trà đá có ống hút sau tô mì (anh dặn 31/10; `done-nha` commit de4f181, Design System bản 47, gói icon Figma cập nhật).
 
+## Chốt 2/11/2026
+- Anh thử trên S24 Chrome với Supabase thật: **chụp/tải hình bill chạy**, hình hiện trên Xấp hình (chuyến "Dalas 27").
+- Anh báo, đã sửa (`done-nha` commit 50f4b45):
+  1. Chữ viết tay bị cắt (đuôi g, dấu hỏi, nét lượn chữ Đ): chừa lề quanh tên khoản; tên dài cắt sẵn ~32 ký tự để không có dòng 3 ló ra. Tên khoản tối đa 40 ký tự khi ghi.
+  2. **Đồng bộ icon Lịch tháng với Xấp hình** (anh dặn): dòng khoản chi có hình thì hình nhỏ, không thì sticker loại khoản trên giấy kem (bỏ ô icon tô màu); ô Lịch tháng có hình thì hình làm nền (chốt 21/10, giờ mới làm), không có hình thì sticker loại của khoản lớn nhất ngày ở góc dưới phải. Từ giờ mọi chỗ hiện loại khoản dùng sticker; icon nút, ô nhập, thanh menu vẫn Phosphor.
+
 ## Lỗi đã gặp, đừng lặp lại
 - Prompt dùng lại được mà chỉ nằm trong hội thoại thì mất khi hội thoại bị tóm tắt (prompt Figma Make 21/10). Lưu vào `06-claude-input/` của thư mục làm việc.
 - Trả tiền theo kế hoạch đã khóa phải TRỪ khỏi kế hoạch, không cộng thành lượt chuyển mới (lỗi bắt được khi viết test 18/10).
