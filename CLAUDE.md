@@ -339,10 +339,15 @@ Giao diện:
   - Chưa làm khi mất mạng: xóa khoản đã gửi, góp quỹ, cân đối, thêm/xóa hình ở khoản đã gửi (vẫn báo cần mạng).
   - **Anh thử trên S24 với Supabase thật (3/11 11:40–11:52): đạt hết.** Chế độ máy bay: mở được nhóm từ bản lưu, ghi khoản "Test mạng" 45k kèm hình hiện nhãn Chờ gửi, thẻ đầu cộng luôn; tắt máy bay thì tự gửi, máy khác thấy khoản kèm hình; tắt hẳn app rồi mở lại lúc mất mạng vẫn vào được.
 - **Tên dưới biểu tượng ở màn hình chính: "Donenha"** (anh dặn 3/11): manifest `name`/`short_name`, `apple-mobile-web-app-title`. Tiêu đề tab, chữ trong app và tên thương hiệu vẫn "Done Nha" (chưa đổi, chờ anh nói nếu muốn đổi luôn).
+- **Xóa thành viên khỏi nhóm** (anh dặn 3/11; em tự chọn luật vì chưa hỏi được, anh đổi được), `done-nha` commit 6249ba9, **anh cần dán lại `schema.sql`**:
+  - Chỉ **chủ nhóm** xóa (như Đổi link mời, Xóa nhóm). Nút icon người-trừ cuối mỗi dòng tên ở Cài đặt nhóm › Thành viên.
+  - Chỉ xóa được người **hết dính tiền**: không phải chủ nhóm hay thủ quỹ, không có góp chưa xác nhận, số dư đợt đang mở = 0, các lượt chuyển đã khóa của họ đã xong. Chưa được thì nói lý do ("Lan còn phải trả 75.333đ. Cân đối xong mới xóa được.").
+  - Không xóa hẳn: tên còn trong khoản cũ (chi tiết khoản ghi "(đã rời nhóm)"), máy người đó ra khỏi nhóm ngay, tên biến khỏi Chia, Ai trả, Mời, chọn tên. Màu avatar người khác không đổi. Thêm lại cùng tên được (là tên mới). Dưới danh sách có "Đã xóa khỏi nhóm: …".
+  - Chưa có: tự rời nhóm, cho vào lại tên đã xóa.
 
 ## Lỗi đã gặp, đừng lặp lại
 - Biểu tượng Android (maskable): đừng đoán phần máy hiện ra. 2/11 em ghi "Samsung hiện 66%" mà chưa đo; ảnh chụp S24 3/11 cho thấy 87%, mặt khỉ ra nhỏ. Đo bằng cách khớp ảnh chụp màn hình chính với bản maskable ở nhiều mức cắt, rồi mới chỉnh.
-- SQL: so sánh `=`/`<>` với cột có thể NULL (vd thủ quỹ của nhóm không quỹ) ra NULL, `if not (...)` thành không chặn: lọt quyền (bắt được 2/11). Dùng `is distinct from` / `is not distinct from` và viết kiểm tra cho nhóm không quỹ.
+- SQL: so sánh `=`/`<>` với cột có thể NULL (vd thủ quỹ của nhóm không quỹ) ra NULL, `if not (...)` thành không chặn: lọt quyền (bắt được 2/11). Dùng `is distinct from` / `is not distinct from` và viết kiểm tra cho nhóm không quỹ. Ngược lại cũng lọt: `my_member(...) is distinct from thủ quỹ` với cả hai NULL ra false, nên người NGOÀI nhóm gọi được `set_fund_delegate`, `request_handover` trên nhóm không quỹ (bắt được 3/11). Luôn chặn `v_me is null` trước.
 - Prompt dùng lại được mà chỉ nằm trong hội thoại thì mất khi hội thoại bị tóm tắt (prompt Figma Make 21/10). Lưu vào `06-claude-input/` của thư mục làm việc.
 - Trả tiền theo kế hoạch đã khóa phải TRỪ khỏi kế hoạch, không cộng thành lượt chuyển mới (lỗi bắt được khi viết test 18/10).
 - Đừng nói chỉ Safari mới thêm được vào màn hình chính trên iPhone; Chrome và Edge cũng được.
