@@ -329,6 +329,7 @@ Giao diện:
 ## Chốt 3/11/2026
 - **Biểu tượng app đổi sang khung "Icon App" node `43:100`** (anh dặn 10:10): cùng ý mặt khỉ cách điệu + chữ K mờ trên nền vàng chuyển màu, mặt to hơn, mắt có đốm sáng. `done-nha` commit 00e60d4, `sw.js` v6.
   - SỬA 3/11 10:18 (anh gửi ảnh S24: "không giống demo"): đo trên ảnh chụp thì Samsung hiện **~87%** giữa của bản maskable, không phải 66%, nên mặt khỉ ra nhỏ. Bản maskable giờ thu nội dung **87%** quanh tâm (`done-nha` commit 77e02a2, `sw.js` v7). Máy còn làm biểu tượng tối đi ~10% (màu trên ảnh ~90% màu tệp), không chỉnh trong tệp.
+- **Nhóm dài hạn đồng bộ với chuyến** (anh dặn 3/11 10:25): mọi nhóm có nút đổi **Xấp hình | Lịch tháng**, mặc định Xấp hình. Xấp của nhóm: mỗi ngày có khoản một hàng thẻ polaroid, **mới nhất ở trên** (chuyến thì Trước chuyến → Ngày 1 → …), nhãn "THỨ BA / 27/10". Thẻ đầu nhóm vẫn 3 số (chốt 26/10), không có Tổng kết chuyến. `done-nha` commit 79dc37f.
 - **Tên dưới biểu tượng ở màn hình chính: "Donenha"** (anh dặn 3/11): manifest `name`/`short_name`, `apple-mobile-web-app-title`. Tiêu đề tab, chữ trong app và tên thương hiệu vẫn "Done Nha" (chưa đổi, chờ anh nói nếu muốn đổi luôn).
 
 ## Lỗi đã gặp, đừng lặp lại
