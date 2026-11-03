@@ -68,6 +68,12 @@ Nếu Xấp ảnh chưa xong 25/10 thì dời sang tuần 26/10, không chặn p
 | 14–20/12 | Tổng kết chuyến (ảnh chia sẻ) nếu kịp; hàm xóa chuyến dọn ảnh (Edge Function). **20/12 ngừng thêm tính năng.** | Opus |
 | 21–28/12 | Chỉ sửa lỗi. Hướng dẫn nhóm cài app, tạo chuyến Đà Lạt thật, đặt ngày đi/về. **28/12 sẵn sàng.** | Sonnet |
 
+## Việc chờ (chưa xếp tuần)
+
+| | Việc | Model |
+|---|---|---|
+| [ ] | **Chia theo số tiền từng người** ở Thêm khoản chi (anh dặn 3/11; hiện chỉ có chia đều): mỗi người gõ phần của mình, dòng dưới thẻ báo còn thiếu / dư bao nhiêu, đủ mới cho Done nha. Máy chủ đã nhận phần chia từng người (`add_entry` kiểm tổng phần chia = số tiền), chỉ cần làm giao diện + hàng chờ mất mạng + Sửa khoản giữ đúng phần cũ | Opus |
+
 ## Chuyển quyền chủ nhóm + bàn giao thủ quỹ (chưa xếp tuần; ghi 3/11)
 Máy chủ đã có `request_handover` / `accept_handover` (bàn giao thủ quỹ), chưa có màn; chuyển quyền chủ nhóm chưa có hàm.
 
