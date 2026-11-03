@@ -327,10 +327,12 @@ Giao diện:
   - **ĐỔI 2/11 15:58 (thay ngày 3/11, xem Chốt 3/11):** khung "Icon App" node `10:888` sau khi anh bỏ thêm lớp mặt khỉ: **mặt khỉ cách điệu** (mặt kem ba vòng tròn, mắt mũi xanh đậm, miệng cười lệch) trên **nền vàng chuyển màu**, chữ **K mờ** (đuôi khỉ cong) tràn góc dưới phải. Bản 15:52 (chỉ nền vàng + K) là do khung lúc đó chưa có mặt khỉ. `done-nha` commit bc3ef97: icon 192/512, maskable (mặt khỉ + K thu 66% để Samsung hiện y Figma), apple-touch, favicon; `sw.js` v5. Khỉ chống cằm (`18:77`) thôi dùng.
 
 ## Chốt 3/11/2026
-- **Biểu tượng app đổi sang khung "Icon App" node `43:100`** (anh dặn 10:10): cùng ý mặt khỉ cách điệu + chữ K mờ trên nền vàng chuyển màu, mặt to hơn, mắt có đốm sáng. Maskable vẫn thu 66% quanh tâm (Samsung hiện y Figma). `done-nha` commit 00e60d4, `sw.js` v6.
+- **Biểu tượng app đổi sang khung "Icon App" node `43:100`** (anh dặn 10:10): cùng ý mặt khỉ cách điệu + chữ K mờ trên nền vàng chuyển màu, mặt to hơn, mắt có đốm sáng. `done-nha` commit 00e60d4, `sw.js` v6.
+  - SỬA 3/11 10:18 (anh gửi ảnh S24: "không giống demo"): đo trên ảnh chụp thì Samsung hiện **~87%** giữa của bản maskable, không phải 66%, nên mặt khỉ ra nhỏ. Bản maskable giờ thu nội dung **87%** quanh tâm (`done-nha` commit 77e02a2, `sw.js` v7). Máy còn làm biểu tượng tối đi ~10% (màu trên ảnh ~90% màu tệp), không chỉnh trong tệp.
 - **Tên dưới biểu tượng ở màn hình chính: "Donenha"** (anh dặn 3/11): manifest `name`/`short_name`, `apple-mobile-web-app-title`. Tiêu đề tab, chữ trong app và tên thương hiệu vẫn "Done Nha" (chưa đổi, chờ anh nói nếu muốn đổi luôn).
 
 ## Lỗi đã gặp, đừng lặp lại
+- Biểu tượng Android (maskable): đừng đoán phần máy hiện ra. 2/11 em ghi "Samsung hiện 66%" mà chưa đo; ảnh chụp S24 3/11 cho thấy 87%, mặt khỉ ra nhỏ. Đo bằng cách khớp ảnh chụp màn hình chính với bản maskable ở nhiều mức cắt, rồi mới chỉnh.
 - SQL: so sánh `=`/`<>` với cột có thể NULL (vd thủ quỹ của nhóm không quỹ) ra NULL, `if not (...)` thành không chặn: lọt quyền (bắt được 2/11). Dùng `is distinct from` / `is not distinct from` và viết kiểm tra cho nhóm không quỹ.
 - Prompt dùng lại được mà chỉ nằm trong hội thoại thì mất khi hội thoại bị tóm tắt (prompt Figma Make 21/10). Lưu vào `06-claude-input/` của thư mục làm việc.
 - Trả tiền theo kế hoạch đã khóa phải TRỪ khỏi kế hoạch, không cộng thành lượt chuyển mới (lỗi bắt được khi viết test 18/10).
