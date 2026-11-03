@@ -68,6 +68,23 @@ Nếu Xấp ảnh chưa xong 25/10 thì dời sang tuần 26/10, không chặn p
 | 14–20/12 | Tổng kết chuyến (ảnh chia sẻ) nếu kịp; hàm xóa chuyến dọn ảnh (Edge Function). **20/12 ngừng thêm tính năng.** | Opus |
 | 21–28/12 | Chỉ sửa lỗi. Hướng dẫn nhóm cài app, tạo chuyến Đà Lạt thật, đặt ngày đi/về. **28/12 sẵn sàng.** | Sonnet |
 
+## Chuyển quyền chủ nhóm + bàn giao thủ quỹ (chưa xếp tuần; ghi 3/11)
+Máy chủ đã có `request_handover` / `accept_handover` (bàn giao thủ quỹ), chưa có màn; chuyển quyền chủ nhóm chưa có hàm.
+
+| | Việc | Model |
+|---|---|---|
+| [ ] | Chuyển quyền chủ nhóm: chủ nhóm chọn người mới, người đó xác nhận (như bàn giao quỹ). Hàm mới + kiểm tra SQL | Opus |
+| [ ] | Bàn giao thủ quỹ trong app: Cài đặt nhóm › Đổi thủ quỹ, người mới bấm nhận; quỹ ở người cũ tới khi nhận | Opus |
+
+Làm xong hai việc trên thì làm tiếp (phần còn thiếu của Xóa thành viên / Rời nhóm, 3/11):
+
+| | Việc | Model |
+|---|---|---|
+| [ ] | Chủ nhóm tự rời: bắt chuyển quyền trước, rồi rời như thành viên (hiện máy chủ chặn "chủ nhóm chưa rời được") | Opus |
+| [ ] | Thủ quỹ tự rời, hoặc bị xóa: bắt bàn giao quỹ trước (hiện chặn "đang giữ quỹ") | Opus |
+| [ ] | Cho vào lại tên đã rời: chủ nhóm / thủ quỹ khôi phục tên (giữ khoản cũ, màu avatar cũ); xử lý khi đã có tên mới trùng | Opus |
+| [ ] | Báo người xin rời khi đã rời xong (hiện lần mở sau chỉ thấy "Máy này chưa vào nhóm"): báo "Bạn đã rời <nhóm>", bỏ nhóm khỏi màn đầu | Sonnet |
+
 ## Mỗi màn làm theo vòng
 Bàn giao (`07-handoff/<man>.md`) → code trong repo `done-nha` → `npm test` + `bash supabase/test/run.sh` → chụp 412px so với bảng `DN-*` → ghi `_progress.md`.
 

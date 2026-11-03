@@ -345,7 +345,7 @@ Giao diện:
   - **Tự rời** (Cài đặt nhóm › Rời nhóm; chủ nhóm và thủ quỹ chưa rời được vì chưa có chuyển quyền, bàn giao quỹ). Không dính tiền thì rời ngay. Còn tiền thì "Xin rời nhóm": app chỉ ra từng lượt phải chuyển; **chủ nợ bấm "Đã nhận" hoặc "Khỏi trả" (chủ nợ chịu)** trên thẻ ở màn nhóm; xong hết thì người đó tự ra khỏi nhóm. Người xin rời được nhận tiền thì chính họ bấm Đã nhận. "Thôi, ở lại" để hủy.
   - Trước khi khóa cân đối (tính một nồi) app tự chọn người nhận: nhóm có quỹ là thủ quỹ; nhóm không quỹ là người đang được nhận nhiều nhất (có thể 2–3 người). Lượt trong kế hoạch đã khóa thì giữ đúng cặp.
   - "Cả nhóm chịu" ghi thành dòng sổ riêng, không phải khoản chi (không vào Lịch, tổng đã tiêu); Số dư có dòng "Cả nhóm chịu · nợ của Lan". "Khỏi trả" hiện "Thảo cho bạn khỏi trả".
-  - Chưa có: chuyển quyền chủ nhóm, bàn giao thủ quỹ trong app, cho vào lại tên đã rời, báo người xin rời khi đã rời xong.
+  - Chưa có: chuyển quyền chủ nhóm, bàn giao thủ quỹ trong app, cho vào lại tên đã rời, báo người xin rời khi đã rời xong. Anh dặn (3/11): làm phần còn thiếu SAU khi xong chuyển quyền + bàn giao; danh sách ở `docs/ke-hoach-tuan.md` mục "Chuyển quyền chủ nhóm + bàn giao thủ quỹ".
 
 ## Lỗi đã gặp, đừng lặp lại
 - Biểu tượng Android (maskable): đừng đoán phần máy hiện ra. 2/11 em ghi "Samsung hiện 66%" mà chưa đo; ảnh chụp S24 3/11 cho thấy 87%, mặt khỉ ra nhỏ. Đo bằng cách khớp ảnh chụp màn hình chính với bản maskable ở nhiều mức cắt, rồi mới chỉnh.
