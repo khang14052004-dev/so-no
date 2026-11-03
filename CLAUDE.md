@@ -337,6 +337,7 @@ Giao diện:
   - Khoản chờ gửi chỉ máy mình thấy; sửa được ngay trên máy, xóa = bỏ hẳn (chưa tới nhóm nên khỏi Hoàn tác).
   - Mất mạng vẫn **mở được app và xem nhóm**: app lưu bản sổ lần mở trước, hiện "Mất mạng · bản lưu 14:05". Tệp app lưu sẵn trên máy (service worker v8), tắt mạng tải lại trang vẫn chạy.
   - Chưa làm khi mất mạng: xóa khoản đã gửi, góp quỹ, cân đối, thêm/xóa hình ở khoản đã gửi (vẫn báo cần mạng).
+  - **Anh thử trên S24 với Supabase thật (3/11 11:40–11:52): đạt hết.** Chế độ máy bay: mở được nhóm từ bản lưu, ghi khoản "Test mạng" 45k kèm hình hiện nhãn Chờ gửi, thẻ đầu cộng luôn; tắt máy bay thì tự gửi, máy khác thấy khoản kèm hình; tắt hẳn app rồi mở lại lúc mất mạng vẫn vào được.
 - **Tên dưới biểu tượng ở màn hình chính: "Donenha"** (anh dặn 3/11): manifest `name`/`short_name`, `apple-mobile-web-app-title`. Tiêu đề tab, chữ trong app và tên thương hiệu vẫn "Done Nha" (chưa đổi, chờ anh nói nếu muốn đổi luôn).
 
 ## Lỗi đã gặp, đừng lặp lại
