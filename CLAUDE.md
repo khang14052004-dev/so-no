@@ -339,11 +339,13 @@ Giao diện:
   - Chưa làm khi mất mạng: xóa khoản đã gửi, góp quỹ, cân đối, thêm/xóa hình ở khoản đã gửi (vẫn báo cần mạng).
   - **Anh thử trên S24 với Supabase thật (3/11 11:40–11:52): đạt hết.** Chế độ máy bay: mở được nhóm từ bản lưu, ghi khoản "Test mạng" 45k kèm hình hiện nhãn Chờ gửi, thẻ đầu cộng luôn; tắt máy bay thì tự gửi, máy khác thấy khoản kèm hình; tắt hẳn app rồi mở lại lúc mất mạng vẫn vào được.
 - **Tên dưới biểu tượng ở màn hình chính: "Donenha"** (anh dặn 3/11): manifest `name`/`short_name`, `apple-mobile-web-app-title`. Tiêu đề tab, chữ trong app và tên thương hiệu vẫn "Done Nha" (chưa đổi, chờ anh nói nếu muốn đổi luôn).
-- **Xóa thành viên khỏi nhóm** (anh dặn 3/11; em tự chọn luật vì chưa hỏi được, anh đổi được), `done-nha` commit 6249ba9, **anh cần dán lại `schema.sql`**:
-  - Chỉ **chủ nhóm** xóa (như Đổi link mời, Xóa nhóm). Nút icon người-trừ cuối mỗi dòng tên ở Cài đặt nhóm › Thành viên.
-  - Chỉ xóa được người **hết dính tiền**: không phải chủ nhóm hay thủ quỹ, không có góp chưa xác nhận, số dư đợt đang mở = 0, các lượt chuyển đã khóa của họ đã xong. Chưa được thì nói lý do ("Lan còn phải trả 75.333đ. Cân đối xong mới xóa được.").
-  - Không xóa hẳn: tên còn trong khoản cũ (chi tiết khoản ghi "(đã rời nhóm)"), máy người đó ra khỏi nhóm ngay, tên biến khỏi Chia, Ai trả, Mời, chọn tên. Màu avatar người khác không đổi. Thêm lại cùng tên được (là tên mới). Dưới danh sách có "Đã xóa khỏi nhóm: …".
-  - Chưa có: tự rời nhóm, cho vào lại tên đã xóa.
+- **Xóa thành viên, tự rời nhóm** (anh dặn 3/11; luật tiền anh chốt 16:26), `done-nha` commit c0ed0e7 (trước đó 6249ba9), **anh cần dán lại `schema.sql`**:
+  - Không xóa hẳn tên: tên còn trong khoản cũ, máy người đó ra khỏi nhóm ngay, tên biến khỏi Chia, Ai trả, Mời, chọn tên. Màu avatar người khác không đổi. Thêm lại cùng tên được (là tên mới). Dưới danh sách thành viên: "Đã rời nhóm: …".
+  - **Chủ nhóm hoặc thủ quỹ xóa** (nút người-trừ cuối dòng tên ở Cài đặt nhóm). Không dính tiền thì hỏi lại rồi xóa. **Còn nợ thì 2 nút lý do:** "Cả nhóm chịu" (chia đều phần còn nợ cho người còn lại, hiện "mỗi người ~x") hoặc "X tự trả chủ nợ" (nợ để lại trong sổ dưới tên "X (đã rời)", trả bên ngoài rồi người nhận hay thủ quỹ ghi). Nhóm đang nợ X thì nợ đó giữ trong sổ. Không xóa được chủ nhóm, thủ quỹ, người có góp chưa xác nhận.
+  - **Tự rời** (Cài đặt nhóm › Rời nhóm; chủ nhóm và thủ quỹ chưa rời được vì chưa có chuyển quyền, bàn giao quỹ). Không dính tiền thì rời ngay. Còn tiền thì "Xin rời nhóm": app chỉ ra từng lượt phải chuyển; **chủ nợ bấm "Đã nhận" hoặc "Khỏi trả" (chủ nợ chịu)** trên thẻ ở màn nhóm; xong hết thì người đó tự ra khỏi nhóm. Người xin rời được nhận tiền thì chính họ bấm Đã nhận. "Thôi, ở lại" để hủy.
+  - Trước khi khóa cân đối (tính một nồi) app tự chọn người nhận: nhóm có quỹ là thủ quỹ; nhóm không quỹ là người đang được nhận nhiều nhất (có thể 2–3 người). Lượt trong kế hoạch đã khóa thì giữ đúng cặp.
+  - "Cả nhóm chịu" ghi thành dòng sổ riêng, không phải khoản chi (không vào Lịch, tổng đã tiêu); Số dư có dòng "Cả nhóm chịu · nợ của Lan". "Khỏi trả" hiện "Thảo cho bạn khỏi trả".
+  - Chưa có: chuyển quyền chủ nhóm, bàn giao thủ quỹ trong app, cho vào lại tên đã rời, báo người xin rời khi đã rời xong.
 
 ## Lỗi đã gặp, đừng lặp lại
 - Biểu tượng Android (maskable): đừng đoán phần máy hiện ra. 2/11 em ghi "Samsung hiện 66%" mà chưa đo; ảnh chụp S24 3/11 cho thấy 87%, mặt khỉ ra nhỏ. Đo bằng cách khớp ảnh chụp màn hình chính với bản maskable ở nhiều mức cắt, rồi mới chỉnh.
