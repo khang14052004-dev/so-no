@@ -70,7 +70,7 @@ Tài liệu gốc (đọc trước khi làm):
 
 - Gộp app (chốt 14/10/2026): Sổ nợ và Done Nha gộp thành MỘT app tên **Done Nha**, mô hình "1 app, 2 không gian, 1 sổ cái": Sổ cá nhân (ghi hộ, riêng tư) và Nhóm/Chuyến (thủ quỹ). Màn "Sổ nợ tổng" theo người chỉ để xem; không tự bù trừ, cấn trừ chéo phải bấm tay và người kia xác nhận. Quét thẻ giữ ở Apps Script, làm sau. Màu tạm dùng vàng #FFC925 và xanh #163D89 của Sổ nợ.
 
-Còn mở: mức góp quỹ (2 triệu/người chỉ là dự kiến, chưa chốt được), màu chủ đạo chính thức (biểu tượng app đã chốt 2/11), tên gói trả phí, ảnh mẫu thông báo ngân hàng (Vietcombank, ACB, MB, Techcombank, MoMo, che số dư), việc Zalo Mini App có cho cá nhân đăng ký không.
+Còn mở: mức góp quỹ (2 triệu/người chỉ là dự kiến, chưa chốt được), màu chủ đạo chính thức (biểu tượng app đã chốt 3/11), tên gói trả phí, ảnh mẫu thông báo ngân hàng (Vietcombank, ACB, MB, Techcombank, MoMo, che số dư), việc Zalo Mini App có cho cá nhân đăng ký không.
 
 ## Quyết định đang áp dụng (tóm tắt 14–18/10; nguyên văn và lịch sử: `docs/lich-su-chot-2026-10.md`)
 Cách làm:
@@ -324,7 +324,11 @@ Giao diện:
   - Lúc viết kiểm tra bắt được **lỗi lọt quyền ở máy chủ**: nhóm không quỹ không có thủ quỹ (NULL), phép so sánh với NULL làm điều kiện chặn không chạy, nên thành viên thường ghi hộ được khoản người khác trả, hủy khoản người khác, mở lại tên, đổi ngày đi. Đã sửa cùng commit.
 
 - **Biểu tượng app, anh chốt 2/11 15:32** (sau các bản thử: sticker vẽ tay, khỉ + K, kiểu Duolingo, khỉ trắng kiểu gấu, khỉ chống cằm): bản anh tự hoàn thiện trên Figma, khung "Icon App" node `18:77`: khỉ chống cằm (mắt to, mày vàng, tai kem lòng xanh, tay kem cầm bút trắng), chữ K mờ phía sau, tờ ghi chú "Done nha" kèm hình polaroid; nền vàng. Đã thay biểu tượng tạm "DN" trong app (`done-nha` commit ecba309): 192/512, maskable (thu 72% đặt giữa vì Samsung chỉ hiện ~66% giữa; bản đầu thu 80% neo đáy bị cắt mất tay và tờ ghi chú, sửa cùng ngày), apple-touch, favicon; bản 1024 ở `done-nha/app/design/app-icon/`.
-  - **ĐỔI 2/11 15:58 (anh chốt, bản cuối):** khung "Icon App" node `10:888` sau khi anh bỏ thêm lớp mặt khỉ: **mặt khỉ cách điệu** (mặt kem ba vòng tròn, mắt mũi xanh đậm, miệng cười lệch) trên **nền vàng chuyển màu**, chữ **K mờ** (đuôi khỉ cong) tràn góc dưới phải. Bản 15:52 (chỉ nền vàng + K) là do khung lúc đó chưa có mặt khỉ. `done-nha` commit bc3ef97: icon 192/512, maskable (mặt khỉ + K thu 66% để Samsung hiện y Figma), apple-touch, favicon; `sw.js` v5. Khỉ chống cằm (`18:77`) thôi dùng.
+  - **ĐỔI 2/11 15:58 (thay ngày 3/11, xem Chốt 3/11):** khung "Icon App" node `10:888` sau khi anh bỏ thêm lớp mặt khỉ: **mặt khỉ cách điệu** (mặt kem ba vòng tròn, mắt mũi xanh đậm, miệng cười lệch) trên **nền vàng chuyển màu**, chữ **K mờ** (đuôi khỉ cong) tràn góc dưới phải. Bản 15:52 (chỉ nền vàng + K) là do khung lúc đó chưa có mặt khỉ. `done-nha` commit bc3ef97: icon 192/512, maskable (mặt khỉ + K thu 66% để Samsung hiện y Figma), apple-touch, favicon; `sw.js` v5. Khỉ chống cằm (`18:77`) thôi dùng.
+
+## Chốt 3/11/2026
+- **Biểu tượng app đổi sang khung "Icon App" node `43:100`** (anh dặn 10:10): cùng ý mặt khỉ cách điệu + chữ K mờ trên nền vàng chuyển màu, mặt to hơn, mắt có đốm sáng. Maskable vẫn thu 66% quanh tâm (Samsung hiện y Figma). `done-nha` commit 00e60d4, `sw.js` v6.
+- **Tên dưới biểu tượng ở màn hình chính: "Donenha"** (anh dặn 3/11): manifest `name`/`short_name`, `apple-mobile-web-app-title`. Tiêu đề tab, chữ trong app và tên thương hiệu vẫn "Done Nha" (chưa đổi, chờ anh nói nếu muốn đổi luôn).
 
 ## Lỗi đã gặp, đừng lặp lại
 - SQL: so sánh `=`/`<>` với cột có thể NULL (vd thủ quỹ của nhóm không quỹ) ra NULL, `if not (...)` thành không chặn: lọt quyền (bắt được 2/11). Dùng `is distinct from` / `is not distinct from` và viết kiểm tra cho nhóm không quỹ.
