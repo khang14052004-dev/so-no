@@ -360,6 +360,11 @@ Giao diện:
   - **IN ĐẬM tới khi bấm vào nhóm xem.** Có việc chưa xem thì nối tối đa 3 việc mới nhất ("Lan vừa trả Trà đá, Khang vừa trả Lẩu bò…"), giờ cũng đậm; xem rồi thì chỉ việc mới nhất, chữ thường. "Đã xem" chỉ lưu trên máy này (`dn.seen.<nhóm>`, theo giờ ghi của máy chủ); việc do chính mình ghi không bao giờ tính là chưa xem; máy mới hay lần đầu có tính năng thì lấy mốc là việc mới nhất hiện có (không đậm cả nhóm).
   - **Nhóm có việc mới nhất xếp trên** (anh không dặn, em thêm cho hợp "mới hoạt động"; muốn về thứ tự cũ thì nói, một dòng). Nhóm chưa có việc nào thì dòng phụ vẫn là "Bạn là X". Không đổi schema: màn đầu đọc 150 dòng sổ mới nhất của mọi nhóm mình ở (RLS tự lọc).
   - **Nhanh hơn khi vào nhóm / chuyến:** (1) có bản lưu lần trước (cùng tài khoản) thì hiện NGAY không đợi mạng, tải lại bên dưới rồi thay số; mất mạng hay máy chủ lỗi thì giữ bản lưu; (2) sổ về là hiện luôn, hình bill (hai câu đọc thêm) tải sau rồi hiện thêm; (3) Lịch, Xấp, thẻ đầu tính tạm từ sổ đã có trong lúc đợi máy chủ; (4) màn đầu tải danh sách nhóm và thành viên song song. Đo trong bản giả lập: thẻ đầu Xấp hiện sau 45 ms khi có bản lưu, 433 ms khi chưa. Chưa đo trên máy thật với Supabase thật.
+- **Hình đại diện nhóm** (anh dặn 4/11 14:33 "ở phần cài đặt nhóm thêm 1 chỗ up hình đại diện nhóm"), `done-nha` commit ở lần đẩy kế, **anh cần dán lại `schema.sql`**:
+  - Cài đặt nhóm › Thông tin nhóm › Sửa có khối **"Hình đại diện"**: "Up hình" (có hình rồi thì "Đổi hình" + "Dùng sticker"). Chọn hình xong xem trước ngay ở ô đầu thẻ, bấm **Lưu** mới tải lên. Có hình thì hình thay sticker (ẩn Màu + Biểu tượng); "Dùng sticker" bỏ hình, về sticker cũ.
+  - **Cả nhóm thấy giống nhau**, hiện ở ô nhóm màn đầu và Thông tin nhóm. Quyền như đổi biểu tượng: **chủ nhóm hoặc thủ quỹ**; người khác chỉ xem.
+  - Hình tự cắt **vuông ở giữa**, nén 320px (~25 KB) trên máy, lưu ở kho hình bill (riêng tư, thành viên mới xem được). Hình lỗi hay mất mạng thì quay về sticker.
+  - Chưa có (nói nếu anh muốn): up hình ngay lúc Tạo nhóm, hình trên thẻ mời, kéo chỉnh vị trí cắt.
 
 ## Lỗi đã gặp, đừng lặp lại
 - Biểu tượng Android (maskable): đừng đoán phần máy hiện ra. 2/11 em ghi "Samsung hiện 66%" mà chưa đo; ảnh chụp S24 3/11 cho thấy 87%, mặt khỉ ra nhỏ. Đo bằng cách khớp ảnh chụp màn hình chính với bản maskable ở nhiều mức cắt, rồi mới chỉnh.
