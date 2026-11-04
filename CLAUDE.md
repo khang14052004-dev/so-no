@@ -368,6 +368,19 @@ Giao diện:
   - **Màn cắt nhìn xuyên (anh dặn 4/11 14:52):** quanh khung cắt vẫn thấy cả tấm hình đang chỉnh, chỉ tối nhẹ; khung sáng rõ có viền trắng, kéo ở đâu trên màn cũng dời được hình.
   - **Up hình sau khi tạo (anh dặn 4/11 14:52, "tạo xong hãy up hình"):** bấm Tạo nhóm xong sang một bước riêng "Hình đại diện": ô nhóm lớn xem trước, nút vàng "Up hình" → khung cắt → "Dùng hình này" (có "Đổi hình", "Cắt lại"), hoặc "Để sau" (đổi sau ở Cài đặt nhóm). Xong bước này mới tới Giữ chỗ (còn là khách) hoặc Mời. Làm sau khi tạo vì hình cần mã nhóm để lưu. Không đổi máy chủ.
   - Chưa có (nói nếu anh muốn): hình trên thẻ mời.
+- **Tài khoản nhận tiền + VietQR** (anh dặn 4/11 15:07 "làm VietQR + Tài khoản nhận tiền", việc tuần 9–15/11 làm sớm; Opus), `done-nha` commit 7cd3260, **anh cần dán lại `schema.sql`**:
+  - Theo bảng vẽ DN-TaiKhoan, DN-TaiKhoan-Them, DN-TaiKhoan-MoMo, DN-GopQuy, DN-CanDoi-QR, DN-MaQR. Chưa có màn Tôi nên lối vào là dòng "Tài khoản nhận tiền" ở màn đầu và Cài đặt nhóm.
+  - Tài khoản lưu TRONG MÁY; chỉ tài khoản bật **"Cho nhóm thấy"** mới lên máy chủ, và ai ở chung ít nhất một nhóm với mình thì quét được (bật một lần là mọi nhóm thấy, như công tắc trên bảng vẽ). Tắt là xóa khỏi máy chủ. Người bị xóa khỏi nhóm thì nhóm hết thấy tài khoản của họ. Tối đa 5 tài khoản.
+  - Máy mới hay app ở màn hình chính iPhone (bộ nhớ riêng với trình duyệt): mở Tài khoản nhận tiền là tự lấy lại tài khoản đã cho nhóm thấy. Tài khoản chỉ nằm trong máy thì không lấy lại được.
+  - Ngân hàng: chọn trong danh sách 57 ngân hàng (tìm không dấu: "vcb", "ngoai thuong"); hoặc **"Điền từ hình QR nhận tiền của ngân hàng"** (app đọc ngân hàng + số tài khoản từ hình, khỏi gõ sai). Tên chủ tài khoản app tự đổi viết hoa không dấu.
+  - Ví MoMo, ZaloPay: tải hình QR nhận tiền lên, app **đọc nội dung mã và tự vẽ lại** (không lưu hình). Mã ví là VietQR (MoMo có mã ngân hàng 971025) thì app thêm được số tiền và nội dung; không phải thì vé ghi "Tự nhập số · Nhập 158.000đ khi chuyển".
+  - Góp quỹ: người góp chọn Chuyển khoản thấy vé QR của thủ quỹ, số theo ô nhập, nội dung "DONENHA DALAT KHANG". Thủ quỹ chưa cho nhóm thấy thì nhắc hỏi số tài khoản; ở mục Quỹ, thủ quỹ thấy thanh nhắc mở thẳng Thêm/Sửa tài khoản với Cho nhóm thấy bật sẵn.
+  - Cân đối đã khóa: dòng mình chuyển có nút **VietQR** → màn "Chuyển cho Thảo": mã điền sẵn đúng số còn phải chuyển, nội dung "DONENHA CANDOI KHANG", vuốt đổi tài khoản; "Mình đã chuyển" = Done nha (về Cân đối có Hoàn tác).
+  - Mã QR nhận tiền (`/qr`): mã của mình, "Tự nhập số" hoặc "Đổi số tiền".
+  - Vé có **Lưu hình** (người chuyển dùng chính máy này: lưu hình rồi quét từ thư viện trong app ngân hàng; iPhone mở bảng chia sẻ có "Lưu hình ảnh", Android tải về) và **Chia sẻ mã QR**. Số tài khoản trên vé che hết, có nút Chép.
+  - Lệch bảng vẽ: chưa chọn sẵn Vietcombank (dễ để nhầm ngân hàng); danh sách của mình hiện 3 số cuối (bảng che hết) để phân biệt hai tài khoản cùng ngân hàng; chữ "Nhóm thấy" trên dòng tài khoản; Góp quỹ giữ ô số tiền và nút Chuyển khoản | Tiền mặt (mức góp chưa chốt).
+  - Đã kiểm: mã tạo ra khớp từng ký tự chuỗi mẫu có CRC, một bộ đọc VietQR độc lập đọc đúng; quét lại được từ ảnh chụp màn hình (360px, 412px) và từ hình Lưu hình. CHƯA thử: quét bằng app ngân hàng thật, Lưu hình trên iPhone, máy chủ Supabase thật.
+  - Chưa làm: VietQR cho lượt chuyển khi rời nhóm; Sổ nợ, Báo nợ (làm cùng các màn đó).
 
 ## Lỗi đã gặp, đừng lặp lại
 - Biểu tượng Android (maskable): đừng đoán phần máy hiện ra. 2/11 em ghi "Samsung hiện 66%" mà chưa đo; ảnh chụp S24 3/11 cho thấy 87%, mặt khỉ ra nhỏ. Đo bằng cách khớp ảnh chụp màn hình chính với bản maskable ở nhiều mức cắt, rồi mới chỉnh.
