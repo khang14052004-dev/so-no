@@ -73,6 +73,7 @@ Nếu Xấp ảnh chưa xong 25/10 thì dời sang tuần 26/10, không chặn p
 | | Việc | Model |
 |---|---|---|
 | [ ] | **Chia theo số tiền từng người** ở Thêm khoản chi (anh dặn 3/11; hiện chỉ có chia đều): mỗi người gõ phần của mình, dòng dưới thẻ báo còn thiếu / dư bao nhiêu, đủ mới cho Done nha. Máy chủ đã nhận phần chia từng người (`add_entry` kiểm tổng phần chia = số tiền), chỉ cần làm giao diện + hàng chờ mất mạng + Sửa khoản giữ đúng phần cũ | Opus |
+| [ ] | **Dọn hình mồ côi trong kho `receipts`** (anh dặn 4/11): xóa khoản chi chỉ hủy dòng sổ, tệp hình vẫn nằm lại trong kho (để Hoàn tác còn hình), nên kho chỉ phình dần. Làm: (1) quét tệp không còn dòng `entry_photos` nào trỏ tới, hoặc chỉ trỏ tới khoản đã hủy mà không còn khả năng Hoàn tác (vd sau 30 ngày); (2) xóa qua Storage API, không xóa dòng `storage.objects` bằng SQL (để lại tệp mồ côi); (3) chạy tay hoặc theo lịch. Chưa gấp: ngày 4/11 kho mới 14 tệp / 827 kB trên 1 GB Free. Kiểm lại dung lượng bằng `select count(*), pg_size_pretty(sum((metadata->>'size')::bigint)) from storage.objects where bucket_id = 'receipts'` trước thử kín 7–13/12 và trước 28/12; gần 1 GB thì cân nhắc Cloudflare R2 | Opus |
 
 ## Chuyển quyền chủ nhóm + bàn giao thủ quỹ (chưa xếp tuần; ghi 3/11)
 Máy chủ đã có `request_handover` / `accept_handover` (bàn giao thủ quỹ), chưa có màn; chuyển quyền chủ nhóm chưa có hàm.
