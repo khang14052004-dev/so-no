@@ -350,8 +350,9 @@ Giao diện:
 ## Chốt 4/11/2026
 - **Xấp hình nhóm hay gặp xếp theo tuần** (anh hỏi 4/11: Cơm trưa ngày nào cũng ăn thì hàng tháng phải lướt rất dài; anh chốt cách A "tự đổi theo tần suất", không làm bộ lọc Ngày/Tuần/Tháng), `done-nha` commit 6bfb35e:
   - Nhóm gặp từ **3 buổi/tuần** trở lên (tính 8 tuần gần nhất, buổi = ngày có khoản) thì **mỗi hàng là một tuần** (thứ Hai – Chủ nhật), **không giới hạn số thẻ** trong tuần (anh dặn: một buổi có thể nhiều khoản). Ít hơn thì giữ mỗi hàng một tháng như 3/11.
-  - Trên các tuần là tiêu đề tháng giữ viên độ thân ("Tháng 11 · Gặp hoài, tốn tiền · 18 buổi"); hàng tuần ghi "12/10 – 18/10", tổng tiền, "n buổi", chip "Tuần này"; tuần không gặp là một dòng mỏng "Nghỉ". Tuần vắt hai tháng nằm ở tháng có nhiều ngày hơn.
+  - Trên các tuần là tiêu đề tháng giữ viên độ thân ("Tháng 11 · Dính như sam"); hàng tuần ghi "12/10 – 18/10", tổng tiền, "n buổi", chip "Tuần này"; tuần không gặp là một dòng mỏng "Nghỉ". Tuần vắt hai tháng nằm ở tháng có nhiều ngày hơn.
   - Muốn nhảy đúng một ngày thì dùng Lịch tháng. Chuyến đi vẫn theo ngày.
+  - SỬA 4/11 11:32 (anh góp ý "cụm viên rối"), `done-nha` commit sau 6bfb35e: **bỏ viên "Tháng này" / "Tuần này"**; tuần hiện tại ghi tiêu đề "Tuần này" + ngày nhỏ mờ bên cạnh; **viên độ thân bỏ số buổi** (chỉ chữ + mặt); **"Gặp hoài, tốn tiền" đổi thành "Dính như sam"**. Chuyến vẫn giữ viên "Hôm nay".
 
 ## Lỗi đã gặp, đừng lặp lại
 - Biểu tượng Android (maskable): đừng đoán phần máy hiện ra. 2/11 em ghi "Samsung hiện 66%" mà chưa đo; ảnh chụp S24 3/11 cho thấy 87%, mặt khỉ ra nhỏ. Đo bằng cách khớp ảnh chụp màn hình chính với bản maskable ở nhiều mức cắt, rồi mới chỉnh.
