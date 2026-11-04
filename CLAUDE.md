@@ -347,6 +347,12 @@ Giao diện:
   - "Cả nhóm chịu" ghi thành dòng sổ riêng, không phải khoản chi (không vào Lịch, tổng đã tiêu); Số dư có dòng "Cả nhóm chịu · nợ của Lan". "Khỏi trả" hiện "Thảo cho bạn khỏi trả".
   - Chưa có: chuyển quyền chủ nhóm, bàn giao thủ quỹ trong app, cho vào lại tên đã rời, báo người xin rời khi đã rời xong. Anh dặn (3/11): làm phần còn thiếu SAU khi xong chuyển quyền + bàn giao; danh sách ở `docs/ke-hoach-tuan.md` mục "Chuyển quyền chủ nhóm + bàn giao thủ quỹ".
 
+## Chốt 4/11/2026
+- **Xấp hình nhóm hay gặp xếp theo tuần** (anh hỏi 4/11: Cơm trưa ngày nào cũng ăn thì hàng tháng phải lướt rất dài; anh chốt cách A "tự đổi theo tần suất", không làm bộ lọc Ngày/Tuần/Tháng), `done-nha` commit 6bfb35e:
+  - Nhóm gặp từ **3 buổi/tuần** trở lên (tính 8 tuần gần nhất, buổi = ngày có khoản) thì **mỗi hàng là một tuần** (thứ Hai – Chủ nhật), **không giới hạn số thẻ** trong tuần (anh dặn: một buổi có thể nhiều khoản). Ít hơn thì giữ mỗi hàng một tháng như 3/11.
+  - Trên các tuần là tiêu đề tháng giữ viên độ thân ("Tháng 11 · Gặp hoài, tốn tiền · 18 buổi"); hàng tuần ghi "12/10 – 18/10", tổng tiền, "n buổi", chip "Tuần này"; tuần không gặp là một dòng mỏng "Nghỉ". Tuần vắt hai tháng nằm ở tháng có nhiều ngày hơn.
+  - Muốn nhảy đúng một ngày thì dùng Lịch tháng. Chuyến đi vẫn theo ngày.
+
 ## Lỗi đã gặp, đừng lặp lại
 - Biểu tượng Android (maskable): đừng đoán phần máy hiện ra. 2/11 em ghi "Samsung hiện 66%" mà chưa đo; ảnh chụp S24 3/11 cho thấy 87%, mặt khỉ ra nhỏ. Đo bằng cách khớp ảnh chụp màn hình chính với bản maskable ở nhiều mức cắt, rồi mới chỉnh.
 - SQL: so sánh `=`/`<>` với cột có thể NULL (vd thủ quỹ của nhóm không quỹ) ra NULL, `if not (...)` thành không chặn: lọt quyền (bắt được 2/11). Dùng `is distinct from` / `is not distinct from` và viết kiểm tra cho nhóm không quỹ. Ngược lại cũng lọt: `my_member(...) is distinct from thủ quỹ` với cả hai NULL ra false, nên người NGOÀI nhóm gọi được `set_fund_delegate`, `request_handover` trên nhóm không quỹ (bắt được 3/11). Luôn chặn `v_me is null` trước.
