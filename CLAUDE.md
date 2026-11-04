@@ -363,8 +363,9 @@ Giao diện:
 - **Hình đại diện nhóm** (anh dặn 4/11 14:33 "ở phần cài đặt nhóm thêm 1 chỗ up hình đại diện nhóm"), `done-nha` commit ở lần đẩy kế, **anh cần dán lại `schema.sql`**:
   - Cài đặt nhóm › Thông tin nhóm › Sửa có khối **"Hình đại diện"**: "Up hình" (có hình rồi thì "Đổi hình" + "Dùng sticker"). Chọn hình xong xem trước ngay ở ô đầu thẻ, bấm **Lưu** mới tải lên. Có hình thì hình thay sticker (ẩn Màu + Biểu tượng); "Dùng sticker" bỏ hình, về sticker cũ.
   - **Cả nhóm thấy giống nhau**, hiện ở ô nhóm màn đầu và Thông tin nhóm. Quyền như đổi biểu tượng: **chủ nhóm hoặc thủ quỹ**; người khác chỉ xem.
-  - Hình tự cắt **vuông ở giữa**, nén 320px (~25 KB) trên máy, lưu ở kho hình bill (riêng tư, thành viên mới xem được). Hình lỗi hay mất mạng thì quay về sticker.
-  - Chưa có (nói nếu anh muốn): up hình ngay lúc Tạo nhóm, hình trên thẻ mời, kéo chỉnh vị trí cắt.
+  - Hình cắt **vuông**, nén 320px (~25 KB) trên máy, lưu ở kho hình bill (riêng tư, thành viên mới xem được). Hình lỗi hay mất mạng thì quay về sticker.
+  - **Chỉnh cắt theo ý (anh dặn 4/11 14:42):** chọn hình xong mở màn cắt phủ tối: khung vuông bo góc như ô nhóm, kéo một ngón để dời, chụm hai ngón / lăn chuột / thanh kéo để phóng (tối đa 5 lần, hình nhỏ ít hơn để khỏi vỡ), nút "Thôi" và "Xong" (Esc cũng thôi). Xong mới lấy đúng phần đang thấy; có nút "Cắt lại" mở lại với khung cũ, không phải chọn hình lần nữa. Chưa chọn kịp thì vẫn cắt giữa. Không đổi máy chủ.
+  - Chưa có (nói nếu anh muốn): up hình ngay lúc Tạo nhóm, hình trên thẻ mời.
 
 ## Lỗi đã gặp, đừng lặp lại
 - Biểu tượng Android (maskable): đừng đoán phần máy hiện ra. 2/11 em ghi "Samsung hiện 66%" mà chưa đo; ảnh chụp S24 3/11 cho thấy 87%, mặt khỉ ra nhỏ. Đo bằng cách khớp ảnh chụp màn hình chính với bản maskable ở nhiều mức cắt, rồi mới chỉnh.
