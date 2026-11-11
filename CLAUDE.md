@@ -424,6 +424,7 @@ Giao diện:
   2b. (11:55) **"Hay ghi" gộp vào danh sách**: một lưới chung, người hay ghi lên đầu, bấm người chưa có trong đơn là thêm luôn; từ 8 người có **ô Tìm tên**, gõ tên chưa có thì có ô "Thêm <tên>".
   2c. (11:59) **Thêm nhiều người cùng lúc**: nút "Thêm nhiều người" cuối thẻ món, chọn nhiều (kể cả gõ nhiều tên) → mỗi người một món, con trỏ vào ô giá; Enter ở ô giá sang món kế.
   3. **Dòng món gọn**: avatar | tên người / tên món | giá | ×, "+ Thêm món" là dòng cuối thẻ; công tắc chia đều phí giao chỉ hiện khi có phí giao; nút phụ "Gửi tin nhắn" / "Chép tin".
+- Anh dặn (11/11 13:58), đã làm trên `so-no-moi`: **kết quả Chia bill là một tờ bill** (cả Chia đều và Theo món) như hình sẽ gửi cho mọi người: ô sticker mới vẽ tay `chia-bill` (hóa đơn xé đôi + đồng xu, kiểu Hand-drawn Flat Color, ô giấy vàng như ô nhóm), tên bill, ngày giờ · ai trả, bảng cột Người | Món | Phí | Trả (dòng phụ tên món), tổng, "Chuyển cho X nha.", đáy răng cưa. Tờ bill dùng tên thật thay "Bạn", không tô màu tiền. Nút phụ: **Gửi hình** (bảng chia sẻ của máy, gửi hình PNG kèm tin) | **Lưu hình** | Chép tin. Ô tên món và ô giá khi chọn: viền xanh mỏng 1px.
 
 ## Lỗi đã gặp, đừng lặp lại
 - Biểu tượng Android (maskable): đừng đoán phần máy hiện ra. 2/11 em ghi "Samsung hiện 66%" mà chưa đo; ảnh chụp S24 3/11 cho thấy 87%, mặt khỉ ra nhỏ. Đo bằng cách khớp ảnh chụp màn hình chính với bản maskable ở nhiều mức cắt, rồi mới chỉnh.
