@@ -412,6 +412,12 @@ Giao diện:
 ## Chốt 11/11/2026
 - Chuyển máy: thư mục làm việc giờ ở `D:\Dự án của NNNK\My App\So-no\done-nha-workspace` (máy mới sau khi cài lại Windows; bản cũ ở `E:\OneDrive` chỉ còn tệp giữ chỗ, không đọc được). Đã kiểm đủ tệp.
 - Anh duyệt hướng sửa Chia bill (rà soát UI 10/11), **làm bằng Opus medium** cho chất lượng UI: (1) màu và nút theo chiều với bạn khi người khác trả đơn (xong 11/11, `done-nha` nhánh `so-no-moi`); (2) S3 Sổ riêng (có danh sách người); (3) dựng lại phần nhập và kết quả Chia bill theo bảng DN-ChiaBill (chọn người có sẵn, + Người mới, hỏi trùng tên; phân cấp: kết luận về bạn → từng người → chi tiết → đối chiếu đơn) + S3b nối Ghi nợ.
+- Anh dặn (11/11 11:21) cho Chia bill, đã làm trên `so-no-moi`:
+  1. **"Bill mới / Đơn mới" phải bấm 2 lần** (lần 1 đổi thành "Bấm lần nữa để xóa", 4 giây) khi đã gõ gì, tránh bấm lộn; chỉ xóa tab đang mở.
+  2. **Bỏ nhãn nhỏ phía trên tiêu đề màn** (kiểu "Bill giấy, ăn chung", "Đơn đặt nhóm · Grab, ShopeeFood"), tiêu đề xích xuống khỏi sát mép trên. Áp cho MỌI trang: màn mới làm theo luôn; màn A–E (nhóm) có nhãn kiểu này thì sửa sau 29/11 (đang đứng yên cho nghiên cứu). Nhãn trên thẻ (vd "Cái hậu quả của nhóm") không thuộc luật này.
+  3. **Một món chọn được nhiều người**: giá món chia đều cho những người chọn, đồng lẻ cho người trả đơn trước (cùng quy ước "người trả chịu lẻ"); rồi phí, khuyến mãi tính như cũ.
+  4. **Chia theo món cũng có trong nhóm/chuyến** (Thêm khoản chi): ghi vào việc sau 29/11 vì đụng `ExpenseSheet` (A–E), cùng việc "Chia theo số tiền từng người" đã có trong `docs/ke-hoach-tuan.md`. Máy chủ đã nhận phần chia từng người, không cần đổi schema; chuyến có quỹ thì làm tròn theo PA-2 (sau chuyến).
+  5. **Bill đang gõ không mất** khi đổi tab Chia đều / Theo món hay tải lại trang (lưu trên máy).
 
 ## Lỗi đã gặp, đừng lặp lại
 - Biểu tượng Android (maskable): đừng đoán phần máy hiện ra. 2/11 em ghi "Samsung hiện 66%" mà chưa đo; ảnh chụp S24 3/11 cho thấy 87%, mặt khỉ ra nhỏ. Đo bằng cách khớp ảnh chụp màn hình chính với bản maskable ở nhiều mức cắt, rồi mới chỉnh.
