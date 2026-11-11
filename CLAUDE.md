@@ -409,6 +409,10 @@ Giao diện:
 - **Cuối chuyến:** nhóm tự chọn chia lại hoặc chuyển số dư. App chỉ hiện số dư và phần đóng góp từng người; thủ quỹ ghi nhận kết quả xử lý (không cần sổ chi tiết từng khoản hoàn). Phần bù dư của thủ quỹ xử lý trong bước này. KHÔNG tự chia, tự chuyển, hay mang số dư sang chuyến/kỳ khác.
 - **Hoãn:** thời điểm và thao tác "kết thúc chuyến" (D2), thứ tự sự kiện ở máy chủ (U4, Opus review) để lúc thiết kế PA-2. **PA-2 (toàn bộ phần làm tròn góp quỹ) để sau chuyến Đà Lạt; chưa duyệt triển khai, chưa được đổi schema/SQL/Supabase.** Không mở thêm câu hỏi nghiệp vụ về làm tròn trong giai đoạn này.
 
+## Chốt 11/11/2026
+- Chuyển máy: thư mục làm việc giờ ở `D:\Dự án của NNNK\My App\So-no\done-nha-workspace` (máy mới sau khi cài lại Windows; bản cũ ở `E:\OneDrive` chỉ còn tệp giữ chỗ, không đọc được). Đã kiểm đủ tệp.
+- Anh duyệt hướng sửa Chia bill (rà soát UI 10/11), **làm bằng Opus medium** cho chất lượng UI: (1) màu và nút theo chiều với bạn khi người khác trả đơn (xong 11/11, `done-nha` nhánh `so-no-moi`); (2) S3 Sổ riêng (có danh sách người); (3) dựng lại phần nhập và kết quả Chia bill theo bảng DN-ChiaBill (chọn người có sẵn, + Người mới, hỏi trùng tên; phân cấp: kết luận về bạn → từng người → chi tiết → đối chiếu đơn) + S3b nối Ghi nợ.
+
 ## Lỗi đã gặp, đừng lặp lại
 - Biểu tượng Android (maskable): đừng đoán phần máy hiện ra. 2/11 em ghi "Samsung hiện 66%" mà chưa đo; ảnh chụp S24 3/11 cho thấy 87%, mặt khỉ ra nhỏ. Đo bằng cách khớp ảnh chụp màn hình chính với bản maskable ở nhiều mức cắt, rồi mới chỉnh.
 - SQL: so sánh `=`/`<>` với cột có thể NULL (vd thủ quỹ của nhóm không quỹ) ra NULL, `if not (...)` thành không chặn: lọt quyền (bắt được 2/11). Dùng `is distinct from` / `is not distinct from` và viết kiểm tra cho nhóm không quỹ. Ngược lại cũng lọt: `my_member(...) is distinct from thủ quỹ` với cả hai NULL ra false, nên người NGOÀI nhóm gọi được `set_fund_delegate`, `request_handover` trên nhóm không quỹ (bắt được 3/11). Luôn chặn `v_me is null` trước.
