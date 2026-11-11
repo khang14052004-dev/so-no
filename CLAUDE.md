@@ -421,6 +421,7 @@ Giao diện:
 - Anh dặn (11/11 11:32 → 11:45), đã làm trên `so-no-moi` (`done-nha` commit 0291617):
   1. **Người hay ghi lên đầu, áp dụng cho TOÀN APP**: đếm trên máy khi kết quả được dùng (chép, gửi, ghi nợ), "Bạn" luôn đầu. Chia bill đã áp (lưới người, chip Ai trả đơn, Thêm món tự gán người kế). Màn A–E (Chia, Ai trả ở Thêm khoản chi…) áp sau 29/11.
   2. **Popup chọn người cho món**: mặc định chọn MỘT người (bấm là xong); chip "Hay ghi" (tên từng dùng chưa có trong đơn); hai nút cuối **"Người mới"** (gõ tên, nhiều tên cách dấu phẩy) và **"Món chung"** (chọn nhiều, có Tất cả, "Xong · n người").
+  2b. (11:55) **"Hay ghi" gộp vào danh sách**: một lưới chung, người hay ghi lên đầu, bấm người chưa có trong đơn là thêm luôn; từ 8 người có **ô Tìm tên**, gõ tên chưa có thì có ô "Thêm <tên>".
   3. **Dòng món gọn**: avatar | tên người / tên món | giá | ×, "+ Thêm món" là dòng cuối thẻ; công tắc chia đều phí giao chỉ hiện khi có phí giao; nút phụ "Gửi tin nhắn" / "Chép tin".
 
 ## Lỗi đã gặp, đừng lặp lại
