@@ -425,6 +425,7 @@ Giao diện:
   2c. (11:59) **Thêm nhiều người cùng lúc**: nút "Thêm nhiều người" cuối thẻ món, chọn nhiều (kể cả gõ nhiều tên) → mỗi người một món, con trỏ vào ô giá; Enter ở ô giá sang món kế.
   3. **Dòng món gọn**: avatar | tên người / tên món | giá | ×, "+ Thêm món" là dòng cuối thẻ; công tắc chia đều phí giao chỉ hiện khi có phí giao; nút phụ "Gửi tin nhắn" / "Chép tin".
 - Anh dặn (11/11 13:58), đã làm trên `so-no-moi`: **kết quả Chia bill là một tờ bill** (cả Chia đều và Theo món) như hình sẽ gửi cho mọi người: ô sticker mới vẽ tay `chia-bill` (hóa đơn xé đôi + đồng xu, kiểu Hand-drawn Flat Color, ô giấy vàng như ô nhóm), tên bill, ngày giờ · ai trả, bảng cột Người | Món | Phí | Trả (dòng phụ tên món), tổng, "Chuyển cho X nha.", đáy răng cưa. Tờ bill dùng tên thật thay "Bạn", không tô màu tiền. Nút phụ: **Gửi hình** (bảng chia sẻ của máy, gửi hình PNG kèm tin) | **Lưu hình** | Chép tin. Ô tên món và ô giá khi chọn: viền xanh mỏng 1px.
+- Anh chốt (11/11 14:20): **ô nhập khi chọn có viền xanh 1px cho TOÀN APP** (không gạch chân, không 2px). Màn mới đã áp; màn A–E (`.input`, ô số tiền, ô ngày ở base.css) đổi sau 29/11. Gạch dưới mực trên thẻ polaroid giữ nguyên.
   - Sửa 14:16 (anh dặn): góc trên tờ bill vuông; kẻ mờ giữa các dòng người; tên mờ hơn giá một chút; logo Done Nha mờ dưới tờ bill. **Sau này có mã QR thanh toán thì đặt cuối tờ bill** (sau Tổng, trước "Chuyển cho X nha.").
 
 ## Lỗi đã gặp, đừng lặp lại
