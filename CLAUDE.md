@@ -418,6 +418,10 @@ Giao diện:
   3. **Một món chọn được nhiều người**: giá món chia đều cho những người chọn, đồng lẻ cho người trả đơn trước (cùng quy ước "người trả chịu lẻ"); rồi phí, khuyến mãi tính như cũ.
   4. **Chia theo món cũng có trong nhóm/chuyến** (Thêm khoản chi): ghi vào việc sau 29/11 vì đụng `ExpenseSheet` (A–E), cùng việc "Chia theo số tiền từng người" đã có trong `docs/ke-hoach-tuan.md`. Máy chủ đã nhận phần chia từng người, không cần đổi schema; chuyến có quỹ thì làm tròn theo PA-2 (sau chuyến).
   5. **Bill đang gõ không mất** khi đổi tab Chia đều / Theo món hay tải lại trang (lưu trên máy).
+- Anh dặn (11/11 11:32 → 11:45), đã làm trên `so-no-moi` (`done-nha` commit 0291617):
+  1. **Người hay ghi lên đầu, áp dụng cho TOÀN APP**: đếm trên máy khi kết quả được dùng (chép, gửi, ghi nợ), "Bạn" luôn đầu. Chia bill đã áp (lưới người, chip Ai trả đơn, Thêm món tự gán người kế). Màn A–E (Chia, Ai trả ở Thêm khoản chi…) áp sau 29/11.
+  2. **Popup chọn người cho món**: mặc định chọn MỘT người (bấm là xong); chip "Hay ghi" (tên từng dùng chưa có trong đơn); hai nút cuối **"Người mới"** (gõ tên, nhiều tên cách dấu phẩy) và **"Món chung"** (chọn nhiều, có Tất cả, "Xong · n người").
+  3. **Dòng món gọn**: avatar | tên người / tên món | giá | ×, "+ Thêm món" là dòng cuối thẻ; công tắc chia đều phí giao chỉ hiện khi có phí giao; nút phụ "Gửi tin nhắn" / "Chép tin".
 
 ## Lỗi đã gặp, đừng lặp lại
 - Biểu tượng Android (maskable): đừng đoán phần máy hiện ra. 2/11 em ghi "Samsung hiện 66%" mà chưa đo; ảnh chụp S24 3/11 cho thấy 87%, mặt khỉ ra nhỏ. Đo bằng cách khớp ảnh chụp màn hình chính với bản maskable ở nhiều mức cắt, rồi mới chỉnh.
