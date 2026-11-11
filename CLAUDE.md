@@ -427,6 +427,7 @@ Giao diện:
 - Anh dặn (11/11 13:58), đã làm trên `so-no-moi`: **kết quả Chia bill là một tờ bill** (cả Chia đều và Theo món) như hình sẽ gửi cho mọi người: ô sticker mới vẽ tay `chia-bill` (hóa đơn xé đôi + đồng xu, kiểu Hand-drawn Flat Color, ô giấy vàng như ô nhóm), tên bill, ngày giờ · ai trả, bảng cột Người | Món | Phí | Trả (dòng phụ tên món), tổng, "Chuyển cho X nha.", đáy răng cưa. Tờ bill dùng tên thật thay "Bạn", không tô màu tiền. Nút phụ: **Gửi hình** (bảng chia sẻ của máy, gửi hình PNG kèm tin) | **Lưu hình** | Chép tin. Ô tên món và ô giá khi chọn: viền xanh mỏng 1px.
 - Anh chốt (11/11 14:20): **ô nhập khi chọn có viền xanh 1px cho TOÀN APP** (không gạch chân, không 2px). Màn mới đã áp; màn A–E (`.input`, ô số tiền, ô ngày ở base.css) đổi sau 29/11. Gạch dưới mực trên thẻ polaroid giữ nguyên.
   - Sửa 14:16 (anh dặn): góc trên tờ bill vuông; kẻ mờ giữa các dòng người; tên mờ hơn giá một chút; logo Done Nha mờ dưới tờ bill. **Sau này có mã QR thanh toán thì đặt cuối tờ bill** (sau Tổng, trước "Chuyển cho X nha.").
+- **Anh chốt UI Chia bill (11/11 14:28).** Từ giờ chỉ sửa khi anh góp ý hoặc khi nối Sổ riêng (S3) / Ghi nợ (S3b). Việc kế: S3 Sổ riêng → danh sách người Chia bill lấy từ sổ → S3b nút Ghi nợ → S2 Chính sách (hạn 7/12) → S4–S6.
 
 ## Lỗi đã gặp, đừng lặp lại
 - Biểu tượng Android (maskable): đừng đoán phần máy hiện ra. 2/11 em ghi "Samsung hiện 66%" mà chưa đo; ảnh chụp S24 3/11 cho thấy 87%, mặt khỉ ra nhỏ. Đo bằng cách khớp ảnh chụp màn hình chính với bản maskable ở nhiều mức cắt, rồi mới chỉnh.
