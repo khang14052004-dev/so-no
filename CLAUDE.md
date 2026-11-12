@@ -441,6 +441,13 @@ Giao diện:
   - Theo người: tìm không dấu (từ 6 người), thanh lọc ghim khi cuộn, người đã tất toán gom cuối và thu gọn (giữ trong phiên), không giới hạn số người.
   - Nút back của máy: popup đóng trước, rồi mới điều hướng. `app.jsx` sửa đúng 4 dòng (anh duyệt). Chỉ áp cho màn mới.
 - **Ghi nhanh Sổ riêng, sửa chọn người (anh góp ý 12/11 9:53: hàng người lướt ngang khó dùng với tên dài):** bỏ hàng người lướt ngang và chip "Tất cả"; còn chip nhóm (xuống dòng) + 2 nút **"Người mới"** (con trỏ vào ô gõ ngay) và **"Chọn người"** (tìm người đã có). Đã chọn ai (bấm chip nhóm hay chọn trong popup) thì hiện danh sách avatar + tên bên dưới, xuống dòng, bỏ từng người bằng ×, có "Bỏ hết". Thêm tên: nút "Thêm <tên>" ngay dưới ô gõ, Enter đi qua form (anh báo "không thêm người được" trên S24; giả lập không tái hiện được).
+- **Ghi nhanh, chọn người, đợt 2 (anh góp ý 12/11 10:46):**
+  - Bảng chọn người / thêm người: khóa cuộn trang bên dưới; Chrome Android co trang theo bàn phím khi bảng mở (bảng không bị cắt).
+  - Tên **phân biệt dấu** ở màn mới: gõ không dấu khớp mọi dấu ("ky" ra Ký, Kỳ), gõ có dấu phải đúng dấu; "Kỳ" và "Ký" là hai người (vẫn hỏi trùng "lân"/"Lan", "Kiet"/"Kiệt"). Chia bill và màn nhóm giữ cách so cũ.
+  - Chọn thì đóng **con dấu tích sticker** (mù tạt, kiểu Hand-drawn Flat Color), bỏ nền xanh xám; bỏ chữ "mới" mọi chỗ.
+  - **Nhấn giữ một người**: Ghim lên đầu / Bỏ ghim, Đổi tên, **Xóa khỏi sổ** (bấm 2 lần; chỉ khi sạch nợ, còn nợ thì báo ghi trả hết trước; xóa thì bỏ luôn khỏi chip nhóm và ghim; khoản cũ giữ). Máy chủ thêm hàm `remove_personal_member` → anh dán lại `schema.sql`.
+  - **Thứ tự**: công tắc "Mới ghi lên đầu" ở Cài đặt Ghi nhanh (mặc định bật: ghi nợ ai, nhóm nào thì lên đầu; tắt: người theo thứ tự thêm, chip theo thứ tự ở Cài đặt). Người ghim luôn đứng đầu.
+  - Chip nhóm ở Ghi nhanh **một hàng lướt ngang**. Cài đặt: bỏ dòng "Tất cả"; chip nhóm **nhấn giữ kéo** để sắp (hoặc kéo tay nắm 6 chấm).
 
 ## Lỗi đã gặp, đừng lặp lại
 - Biểu tượng Android (maskable): đừng đoán phần máy hiện ra. 2/11 em ghi "Samsung hiện 66%" mà chưa đo; ảnh chụp S24 3/11 cho thấy 87%, mặt khỉ ra nhỏ. Đo bằng cách khớp ảnh chụp màn hình chính với bản maskable ở nhiều mức cắt, rồi mới chỉnh.
