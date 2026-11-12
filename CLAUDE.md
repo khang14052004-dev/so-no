@@ -448,6 +448,7 @@ Giao diện:
   - **Nhấn giữ một người**: Ghim lên đầu / Bỏ ghim, Đổi tên, **Xóa khỏi sổ** (bấm 2 lần; chỉ khi sạch nợ, còn nợ thì báo ghi trả hết trước; xóa thì bỏ luôn khỏi chip nhóm và ghim; khoản cũ giữ). Máy chủ thêm hàm `remove_personal_member` → anh dán lại `schema.sql`.
   - **Thứ tự**: công tắc "Mới ghi lên đầu" ở Cài đặt Ghi nhanh (mặc định bật: ghi nợ ai, nhóm nào thì lên đầu; tắt: người theo thứ tự thêm, chip theo thứ tự ở Cài đặt). Người ghim luôn đứng đầu.
   - Chip nhóm ở Ghi nhanh **một hàng lướt ngang**. Cài đặt: bỏ dòng "Tất cả"; chip nhóm **nhấn giữ kéo** để sắp (hoặc kéo tay nắm 6 chấm).
+- **Không khối nổi (anh dặn 12/11, toàn app):** tờ nhấn giữ người (Ghim / Đổi tên / Xóa) thành danh sách phẳng, bỏ thẻ trắng nổi trong bảng đáy; từ nay hạn chế thẻ nổi, thông tin chìm xuống nền, chỉ kẻ mờ giữa các dòng. Luật ở `done-nha/.claude/rules/ui.md`. Còn thẻ nổi ở màn Sổ nợ (Theo người, Ghi nhanh) và màn A–E: chờ anh nói có phẳng hết không.
 
 ## Lỗi đã gặp, đừng lặp lại
 - Biểu tượng Android (maskable): đừng đoán phần máy hiện ra. 2/11 em ghi "Samsung hiện 66%" mà chưa đo; ảnh chụp S24 3/11 cho thấy 87%, mặt khỉ ra nhỏ. Đo bằng cách khớp ảnh chụp màn hình chính với bản maskable ở nhiều mức cắt, rồi mới chỉnh.
