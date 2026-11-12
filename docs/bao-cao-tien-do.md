@@ -14,7 +14,7 @@ Phiên không có repo (vd chat claude.ai): gửi "Bản mới nhất" trong fil
 ## Cách tính %
 Tính theo khối lượng kế hoạch: mỗi tuần kế hoạch là 1 phần; pha 1 thiết kế (13–25/10) 2 phần, pha 2 (26/10–28/12) 9 phần, tổng 11. Việc "code xong, chờ anh thử máy thật" vẫn tính xong, kèm ghi chú.
 
-| Tuần | Gói việc | Trọng số | Xong 11/11 |
+| Tuần | Gói việc | Trọng số | Xong 12/11 |
 |---|---|---|---|
 | Pha 1 | Thiết kế: canvas, Design System, bàn giao | 2 | 2 |
 | 26/10–1/11 | Khung app, đăng nhập khách + Google, Giữ chỗ, thẻ mời + Zalo | 1 | 1 |
@@ -23,13 +23,13 @@ Tính theo khối lượng kế hoạch: mỗi tuần kế hoạch là 1 phần;
 | 2–8/11 | Ghi khi mất mạng, đồng bộ sau | 0,15 | 0,15 (xong 3/11, anh thử S24 đạt) |
 | 9–15/11 | Góp quỹ, Số dư, Quỹ, Cân đối, Khóa | 0,6 | 0,6 (chờ thử máy thật) |
 | 9–15/11 | Tài khoản nhận tiền + VietQR | 0,4 | 0,4 (code xong 4/11; schema đã có trên Supabase 11/11; chờ quét thử app ngân hàng thật) |
-| 16–22/11 | Sổ nợ tổng, Ghi nhanh, Ghi trả, Sổ riêng, kiểu D, Cấn trừ | 1 | 0 |
-| 23–29/11 | Báo nợ, trang xem sổ, Chia bill | 1 | 0,05 (S1 Chia bill: tính tiền + 72 bài kiểm xong; rà soát UI 10/11 thấy phần nhập và kết quả chưa theo bảng DN-ChiaBill, dựng lại sau S3; nút Ghi nợ chưa nối) |
+| 16–22/11 | Sổ nợ tổng, Ghi nhanh, Ghi trả, Sổ riêng, kiểu D, Cấn trừ | 1 | 0,7 (code xong trên nhánh `so-no-moi` 11–12/11: Sổ riêng, Ghi nhanh + cài đặt lưu máy chủ, chọn người, Theo người, chi tiết người, Các đợt trước, Ghi trả; anh đã xem bản xem trước trên S24; Cấn trừ và gộp nơi để sau chuyến; chưa gộp `main`) |
+| 23–29/11 | Báo nợ, trang xem sổ, Chia bill | 1 | 0,25 (S1 Chia bill: tính tiền xong, UI anh chốt 11/11 14:28 gồm tờ bill gửi hình; nút Ghi nợ chưa nối Sổ riêng (S3b); Báo nợ, trang xem sổ chưa làm) |
 | 30/11–6/12 | Thống kê, Tôi, Quyền riêng tư, CSV, mất mạng/gửi lỗi/sửa trùng, trang chủ + Chính sách quyền riêng tư (Google Publish) | 1 | 0 |
 | 7–13/12 | Thử kín cả nhóm, sửa lỗi | 1 | 0 |
 | 14–20/12 | Tổng kết chuyến, xóa chuyến dọn hình | 1 | 0 |
 | 21–28/12 | Sửa lỗi, hướng dẫn cài, tạo chuyến Đà Lạt thật | 1 | 0 |
-| **Tổng** | | **11** | **5,05 = 46%** |
+| **Tổng** | | **11** | **5,9 = 54%** |
 
 - Thiết kế % = phần pha 1 xong ÷ 2. Code % = phần pha 2 xong ÷ 9.
 - Thời gian đã qua = (hôm nay − 13/10) ÷ 76 ngày (13/10 → 28/12).
@@ -48,26 +48,29 @@ Tính theo khối lượng kế hoạch: mỗi tuần kế hoạch là 1 phần;
 4. Trễ (ai giữ, mấy ngày) và việc đang chờ anh.
 5. Rủi ro sắp tới (bảng: việc, cần trước, vì sao).
 
-## Bản mới nhất (11/11/2026)
-**46%** (thiết kế 100%, code 34%) · thời gian đã qua 38% · **sớm khoảng 6 ngày** (10/11 sớm ~7 ngày; S1 Chia bill hạ từ 0,1 xuống 0,05 vì giao diện phải dựng lại).
+## Bản mới nhất (12/11/2026)
+**54%** (thiết kế 100%, code 43%) · thời gian đã qua 39% · **sớm khoảng 11 ngày** (11/11 sớm ~6 ngày; S3 Sổ riêng và Chia bill UI làm xong sớm hơn kế hoạch 16–29/11, nhưng nằm trên nhánh `so-no-moi`, chưa gộp `main`).
 
-Đã xong (10/11 → 11/11):
-- Chốt nghiệp vụ làm tròn S1 (Q-A đến Q-G; quỹ làm tròn chỉ cho chuyến có quỹ; Cơm trưa, Sổ riêng giữ quy tắc cũ; cuối chuyến nhóm tự chọn chia lại hay chuyển). Ghi ở mục "Chốt 10/11" của CLAUDE.md và `07-handoff/2026-11-10-s1-bo-sung-quyet-dinh-nghiep-vu.md`. PA-2 (làm tròn vào quỹ) để sau chuyến.
-- 7 lỗi A–E ghi vào `02-research/can-opus-review.md` mục 2; ưu tiên (a), (b), (e), (f).
-- Rà soát UI S1 Chia bill: phần nhập (tự gõ tên từng người) và kết quả chưa theo bảng DN-ChiaBill vì chưa có danh sách người (Sổ riêng); chọn người khác trả đơn thì số tô đỏ và nút đếm sai người. Chưa sửa, chờ anh duyệt hướng.
-- Anh đã dán `schema.sql` mới: Supabase có `payout_accounts` (kiểm chỉ đọc 11/11).
+Đã xong (11/11 → 12/11):
+- S3 Sổ riêng trên `so-no-moi`: máy chủ thêm `ensure_personal`, `add_personal_member`, `rename_personal_member`, `remove_personal_member`, bảng `user_settings`; màn `/so-no` (Đang cho nợ, Ghi nhanh, Theo người, chi tiết người, Các đợt trước, Ghi trả nhanh).
+- Cài đặt Ghi nhanh lưu trên máy chủ (chip nhóm, chip số tiền, thứ tự hiển thị).
+- Chọn người dùng chung (PersonPicker + QuickPeople): tên phân biệt dấu, ghim, đổi tên, xóa khỏi sổ, nút back đóng popup trước; Chia bill giữ nguyên.
+- Chia bill: UI chốt 11/11 14:28 (tờ bill, Gửi hình, một món nhiều người, bill giữ khi tải lại).
+- Rà UI Sổ nợ 12/11: bỏ khối nổi trong bảng đáy; chuẩn hóa chữ Cài đặt Ghi nhanh và nhịp khoảng cách (28/8/16); thẻ Đang cho nợ hiện số đầy đủ. Chia bill đối chiếu pixel: không đổi.
+- Kiểm: 96 bài JS, kiểm SQL qua; build qua.
 
 Tiếp theo:
-- Claude (chờ anh duyệt hướng sửa S1): sửa nghĩa khi người khác trả đơn (Sonnet) → S2 Chính sách → S3 Sổ riêng → dựng lại phần nhập Chia bill theo bảng + S3b Ghi nợ → S4 Báo nợ → S5 Thống kê → S6 Tôi (Sonnet, mỗi phiên một việc). Opus: sửa lỗi A–E nếu anh duyệt; review trước khi gộp `main` 30/11.
-- Anh: P1 đánh giá chuyên gia (10–15/11), chuẩn bị thử 5 người (16–22/11); duyệt hướng sửa S1; quyết có sửa lỗi (e), (f) trên `main` trước 16/11 không; quét thử VietQR bằng app ngân hàng thật (schema đã có).
+- Claude: S3b nối nút Ghi nợ của Chia bill với Sổ riêng → S2 Chính sách (hạn 7/12) → S4 Báo nợ → S5 Thống kê → S6 Tôi (Sonnet, mỗi phiên một việc). Opus: review chỗ chạm A–E trước khi gộp `main` 30/11; sửa lỗi A–E nếu anh duyệt.
+- Anh: thử `so-no-moi.done-nha.pages.dev` trên máy thật (bàn phím mở, iPhone); dán lại `schema.sql` mới của nhánh `so-no-moi` nếu chưa; P1 đánh giá chuyên gia (10–15/11), chuẩn bị thử 5 người (16–22/11); quyết có sửa lỗi (e), (f) trên `main` trước 16/11 không; quét thử VietQR app ngân hàng thật.
 
-Trễ: Claude không có việc trễ. Anh trễ so với hạn pha 1 (25/10): duyệt bàn giao Lịch và Vào nhóm (17 ngày; hai màn đã code và thử đạt, đề xuất đóng). Đang chờ anh: quét VietQR app ngân hàng thật (từ 4/11), thử Góp quỹ/Cân đối máy thật (từ 29/10), ô ngày iPhone (từ 29/10), bạn iPhone thử (từ 28/10), thử Theo món S1 (từ 9/11).
+Trễ: Claude không có việc trễ. Anh trễ so với hạn pha 1 (25/10): duyệt bàn giao Lịch và Vào nhóm (18 ngày; hai màn đã code và thử đạt, đề xuất đóng). Đang chờ anh: quét VietQR app ngân hàng thật (từ 4/11), thử Góp quỹ/Cân đối máy thật (từ 29/10), ô ngày iPhone (từ 29/10), bạn iPhone thử (từ 28/10), thử Theo món S1 (từ 9/11), thử Sổ riêng với bàn phím mở trên máy thật (từ 12/11).
 
 Rủi ro:
 | Việc | Cần trước | Vì sao |
 |---|---|---|
 | Lỗi A–E (e) trả dư mất, (f) hai máy ghi trùng | 16/11 | Đợt thử người dùng thật chạy trên `main`; dễ gặp khi hai người cùng bấm |
-| S3 Sổ riêng | ~25/11 | Chặn dựng lại Chia bill và S3b; anh cần kiểm bản xem trước trước khi gộp 30/11 |
+| Gộp `so-no-moi` vào `main` | 30/11 | Anh kiểm bản xem trước + Opus review chỗ chạm A–E; có đổi schema (Sổ riêng, cài đặt, xóa người) nên phải dán lại |
+| S3b Ghi nợ Chia bill | ~25/11 | Chia bill hiện chưa ghi vào sổ |
 | Camera + gửi hình trên iPhone thật | 7/12 | Chưa thử |
 | Trang chủ + Chính sách quyền riêng tư (S2) | 7/12 | Google Publish |
 | Màu chủ đạo | ~30/11 | Biểu tượng đã chốt 3/11; màu còn mở |
@@ -81,3 +84,4 @@ Rủi ro:
 | 2/11 | 40% | 100% | 27% | 26% | sớm ~10 ngày |
 | 10/11 | 46% | 100% | 34% | 37% | sớm ~7 ngày |
 | 11/11 | 46% | 100% | 34% | 38% | sớm ~6 ngày |
+| 12/11 | 54% | 100% | 43% | 39% | sớm ~11 ngày |
