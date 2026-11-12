@@ -440,6 +440,7 @@ Giao diện:
   - Popup: tìm không dấu; gõ nhiều tên cách dấu phẩy (bỏ mục trống, bỏ tên lặp trong một lần gõ); hỏi trùng từng tên; người mới được chọn sẵn, có nhãn "mới"; tìm tiếp vẫn giữ người đã chọn; hàng "Đã chọn" + "Xong · n người" là bước xác nhận. Đóng popup không mất nháp; người mới nằm trong máy tới lần ghi nợ đầu.
   - Theo người: tìm không dấu (từ 6 người), thanh lọc ghim khi cuộn, người đã tất toán gom cuối và thu gọn (giữ trong phiên), không giới hạn số người.
   - Nút back của máy: popup đóng trước, rồi mới điều hướng. `app.jsx` sửa đúng 4 dòng (anh duyệt). Chỉ áp cho màn mới.
+- **Ghi nhanh Sổ riêng, sửa chọn người (anh góp ý 12/11 9:53: hàng người lướt ngang khó dùng với tên dài):** bỏ hàng người lướt ngang và chip "Tất cả"; còn chip nhóm (xuống dòng) + 2 nút **"Người mới"** (con trỏ vào ô gõ ngay) và **"Chọn người"** (tìm người đã có). Đã chọn ai (bấm chip nhóm hay chọn trong popup) thì hiện danh sách avatar + tên bên dưới, xuống dòng, bỏ từng người bằng ×, có "Bỏ hết". Thêm tên: nút "Thêm <tên>" ngay dưới ô gõ, Enter đi qua form (anh báo "không thêm người được" trên S24; giả lập không tái hiện được).
 
 ## Lỗi đã gặp, đừng lặp lại
 - Biểu tượng Android (maskable): đừng đoán phần máy hiện ra. 2/11 em ghi "Samsung hiện 66%" mà chưa đo; ảnh chụp S24 3/11 cho thấy 87%, mặt khỉ ra nhỏ. Đo bằng cách khớp ảnh chụp màn hình chính với bản maskable ở nhiều mức cắt, rồi mới chỉnh.
