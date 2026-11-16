@@ -502,6 +502,8 @@ Giao diện:
 
 - **Lỗi A–E (e) trả dư, (f) hai máy ghi trùng trong đợt thử 16–28/11 (anh chốt 11:06): KHÔNG sửa trên `main`** (giữ đóng băng tới 29/11). Giới hạn buổi thử: (1) không làm tình huống trả dư hay hoàn phần trả dư; (2) không cho hai thiết bị cùng ghi khoản vào một nhóm cùng lúc; (3) dùng dữ liệu thử, không tiền thật; (4) người thử lỡ gặp thì dừng thao tác đó, ghi nhận "lỗi đã biết (e)/(f)", không bắt thử lại để tái hiện.
 - **S2 trang chủ + Chính sách quyền riêng tư (anh cho làm 11:06):** Sonnet, trên `so-no-moi`, chỉ hai trang; không đụng A–E, Sổ nợ, Chia bill, nhóm, logic tiền, schema; không merge `main`, không deploy production.
+  - Anh duyệt (13:45): giao diện trang chủ ĐẠT; Chính sách duyệt cách trình bày, CHƯA duyệt nội dung công bố. Đã push xem trước (`done-nha` 9764e0d, `/gioi-thieu`, `/chinh-sach`). Trước khi công bố: điền email liên hệ thật; đối chiếu câu Google Limited Use và dữ liệu Google với màn đồng ý trên Google Console; nguyên tắc là mỗi câu đúng hành vi thật, không trau chuốt văn.
+  - Tên miền cho Google Branding CHƯA chốt: không mặc định dùng `done-nha.pages.dev`; Google đòi trang chủ và Chính sách nằm trên miền đã xác minh quyền sở hữu. Thêm: màn đồng ý Google hiện tên miền Supabase (`<mã dự án>.supabase.co`) chứ không phải "Done Nha", tới khi brand được xác minh hoặc dùng tên miền riêng cho Supabase Auth (gói trả phí).
 
 ## Lỗi đã gặp, đừng lặp lại
 - Biểu tượng Android (maskable): đừng đoán phần máy hiện ra. 2/11 em ghi "Samsung hiện 66%" mà chưa đo; ảnh chụp S24 3/11 cho thấy 87%, mặt khỉ ra nhỏ. Đo bằng cách khớp ảnh chụp màn hình chính với bản maskable ở nhiều mức cắt, rồi mới chỉnh.
