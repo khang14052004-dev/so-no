@@ -495,7 +495,9 @@ Giao diện:
   - Lưu món trên máy chủ: **phương án A**, cột `ledger_entries.detail` JSON cho phép null (null = Chia đều). Máy chủ tự tính lại phần từng người từ `detail` và đối chiếu từng đồng với `entry_shares`. Migration chưa tạo, dán sau đợt thử. Không có chỗ lưu trên máy chủ thì không làm Theo món.
   - Sửa mở lại đúng danh sách món. Khoản có thành viên đã rời: khóa Sửa cả khoản, chỉ xem.
   - Xóa/Hủy chưa đổi; đưa vào rà A–E sau 29/11 (`02-research/can-opus-review.md` mục 3, lỗi (h), (i)). Đã kiểm: Xóa hiện là hủy bằng dòng `void`, giữ lịch sử.
-  - Chờ anh: đồng dư của khuyến mãi theo quy ước cũ đi người trả trước (người trả được giảm thêm 1đ); giữ hay chốt luật khác.
+  - Luật đồng lẻ (anh chốt 10:17, giữ thuật toán hiện tại): khi phân bổ, phần dư được ưu tiên cho người trả. Với phí, người trả chịu thêm; với khuyến mãi, người trả được hưởng thêm. Không viết gọn "người trả chịu lẻ".
+  - Bảng ca kiểm thử: mỗi ca kiểm tổng, số từng người, người nhận phần dư, và máy chủ từ chối khi `entry_shares` lệch (kể cả hoán đổi hai người). C5/C7 là ca chính cho phần dư.
+  - Đặc tả ở trạng thái sẵn sàng review (10:17); CHƯA được tạo migration, CHƯA code.
   - Câu nghiên cứu trong đợt thử: "Lần gần nhất đi ăn chung, nhóm mình thường tính tiền như thế nào?" (+ "Có khi nào chia riêng theo món mỗi người đã ăn không?").
 
 ## Lỗi đã gặp, đừng lặp lại
