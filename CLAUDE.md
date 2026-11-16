@@ -500,6 +500,9 @@ Giao diện:
   - Đặc tả ở trạng thái sẵn sàng review (10:17); CHƯA được tạo migration, CHƯA code.
   - Câu nghiên cứu trong đợt thử: "Lần gần nhất đi ăn chung, nhóm mình thường tính tiền như thế nào?" (+ "Có khi nào chia riêng theo món mỗi người đã ăn không?").
 
+- **Lỗi A–E (e) trả dư, (f) hai máy ghi trùng trong đợt thử 16–28/11 (anh chốt 11:06): KHÔNG sửa trên `main`** (giữ đóng băng tới 29/11). Giới hạn buổi thử: (1) không làm tình huống trả dư hay hoàn phần trả dư; (2) không cho hai thiết bị cùng ghi khoản vào một nhóm cùng lúc; (3) dùng dữ liệu thử, không tiền thật; (4) người thử lỡ gặp thì dừng thao tác đó, ghi nhận "lỗi đã biết (e)/(f)", không bắt thử lại để tái hiện.
+- **S2 trang chủ + Chính sách quyền riêng tư (anh cho làm 11:06):** Sonnet, trên `so-no-moi`, chỉ hai trang; không đụng A–E, Sổ nợ, Chia bill, nhóm, logic tiền, schema; không merge `main`, không deploy production.
+
 ## Lỗi đã gặp, đừng lặp lại
 - Biểu tượng Android (maskable): đừng đoán phần máy hiện ra. 2/11 em ghi "Samsung hiện 66%" mà chưa đo; ảnh chụp S24 3/11 cho thấy 87%, mặt khỉ ra nhỏ. Đo bằng cách khớp ảnh chụp màn hình chính với bản maskable ở nhiều mức cắt, rồi mới chỉnh.
 - SQL: so sánh `=`/`<>` với cột có thể NULL (vd thủ quỹ của nhóm không quỹ) ra NULL, `if not (...)` thành không chặn: lọt quyền (bắt được 2/11). Dùng `is distinct from` / `is not distinct from` và viết kiểm tra cho nhóm không quỹ. Ngược lại cũng lọt: `my_member(...) is distinct from thủ quỹ` với cả hai NULL ra false, nên người NGOÀI nhóm gọi được `set_fund_delegate`, `request_handover` trên nhóm không quỹ (bắt được 3/11). Luôn chặn `v_me is null` trước.
