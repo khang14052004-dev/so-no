@@ -488,6 +488,16 @@ Giao diện:
   - Câu mới chờ anh duyệt: chỉ xem, ghi chú Chia bill khi bỏ khoản owe, "Máy chủ đã ghi khác bản này (45k)", "Chưa kiểm được với máy chủ nên chưa bỏ…".
   - Kế hoạch bản 3: `done-nha-workspace/07-handoff/2026-11-14-f2-f3-thong-nhat-hang-cho.md`.
 
+## Chốt 16/11/2026
+- **Chia theo món trong nhóm/chuyến (anh chốt 16/11 9:44–10:09), CHƯA code, tích hợp từ 30/11.** Đặc tả + bảng ca kiểm thử: `done-nha-workspace/07-handoff/2026-11-16-chia-theo-mon-nhom.md`.
+  - Một nơi ghi: Nhóm › Thêm khoản chi có "Chia đều | Theo món"; Chia bill vẫn chỉ cho Sổ riêng. Không làm "Chia bill ghi vào nhóm" (hai luồng dễ ghi đôi).
+  - Dùng chung phần đọc món, phí, khuyến mãi; KHÔNG dùng làm tròn kiểu Grab. Sổ nhóm ghi đúng từng đồng; đồng lẻ dồn theo `splitEqual`/`splitProportional` của lõi (người trả trước nếu có trong danh sách, rồi thứ tự thêm tên; Quỹ trả thì theo thứ tự thêm tên). Cân đối mới làm tròn 1.000đ; PA-2 vẫn sau chuyến.
+  - Lưu món trên máy chủ: **phương án A**, cột `ledger_entries.detail` JSON cho phép null (null = Chia đều). Máy chủ tự tính lại phần từng người từ `detail` và đối chiếu từng đồng với `entry_shares`. Migration chưa tạo, dán sau đợt thử. Không có chỗ lưu trên máy chủ thì không làm Theo món.
+  - Sửa mở lại đúng danh sách món. Khoản có thành viên đã rời: khóa Sửa cả khoản, chỉ xem.
+  - Xóa/Hủy chưa đổi; đưa vào rà A–E sau 29/11 (`02-research/can-opus-review.md` mục 3, lỗi (h), (i)). Đã kiểm: Xóa hiện là hủy bằng dòng `void`, giữ lịch sử.
+  - Chờ anh: đồng dư của khuyến mãi theo quy ước cũ đi người trả trước (người trả được giảm thêm 1đ); giữ hay chốt luật khác.
+  - Câu nghiên cứu trong đợt thử: "Lần gần nhất đi ăn chung, nhóm mình thường tính tiền như thế nào?" (+ "Có khi nào chia riêng theo món mỗi người đã ăn không?").
+
 ## Lỗi đã gặp, đừng lặp lại
 - Biểu tượng Android (maskable): đừng đoán phần máy hiện ra. 2/11 em ghi "Samsung hiện 66%" mà chưa đo; ảnh chụp S24 3/11 cho thấy 87%, mặt khỉ ra nhỏ. Đo bằng cách khớp ảnh chụp màn hình chính với bản maskable ở nhiều mức cắt, rồi mới chỉnh.
 - SQL: so sánh `=`/`<>` với cột có thể NULL (vd thủ quỹ của nhóm không quỹ) ra NULL, `if not (...)` thành không chặn: lọt quyền (bắt được 2/11). Dùng `is distinct from` / `is not distinct from` và viết kiểm tra cho nhóm không quỹ. Ngược lại cũng lọt: `my_member(...) is distinct from thủ quỹ` với cả hai NULL ra false, nên người NGOÀI nhóm gọi được `set_fund_delegate`, `request_handover` trên nhóm không quỹ (bắt được 3/11). Luôn chặn `v_me is null` trước.
