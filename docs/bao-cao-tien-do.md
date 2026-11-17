@@ -12,9 +12,9 @@ Lập 30/10/2026 theo lời anh dặn: anh nhắn **"Báo cáo"** ở bất kỳ
 Phiên không có repo (vd chat claude.ai): gửi "Bản mới nhất" trong file này nếu đọc được, nói rõ đó là số của ngày nào.
 
 ## Cách tính %
-Tính theo khối lượng kế hoạch: mỗi tuần kế hoạch là 1 phần; pha 1 thiết kế (13–25/10) 2 phần, pha 2 (26/10–28/12) 9 phần, tổng 11. Việc "code xong, chờ anh thử máy thật" vẫn tính xong, kèm ghi chú.
+Tính theo khối lượng kế hoạch: mỗi tuần kế hoạch là 1 phần; pha 1 thiết kế (13–25/10) 2 phần, pha 2 (26/10–28/12) 9 phần, tổng 11. **Từ 17/11 thêm 0,5 phần cho gói sửa Auth P0 (việc chen ngang 16–17/11), pha 2 thành 9,5, tổng 11,5**; vì vậy % từ 17/11 thấp hơn cách tính cũ khoảng 1 điểm. Việc "code xong, chờ anh thử máy thật" vẫn tính xong, kèm ghi chú.
 
-| Tuần | Gói việc | Trọng số | Xong 15/11 |
+| Tuần | Gói việc | Trọng số | Xong 17/11 |
 |---|---|---|---|
 | Pha 1 | Thiết kế: canvas, Design System, bàn giao | 2 | 2 |
 | 26/10–1/11 | Khung app, đăng nhập khách + Google, Giữ chỗ, thẻ mời + Zalo | 1 | 1 |
@@ -25,11 +25,12 @@ Tính theo khối lượng kế hoạch: mỗi tuần kế hoạch là 1 phần;
 | 9–15/11 | Tài khoản nhận tiền + VietQR | 0,4 | 0,4 (code xong 4/11; schema đã có trên Supabase 11/11; chờ quét thử app ngân hàng thật) |
 | 16–22/11 | Sổ nợ tổng, Ghi nhanh, Ghi trả, Sổ riêng, kiểu D, Cấn trừ | 1 | 0,85 (trên `so-no-moi`: Sổ riêng, Ghi nhanh + cài đặt máy chủ, chọn người, Theo người, chi tiết người, Các đợt trước, Ghi trả; 13–15/11 thêm Lịch sử giao dịch + hủy, hàng chờ bền khi mất mạng, khóa giữa tab; Cấn trừ và gộp nơi để sau chuyến; chưa gộp `main`, chưa thử Supabase thật) |
 | 23–29/11 | Báo nợ, trang xem sổ, Chia bill | 1 | 0,35 (Chia bill xong cả nút Ghi nợ vào Sổ riêng (S3b, 13–15/11); Báo nợ chưa làm; trang xem sổ để sau chuyến (Q6)) |
-| 30/11–6/12 | Thống kê, Tôi, Quyền riêng tư, CSV, mất mạng/gửi lỗi/sửa trùng, trang chủ + Chính sách quyền riêng tư (Google Publish) | 1 | 0 |
+| 30/11–6/12 | Thống kê, Tôi, Quyền riêng tư, CSV, mất mạng/gửi lỗi/sửa trùng, trang chủ + Chính sách quyền riêng tư (Google Publish) | 1 | 0,1 (S2 trang chủ + Chính sách xong giao diện 16/11 trên bản xem trước; nội dung chưa công bố: chờ email thật, kiểm Data Access) |
+| Chen ngang 16–17/11 | Sửa Auth P0 (A1–A3, Q12 khoản cần xử lý): rà soát, phương án, bản vẽ, lõi thuần | 0,5 | 0,15 (đặc tả + bản vẽ Q12 xong; `authGate.js` + `quarantine.js` thuần 29 bài kiểm, nhánh `auth-p0-logic` chưa push; nối vào app + thử thật sau 29/11) |
 | 7–13/12 | Thử kín cả nhóm, sửa lỗi | 1 | 0 |
 | 14–20/12 | Tổng kết chuyến, xóa chuyến dọn hình | 1 | 0 |
 | 21–28/12 | Sửa lỗi, hướng dẫn cài, tạo chuyến Đà Lạt thật | 1 | 0 |
-| **Tổng** | | **11** | **6,15 = 56%** |
+| **Tổng** | | **11,5** | **6,4 = 56%** |
 
 - Thiết kế % = phần pha 1 xong ÷ 2. Code % = phần pha 2 xong ÷ 9.
 - Thời gian đã qua = (hôm nay − 13/10) ÷ 76 ngày (13/10 → 28/12).
@@ -48,32 +49,50 @@ Tính theo khối lượng kế hoạch: mỗi tuần kế hoạch là 1 phần;
 4. Trễ (ai giữ, mấy ngày) và việc đang chờ anh.
 5. Rủi ro sắp tới (bảng: việc, cần trước, vì sao).
 
-## Bản mới nhất (15/11/2026)
-**56%** (thiết kế 100%, code 46%) · thời gian đã qua 43% · **sớm khoảng 9 ngày** (12/11 sớm ~11 ngày; 13–15/11 dồn vào làm hàng chờ Sổ riêng chắc chắn hơn kế hoạch, nên % tăng chậm hơn thời gian).
+## Bản mới nhất (17/11/2026)
+**56%** (thiết kế 100%, code 46%) · thời gian đã qua 46% · **sớm khoảng 7 ngày** (15/11 sớm ~9 ngày; 16–17/11 dồn vào việc chen ngang Auth P0, thêm 0,5 phần vào tổng).
 
-Đã xong (12/11 → 15/11):
-- Chia bill Theo món làm tròn kiểu Grab, khớp đơn Grab thật từng đồng; ô "Phí áp dụng" chia đều; hỏi "Tên bạn trên bill" khi trùng.
-- S3b: nút Ghi nợ của Chia bill ghi vào Sổ riêng (Chia đều qua Ghi nhanh có băng đếm người; Theo món ghi thẳng, khớp tên theo mã, hỏi tên gần giống).
-- Sổ nợ: mỗi lần một nhóm, khóa ghi khi chưa đọc được sổ, mất mạng hai cấp, Lịch sử giao dịch + hủy có Hoàn tác (luật C1–C2).
-- Hàng chờ bền một kho cho Ghi nhanh và Chia bill: tự gửi khi có mạng, lưu lý do bị từ chối (F2), bỏ khoản của người đã xóa (F3), khóa giữa các tab, báo tab bản cũ / "Đang xử lý ở tab khác", giữ cả hai bản khi lệch; chữ hàng chờ chuẩn hóa.
-- Commit + push 15/11: `done-nha` `06ff834` (nhánh `so-no-moi`), `so-no` `57fcbe9`; Cloudflare build bản xem trước thành công. Không đổi schema.
-- Kiểm: 176 bài JS, build qua; bấm thử giả lập v19, audit5–7, 9–11 đạt hết ở 360 và 412px. Script bấm thử đã chép về `08-tools/bam-thu-so-no`.
+Đã xong (15/11 → 17/11):
+- S2 trang Giới thiệu + Chính sách quyền riêng tư trên bản xem trước (`done-nha` 9764e0d); anh duyệt giao diện, nội dung chưa công bố.
+- Google OAuth: giữ Testing, chưa mua tên miền riêng cho Supabase; Redirect URL bản xem trước anh tự thêm.
+- Đặc tả Chia theo món trong nhóm (cột `detail` phương án A, luật đồng lẻ, bảng ca kiểm); chưa code.
+- Chen ngang: rà soát đăng nhập + giữ dữ liệu mức 1 (4 lỗi P0), phương án A1–A3 + phụ lục 1–2, câu chữ T1–T13 và H1–H16, bản vẽ Q12 "Khoản cần xử lý" 11 khung, 38 ca nghiệm thu; lõi thuần `authGate.js` + `quarantine.js` (29 bài kiểm, thử 11 đột biến đều bị bắt; nhánh `auth-p0-logic` chưa push, patch ở `07-handoff`).
+
+Đang làm:
+| Việc | Xong | Còn |
+|---|---|---|
+| Gói Auth P0 (A1–A3 + Q12) | ~30% | nối vào app, giao diện Q12, thử thật mức 2 + iPhone: sau 29/11 |
+| S2 Chính sách quyền riêng tư | ~70% | email liên hệ thật, đối chiếu Data Access, công bố |
+| Chia theo món trong nhóm | ~20% | code từ 30/11 |
+| S4 Báo nợ → S5 Thống kê → S6 Tôi | 0% | bị lùi vì việc chen ngang |
+| UX Research A–E (anh) | anh giữ | đợt thử 16–28/11, chốt 29/11 |
+
+Đã quyết dời gần đây:
+| Việc | Dời tới | Quyết |
+|---|---|---|
+| Nối Auth A1–A3 + giao diện Q12 + thử thật | 30/11–6/12 | 16–17/11 |
+| Lỗi A–E (e) trả dư, (f) hai máy ghi trùng | sau 29/11 (trong đợt thử dặn người thử tránh) | 16/11 |
+| Chia theo món trong nhóm (code) | từ 30/11 | 16/11 |
+| Thanh nhắc cài app | sau 29/11, chờ Auth an toàn | 16/11 |
+| Xóa/Hủy rà A–E (h), (i) | sau 29/11 | 16/11 |
+| Mức 2 OAuth (Gmail thử) | chưa duyệt; cần trước thử kín | 16/11 |
+| Tên miền riêng cho Supabase Auth | khi mở dùng rộng | 16/11 |
+| Quét bill tự điền | chờ anh nói | 13/11 |
+| PA-2 làm tròn góp quỹ, Cấn trừ, gộp nơi, link xem sổ | sau chuyến | 9–10/11 |
 
 Tiếp theo:
-- Claude: S2 Chính sách quyền riêng tư + trang chủ (hạn 7/12) → S4 Báo nợ → S5 Thống kê → S6 Tôi (Sonnet, mỗi phiên một việc). Opus: review chỗ chạm A–E trước khi gộp `main` 30/11.
-- Anh: đợt thử 5 người trên `main` từ 16/11; thử `so-no-moi.done-nha.pages.dev` với Supabase thật (Ghi nợ từ Chia bill, mất mạng rồi có mạng, hai tab) khi rảnh (không bắt buộc trước 29/11); quét VietQR app ngân hàng thật.
+- Claude: S4 Báo nợ → S5 Thống kê → S6 Tôi trên `so-no-moi` tới 29/11; từ 30/11: gộp `so-no-moi` (Opus review A–E), nối Auth, Chia theo món nhóm, lỗi (e)(f).
+- Anh: đợt thử 16–28/11; duyệt 3 câu Q12 (H7c, H16, "Thôi"); email liên hệ cho Chính sách; quyết mức 2 (Gmail thử).
 
-Trễ: Claude không có việc trễ. Anh trễ so với hạn pha 1 (25/10): duyệt bàn giao Lịch và Vào nhóm (21 ngày; hai màn đã code và thử đạt, đề xuất đóng). Đang chờ anh: quét VietQR app ngân hàng thật (từ 4/11), thử Góp quỹ/Cân đối máy thật (từ 29/10), ô ngày iPhone (từ 29/10), bạn iPhone thử (từ 28/10), thử Sổ riêng + S3b với Supabase thật (từ 12/11).
+Trễ: Claude không có việc trễ theo hạn; S4–S6 lùi ~2 ngày so với thứ tự dự kiến vì Auth chen ngang (hạn tuần vẫn 29/11). Anh: duyệt bàn giao Lịch và Vào nhóm (trễ 23 ngày so với pha 1, đề xuất đóng). Đang chờ anh: quét VietQR app ngân hàng thật (từ 4/11), thử Góp quỹ/Cân đối máy thật (từ 29/10), ô ngày iPhone (từ 29/10), thử Sổ riêng + S3b với Supabase thật (từ 12/11).
 
 Rủi ro:
 | Việc | Cần trước | Vì sao |
 |---|---|---|
-| Lỗi A–E (e) trả dư mất, (f) hai máy ghi trùng | 16/11 (mai) | Đợt thử người dùng thật chạy trên `main`; chưa thấy anh quyết sửa hay không |
-| Gộp `so-no-moi` vào `main` | 30/11 | Anh kiểm bản xem trước + Opus review A–E; có đổi schema (Sổ riêng, cài đặt, xóa người) nên phải dán lại |
-| Hàng chờ Sổ riêng chưa thử thật | 30/11 | Mới thử giả lập; chưa thử Supabase thật, iPhone (app ở màn hình chính), trình duyệt không có `navigator.locks` |
-| Camera + gửi hình trên iPhone thật | 7/12 | Chưa thử |
-| Trang chủ + Chính sách quyền riêng tư (S2) | 7/12 | Google Publish |
-| Màu chủ đạo | ~30/11 | Biểu tượng đã chốt 3/11; màu còn mở |
+| Tuần 30/11–6/12 quá tải | 6/12 | Dồn: gộp `so-no-moi`, thay đổi A–E sau nghiên cứu, nối Auth + thử thật, Chia theo món nhóm, lỗi (e)(f), còn S5–S6 nếu chưa xong |
+| Auth P0 thử thật (mức 2, iPhone N13) | 7/12 | Chưa duyệt Gmail thử; iPhone chưa thử thì không phát hành |
+| Trang chủ + Chính sách công bố | 7/12 | Google Publish |
+| Gộp `so-no-moi` vào `main` | 30/11 | Đổi schema, phải dán lại |
 | Supabase Free tự ngủ | 28/12 | Giữ hoạt động hoặc lên Pro |
 | Pháp lý (chưa hỏi luật sư) | trước mở cho người ngoài nhóm bạn | Luật BVDLCN, STK |
 
@@ -86,3 +105,4 @@ Rủi ro:
 | 11/11 | 46% | 100% | 34% | 38% | sớm ~6 ngày |
 | 12/11 | 54% | 100% | 43% | 39% | sớm ~11 ngày |
 | 15/11 | 56% | 100% | 46% | 43% | sớm ~9 ngày |
+| 17/11 | 56% | 100% | 46% | 46% | sớm ~7 ngày (tổng 11,5) |
