@@ -14,7 +14,7 @@ Phiên không có repo (vd chat claude.ai): gửi "Bản mới nhất" trong fil
 ## Cách tính %
 Tính theo khối lượng kế hoạch: mỗi tuần kế hoạch là 1 phần; pha 1 thiết kế (13–25/10) 2 phần, pha 2 (26/10–28/12) 9 phần, tổng 11. **Từ 17/11 thêm 0,5 phần cho gói sửa Auth P0 (việc chen ngang 16–17/11), pha 2 thành 9,5, tổng 11,5**; vì vậy % từ 17/11 thấp hơn cách tính cũ khoảng 1 điểm. Việc "code xong, chờ anh thử máy thật" vẫn tính xong, kèm ghi chú.
 
-| Tuần | Gói việc | Trọng số | Xong 19/11 |
+| Tuần | Gói việc | Trọng số | Xong 20/11 |
 |---|---|---|---|
 | Pha 1 | Thiết kế: canvas, Design System, bàn giao | 2 | 2 |
 | 26/10–1/11 | Khung app, đăng nhập khách + Google, Giữ chỗ, thẻ mời + Zalo | 1 | 1 |
@@ -49,39 +49,41 @@ Tính theo khối lượng kế hoạch: mỗi tuần kế hoạch là 1 phần;
 4. Trễ (ai giữ, mấy ngày) và việc đang chờ anh.
 5. Rủi ro sắp tới (bảng: việc, cần trước, vì sao).
 
-## Bản mới nhất (19/11/2026)
-**59%** (thiết kế 100%, code 50%) · thời gian đã qua 49% · **sớm khoảng 8 ngày**.
+## Bản mới nhất (20/11/2026)
+**59%** (thiết kế 100%, code 50%) · thời gian đã qua 50% · **sớm khoảng 7 ngày** (giảm 1 ngày vì hôm nay chưa xong thêm gói code nào).
 
-Đã xong (18/11 → 19/11):
-- S4 Báo nợ lên `so-no-moi` (3c27d1a, chỉ code sản phẩm; nhánh thử `thu-s4-bao-no` giữ nguyên). Anh chốt mã QR (giữ `01 = 12`, trả đủ, ghi chú ngoài QR); test chốt nguyên chuỗi payload.
-- **Supabase Staging** (`…uwvo`, việc nền ngoài bảng trọng số): 3 migration (preflight, baseline 173f268, rls_auto_enable) anh `db push` bằng CLI; cấu trúc trùng Prod 100%, kiểm quyền 0 vi phạm; bộ test Postgres 17.11 pin (5e547d0).
-- Bản xem trước chọn Supabase lúc build (71f4ee6): `main` → Prod, nhánh khác → Staging, thiếu biến thì build hỏng, có nhãn STAGING. Đã kiểm trên máy thật: tạo nhóm + khoản chi + Lưu bằng Google vào Staging, chỉ 1 tài khoản; Prod không có gì mới. Đã bỏ redirect `so-no-moi` khỏi Prod.
-- Staging đã có đủ hàm Sổ riêng, cài đặt, tài khoản nhận tiền: thử S3, S3b, Báo nợ với máy chủ thật làm được ngay, không cần migration mới.
+Đã xong (19/11 10:20 → 20/11):
+- Push tài liệu Staging lên `so-no-moi` (`07421c1`).
+- Audit S3, S3b với Staging (chỉ SELECT): đủ 9 hàm, 6 bảng, cột, RLS, quyền; schema không đổi sau `173f268`; **không cần migration**.
+- Kế hoạch kiểm thử 23 ca (S3, S3b, đồng bộ 2 máy; D-5 hoãn tới sau Auth P0), lưu ở `done-nha-workspace/02-research/2026-11-19-kiem-thu-staging.md`. Danh sách việc của anh: `done-nha-workspace/2026-11-19-viec-cua-anh.md`.
+- Anh duyệt câu chữ cuối H7(c), H15, H16 (Auth P0) sau rà soát UX writing; Phụ lục 2 Auth P0 có mục 9.3b (luật hiển thị, bối cảnh, nguyên tắc, việc đo 360/412px sau 29/11). Câu chữ Auth P0 không còn câu nào chờ duyệt.
 
 Đang làm:
 | Việc | Xong | Còn |
 |---|---|---|
-| Thử S3 + S3b + Báo nợ trên Staging | 0% | anh thử trên bản xem trước (máy thật, nhiều máy) |
+| Kiểm thử S3 + S3b + đồng bộ trên Staging | 0/23 ca | anh bắt đầu S3-1 rồi D-2; em kiểm máy chủ sau mỗi bước |
 | S5 Thống kê → S6 Tôi | 0% | tới 29/11 |
-| Gói Auth P0 (A1–A3 + Q12) | ~30% | nối vào app, giao diện Q12, thử thật: sau 29/11 (giờ thử được trên Staging) |
+| Gói Auth P0 (A1–A3 + Q12) | ~30% | câu chữ đã đủ; nối vào app, thử thật: sau 29/11 |
 | S2 Chính sách quyền riêng tư | ~70% | email liên hệ thật, đối chiếu Data Access, công bố |
 | Chia theo món trong nhóm | ~20% | code từ 30/11 |
 | UX Research A–E (anh) | anh giữ | đợt thử tới 28/11, chốt 29/11 |
 
 Tiếp theo:
-- Claude (Opus cho đối chiếu Staging + gộp; Sonnet cho S5/S6): theo dõi lần thử S3/S3b/Báo nợ trên Staging (SELECT kiểm), rồi S5 Thống kê → S6 Tôi tới 29/11; từ 30/11: gộp `so-no-moi` (Opus review A–E), nối Auth, Chia theo món nhóm, lỗi (e)(f), hardening `search_path` (Staging trước).
-- Anh: thử Sổ nợ, Chia bill → Ghi nợ, Báo nợ trên bản xem trước (2 máy); quét VietQR Góp quỹ/Cân đối bằng app ngân hàng; đợt thử A–E; duyệt 3 câu Q12; email cho Chính sách; quyết mức 2.
+- Claude: theo kiểm thử Staging khi anh chạy (Opus); trong lúc chờ, bắt đầu S5 Thống kê nếu anh cho (Sonnet), rồi S6 Tôi, hạn 29/11. Từ 30/11: gộp `so-no-moi` (Opus review A–E, migration Prod riêng), nối Auth, Chia theo món nhóm, lỗi (e)(f), hardening.
+- Anh: chạy kiểm thử S3-1 → D-4; quét VietQR Góp quỹ/Cân đối; đợt thử A–E; email cho Chính sách; quyết mức 2; duyệt push 3 commit tài liệu `so-no`.
 
-Trễ: Claude không có việc trễ theo hạn; S5–S6 còn 10 ngày tới 29/11. Anh: duyệt bàn giao Lịch và Vào nhóm (trễ 25 ngày so với pha 1, đề xuất đóng). Đang chờ anh: quét VietQR Góp quỹ/Cân đối bằng app ngân hàng thật (từ 4/11), thử Góp quỹ/Cân đối máy thật (từ 29/10), ô ngày iPhone (từ 29/10), thử Sổ riêng + S3b + Báo nợ với máy chủ thật (từ 12/11; nay làm được trên Staging).
+Trễ: Claude không có việc trễ theo hạn, nhưng **S5–S6 chưa bắt đầu, còn 9 ngày** tới 29/11. Anh: duyệt bàn giao Lịch và Vào nhóm (trễ 26 ngày, đề xuất đóng). Đang chờ anh: kiểm thử Staging (từ 19/11), quét VietQR Góp quỹ/Cân đối (từ 4/11), thử Góp quỹ/Cân đối máy thật (từ 29/10), ô ngày iPhone (từ 29/10).
 
 Rủi ro:
 | Việc | Cần trước | Vì sao |
 |---|---|---|
-| Tuần 30/11–6/12 quá tải | 6/12 | Dồn: gộp `so-no-moi`, thay đổi A–E sau nghiên cứu, nối Auth + thử thật, Chia theo món nhóm, lỗi (e)(f), hardening, còn S5–S6 nếu chưa xong |
-| Gộp `so-no-moi` vào `main` | 30/11 | Prod cần migration riêng: sao lưu, `migration repair` ghi lịch sử, đối chiếu, duyệt riêng (không dán schema nữa) |
-| Auth P0 thử thật (mức 2, iPhone) | 7/12 | Chưa duyệt Gmail thử; iPhone chưa thử thì không phát hành |
+| S5 Thống kê, S6 Tôi | 29/11 | Chưa bắt đầu; nếu trôi sang 30/11 thì chồng lên tuần đã quá tải |
+| Tuần 30/11–6/12 quá tải | 6/12 | Gộp `so-no-moi`, sửa A–E sau nghiên cứu, Auth, Chia theo món, lỗi (e)(f), hardening |
+| Kiểm thử Staging chưa chạy | trước gộp 30/11 | Màn mới chưa thử với máy chủ thật; lỗi phát hiện muộn thì dồn vào tuần gộp |
+| Gộp `so-no-moi` vào `main` | 30/11 | Prod cần migration riêng: sao lưu, ghi lịch sử, đối chiếu, duyệt riêng |
+| Auth thật (mức 2, iPhone) | 7/12 | Chưa thử iPhone thì không phát hành |
 | Trang chủ + Chính sách công bố | 7/12 | Google Publish |
-| Supabase Free: 2 dự án đều tự ngủ | 28/12 | Giữ hoạt động hoặc lên Pro; Free tối đa 2 dự án nên đã dùng hết |
+| Supabase Free (2 dự án tự ngủ) | 28/12 | Giữ hoạt động hoặc lên Pro |
 | Pháp lý (chưa hỏi luật sư) | trước mở cho người ngoài nhóm bạn | Luật BVDLCN, STK |
 
 ## Lịch sử %
@@ -96,3 +98,4 @@ Rủi ro:
 | 17/11 | 56% | 100% | 46% | 46% | sớm ~7 ngày (tổng 11,5) |
 | 18/11 | 58% | 100% | 49% | 47% | sớm ~8 ngày |
 | 19/11 | 59% | 100% | 50% | 49% | sớm ~8 ngày |
+| 20/11 | 59% | 100% | 50% | 50% | sớm ~7 ngày |
