@@ -550,6 +550,7 @@ Giao diện:
   - E: nhóm không quỹ bỏ hai chỉ số ứng giùm và danh sách Các khoản; dùng số Số dư + link "Xem các khoản ở Lịch".
   - F: "Tiền chi từ đâu" dùng màu trung tính, không dùng màu chiều nợ.
   - Nguyên tắc: Phần của bạn ≠ số phải trả (nhãn riêng); không tự tính lại số dư; không bù trừ giữa các nơi. Không thêm tính năng ngoài A–F. Commit local, chưa push.
+  - **Sửa tiếp (anh duyệt 23/11 11:13, thay một phần A và D):** tab Nợ: số to là tổng cùng chiều (vd 826.000đ), dòng nhỏ "gồm 76k tạm tính" (không dùng chữ "đã chốt" vì Sổ riêng không có bước chốt); cộng cùng chiều không phải bù trừ. Chi tiết nhóm: số trọng tâm là Bạn sẽ nhận / Bạn cần trả (lấy nguyên Số dư, bấm mở Số dư); "Phần chi của bạn" và "Tổng chi cả nhóm", bình quân là dòng phụ bên dưới. Đổi nhãn "Phần của bạn" thành **"Phần chi của bạn"** mọi chỗ trong Thống kê; thẻ nhóm vẫn hiện phần chi. Không thêm số "đã ứng" (xem ở Số dư).
 
 ## Lỗi đã gặp, đừng lặp lại
 - Biểu tượng Android (maskable): đừng đoán phần máy hiện ra. 2/11 em ghi "Samsung hiện 66%" mà chưa đo; ảnh chụp S24 3/11 cho thấy 87%, mặt khỉ ra nhỏ. Đo bằng cách khớp ảnh chụp màn hình chính với bản maskable ở nhiều mức cắt, rồi mới chỉnh.
