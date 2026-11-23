@@ -542,6 +542,14 @@ Giao diện:
   6. Nhóm dài hạn có quỹ xếp theo có quỹ (như chuyến), không theo loại nhóm.
   7. Bản đầu mất mạng chỉ báo cần mạng, kèm Thử lại (không dùng bản lưu, khỏi đụng `snapshot.js`).
   - Thêm: số Thống kê phải đối chiếu khớp Sổ nợ và Số dư nhóm; nguồn hiện có không đủ thì báo anh, không tự đặt quy tắc. Thứ tự: `lib/thongke.js` + test trước, rồi `ThongKeScreen.jsx`, kiểm tải/trống/lỗi/mất mạng, 360/412px, `npm test`, build. Không sửa schema, migration, `api.js`, `snapshot.js`, file dùng chung A–E. Commit local, chưa push. S6 chỉ bắt đầu khi S5 ổn.
+- **S5 Thống kê, sửa theo đánh giá UX (anh duyệt A–F, 23/11 10:48)**; giữ nguyên luật màu tiền cả app (không mở lại):
+  - A: tab Nợ có hai tổng ở đầu (Người khác nợ bạn / Bạn đang nợ), mỗi tổng tách đã khóa và tạm tính; bỏ dòng Cộng cuối bảng; KHÔNG số ròng gộp giữa các nơi.
+  - B: Theo nơi giữ hai cột; nơi không còn nghĩa vụ hai chiều ghi "Sạch nợ" xám chiếm cả hai cột; tên tối đa 2 dòng.
+  - C: thẻ nhóm luôn hiện "Phần của bạn".
+  - D: chi tiết nhóm: số lớn Phần của bạn; dưới là Bạn sẽ nhận / Bạn cần trả lấy nguyên số Số dư nhóm (nhãn Tạm tính nếu chưa khóa, bấm mở Số dư); tổng chi cả nhóm và bình quân xuống phần phụ.
+  - E: nhóm không quỹ bỏ hai chỉ số ứng giùm và danh sách Các khoản; dùng số Số dư + link "Xem các khoản ở Lịch".
+  - F: "Tiền chi từ đâu" dùng màu trung tính, không dùng màu chiều nợ.
+  - Nguyên tắc: Phần của bạn ≠ số phải trả (nhãn riêng); không tự tính lại số dư; không bù trừ giữa các nơi. Không thêm tính năng ngoài A–F. Commit local, chưa push.
 
 ## Lỗi đã gặp, đừng lặp lại
 - Biểu tượng Android (maskable): đừng đoán phần máy hiện ra. 2/11 em ghi "Samsung hiện 66%" mà chưa đo; ảnh chụp S24 3/11 cho thấy 87%, mặt khỉ ra nhỏ. Đo bằng cách khớp ảnh chụp màn hình chính với bản maskable ở nhiều mức cắt, rồi mới chỉnh.
