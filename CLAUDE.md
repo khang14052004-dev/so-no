@@ -531,6 +531,18 @@ Giao diện:
   - Chưa có đối soát tự động: người nhận tự Ghi trả. Người chuyển tự sửa nội dung trong app ngân hàng thì số dư Sổ nợ không đổi, chỉ khó nhận ra giao dịch bằng mắt hơn.
   - Test chốt nguyên chuỗi payload (Lan 450.000, Minh 300.000, ví VietQR) ở cuối `remind.test.js` của `done-nha`; không sửa bộ tạo VietQR dùng chung nếu không có lỗi thật.
 
+## Chốt 23/11/2026
+- Sửa lỗi sau thử Staging (lỗi 7, 3, 4, 1) đã push lên `so-no-moi` (`4b7650c`), bản xem trước nối Staging …uwvo, có nhãn STAGING. Lỗi 3 chỉnh theo góp ý 21/11: hai dòng nợ hai chiều chỉ hiện khi xổ xuống ở Theo người; chi tiết người không lặp khối từng phần. Lỗi 5 (màu avatar) chờ anh duyệt hướng sửa. Kết quả thử thật chờ anh báo.
+- **S5 Thống kê, anh duyệt 7 điểm (9:52):**
+  1. Bỏ 3 ô Cho nợ thêm / Đã thu về / Tỷ lệ thu (bảng vẽ chỉ là số mẫu, chưa có định nghĩa).
+  2. "Theo nơi" của nhóm dùng lại ĐÚNG nguồn và công thức của màn Số dư nhóm (đã khóa còn lại + tạm tính đợt chưa khóa); phần chưa khóa luôn có nhãn "Tạm tính" cạnh số tiền. Không viết công thức tính nợ riêng.
+  3. Không chọn tháng: nợ tính tới hôm nay, chi tính cả đời nhóm.
+  4. Bỏ "Ai đang nợ bạn / Bạn đang nợ" tới khi có gộp người qua nhiều nơi.
+  5. Bình quân mỗi người = tổng chi ÷ số người DUY NHẤT có phần chia trong ít nhất một khoản chi hợp lệ, tính cả người đã rời; ghi rõ "n người"; không có ai thì không chia.
+  6. Nhóm dài hạn có quỹ xếp theo có quỹ (như chuyến), không theo loại nhóm.
+  7. Bản đầu mất mạng chỉ báo cần mạng, kèm Thử lại (không dùng bản lưu, khỏi đụng `snapshot.js`).
+  - Thêm: số Thống kê phải đối chiếu khớp Sổ nợ và Số dư nhóm; nguồn hiện có không đủ thì báo anh, không tự đặt quy tắc. Thứ tự: `lib/thongke.js` + test trước, rồi `ThongKeScreen.jsx`, kiểm tải/trống/lỗi/mất mạng, 360/412px, `npm test`, build. Không sửa schema, migration, `api.js`, `snapshot.js`, file dùng chung A–E. Commit local, chưa push. S6 chỉ bắt đầu khi S5 ổn.
+
 ## Lỗi đã gặp, đừng lặp lại
 - Biểu tượng Android (maskable): đừng đoán phần máy hiện ra. 2/11 em ghi "Samsung hiện 66%" mà chưa đo; ảnh chụp S24 3/11 cho thấy 87%, mặt khỉ ra nhỏ. Đo bằng cách khớp ảnh chụp màn hình chính với bản maskable ở nhiều mức cắt, rồi mới chỉnh.
 - SQL: so sánh `=`/`<>` với cột có thể NULL (vd thủ quỹ của nhóm không quỹ) ra NULL, `if not (...)` thành không chặn: lọt quyền (bắt được 2/11). Dùng `is distinct from` / `is not distinct from` và viết kiểm tra cho nhóm không quỹ. Ngược lại cũng lọt: `my_member(...) is distinct from thủ quỹ` với cả hai NULL ra false, nên người NGOÀI nhóm gọi được `set_fund_delegate`, `request_handover` trên nhóm không quỹ (bắt được 3/11). Luôn chặn `v_me is null` trước.
