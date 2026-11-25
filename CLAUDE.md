@@ -556,6 +556,9 @@ Giao diện:
   - **Đã push S5 (anh duyệt 14:36):** `so-no-moi` `4b7650c..e990269`, Cloudflare build đạt, bản xem trước chạy `e990269`, chỉ nối Staging …uwvo (nhãn STAGING, tab "[Staging] Done Nha"); `main` và Production không đổi. S5 chỉ tính là xong khi anh thử số liệu Staging khớp; sau đó mới gửi phạm vi S6.
   - **Tab Nợ (anh dặn 16:11):** hai tổng "Người khác nợ bạn" / "Bạn đang nợ" nằm trong MỘT khối (cùng kiểu khối Số dư); bỏ câu "Cộng từng nơi, không trừ qua lại giữa các nơi." (chỉ còn câu "Chưa đủ: còn nơi chưa tải được." khi có nơi lỗi). Danh sách theo người (ai nợ mình bao nhiêu, mình nợ ai bao nhiêu, gộp mọi nơi) vẫn để sau, cùng việc gộp người qua nhiều nơi (M1, sau chuyến).
 
+## Chốt 25/11/2026
+- **S5 Thống kê: anh chốt tạm (25/11 9:03)** ở bản `72cb468` trên bản xem trước Staging, chưa đối chiếu hết 9 mục số liệu; thấy lệch thì sửa sau. Chuyển sang S6 Tôi: gửi phạm vi trước, chờ anh duyệt rồi mới code.
+
 ## Lỗi đã gặp, đừng lặp lại
 - Biểu tượng Android (maskable): đừng đoán phần máy hiện ra. 2/11 em ghi "Samsung hiện 66%" mà chưa đo; ảnh chụp S24 3/11 cho thấy 87%, mặt khỉ ra nhỏ. Đo bằng cách khớp ảnh chụp màn hình chính với bản maskable ở nhiều mức cắt, rồi mới chỉnh.
 - SQL: so sánh `=`/`<>` với cột có thể NULL (vd thủ quỹ của nhóm không quỹ) ra NULL, `if not (...)` thành không chặn: lọt quyền (bắt được 2/11). Dùng `is distinct from` / `is not distinct from` và viết kiểm tra cho nhóm không quỹ. Ngược lại cũng lọt: `my_member(...) is distinct from thủ quỹ` với cả hai NULL ra false, nên người NGOÀI nhóm gọi được `set_fund_delegate`, `request_handover` trên nhóm không quỹ (bắt được 3/11). Luôn chặn `v_me is null` trước.
