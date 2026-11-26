@@ -575,6 +575,14 @@ Giao diện:
 - **VietQR quét bằng app ngân hàng thật: đạt** (anh báo 25/11 14:26): quét trực tiếp và quét từ hình Lưu hình đều được.
 - **Android không tự cài im lặng được:** nút gọi hộp cài của máy (`beforeinstallprompt`, 2 chạm) làm cùng thanh nhắc cài sau 29/11 (cần bắt sự kiện trong `main.jsx`); iPhone không có cách gọi.
 
+## Chốt 26/11/2026
+- **Nút Xóa tài khoản trong app (anh chốt 26/11 8:39, thay Q7 9/11 "chỉ ghi cách liên hệ"):** người dùng tự xóa, không nhờ anh (nhờ anh xóa dễ bị hiểu nhầm là anh giữ dữ liệu, anh cũng không rảnh xóa tay). Làm trên `so-no-moi` + Staging; Production theo đợt gộp sau 30/11.
+  - Nhóm/chuyến: phải **sạch nợ mọi nhóm** (số dư 0 kể cả tạm tính và lượt Cân đối đã khóa, không còn góp chờ xác nhận); còn vướng thì app chỉ ra nhóm nào, bao nhiêu. Tên giữ trong sổ nhóm dạng "(đã rời)" như xóa thành viên 3/11.
+  - Sổ riêng còn người nợ / đang nợ: **nhắc rồi vẫn cho xóa**: hiện danh sách + Xuất CSV để ghi lại, đánh dấu "Mình đã ghi lại" mới xóa được.
+  - Chủ nhóm / thủ quỹ của nhóm còn người khác: **làm chuyển quyền luôn** (chuyển quyền chủ nhóm + bàn giao thủ quỹ), dù đụng phần nhóm A–E (chỉ trên `so-no-moi`, `main` không đổi tới 30/11).
+  - **Xóa ngay**, gõ "XÓA" để xác nhận, không chờ 7 ngày (thay bảng vẽ "xóa sau 7 ngày").
+  - Mặc định em đặt (anh đổi được): chuyển quyền chủ nhóm có hiệu lực ngay sau khi hỏi lại, chỉ cho người đã vào nhóm; bàn giao thủ quỹ dùng luồng có sẵn (người mới xác nhận đã nhận quỹ mới đổi); nhóm không còn ai khác đã vào thì xóa luôn cùng tài khoản (nhắc như Sổ riêng); xóa hẳn Sổ riêng (kèm hình), tài khoản nhận tiền, cài đặt, tài khoản đăng nhập, dữ liệu trên máy; còn khoản chờ gửi thì chặn.
+
 ## Lỗi đã gặp, đừng lặp lại
 - Biểu tượng Android (maskable): đừng đoán phần máy hiện ra. 2/11 em ghi "Samsung hiện 66%" mà chưa đo; ảnh chụp S24 3/11 cho thấy 87%, mặt khỉ ra nhỏ. Đo bằng cách khớp ảnh chụp màn hình chính với bản maskable ở nhiều mức cắt, rồi mới chỉnh.
 - SQL: so sánh `=`/`<>` với cột có thể NULL (vd thủ quỹ của nhóm không quỹ) ra NULL, `if not (...)` thành không chặn: lọt quyền (bắt được 2/11). Dùng `is distinct from` / `is not distinct from` và viết kiểm tra cho nhóm không quỹ. Ngược lại cũng lọt: `my_member(...) is distinct from thủ quỹ` với cả hai NULL ra false, nên người NGOÀI nhóm gọi được `set_fund_delegate`, `request_handover` trên nhóm không quỹ (bắt được 3/11). Luôn chặn `v_me is null` trước.
