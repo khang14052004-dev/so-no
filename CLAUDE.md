@@ -582,6 +582,7 @@ Giao diện:
   - Chủ nhóm / thủ quỹ của nhóm còn người khác: **làm chuyển quyền luôn** (chuyển quyền chủ nhóm + bàn giao thủ quỹ), dù đụng phần nhóm A–E (chỉ trên `so-no-moi`, `main` không đổi tới 30/11).
   - **Xóa ngay**, gõ "XÓA" để xác nhận, không chờ 7 ngày (thay bảng vẽ "xóa sau 7 ngày").
   - Mặc định em đặt (anh đổi được): chuyển quyền chủ nhóm có hiệu lực ngay sau khi hỏi lại, chỉ cho người đã vào nhóm; bàn giao thủ quỹ dùng luồng có sẵn (người mới xác nhận đã nhận quỹ mới đổi); nhóm không còn ai khác đã vào thì xóa luôn cùng tài khoản (nhắc như Sổ riêng); xóa hẳn Sổ riêng (kèm hình), tài khoản nhận tiền, cài đặt, tài khoản đăng nhập, dữ liệu trên máy; còn khoản chờ gửi thì chặn.
+  - Đã code (`done-nha` `8b794cc` trên `so-no-moi`, đã đẩy 26/11 9:10). Anh áp migration `20261126000000_xoa_tai_khoan` lên Staging 26/11 9:20 (`db push --remote`); Production chưa có. Chờ thử trên máy thật.
 
 ## Lỗi đã gặp, đừng lặp lại
 - Biểu tượng Android (maskable): đừng đoán phần máy hiện ra. 2/11 em ghi "Samsung hiện 66%" mà chưa đo; ảnh chụp S24 3/11 cho thấy 87%, mặt khỉ ra nhỏ. Đo bằng cách khớp ảnh chụp màn hình chính với bản maskable ở nhiều mức cắt, rồi mới chỉnh.
