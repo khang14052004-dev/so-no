@@ -595,6 +595,9 @@ Giao diện:
   - **Nút quay lại ở màn nhóm/chuyến** (anh dặn 27/11 9:00): Nhóm, Cài đặt nhóm, Mời, Cân đối, Chuyển tiền, Góp quỹ, Thêm/Sửa khoản, chi tiết khoản, Tạo nhóm, thẻ mời về đúng màn trước; lưu/xóa/góp xong về màn trước, không chồng mục trùng; sửa khoản mở từ chi tiết thì lưu xong về Lịch; màn trước là bước của luồng (thẻ mời, Tạo nhóm, Giữ chỗ, bước hình) thì về màn cha. Kiểm bằng mũi tên trên giao diện (anh dặn: kiểm nút trên giao diện, không chỉ nút back điện thoại). Đã đẩy `554e028..088ba67` (anh duyệt 27/11 14:17).
   - **Anh thử trên Staging xong (27/11 14:21):** Xóa tài khoản qua 3 chặng, chuyển quyền chủ nhóm, bàn giao thủ quỹ, nút quay lại: đạt. S6 còn duy nhất tải CSV trên iPhone.
   - **Đóng S6 Tôi (anh chốt 27/11 14:23):** không cần thử tải CSV trên iPhone; có lỗi hay phát triển thêm anh sẽ nhắc lại.
+## Chốt 27/11/2026
+- **Làm ngay trên `so-no-moi`, trước 29/11 (anh duyệt 14:45 "gần 29 rồi nên làm luôn")**, đổi hẹn "sau 29/11": (1) kế hoạch gộp 30/11 + kiểm Production chỉ đọc; (2) menu 6 mục phương án C; (3) Auth P0 (A1–A3, T1–T12 đã duyệt 16/11); (4) thanh nhắc cài app + hướng dẫn iPhone có hình. Vẫn giữ: không đụng `main`, không ghi lên Production. Lỗi (e)(f), sửa A–E theo nghiên cứu, Chia theo món, gia cố bảo mật để tuần 30/11.
+- Hướng gộp (đề xuất 27/11 14:39, em góp 4 ý): migration Production là quy trình riêng (đối chiếu, sao lưu DB + tải kho hình, thử khôi phục, `migration repair` vì Production dựng bằng SQL Editor nên không có lịch sử migration, dry-run, anh duyệt); 2 cổng: cổng 1 áp migration rồi gộp code (chưa menu), cổng 2 menu 6 mục; migration Chia theo món tách đợt riêng.
   - **Luật "trang con phẳng" bổ sung (anh dặn 26/11 10:30):** phẳng hết thì phân cấp chữ kém, nên được dùng khung viền bo góc, nhãn khung, khoảng cách tiêu đề → nội dung và giữa các cụm, đường kẻ, nổi khối nhẹ, đổi màu khác nền để tách cụm. Chi tiết số đo ở `.claude/rules/ui.md` của `done-nha`.
 
 ## Lỗi đã gặp, đừng lặp lại
